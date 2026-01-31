@@ -1,0 +1,181 @@
+Scopus
+EXPORT DATE: 29 December 2025
+
+Caleiras, J., Carmo, R.M.
+AUTHOR FULL NAMES: Caleiras, Jorge (57453139300); Carmo, Renato Miguel (57201679614)
+57453139300; 57201679614
+The politics of social policies in Portugal: Different responses in times of crises
+(2024) Social Policy and Administration, 58 (7), pp. 1042 - 1058, Cited 8 times.
+DOI: 10.1111/spol.13008
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-85185494876&doi=10.1111%2Fspol.13008&partnerID=40&md5=8d7f9426f0417a46e9fb751fdd83569c
+
+ABSTRACT: Portugal has been confronted with a succession of crises in recent years. This article explores the differences in the way that, in Portugal, the welfare regime tackled the Great Recession context (financial, euro, sovereign debt, structural adjustment crises) and COVID-19 crisis through very different policy responses. The fact that the governments in office acted differently when faced with realities that were close in time but very distinct, generates a paired comparative scenario, without forgetting the interim period. Supported by a plural methodological approach that gathers information from various sources, the outcomes reveal important aspects about the policy direction of changes and in terms of socio-economic indicators. First, policy responses have followed three dynamics in tension: Retrenchment, Mitigation, and Expansion. Second, the policies make a difference, producing distinct outcomes in terms of socioeconomic indicators (unemployment, inequality, poverty). Third, the responses to crises induced more “radical” measures (towards Retrenchment or Expansion), which are not consistent with interim situations. Finally, while the austeritarian response was part of the government in office's program, this was not the case during the pandemic, when the response was involuntary and unprogrammed. This means that, in being a provisional and dated response, there is a high risk that in the near future there will be a resumption of Mitigation or even Retrenchment policies. © 2024 The Authors. Social Policy & Administration published by John Wiley & Sons Ltd.
+AUTHOR KEYWORDS: crises; employment measures; social policy; vulnerabilities; welfare regimes
+INDEX KEYWORDS: crisis management; employment; governance approach; mitigation; policy approach; political geography; poverty alleviation; social policy; state role; vulnerability; welfare provision; Portugal
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+OPEN ACCESS: ALL OPEN ACCESS; HYBRID GOLD OPEN ACCESS
+
+Branco, R., Miró, J., Natili, M.
+AUTHOR FULL NAMES: Branco, Rui (59048370900); Miró, Joan (57211352630); Natili, Marcello (56267541100)
+59048370900; 57211352630; 56267541100
+Back from the Cold? Progressive Politics and Social Policy Paradigms in Southern Europe after the Great Recession
+(2024) Politics and Society, 52 (4), pp. 630 - 661, Cited 8 times.
+DOI: 10.1177/00323292241226806
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-85185469015&doi=10.1177%2F00323292241226806&partnerID=40&md5=a72e464c9dd6e40f9b4f0524e42f003e
+
+ABSTRACT: This article examines the programmatic evolution of social democratic parties in Italy, Portugal, and Spain, three countries in which the center-left has governed in the last decade. To do so, the article develops an analytical framework for mapping social and labor market policy reforms and assessing their liberalizing, regularizing, or recalibrating character. In explanatory terms, the article studies the coalitional politics behind social democratic reforms as being conditional upon the relationships between organized interests, electoral social blocs, and party system dynamics. The comparative analysis shows both commonalities and differences: the cases range from postindustrial recalibration (Italy) to inclusive egalitarianism (Spain), with Portugal taking a middling path, closer to that of Spain. Overall, in these countries a move away from both traditional “social protectionism” and crisis-era internal devaluation has taken place, but it has taken different forms depending on country-specific coalitional dynamics within the left and trade union camps. © The Author(s) 2024.
+AUTHOR KEYWORDS: labor market reforms; post-austerity; social democracy; social policy; southern Europe
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+
+Vesan, P., Pansardi, P.
+AUTHOR FULL NAMES: Vesan, Patrik (53872077000); Pansardi, Pamela (55180672600)
+53872077000; 55180672600
+Speaking social Europe: A paradigmatic shift in the European Commission Presidents’ social policy discourse?
+(2021) Journal of European Social Policy, 31 (4), pp. 365 - 379, Cited 21 times.
+DOI: 10.1177/0958928721999596
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-85104559922&doi=10.1177%2F0958928721999596&partnerID=40&md5=1e25cde81a33ca3c0c7a320e58fab57b
+
+ABSTRACT: This article presents an original analysis of the social policy discourse at the European Union level by focusing on the language used by European Commission Presidents when addressing social issues. Through an empirical analysis based on a semi-supervised machine learning approach, we consider the entire corpus of speeches made by Barroso and Juncker from 2010 to 2018 and we classify all sentences according to three possible variants of social policy language: social-retrenchment, social-investment and rights-based language. We argue that the focus on these languages allows us to understand whether the ‘fiscal consolidation discipline’ narrative, which dominated in the aftermath of the Great Recession, has been challenged over the years by the recourse to alternative ‘social policy images’. The results confirm a significant shift in the overall configuration of social policy discourse between Barroso and Juncker. This shift has been mainly characterized by an increase in the use of rights-based language and a decrease in the use of social-retrenchment language, which however has not been completely abandoned. Therefore, the recalibration of EC’s speeches on social policy has not been abrupt but has instead been incremental. The article concludes by discussing preliminary interpretations of the observed trends and their potential implications in terms of ‘discursive legacy’ in the post-pandemic era. © The Author(s) 2021.
+AUTHOR KEYWORDS: Discourse; European Commission; European Social Policy; policy change; social policy image
+INDEX KEYWORDS: empirical analysis; European Commission; European Union; human rights; policy reform; political discourse; social policy; Europe
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+
+Moreira, A., Hick, R.
+AUTHOR FULL NAMES: Moreira, Amílcar (57162170500); Hick, Rod (25927109300)
+57162170500; 25927109300
+COVID-19, the Great Recession and social policy: Is this time different?
+(2021) Social Policy and Administration, 55 (2), pp. 261 - 279, Cited 83 times.
+DOI: 10.1111/spol.12679
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-85097558634&doi=10.1111%2Fspol.12679&partnerID=40&md5=b7e060d4245f26d2cbf179c5863742b9
+
+ABSTRACT: This paper provides an overview of the initial crisis responses to the coronavirus pandemic and asks whether and how both the nature of the COVID-19 crisis and the national responses to this differ from those witnessed during the Great Recession. We argue that the speed and scale of the crisis are indeed distinctive, but that claims of symmetry—a crisis affecting all equally—are misplaced. We suggest that stimulus packages have, in broad terms, reflected the scale of the threat and that the wage subsidies and employment supports that were introduced or adjusted are novel in scope and scale, with innovative developments. There has been a greater emphasis on housing than was apparent in responses to the Great Recession and, while a focus on taxation in response packages has been a focus in both crises, its form differs, with a greater reliance on deferrals rather than tax reductions in the stimulus plans announced to date. Our account stresses the agility of crisis responses and this agility must be regarded as welcome, mitigating a great deal of social harm during the initial phase of the pandemic. Whether these short-run responses create pressures for wider-ranging change is much debated, but highly uncertain. © 2020 John Wiley & Sons Ltd
+AUTHOR KEYWORDS: COVID-19; financial crisis; Great Recession; health; housing; labour market; social policy; taxation
+INDEX KEYWORDS: COVID-19; disease spread; economic impact; employment; epidemic; financial crisis; labor market; social policy; subsidy system; tax system; wage; Coronavirus
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+OPEN ACCESS: ALL OPEN ACCESS; BRONZE OPEN ACCESS
+
+Eichhorst, W., Marx, P., Rinne, U.
+AUTHOR FULL NAMES: Eichhorst, Werner (14068361800); Marx, Paul (55485034600); Rinne, Ulf (44861609900)
+14068361800; 55485034600; 44861609900
+Manoeuvring Through the Crisis: Labour Market and Social Policies During the COVID-19 Pandemic
+(2020) Intereconomics, 55 (6), pp. 375 - 380, Cited 40 times.
+DOI: 10.1007/s10272-020-0937-6
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-85096906394&doi=10.1007%2Fs10272-020-0937-6&partnerID=40&md5=eaf8aa6fe45450c4d6d052737753ed56
+
+ABSTRACT: The unprecedented COVID-19 pandemic has a severe impact on societies, economies and labour markets. However, not all countries, socio-economic groups and sectors are equally affected. Part of this disparity can be related to the different role and extent of short-time work, which is now being used more widely than during the Great Recession. Furthermore, unemployment benefits have been made more generous in many countries. While it is still too early to assess the relative success of national strategies to cope with the pandemic and to revitalise the labour market as well as to evaluate the medium-term fiscal viability of different support measures, a few policy directions become apparent. These include the use of digital tools to increase resilience against economic shocks, the longer-term perspective of short-time workers in the current crisis, social protection for self-employed workers that is robust to economic crises and resilient models for school-to-work transitions of younger workers. © 2020, The Author(s).
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+OPEN ACCESS: ALL OPEN ACCESS; GOLD OPEN ACCESS; GREEN ACCEPTED OPEN ACCESS; GREEN OPEN ACCESS
+
+O'Campo, P., Freiler, A., Muntañer, C., Gelormino, E., Huegaerts, K., Puig-Barrachina, V., Mitchell, C.
+AUTHOR FULL NAMES: O'Campo, Patricia J. (7006556010); Freiler, Alix (55844587900); Muntañer, Carles J.M. (7006819551); Gelormino, Elena (6503895495); Huegaerts, Kelly (57192382469); Puig-Barrachina, Vanessa (50262671200); Mitchell, Christiane (56374201400)
+7006556010; 55844587900; 7006819551; 6503895495; 57192382469; 50262671200; 56374201400
+Resisting austerity measures to social policies: Multiple explanatory case studies
+(2019) Health Promotion International, 34 (6), pp. 1130 - 1140, Cited 6 times.
+DOI: 10.1093/heapro/day073
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-85076526946&doi=10.1093%2Fheapro%2Fday073&partnerID=40&md5=0f2916d04f1f1dbfc43fc2f2532a2336
+
+ABSTRACT: Since Margaret Thatcher reached power in the United Kingdom, European governments have increasingly turned to neoliberal forms of policy-making, focusing, especially after the 2008 Great Recession on 'austerity policies' rather than investing in social protection policies. We applied a multiple explanatory case studies methodology to examine how and why challenges and resistance to these austerity measures are successful or not in four settings for three different social policy issues: using a gender lens in state budgeting in Andalusia (Spain), maintaining unemployment benefits in Italy and cuts to fuel poverty reduction programs in Northern Ireland and England. In particular, we intended to learn about whether resistance strategies are shared across disparate cases or whether there are unique activities that lead to successful resistance to austerity policies. As our approach drew from realist philosophy of science, we started with initial theories concerning collective action, political ideology and political power of affected populations. Our findings suggest that there are similarities between the cases we studied despite differences in political and policy contexts. We found that joint action between advocacy groups was effective in resisting cuts to social spending. Evidence also indicates that the social construction of target populations is important in resisting changes to social programmes. This was observed in both England and Northern Ireland where pensioners held significant political clout. © 2018 The Author(s) 2018. Published by Oxford University Press. All rights reserved. For permissions, please email: journals.permissions@oup.com.
+AUTHOR KEYWORDS: Austerity; Employment policies; Fuel poverty; Gender budgeting; Multiple case study
+INDEX KEYWORDS: advocacy group; article; budget; employment; England; gender; human; ideology; Northern Ireland; pensioner; philosophy; policy; poverty; consumer advocacy; cultural factor; economic recession; economics; Italy; organization and management; politics; public policy; social care; social work; Spain; unemployment; United Kingdom; Budgets; Consumer Advocacy; Cross-Cultural Comparison; Economic Recession; Humans; Politics; Public Assistance; Public Policy; Social Work; Unemployment
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+
+van der Wel, K.A., Saltkjel, T., Chen, W.-H., Dahl, E., Halvorsen, K.
+AUTHOR FULL NAMES: van der Wel, Kjetil A. (16507724000); Saltkjel, Therese (55864678900); Chen, Wenhao (55755301500); Dahl, Espen S. (35916376800); Halvorsen, Knut (7004691106)
+16507724000; 55864678900; 55755301500; 35916376800; 7004691106
+European health inequality through the ‘Great Recession’: social policy matters
+(2018) Sociology of Health and Illness, 40 (4), pp. 750 - 768, Cited 32 times.
+DOI: 10.1111/1467-9566.12723
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-85042680193&doi=10.1111%2F1467-9566.12723&partnerID=40&md5=0bd7cb2c97e2352a6d6f534a0e6ae1e6
+
+ABSTRACT: This paper investigates the association between the Great Recession and educational inequalities in self-rated general health in 25 European countries. We investigate four different indicators related to economic recession: GDP; unemployment; austerity and a ‘crisis’ indicator signifying severe simultaneous drops in GDP and welfare generosity. We also assess the extent to which health inequality changes can be attributed to changes in the economic conditions and social capital in the European populations. The paper uses data from the European Social Survey (2002–2014). The analyses include both cross-sectional and lagged associations using multilevel linear regression models with country fixed effects. This approach allows us to identify health inequality changes net of all time-invariant differences between countries. GDP drops and increasing unemployment were associated with decreasing health inequalities. Austerity, however, was related to increasing health inequalities, an association that grew stronger with time. The strongest increase in health inequality was found for the more robust ‘crisis’ indicator. Changes in trust, social relationships and in the experience of economic hardship of the populations accounted for much of the increase in health inequality. The paper concludes that social policy has an important role in the development of health inequalities, particularly during times of economic crisis. © 2018 The Authors. Sociology of Health & Illness published by John Wiley & Sons Ltd on behalf of Foundation for SHIL.
+AUTHOR KEYWORDS: inequalities/social inequalities in health status; social capital; social change; social determinants of health; welfare state
+INDEX KEYWORDS: adult; cross-sectional study; economic recession; Europe; female; health disparity; human; male; middle aged; public policy; questionnaire; self evaluation; social determinants of health; social welfare; statistics and numerical data; unemployment; Adult; Cross-Sectional Studies; Diagnostic Self Evaluation; Economic Recession; Female; Health Status Disparities; Humans; Male; Middle Aged; Public Policy; Social Determinants of Health; Social Welfare; Surveys and Questionnaires; Unemployment
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+OPEN ACCESS: ALL OPEN ACCESS; HYBRID GOLD OPEN ACCESS
+
+Angelaki, M.
+AUTHOR FULL NAMES: Angelaki, Marina (56668700100)
+56668700100
+Policy Continuity and Change in Greek Social Policy in the Aftermath of the Sovereign Debt Crisis
+(2016) Social Policy and Administration, 50 (2), pp. 262 - 277, Cited 7 times.
+DOI: 10.1111/spol.12214
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-84959064701&doi=10.1111%2Fspol.12214&partnerID=40&md5=226c098f6c1a4ef6f341428f06dc04af
+
+ABSTRACT: The extensive and radical reforms introduced in Greece's pension and health systems following the recent economic crisis provide a compelling case for the study of continuity and change in social policy. The article argues that a simple focus on retrenchment - as observed in pension and health in Greece in the aftermath of the crisis - provides only a partial understanding of the transformations taking place in the two sectors under study and their implications for the future structure of the two systems. While retrenchment has been the dominant feature associated with the fiscal consolidation effort undertaken in the context of the bailout agreements, other transformative processes have also taken place. In the case of pensions, a shift towards a more unified structure is observed, accompanied by a hesitant shift to a multi-pillar system characterized by a reduction in public provision which is nonetheless not compensated by a strengthening of the second pillar. In the case of health, recent reforms attest to the gradual withering away of the public system through its shift to residualism. These changes have been made possible through the changes observed in the policy-making process characterized by an unprecedented increase of the EU intrusiveness and the parallel decrease of the role and influence of social partners. © 2016 John Wiley & Sons, Ltd.
+AUTHOR KEYWORDS: Crisis; Greece; Health care; Pensions; Policy change; Policy continuity; Reform
+INDEX KEYWORDS: debt crisis; health care; pension system; policy making; policy reform; social policy; sovereignty; Europe
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+
+Gant, J.L.L.
+AUTHOR FULL NAMES: Gant, Jennifer L.L. (57031704300)
+57031704300
+Studies in Convergence? Post-Crisis Effects on Corporate Rescue and the Influence of Social Policy: The EU and the USA
+(2016) International Insolvency Review, 25 (1), pp. 72 - 96, Cited 6 times.
+DOI: 10.1002/iir.1246
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-84952673535&doi=10.1002%2Fiir.1246&partnerID=40&md5=36907c9f5835d429beed47a6094f86fc
+
+ABSTRACT: The financial crisis and the sovereign debt crisis that it precipitated in a number of peripheral EU Member States heralded massive changes in insolvency, corporate rescue and employment protection policies. The US and the EU both suffered greatly in the wake of the crisis, but their recoveries have occurred along very different tracks. The US has managed to regain much of its position in terms of relative growth and the UK has outpaced the recoveries of those European countries that are members of the European Monetary Union. The purpose of this treatise is to explore the context of the 2007-2008 financial crisis in the US and in the EU and its impact on legal reform in corporate rescue and restructuring as well as those aspects of social policy implicated within insolvency systems (notably collective redundancy and transfers of undertakings). It will also consider whether or not the corporate rescue and employee protection systems can be seen to be converging, and whether, in view of the different socio-economic, political and cultural aspects of the US and the EU, such convergence might be beneficial. © 2016 John Wiley & Sons, Ltd.
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+
+de la Porte, C., Heins, E.
+AUTHOR FULL NAMES: de la Porte, Caroline (6701793980); Heins, Elke (16303803600)
+6701793980; 16303803600
+A new era of European Integration Governance of labour market and social policy since the sovereign debt crisis
+(2015) Comparative European Politics, 13 (1), pp. 8 - 28, Cited 142 times.
+DOI: 10.1057/cep.2014.39
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-84961292030&doi=10.1057%2Fcep.2014.39&partnerID=40&md5=969850bfc54843c6bb06ed135a6ef49e
+
+ABSTRACT: In this article we develop a typology of European Union (EU) integration to capture how, to what extent and according to which policy aims EU involvement in Member States has altered with respect to labour market and social policy and what it signifies in terms of institutional change. On this basis, we show first that new instruments-the Six-Pack, Fiscal Compact and Two-Pack-have been layered onto the existing institutional framework governing the Economic and Monetary Union (EMU). Furthermore, we show that the instruments strengthening budgetary discipline to improve the functioning of European Monetary Union have become more explicit in terms of policy objectives, particularly specifying new benchmarks to obtain fiscal discipline. They are also stricter in terms of surveillance and enforcement. Second, we show that there are initiatives to address and improve the social dimension of the EU-Europe 2020, the Social Investment Package and the Youth Guarantee-and that these have also emerged through a process of institutional layering. However, the aims around Europe 2020 and Social Investment continue to be based on the voluntary Open Method of Coordination, with comparatively weak surveillance and enforcement. In the current context, and in order to attain economic growth together with social cohesion and welfare, it is of utmost importance that EMU criteria should be altered to take account of social investments. © 2015 Macmillan Publishers Limited.
+AUTHOR KEYWORDS: European Integration; European social policy; governance; institutional change; stability and growth pact
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+OPEN ACCESS: ALL OPEN ACCESS; BRONZE OPEN ACCESS; GREEN ACCEPTED OPEN ACCESS; GREEN OPEN ACCESS
+
+Papadopoulos, T., Roumpakis, A.
+AUTHOR FULL NAMES: Papadopoulos, Theodoros N. (55790031600); Roumpakis, Antonios (55790557500)
+55790031600; 55790557500
+Familistic welfare capitalism in crisis: Social reproduction and anti-social policy in Greece
+(2013) Journal of International and Comparative Social Policy, 29 (3), pp. 204 - 224, Cited 71 times.
+DOI: 10.1080/21699763.2013.863736
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-84890434049&doi=10.1080%2F21699763.2013.863736&partnerID=40&md5=6385c904fe525ac302dba1d7aba99b85
+
+ABSTRACT: Familistic welfare capitalism is a model of national political economy prevalent in many regions in the world (Southern Europe, Latin America, and Asia), where the family plays a double role as the key provider of welfare and a key agent in the model's socio-economic and political reproduction. The article offers a new approach to the study this model by adopting an expanded concept of social reproduction to capture its historical evolution, using Greece as a case study. Our empirical analysis of austerity measures on employment and pensions demonstrates, how, in the Greek case, a crisis of social reproduction of the traditional form of familistic welfare capitalism was already underway prior to the well-known sovereign-debt crisis. And further we show how the adoption of austerity measures and pro-market reforms is deepening this crisis by severely undermining the key pillars of familial welfare security while rapidly transforming the model into a political economy of generalised insecurity. © 2013 Taylor & Francis.
+AUTHOR KEYWORDS: anti-social policy; familistic welfare capitalism; Greece; recommodification; social reproduction; Southern Europe
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+
+Margalit, Y.
+AUTHOR FULL NAMES: Margalit, Yotam (36519360000)
+36519360000
+Explaining social policy preferences: Evidence from the great recession
+(2013) American Political Science Review, 107 (1), pp. 80 - 103, Cited 423 times.
+DOI: 10.1017/S0003055412000603
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-84874482092&doi=10.1017%2FS0003055412000603&partnerID=40&md5=d90f0af21df15ae2c7bd1b9fbd86a29d
+
+ABSTRACT: To what extent do personal circumstances, as compared to ideological dispositions, drive voters' preferences on welfare policy? Addressing this question is difficult because a person's ideological position can be an outcome of material interest rather than an independent source of preferences. The article deals with this empirical challenge using an original panel study carried out over four years, tracking the labor market experiences and the political attitudes of a national sample of Americans before and after the eruption of the financial crisis. The analysis shows that the personal experience of economic hardship, particularly the loss of a job, had a major effect on increasing support for welfare spending. This effect was appreciably larger among Republicans than among Democrats, a result that was not simply due to a ceiling effect. However the large attitudinal shift was short lived, dissipating as individuals' employment situations improved. The results indicate that the personal experience of an economic shock has a sizable, yet overall transient effect on voters' social policy preferences. © 2013 American Political Science Association.
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+
+Daguerre, A.
+AUTHOR FULL NAMES: Daguerre, Anne (6506234332)
+6506234332
+US Social Policy in the 21st Century: The Difficulties of Comprehensive Social Reform
+(2011) Social Policy and Administration, 45 (4), pp. 389 - 407, Cited 7 times.
+DOI: 10.1111/j.1467-9515.2011.00781.x
+https://www.scopus.com/inward/record.uri?eid=2-s2.0-79959264975&doi=10.1111%2Fj.1467-9515.2011.00781.x&partnerID=40&md5=b861fddf29a1372b1c4471e1ded69399
+
+ABSTRACT: In Western Europe, political commentators have been surprised by the apparent inability of President Barack Obama to implement comprehensive social policy reform, with the exception of health care legislation. Hopes that President Obama could become a new Roosevelt have been disappointed, precisely at a time when the 'Great Recession' (2007-09) has laid bare the challenge of economic insecurity and poverty in contemporary America. Paradoxically, it is the Presidency's incapacity to address this challenge that partially explains the Democrats' crushing electoral defeat in the mid-term congressional elections in November 2010. This article explains this apparent political paradox in four stages. First, it defines the American social contract - the dream of social mobility through hard work. Second, it shows how this dream has been severely tested by the rise of economic insecurity since the late 1970s and finally the Great Recession. Third, it analyses the social policy responses to the recession, namely the American Recovery Act. To conclude, the comparative timidity of the Obama administration's response is explained by a series of circumstantial and institutional constraints that limit the capacity of the Presidency to implement comprehensive social reform. © 2011 Blackwell Publishing Ltd.
+AUTHOR KEYWORDS: American social policy; Economic insecurity; Social contract; Welfare reform
+INDEX KEYWORDS: election; health care; legislation; policy reform; poverty alleviation; social policy; twenty first century; United States
+DOCUMENT TYPE: Article
+PUBLICATION STAGE: Final
+

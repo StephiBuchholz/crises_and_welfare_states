@@ -1,0 +1,11 @@
+# ignore all environment files in litrev
+*.env
+
+#ignore folders (not version controlled, not pushed!)
+phd_proposal/
+policy_tracker/
+litrev/04_output/
+
+#ignore claude code folders and files
+.claude
+CLAUDE.md
