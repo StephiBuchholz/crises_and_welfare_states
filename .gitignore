@@ -3,9 +3,10 @@
 
 #ignore folders (not version controlled, not pushed!)
 phd_proposal/
-policy_tracker/
 litrev/04_output/
 
-#ignore claude code folders and files
-.claude
+#ignore claude code folders and files (not including settings.json, because that must be shared across my machines)
+.claude/settings.local.json
 CLAUDE.md
+
+
