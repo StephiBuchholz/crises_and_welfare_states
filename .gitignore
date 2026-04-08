@@ -1,4 +1,4 @@
-# ignore all environment files in litrev
+# ignore all environment files
 *.env
 
 #ignore folders (not version controlled, not pushed!)
