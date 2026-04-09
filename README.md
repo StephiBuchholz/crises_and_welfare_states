@@ -1,55 +1,62 @@
-# PhD Research: Welfare States and Crises
+# phd research: automated policy-tracking, welfare states and crises
 
-A PhD research project at the University of Mannheim examining how welfare states respond to major economic crises, focusing on the COVID-19 pandemic and the 2008 Great Recession.
-
----
-
-## About This Project
-
-This research investigates social policy responses to economic shocks across different countries and regions. Key questions include:
-
-- How do welfare states adapt during crises? Are they resilient?
-- What policy instruments are deployed in response to crises?
-- What can we learn from comparing COVID-19 and Great Recession responses?
+A phd research project at the university of mannheim on the automated, llm-based compilation of policy-trackers holding complex policy classifications.
 
 ---
 
-## Repository Structure
+## about this project
+
+this research project has two aims: 
+
+1) it develops a pipeline for the llm-based compilation of policy-trackers including time-stamps, summaries and, most importantly, complex classification tasks based on raw social policy texts.
+
+3) it investigates social policy responses tocrises across different countries and regions. Key questions include:
+    - How do welfare states adapt during crises? Are they resilient?
+    - What policy instruments are deployed in response to crises?
+    - What can we learn from comparing COVID-19 and Great Recession responses?
+
+---
+
+## repository structure
 
 | Folder | Description |
 |--------|-------------|
 | `litrev/` | Systematic literature review — data processing pipeline and analysis |
+| `policy-tracker/` | pipeline fetching raw policy texts and processing into policy-tracker using llms |
 
 
 ---
 
-## Literature Review
+## literature review
 
-The `litrev/` folder contains a reproducible pipeline for systematic literature review:
+the `litrev/` folder contains a reproducible pipeline for systematic literature review:
 
-1. **data collection** from academic databases (Scopus, Web of Science)
-2. **keyword extraction** using NLP methods to identify relevant search terms
+1. **data collection** from academic databases (scopus, web of science)
+2. **keyword extraction** using nlp methods to identify relevant search terms
 3. **dataset assembly** combining automated and manual searches
 4. **analysis** structures the literature, deploys llms for abstract summaries
 
-### Quick Start
+### quick start
 
 ```bash
-# Install dependencies
+# install dependencies
 pip install pandas keybert yake openpyxl
 
-# Run the Jupyter notebooks in litrev/notebooks/ sequentially
+# run the jupyter notebooks in litrev/notebooks/ sequentially
 ```
+
+## policy-tracker
+
 
 ---
 
-## Contact
+## contact
 
 For questions about this research or collaboration opportunities, please open an issue.
 
 ---
 
-## Acknowledgments
+## acknowledgments
 
 - University of Mannheim
 - [KeyBERT](https://github.com/MaartenGr/KeyBERT) and [YAKE](https://github.com/LIAAD/yake) for keyword extraction
