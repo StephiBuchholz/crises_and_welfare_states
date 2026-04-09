@@ -7,6 +7,6 @@ litrev/04_output/
 
 #ignore claude code folders and files (not including settings.json, because that must be shared across my machines)
 .claude/settings.local.json
-CLAUDE.md
+#CLAUDE.md
 
 
