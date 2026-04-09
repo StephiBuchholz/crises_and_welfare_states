@@ -1,28 +1,31 @@
 """
-BGBl Teil I Fetcher (2019–2022)
-===============================
-Fetches all Gesetze and Verordnungen from Bundesgesetzblatt Teil I
-via the OffeneGesetze.de API for the years 2019–2022.
+BGBl Teil I fetcher
+===================
+fetches all Gesetze and Verordnungen from Bundesgesetzblatt Teil I
+via the OffeneGesetze.de api for specific years. the api is not available for 2023 onwards.
+instead use https://www.recht.bund.de/de/home/home_node.html .
 
-Two-pass approach:
-  1. List endpoint  → collects metadata + IDs (no full text available here)
-  2. Detail endpoint → fetches full text for each publication individually
+two-pass approach:
+  1. list endpoint  → collects metadata + IDs (no full text available here)
+  2. detail endpoint → fetches full text for each publication individually
 
-Output:  data/raw/germany/bgbl1_2019-2022_{date}.json
-  - One JSON array of objects, each with metadata + full_text
-  - No CSV delimiter problems, no broken rows
+output:  data/raw/germany/bgbl1_{start}-{end}_{date}.json
+  - One json array of objects, each with metadata + full_text
 
-Resume support:
-  - Progress is saved to bgbl_progress.json after every batch
-  - If interrupted (Ctrl+C), just run again — already-fetched texts are reused
-  - Progress file is cleaned up on successful completion
+resume support:
+  - Progress is saved to bgbl_progress_{start}-{end}.json after every batch
+  - if interrupted (Ctrl+C), just run again — already-fetched texts are reused
+  - progress file is cleaned up on successful completion
 
-Usage:
-    python fetch_bgbl_germany.py                  # fetch everything
-    python fetch_bgbl_germany.py --download-pdfs  # also download issue PDFs
+usage:
+run
+    python fetch_bgbl_germany.py                         # fetch 2019–2022 (default)
+    python fetch_bgbl_germany.py --years 2008 2015       # fetch 2008–2015
+    python fetch_bgbl_germany.py --years 2016 2021       # fetch 2016–2021
+    python fetch_bgbl_germany.py --download-pdfs         # optional, also download issue PDFs
 
-Requirements:
-    pip install requests
+requirements:
+    pip install requests; see libraries below
 """
 
 import argparse
@@ -32,9 +35,8 @@ import time
 import datetime
 import requests
 
-# ── Configuration ──────────────────────────────────────────────────
+# ── configuration ──────────────────────────────────────────────────
 API_BASE = "https://api.offenegesetze.de/v1/veroeffentlichung/"
-YEARS = range(2019, 2023)
 KIND = "bgbl1"
 PAGE_SIZE = 100
 REQUEST_DELAY = 0.3
@@ -42,12 +44,10 @@ DETAIL_DELAY = 0.3
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(_SCRIPT_DIR))
 _TODAY = datetime.date.today().strftime("%Y%m%d")
-OUTPUT_JSON = os.path.join(_PROJECT_ROOT, "data", "raw", "germany", f"bgbl1_2019-2022_{_TODAY}.json")
-PROGRESS_FILE = os.path.join(_SCRIPT_DIR, "bgbl_progress.json")
 PDF_DIR = "pdfs"
 
 
-# ── Helpers ────────────────────────────────────────────────────────
+# ── helpers ────────────────────────────────────────────────────────
 
 
 def classify_doc_type(title: str) -> str:
@@ -61,25 +61,25 @@ def classify_doc_type(title: str) -> str:
     return "Sonstiges"
 
 
-def load_progress() -> dict:
-    if os.path.exists(PROGRESS_FILE):
-        with open(PROGRESS_FILE, "r", encoding="utf-8") as f:
+def load_progress(progress_file: str) -> dict:
+    if os.path.exists(progress_file):
+        with open(progress_file, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
 
 
-def save_progress(data: dict):
-    with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
+def save_progress(data: dict, progress_file: str):
+    with open(progress_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False)
 
 
-# ── Pass 1: metadata ──────────────────────────────────────────────
+# ── pass 1: metadata ──────────────────────────────────────────────
 
 
-def fetch_metadata() -> list[dict]:
+def fetch_metadata(years: range) -> list[dict]:
     all_records = []
 
-    for year in YEARS:
+    for year in years:
         print(f"\n  Year {year}")
         url = f"{API_BASE}?year={year}&kind={KIND}&limit={PAGE_SIZE}"
         page = 0
@@ -104,9 +104,9 @@ def fetch_metadata() -> list[dict]:
                         "doc_type": classify_doc_type(item["title"]),
                         "date_published": item["date"],
                         "date_law": item.get("law_date"),
-                        "bgbl_page": item["page"],
-                        "pdf_page": item["pdf_page"],
-                        "num_pages": item["num_pages"],
+                        "bgbl_page": item.get("page"),
+                        "pdf_page": item.get("pdf_page"),
+                        "num_pages": item.get("num_pages"),
                         "url_web": item["url"],
                         "url_api": item["api_url"],
                         "url_pdf": item["document_url"],
@@ -121,11 +121,11 @@ def fetch_metadata() -> list[dict]:
     return all_records
 
 
-# ── Pass 2: full texts ───────────────────────────────────────────
+# ── pass 2: full texts ───────────────────────────────────────────
 
 
-def fetch_full_texts(records: list[dict]):
-    cache = load_progress()
+def fetch_full_texts(records: list[dict], progress_file: str):
+    cache = load_progress(progress_file)
     total = len(records)
     fetched = 0
     reused = 0
@@ -152,15 +152,15 @@ def fetch_full_texts(records: list[dict]):
         fetched += 1
 
         if fetched % 25 == 0:
-            save_progress(cache)
+            save_progress(cache, progress_file)
 
         time.sleep(DETAIL_DELAY)
 
-    save_progress(cache)
+    save_progress(cache, progress_file)
     print(f"    Fetched {fetched} new, reused {reused} from cache")
 
 
-# ── PDF download ─────────────────────────────────────────────────
+# ── pdf download ─────────────────────────────────────────────────
 
 
 def download_pdfs(records: list[dict]):
@@ -192,35 +192,51 @@ def download_pdfs(records: list[dict]):
         time.sleep(REQUEST_DELAY)
 
 
-# ── Main ─────────────────────────────────────────────────────────
+# ── main ─────────────────────────────────────────────────────────
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Fetch BGBl Teil I (2019–2022) → JSON")
+    parser = argparse.ArgumentParser(description="Fetch BGBl Teil I → JSON")
+    parser.add_argument(
+        "--years",
+        nargs=2,
+        type=int,
+        metavar=("START", "END"),
+        default=[2019, 2022],
+        help="year range to fetch, inclusive (default: 2019 2022)",
+    )
     parser.add_argument("--download-pdfs", action="store_true")
     args = parser.parse_args()
 
-    # Pass 1
+    start, end = args.years
+    years = range(start, end + 1)
+    year_slug = f"{start}-{end}"
+    output_json = os.path.join(
+        _PROJECT_ROOT, "data", "raw", "germany", f"bgbl1_{year_slug}_{_TODAY}.json"
+    )
+    progress_file = os.path.join(_SCRIPT_DIR, f"bgbl_progress_{year_slug}.json")
+
+    # pass 1
     print("═" * 50)
-    print("Pass 1: Collecting metadata")
+    print(f"Pass 1: Collecting metadata ({year_slug})")
     print("═" * 50)
-    records = fetch_metadata()
+    records = fetch_metadata(years)
     print(f"\n  Total: {len(records)} publications")
 
-    # Pass 2
+    # pass 2
     print("\n" + "═" * 50)
     print("Pass 2: Fetching full texts")
     print("  (Progress is saved — safe to interrupt with Ctrl+C)")
     print("═" * 50)
-    fetch_full_texts(records)
+    fetch_full_texts(records, progress_file)
 
-    # Write JSON
-    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+    # write json
+    with open(output_json, "w", encoding="utf-8") as f:
         json.dump(records, f, ensure_ascii=False, indent=2)
-    size_mb = os.path.getsize(OUTPUT_JSON) / (1024 * 1024)
-    print(f"\n✓ Saved {len(records)} records to '{OUTPUT_JSON}' ({size_mb:.1f} MB)")
+    size_mb = os.path.getsize(output_json) / (1024 * 1024)
+    print(f"\n✓ Saved {len(records)} records to '{output_json}' ({size_mb:.1f} MB)")
 
-    # Summary
+    # summary
     from collections import Counter
 
     by_year = Counter(r["year"] for r in records)
@@ -238,24 +254,24 @@ def main():
     for t in sorted(by_type):
         print(f"    {t}: {by_type[t]}")
 
-    # Optional PDFs
+    # optional pdfs
     if args.download_pdfs:
         download_pdfs(records)
 
-    # Clean up progress file
-    if os.path.exists(PROGRESS_FILE):
-        os.remove(PROGRESS_FILE)
+    # clean up progress file
+    if os.path.exists(progress_file):
+        os.remove(progress_file)
 
     print(
         f"""
 To load in Python:
   import json
-  with open("{OUTPUT_JSON}", "r", encoding="utf-8") as f:
+  with open("{output_json}", "r", encoding="utf-8") as f:
       data = json.load(f)
 
   # Or with pandas:
   import pandas as pd
-  df = pd.read_json("{OUTPUT_JSON}")
+  df = pd.read_json("{output_json}")
 """
     )
 
