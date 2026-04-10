@@ -9,7 +9,7 @@ litrev/04_output/
 .claude/settings.local.json
 #CLAUDE.md
 
-#ignore fetched raw data that is too large to push to GitHub (100mb max)
+#ignore fetched raw data that is too large to push to GitHub (100mb max) (compressed versions are pushed)
 policy-tracker/data/raw/germany/bgbl1_2008-2015_20260409.json
 
 
