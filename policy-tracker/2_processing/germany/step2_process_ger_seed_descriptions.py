@@ -3,7 +3,10 @@
 """
 seed descriptions for cosine-similarity filtering social-policy relevant texts among retrieved BGBl I texts.
 
-derived from: BMAS, "Soziale Sicherung im Überblick" (2023 edition), see data/external/bmas_soziale-sicherung-im-ueberblick.pdf
+derived from:
+    1) BMAS, "Soziale Sicherung im Überblick" (2023 edition), see data/external/bmas_soziale-sicherung-im-ueberblick.pdf
+    2) BMBFSJF website crawled and seed descriptions produced with claude opus 4.6, https://www.bmbfsfj.bund.de/bmbfsfj/themen, April 2026
+
 method: derived with claude opus 4.6 (web interface) + plausibilty check
 purpose: in process_germany.ipynb i embed these seed descriptions alongside the legislative corpus using a German-capable
          sentence transformer, then filter by cosine similarity to retain
@@ -13,7 +16,7 @@ design choices:
   - each seed is a short German phrase (5–25 words) that uses the actual
     vocabulary of German legislative texts, not plain-language paraphrases.
     This maximizes embedding overlap with the BGBl corpus.
-  - seeds cover all major policy domains from the BMAS document, including
+  - seeds cover all major policy domains from the BMAS document and BMBFSFSJ website, including
     sub-domains where distinct legislative vocabulary exists.
   - seeds are grouped by policy domain for documentation, but the grouping
     itself is not used in the filtering pipeline — all seeds are embedded
@@ -22,6 +25,8 @@ design choices:
     i created another seed from a list of covid-policies in 1_process_ger_seed_desc_covid.py
     to capture more specific covid-motivated policies.
   - for exclusions: manually "out-comment" lines if term is out of scope -> do not delete
+  - seeds 1-15: BMAS; seeds 16-26: BMBFSFJ, seed 27: manually added
+
 
 """
 
@@ -185,6 +190,97 @@ SEED_DESCRIPTIONS = {
         "Abweichungen vom Arbeitszeitgesetz infolge der COVID-19-Epidemie",  # manually from 1_process_ger_seed_desc_covid.py
         "Überbrückungshilfe Soforthilfe Selbstständige Kleinunternehmer Krise",  # manually from 1_process_ger_seed_desc_covid.py
         "Corona-Sonderzahlungsrichtlinie pandemiebedingten Mehrbedarfs Härterichtlinien Einmalleistungen",  # manually from 1_process_ger_seed_desc_covid.py
+    ],
+    # _______________________________________BMBFSJF derived seed descriptions__________________________________________________
+    # ── 15. ELTERNGELD UND ELTERNZEIT ──────────────────────────────
+    "elterngeld_elternzeit": [
+        "Elterngeld Basiselterngeld ElterngeldPlus Partnerschaftsbonus Einkommensersatz",
+        "Bundeselterngeld- und Elternzeitgesetz BEEG Anspruch Elterngeld Bezugszeitraum",
+        "Elternzeit Anspruch Arbeitsverhältnis Kündigungsschutz Teilzeitarbeit",
+        "Elterngeld Einkommensgrenze Bemessungszeitraum Partnerschaftsmonate",
+        "Änderung Bundeselterngeld- und Elternzeitgesetz Einkommensgrenzen Bezugsdauer",
+    ],
+    # ── 16. KINDERGELD UND KINDERFREIBETRÄGE ───────────────────────
+    "kindergeld_kinderfreibetrag": [
+        "Kindergeld Bundeskindergeldgesetz BKGG Anspruch Auszahlung Familienkasse",
+        "Kinderfreibetrag Einkommensteuergesetz EStG steuerliche Entlastung Familien",
+        "Kinderzuschlag Familien geringes Einkommen Leistungen Bildung Teilhabe",
+        "Kindergelderhöhung Anpassung Höhe Kindergeld Existenzminimum Kinder",
+    ],
+    # ── 17. UNTERHALTSRECHT UND UNTERHALTSVORSCHUSS ────────────────
+    "unterhalt": [
+        "Unterhaltsvorschussgesetz Alleinerziehende Unterhaltsvorschuss Anspruch Leistung",
+        "Unterhaltsrecht Reform Kindesunterhalt Betreuungsunterhalt Barunterhalt",
+    ],
+    # ── 18. MUTTERSCHUTZ ───────────────────────────────────────────
+    "mutterschutz": [
+        "Mutterschutzgesetz MuSchG Beschäftigungsverbot Schwangerschaft Entbindung",
+        "Mutterschaftsgeld Arbeitgeberzuschuss Mutterschutzfrist Kündigungsschutz Stillzeit",
+        "Reform Mutterschutzgesetz Ausweitung Schülerinnen Studentinnen Schutzfristen",
+        "Vertrauliche Geburt Schwangerschaftskonfliktgesetz Beratung Schwangere",
+    ],
+    # ── 19. KINDER- UND JUGENDHILFE (SGB VIII) ────────────────────
+    # "kinder_jugendhilfe": [
+    # "Achtes Buch Sozialgesetzbuch SGB VIII Kinder- und Jugendhilfe Hilfe zur Erziehung",
+    # "Kinder- und Jugendstärkungsgesetz KJSG Reform SGB VIII Kinderschutz Beteiligung",
+    # "Hilfen zur Erziehung Pflegefamilie Heimerziehung Erziehungsbeistand Sozialpädagogisch",
+    # "Inobhutnahme Kindeswohlgefährdung Jugendamt Schutzauftrag Gefährdungseinschätzung",
+    # "Eingliederungshilfe Kinder Jugendliche Behinderung inklusive Lösung SGB VIII",
+    # "Frühe Hilfen Bundesstiftung Netzwerke Familienhebammen Schwangere Eltern",
+    # "Bundesfreiwilligendienst Freiwilligendienste Jugendfreiwilligendienstegesetz JFDG",
+    # ],
+    # ── 20. JUGENDSCHUTZ ───────────────────────────────────────────
+    # "jugendschutz": [
+    # "Jugendschutzgesetz JuSchG Jugendgefährdung Indizierung Altersfreigabe Medien",
+    # "Änderung Jugendschutzgesetz Jugendmedienschutz Vorsorgemaßnahmen Plattformen",
+    # "Jugendarbeitsschutzgesetz Beschäftigung Kinder Jugendliche Arbeitszeit Schutz",
+    # "Bundeszentrale Kinder- und Jugendmedienschutz BzKJ Indizierung Prüfstelle",
+    # ],
+    # ── 21. KINDERBETREUUNG UND GANZTAG ────────────────────────────
+    "kinderbetreuung_ganztag": [
+        "Kinderförderungsgesetz KiföG Rechtsanspruch Betreuungsplatz Kindertagespflege",
+        "KiTa-Qualitätsgesetz Qualität Kindertagesbetreuung Fachkraft-Kind-Schlüssel",
+        "Ganztagsförderungsgesetz Rechtsanspruch Ganztagsbetreuung Grundschulkinder",
+        "Finanzhilfen Bund Ausbau Tagesbetreuung Kinder Investitionsprogramm Kinderbetreuung",
+        "Gute-KiTa-Gesetz Qualitätsentwicklung Kindertageseinrichtungen Beitragsentlastung",
+        "Kinderbetreuung Tageseinrichtung Tagespflege Förderung frühkindliche Bildung",
+    ],
+    # ── 22. GLEICHSTELLUNG ─────────────────────────────────────────
+    # "gleichstellung": [
+    # "Entgelttransparenzgesetz Lohngleichheit Entgeltgleichheit Auskunftsanspruch Prüfverfahren",
+    # "Führungspositionen-Gesetz FüPoG Geschlechterquote Aufsichtsrat Vorstand Zielgrößen",
+    # "Bundesgleichstellungsgesetz BGleiG Gleichstellung Frauen Männer Bundesverwaltung",
+    # "Bundesgremienbesetzungsgesetz Gleichberechtigte Teilhabe Gremien Bund Geschlecht",
+    # "Allgemeines Gleichbehandlungsgesetz AGG Diskriminierung Geschlecht Benachteiligung",
+    # ],
+    # ── 23. GEWALTSCHUTZ ───────────────────────────────────────────
+    # "gewaltschutz": [
+    # "Gewaltschutzgesetz GewSchG Schutzanordnung Kontaktverbot Näherungsverbot häusliche Gewalt",
+    # "Prostitutionsgesetz Prostituiertenschutzgesetz ProstSchG Anmeldepflicht Erlaubnispflicht",
+    # "Sexualstrafrecht Reform Vergewaltigung sexuelle Nötigung Strafgesetzbuch",
+    # ],
+    # ──24. PFLEGE UND VEREINBARKEIT PFLEGE-BERUF ─────────────────
+    #     (partially BMG responsibility, but BMBFSFJ responsible for 'Vereinbarkeit')
+    "pflege_vereinbarkeit": [
+        "Pflegezeitgesetz PflegeZG Pflegezeit Freistellung Angehörigenpflege Kündigungsschutz",
+        "Familienpflegezeitgesetz FPfZG Familienpflegezeit Teilzeit Pflege Angehörige Darlehen",
+        # "Pflegeberufegesetz Pflegeausbildung generalistische Ausbildung Pflegefachperson",
+        # "Pflegeberufereformgesetz Ausbildungs- und Prüfungsverordnung Pflegeberufe",
+    ],
+    # ── 25. ADOPTIONSRECHT ────────────────────────────────────────
+    # "adoption": [
+    # "Adoptionsvermittlungsgesetz Auslandsadoption Vermittlungsstelle Annahme Kind",
+    # "Adoptionshilfe-Gesetz Reform Adoptionsverfahren Beratungspflicht Herkunftssuche",
+    # ],
+    # ── 26. SENIORENPOLITIK ───────────────────────────────────────
+    # "senioren": [
+    # "Altenhilfe Seniorenpolitik Teilhabe ältere Menschen gesellschaftlich Engagement",
+    # "Wohn- und Betreuungsvertragsgesetz WBVG Heimvertrag Betreuungsleistung Kündigung",
+    # ],
+    # ── 27. MANUAL ADDITIONS ───────────────────────────────────────
+    "manual_cat": [
+        "Wohngeld WoGG Mietzuschuss Lastenzuschuss",
+        "Soziale Pflegeversicherung SGB XI Grad der Pflegebedürftigkeit häusliche Pflege",
     ],
 }
 
