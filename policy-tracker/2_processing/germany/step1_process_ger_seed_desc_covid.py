@@ -2,9 +2,9 @@
 """
 
 this file is a pre-step for the processing of the retrieved german legislative texts. it serves as a source for a completeness check
-for specific covid policies, because some of these policies may not have been captured due to their crisis-specific word embeddings in the
-processing/german/process_ger_seed_descriptions.py. alternatively, it can be used to create an embedding
-
+for specific covid policies, because some of these policies may not have been captured  in the
+processing/german/step2_process_ger_seed_descriptions.py due to their crisis-specific word embeddings.
+alternatively, it can also be used as a completeness check later on.
 
 this file contains a list of German covid regulations (Gesetze, Verordnungen, Bekanntmachungen) retrieved from https://de.wikipedia.org/wiki/Liste_der_infolge_der_COVID-19-Pandemie_erlassenen_deutschen_Gesetze_und_Verordnungen#Landesrecht .
 
@@ -12,19 +12,31 @@ this file contains a list of German covid regulations (Gesetze, Verordnungen, Be
 interactive triage: mark each COVID legislative item as social policy relevant (y) or not (n).
 progress is auto-saved so one can can quit and resume at any time.
 
+instructions: run script (runs in terminal) and make selections
 
 controls:  y = yes   n / Enter = no   b = back   q = quit & save
 
-result: see output_file -> contains 24 out of 144 titles
+result: see from_proc_step1_ger_cov_triage_selected.txt in data/processed/germany/ -> contains 24 out of 144 titles
 """
 
+# imports
 
 import json
 import sys
 from pathlib import Path
 
+# setup
+
 PROGRESS_FILE = Path(__file__).parent / ".triage_progress.json"
-OUTPUT_FILE = Path(__file__).parent / "triage_selected.txt"
+OUTPUT_FILE = (
+    Path(__file__).parent.parent.parent
+    / "data"
+    / "processed"
+    / "germany"
+    / "from_proc_step1_ger_cov_triage_selected.txt"
+)
+
+# triage loop
 
 ITEMS = [
     # ── Gesetze ─────────────────────────────────────────────────────────────

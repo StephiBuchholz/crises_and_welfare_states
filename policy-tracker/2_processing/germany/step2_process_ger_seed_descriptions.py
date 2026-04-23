@@ -21,6 +21,7 @@ design choices:
   - seed 14: the bmas pdf focuses on general social/labour policy.
     i created another seed from a list of covid-policies in 1_process_ger_seed_desc_covid.py
     to capture more specific covid-motivated policies.
+  - for exclusions: manually "out-comment" lines if term is out of scope -> do not delete
 
 """
 
@@ -28,6 +29,8 @@ SEED_DESCRIPTIONS = {
     # ── 1. ARBEITSFÖRDERUNG (SGB III) ──────────────────────────────
     "arbeitsforderung": [
         "Arbeitslosengeld Anspruch Anwartschaftszeit Rahmenfrist",
+        "Arbeitslosengeld I Arbeitslosengeld II",
+        "Hartz I Hartz II Hartz III Hartz IV Reform Einführung der Grundsicherung für Arbeitsuchende",
         "Kurzarbeitergeld bei vorübergehendem Arbeitsausfall",
         "Saison-Kurzarbeitergeld Schlechtwetterzeit Baugewerbe",
         "Transferkurzarbeitergeld Betriebsänderung Personalanpassung",
@@ -51,24 +54,25 @@ SEED_DESCRIPTIONS = {
         "Kündigungsschutzgesetz soziale Rechtfertigung Kündigung Arbeitsverhältnis",
         "Teilzeit- und Befristungsgesetz Brückenteilzeit Arbeitszeitreduzierung",
         "Entgeltfortzahlungsgesetz Lohnfortzahlung im Krankheitsfall",
+        "Lohn Löhne Entgelt Gehalt Erwerbseinkommen",  # manually added
         "Bundesurlaubsgesetz Mindesturlaub Arbeitnehmer",
         "Mutterschutzgesetz Beschäftigungsverbot schwangere Arbeitnehmerinnen",
         "Pflegezeitgesetz Familienpflegezeitgesetz Freistellung häusliche Pflege Angehöriger",
         "Arbeitnehmerüberlassungsgesetz Leiharbeit Zeitarbeit Überlassung",
-        "Arbeitnehmer-Entsendegesetz Arbeitsbedingungen entsandte Arbeitnehmer",
+        # "Arbeitnehmer-Entsendegesetz Arbeitsbedingungen entsandte Arbeitnehmer",
         "Allgemeines Gleichbehandlungsgesetz Benachteiligungsverbot Diskriminierung Beschäftigung",
         "Nachweisgesetz wesentliche Arbeitsbedingungen Arbeitsvertrag",
     ],
     # ── 3. ARBEITSSCHUTZ ──────────────────────────────────────────
     "arbeitsschutz": [
-        "Arbeitsschutzgesetz Gefährdungsbeurteilung Sicherheit Gesundheit Beschäftigte",
+        # "Arbeitsschutzgesetz Gefährdungsbeurteilung Sicherheit Gesundheit Beschäftigte",
         "Arbeitszeitgesetz Höchstarbeitszeit Ruhezeit Nachtarbeit Sonntagsarbeit",
         "Jugendarbeitsschutzgesetz Kinderarbeitsschutzverordnung",
-        "Arbeitsstättenverordnung Einrichtung Betrieb Arbeitsstätten",
-        "Gefahrstoffverordnung Schutz Beschäftigte Tätigkeiten Gefahrstoffe",
-        "Biostoffverordnung Schutz biologische Arbeitsstoffe Infektionsschutz",
-        "Betriebssicherheitsverordnung Arbeitsmittel überwachungsbedürftige Anlagen",
-        "Arbeitsmedizinische Vorsorge Verordnung Beschäftigungsfähigkeit",
+        # "Arbeitsstättenverordnung Einrichtung Betrieb Arbeitsstätten",
+        # "Gefahrstoffverordnung Schutz Beschäftigte Tätigkeiten Gefahrstoffe",
+        # "Biostoffverordnung Schutz biologische Arbeitsstoffe Infektionsschutz",
+        # "Betriebssicherheitsverordnung Arbeitsmittel überwachungsbedürftige Anlagen",
+        # "Arbeitsmedizinische Vorsorge Verordnung Beschäftigungsfähigkeit",
         "SARS-CoV-2-Arbeitsschutzverordnung Infektionsschutz am Arbeitsplatz",
     ],
     # ── 4. BETRIEBSVERFASSUNG / MITBESTIMMUNG ─────────────────────
@@ -101,15 +105,15 @@ SEED_DESCRIPTIONS = {
         "Mindestlohnkommission Anpassung Mindestlohn Erhöhung",
     ],
     # ── 8. REHABILITATION UND TEILHABE BEHINDERTER MENSCHEN ──────
-    "rehabilitation_teilhabe": [
-        "Rehabilitation und Teilhabe Menschen mit Behinderungen SGB IX Bundesteilhabegesetz",
-        "Schwerbehindertenrecht Beschäftigungspflicht Ausgleichsabgabe Integrationsamt",
-        "Eingliederungshilfe Teilhabe am Leben in der Gemeinschaft",
-        "Werkstätten für behinderte Menschen Berufsbildungsbereich",
-        "Barrierefreiheit Behindertengleichstellungsgesetz Inklusion",
-        "Persönliches Budget selbstbestimmte Teilhabe Leistungserbringung",
-        "Ergänzende unabhängige Teilhabeberatung EUTB",
-    ],
+    # "rehabilitation_teilhabe": [
+    # "Rehabilitation und Teilhabe Menschen mit Behinderungen SGB IX Bundesteilhabegesetz",
+    # "Schwerbehindertenrecht Beschäftigungspflicht Ausgleichsabgabe Integrationsamt",
+    # "Eingliederungshilfe Teilhabe am Leben in der Gemeinschaft",
+    # "Werkstätten für behinderte Menschen Berufsbildungsbereich",
+    # "Barrierefreiheit Behindertengleichstellungsgesetz Inklusion",
+    # "Persönliches Budget selbstbestimmte Teilhabe Leistungserbringung",
+    # "Ergänzende unabhängige Teilhabeberatung EUTB",
+    # ],
     # ── 9. RENTENVERSICHERUNG ─────────────────────────────────────
     "rentenversicherung": [
         "Gesetzliche Rentenversicherung Pflichtversicherung Beitragssatz Beitragsbemessungsgrenze",
@@ -135,12 +139,12 @@ SEED_DESCRIPTIONS = {
         "Regelbedarf Sozialhilfe Regelbedarfsstufen Existenzminimum",
     ],
     # ── 11. SOZIALE ENTSCHÄDIGUNG ─────────────────────────────────
-    "soziale_entschaedigung": [
-        "Bundesversorgungsgesetz Soziale Entschädigung Kriegsopferversorgung",
-        "Opferentschädigungsgesetz Opfer von Gewalttaten Entschädigung",
-        "Soldatenversorgungsgesetz Beschädigtenversorgung Wehrdienst",
-        "Soziales Entschädigungsrecht SGB XIV Entschädigungsleistungen",
-    ],
+    # "soziale_entschaedigung": [
+    # "Bundesversorgungsgesetz Soziale Entschädigung Kriegsopferversorgung",
+    # "Opferentschädigungsgesetz Opfer von Gewalttaten Entschädigung",
+    # "Soldatenversorgungsgesetz Beschädigtenversorgung Wehrdienst",
+    # "Soziales Entschädigungsrecht SGB XIV Entschädigungsleistungen",
+    # ],
     # ── 12. UNFALLVERSICHERUNG (SGB VII) ──────────────────────────
     "unfallversicherung": [
         "Gesetzliche Unfallversicherung Arbeitsunfall Berufskrankheit Berufsgenossenschaft",
