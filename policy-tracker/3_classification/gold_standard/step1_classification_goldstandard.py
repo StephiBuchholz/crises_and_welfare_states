@@ -16,6 +16,7 @@ adding a new classification dimension:
     append one entry to DIMENSIONS below. Existing labels are never touched;
     only the new dimension will show as unlabelled on the next run.
 """
+# imports
 
 import argparse
 import json
@@ -32,8 +33,12 @@ from pathlib import Path
 # To add a new dimension, append a dict here — nothing else needs to change.
 #
 # Supported types:
-#   "date_extract"  — coder extracts a yyyy-mm-dd date from the full text
-#   "categorical"   — coder picks from a numbered list of options
+#   "date_extract"    — coder extracts a yyyy-mm-dd date from the full text | "na" only for legally_effective_2 !
+#   "date_extract+na" — identical to date_extract, but "na" is explicitly a valid answer
+#   "art_extract"     - coder extracts the number of the article/ paragraph (no "§" or "art" or any other signs)
+#   "categorical"     — coder picks from a numbered list of options
+#   "categorical+na"  — identical to categorical, but also accepts "na" / "0" for not applicable
+#   "boolean"         — coder answers yes (1) or no (0)
 #
 DIMENSIONS = [
     {
@@ -46,22 +51,127 @@ DIMENSIONS = [
         ),
     },
     {
-        "key": "social_policy_field",
-        "display": "Social policy field",
+        "key": "leg_eff_terminate",
+        "display": "Termination of legal effect (Außerkrafttreten)",
+        "type": "date_extract+na",
+        "hint": (
+            "Extract the date that the effect of the law terminates. if non, 'na'..\n"
+            "  Format: yyyy-mm-dd  |  use BGBl-publication date if not else specified"
+        ),
+    },
+    {
+        "key": "legally_effective_2",
+        "display": "2nd legally effective (Inkrafttreten)",
+        "type": "date_extract",
+        "hint": (
+            "If the law differentiates two dates of entry into force, add second here. 'na' if not applicable \n"
+            "  Format: yyyy-mm-dd or 'na' |  use BGBl-publication date if not else specified"
+        ),
+    },
+    {
+        "key": "leg_eff_terminate_2",
+        "display": "Termination of 2nd legal effect (Außerkrafttreten)",
+        "type": "date_extract+na",
+        "hint": (
+            "Extract the 2nd date that the effect of the law terminates. if non, 'na'..\n"
+            "  Format: yyyy-mm-dd  or 'na' |  use BGBl-publication date if not else specified"
+        ),
+    },
+    {
+        "key": "art_leg_eff_2",
+        "display": "article/paragraph 2nd legally effective date refers to (Inkrafttreten)",
+        "type": "art_extract",
+        "hint": (
+            "If the law differentiates two dates of entry into force, add second here. 'na' if not applicable \n"
+            "  Format: only number of article or paragraph or 'na' when no 2nd date"
+        ),
+    },
+    {
+        "key": "social_policy_field_1",
+        "display": "Social policy field 1",
         "type": "categorical",
-        "hint": "Select the primary social policy domain.",
+        "hint": "Select the primary social policy domain. choose 'mix' only as last resort for multi-domain laws. you assign three more in the next steps. no 'na'.",
         "options": [
             "unemploy benefits / job retention / activation",  # from oecd tax-ben model
-            "social assistance and housing benefits",  # from oecd tax-ben model
-            "family benefits",  # from oecd tax-ben model
-            "social-security contributions",  # from oecd tax-ben model
-            "in-work / employ-conditional benefits"  # from oecd tax-ben model
-            "retirement benefits",  # not in oecd tax-ben
-            "sickness benefits",  # not in oecd tax-ben
-            "taxes",  # from oecd tax-ben model
-            "crisis-induced onet-time subsidies",  # only if no other class fits
-            "labour regulation",  # not in oecd tax-ben
+            "social assistance and housing benefits",  # 1, from oecd tax-ben model
+            "family benefits",  # 2, from oecd tax-ben model
+            "social-security contributions",  # 3, from oecd tax-ben model
+            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "retirement benefits",  # 5, not in oecd tax-ben
+            "sickness benefits",  # 6, not in oecd tax-ben
+            "taxes",  # 7, from oecd tax-ben model
+            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "labour regulation",  # 9, not in oecd tax-ben,
+            "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
         ],
+    },
+    {
+        "key": "social_policy_field_2",
+        "display": "Social policy field 2",
+        "type": "categorical+na",
+        "hint": "Select the second social policy domain. choose 'mix' only as last resort for multi-domain laws. you can assign two more in the next steps. 'na' when not applicable.",
+        "options": [
+            "unemploy benefits / job retention / activation",  # from oecd tax-ben model
+            "social assistance and housing benefits",  # 1, from oecd tax-ben model
+            "family benefits",  # 2, from oecd tax-ben model
+            "social-security contributions",  # 3, from oecd tax-ben model
+            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "retirement benefits",  # 5, not in oecd tax-ben
+            "sickness benefits",  # 6, not in oecd tax-ben
+            "taxes",  # 7, from oecd tax-ben model
+            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "labour regulation",  # 9, not in oecd tax-ben,
+            "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
+        ],
+    },
+    {
+        "key": "social_policy_field_3",
+        "display": "Social policy field 3",
+        "type": "categorical+na",
+        "hint": "Select the third social policy domain. choose 'mix' only as last resort for multi-domain laws. you can assign one more in the next step. 'na' when not applicable.",
+        "options": [
+            "unemploy benefits / job retention / activation",  # from oecd tax-ben model
+            "social assistance and housing benefits",  # 1, from oecd tax-ben model
+            "family benefits",  # 2, from oecd tax-ben model
+            "social-security contributions",  # 3, from oecd tax-ben model
+            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "retirement benefits",  # 5, not in oecd tax-ben
+            "sickness benefits",  # 6, not in oecd tax-ben
+            "taxes",  # 7, from oecd tax-ben model
+            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "labour regulation",  # 9, not in oecd tax-ben,
+            "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
+        ],
+    },
+    {
+        "key": "social_policy_field_4",
+        "display": "Social policy field 4",
+        "type": "categorical+na",
+        "hint": "Select the fourth social policy domain. choose 'mix' only as last resort for multi-domain laws. 'na' when not applicable.",
+        "options": [
+            "unemploy benefits / job retention / activation",  # from oecd tax-ben model
+            "social assistance and housing benefits",  # 1, from oecd tax-ben model
+            "family benefits",  # 2, from oecd tax-ben model
+            "social-security contributions",  # 3, from oecd tax-ben model
+            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "retirement benefits",  # 5, not in oecd tax-ben
+            "sickness benefits",  # 6, not in oecd tax-ben
+            "taxes",  # 7, from oecd tax-ben model
+            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "labour regulation",  # 9, not in oecd tax-ben,
+            "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
+        ],
+    },
+    {
+        "key": "crisis_ref",
+        "display": "Crisis reference",
+        "type": "boolean",
+        "hint": (
+            "Does the law explicitly reference the crisis that motivated it?\n"
+            "  Code 1 (yes) if the text names COVID-19 / coronavirus / pandemic,\n"
+            "              or the 2008 financial/economic crisis (Finanzkrise / Wirtschaftskrise).\n"
+            "  Code 0 (no)  if no such explicit reference appears."
+        ),
     },
 ]
 # ───────────────────────────────────────────────────────────────────────────────
@@ -224,8 +334,8 @@ def prompt_date_extract(dim: dict, current_rec: dict | None) -> str | None:
         raw = input(f"  {dim['key']} > ").strip()
         if raw == "":
             return current
-        if raw.lower() in ("n/a", "na", "?"):
-            return "n/a"
+        if raw.lower() in ("na", "na", "?"):
+            return "na"
         if DATE_RE.match(raw):
             try:
                 date.fromisoformat(raw)
@@ -234,6 +344,30 @@ def prompt_date_extract(dim: dict, current_rec: dict | None) -> str | None:
                 print("  ✗ Not a valid calendar date.")
         else:
             print("  ✗ Use yyyy-mm-dd format, e.g. 2020-06-01")
+
+
+def prompt_date_extract_na(dim: dict, current_rec: dict | None) -> str | None:
+    current = current_rec["value"] if current_rec else None
+    print()
+    print(f"  {dim['display']}")
+    print(f"  {dim['hint']}")
+    if current:
+        print(f"  Current: {current}  — Enter to keep")
+    print()
+    while True:
+        raw = input(f"  {dim['key']} > ").strip()
+        if raw == "":
+            return current
+        if raw.lower() in ("na", "na", "?"):
+            return "na"
+        if DATE_RE.match(raw):
+            try:
+                date.fromisoformat(raw)
+                return raw
+            except ValueError:
+                print("  ✗ Not a valid calendar date.")
+        else:
+            print("  ✗ Use yyyy-mm-dd format, e.g. 2020-06-01, or 'na'")
 
 
 def prompt_categorical(dim: dict, current_rec: dict | None) -> str | None:
@@ -260,11 +394,91 @@ def prompt_categorical(dim: dict, current_rec: dict | None) -> str | None:
         print(f"  ✗ Enter a number 1–{len(options)}, or 's' to skip.")
 
 
-def prompt_dimension(dim: dict, current_rec: dict | None) -> str | None:
+def prompt_categorical_na(dim: dict, current_rec: dict | None) -> str | None:
+    current = current_rec["value"] if current_rec else None
+    options = dim["options"]
+    print()
+    print(f"  {dim['display']}")
+    print(f"  {dim['hint']}")
+    print("    0. na (not applicable)")
+    for i, opt in enumerate(options, 1):
+        marker = "  ◀" if current == opt else ""
+        print(f"    {i}. {opt}{marker}")
+    print("    s. skip / keep current")
+    if current:
+        print(f"  Current: {current}  — Enter or 's' to keep")
+    print()
+    while True:
+        raw = input(f"  {dim['key']} > ").strip().lower()
+        if raw in ("s", ""):
+            return current
+        if raw in ("0", "na", "na"):
+            return "na"
+        if raw.isdigit():
+            i = int(raw) - 1
+            if 0 <= i < len(options):
+                return options[i]
+        print(f"  ✗ Enter 0 for na, a number 1–{len(options)}, or 's' to skip.")
+
+
+def prompt_boolean(dim: dict, current_rec: dict | None) -> int | None:
+    current = current_rec["value"] if current_rec else None
+    print()
+    print(f"  {dim['display']}")
+    print(f"  {dim['hint']}")
+    if current is not None:
+        label = "yes (1)" if current == 1 else "no (0)"
+        print(f"  Current: {label}  — Enter to keep")
+    print("    y / 1  →  yes (crisis explicitly referenced)")
+    print("    n / 0  →  no  (no explicit crisis reference)")
+    print("    s      →  skip / keep current")
+    print()
+    while True:
+        raw = input(f"  {dim['key']} > ").strip().lower()
+        if raw in ("s", "") and current is not None:
+            return current
+        if raw in ("y", "1"):
+            return 1
+        if raw in ("n", "0"):
+            return 0
+        print("  ✗ Enter y/1 (yes), n/0 (no), or s to skip.")
+
+
+ART_RE = re.compile(r"^\d+[a-zA-Z]?$")
+
+
+def prompt_art_extract(dim: dict, current_rec: dict | None) -> str | None:
+    current = current_rec["value"] if current_rec else None
+    print()
+    print(f"  {dim['display']}")
+    print(f"  {dim['hint']}")
+    if current is not None:
+        print(f"  Current: {current}  — Enter to keep")
+    print()
+    while True:
+        raw = input(f"  {dim['key']} > ").strip()
+        if raw == "":
+            return current
+        if raw.lower() in ("na", "na", "?"):
+            return "na"
+        if ART_RE.match(raw):
+            return raw
+        print("  ✗ Enter a number (e.g. 3 or 3a), 'na', or Enter to keep current.")
+
+
+def prompt_dimension(dim: dict, current_rec: dict | None) -> str | int | None:
     if dim["type"] == "date_extract":
         return prompt_date_extract(dim, current_rec)
+    elif dim["type"] == "date_extract+na":
+        return prompt_date_extract_na(dim, current_rec)
+    elif dim["type"] == "art_extract":
+        return prompt_art_extract(dim, current_rec)
     elif dim["type"] == "categorical":
         return prompt_categorical(dim, current_rec)
+    elif dim["type"] == "categorical+na":
+        return prompt_categorical_na(dim, current_rec)
+    elif dim["type"] == "boolean":
+        return prompt_boolean(dim, current_rec)
     else:
         raise ValueError(f"Unknown dimension type: {dim['type']}")
 
