@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(jupyter --version 2>$null)",
+      "PowerShell(jupyter kernelspec list)"
+    ]
+  }
+}

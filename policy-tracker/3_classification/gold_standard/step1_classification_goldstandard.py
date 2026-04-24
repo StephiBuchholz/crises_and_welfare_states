@@ -1,0 +1,415 @@
+#!/usr/bin/env python3
+"""
+step1_classification_goldstandard.py
+
+this file is an interactive terminal tool for annotating the (Germany COVID) gold-standard sample.
+Labels are saved incrementally — quit and resume possible at any time.
+
+instructions:
+
+use the following execution for labelling the default dataset germany_cov_sample_20.json
+    python step1_classification_goldstandard.py --coder [add your initials] (default: sb)
+to specify another dataset, use:
+    python step1_classification_goldstandard.py --input path/to/other_sample.json
+
+adding a new classification dimension:
+    append one entry to DIMENSIONS below. Existing labels are never touched;
+    only the new dimension will show as unlabelled on the next run.
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+import tempfile
+import textwrap
+import webbrowser
+from datetime import date, datetime
+from pathlib import Path
+
+# ─── CLASSIFICATION DIMENSIONS ────────────────────────────────────────────────
+# To add a new dimension, append a dict here — nothing else needs to change.
+#
+# Supported types:
+#   "date_extract"  — coder extracts a yyyy-mm-dd date from the full text
+#   "categorical"   — coder picks from a numbered list of options
+#
+DIMENSIONS = [
+    {
+        "key": "legally_effective",
+        "display": "Legally effective (Inkrafttreten)",
+        "type": "date_extract",
+        "hint": (
+            "Extract the date the law enters into force.\n"
+            "  Format: yyyy-mm-dd  |  use BGBl-publication date if not else specified"
+        ),
+    },
+    {
+        "key": "social_policy_field",
+        "display": "Social policy field",
+        "type": "categorical",
+        "hint": "Select the primary social policy domain.",
+        "options": [
+            "unemploy benefits / job retention / activation",  # from oecd tax-ben model
+            "social assistance and housing benefits",  # from oecd tax-ben model
+            "family benefits",  # from oecd tax-ben model
+            "social-security contributions",  # from oecd tax-ben model
+            "in-work / employ-conditional benefits"  # from oecd tax-ben model
+            "retirement benefits",  # not in oecd tax-ben
+            "sickness benefits",  # not in oecd tax-ben
+            "taxes",  # from oecd tax-ben model
+            "crisis-induced onet-time subsidies",  # only if no other class fits
+            "labour regulation",  # not in oecd tax-ben
+        ],
+    },
+]
+# ───────────────────────────────────────────────────────────────────────────────
+
+
+# ─── PATHS ────────────────────────────────────────────────────────────────────
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_INPUT = PROJECT_ROOT / "data" / "gold_standard" / "germany_cov_sample_20.json"
+OUTPUT_DIR = PROJECT_ROOT / "data" / "gold_standard"
+
+PAGE_LINES = 50
+WRAP_WIDTH = 100
+# ───────────────────────────────────────────────────────────────────────────────
+
+
+# ─── DISPLAY HELPERS ──────────────────────────────────────────────────────────
+
+
+def term_width() -> int:
+    try:
+        return min(os.get_terminal_size().columns, 120)
+    except OSError:
+        return 80
+
+
+def clear():
+    print("\033[2J\033[H", end="", flush=True)
+
+
+def hr(char="─"):
+    print(char * term_width())
+
+
+def bold(text: str) -> str:
+    return f"\033[1m{text}\033[0m"
+
+
+def show_header(entry: dict, idx: int, total: int, labelled_ids: set):
+    clear()
+
+    hr("═")
+    print(bold(f"  GOLD STANDARD  —  Entry {idx + 1}/{total}   [{entry['id']}]"))
+    hr("═")
+    print(f"  {'Title':<12}: {entry['title']}")
+    print(
+        f"  {'Type':<12}: {entry['doc_type']}   "
+        f"Year: {entry['year']}   "
+        f"Score: {entry.get('similarity_score', 0):.3f}"
+    )
+    pub = entry.get("date_published", "")[:10]
+    enac = entry.get("date_law", "")[:10]
+    wc = len(entry.get("full_text", "").split())
+    print(f"  {'Published':<12}: {pub}   Enacted: {enac}   Words: {wc:,}")
+    print(f"  {'URL':<12}: {entry.get('url_web', '')}")
+
+    # per-dimension label summary
+    gs = entry.get("gs_labels", {})
+    print()
+    print("  Labels:")
+    for dim in DIMENSIONS:
+        k = dim["key"]
+        rec = gs.get(k)
+        if rec:
+            prov = f"  ({rec['coder']}, {rec['date']})"
+            print(f"    {k:<30}: {rec['value']}{prov}")
+        else:
+            print(f"    {k:<30}: —  [not yet labelled]")
+
+    done = len(labelled_ids)
+    ratio = done / total if total else 0
+    bar = "█" * int(ratio * 20) + "░" * (20 - int(ratio * 20))
+    print()
+    print(f"  Progress  [{bar}]  {done}/{total} fully labelled")
+    hr()
+
+
+# ─── FULL-TEXT PAGER ──────────────────────────────────────────────────────────
+
+
+def _wrap_text(text: str) -> list[str]:
+    w = min(WRAP_WIDTH, term_width())
+    lines: list[str] = []
+    for para in text.splitlines():
+        stripped = para.strip()
+        if stripped:
+            lines.extend(textwrap.wrap(stripped, width=w) or [""])
+        else:
+            lines.append("")
+    return lines
+
+
+def pager(text: str):
+    lines = _wrap_text(text)
+    total_pgs = max(1, (len(lines) + PAGE_LINES - 1) // PAGE_LINES)
+    page = 0
+    highlight = None
+
+    while True:
+        clear()
+        start = page * PAGE_LINES
+        chunk = lines[start : start + PAGE_LINES]
+        if highlight:
+            chunk = [
+                ln.replace(highlight, f"\033[43m{highlight}\033[0m") for ln in chunk
+            ]
+        print("\n".join(chunk))
+        hr()
+        print(
+            f"  Page {page + 1}/{total_pgs}    [n] next  [p] prev  [/term] search  [q] done"
+        )
+        hr()
+
+        cmd = input("  > ").strip()
+        if cmd.lower() in ("q", ""):
+            break
+        elif cmd.lower() == "n" and page < total_pgs - 1:
+            page += 1
+        elif cmd.lower() == "p" and page > 0:
+            page -= 1
+        elif cmd.startswith("/") and len(cmd) > 1:
+            term = cmd[1:]
+            highlight = term
+            for i, ln in enumerate(lines):
+                if term.lower() in ln.lower():
+                    page = i // PAGE_LINES
+                    break
+            else:
+                print(f"  ('{term}' not found in text)")
+                input("  Press Enter...")
+
+
+# ─── HTML BROWSER VIEW ────────────────────────────────────────────────────────
+
+
+def open_in_browser(entry: dict):
+    url = entry.get("url_pdf", "")
+    if not url:
+        print("  (no url_pdf for this entry)")
+        input("  Press Enter to continue...")
+        return
+    webbrowser.open(url)
+    print(f"  Opened: {url}")
+    input("  (press Enter to continue)")
+
+
+# ─── LABELLING PROMPTS ────────────────────────────────────────────────────────
+
+DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def prompt_date_extract(dim: dict, current_rec: dict | None) -> str | None:
+    current = current_rec["value"] if current_rec else None
+    print()
+    print(f"  {dim['display']}")
+    print(f"  {dim['hint']}")
+    if current:
+        print(f"  Current: {current}  — Enter to keep")
+    print()
+    while True:
+        raw = input(f"  {dim['key']} > ").strip()
+        if raw == "":
+            return current
+        if raw.lower() in ("n/a", "na", "?"):
+            return "n/a"
+        if DATE_RE.match(raw):
+            try:
+                date.fromisoformat(raw)
+                return raw
+            except ValueError:
+                print("  ✗ Not a valid calendar date.")
+        else:
+            print("  ✗ Use yyyy-mm-dd format, e.g. 2020-06-01")
+
+
+def prompt_categorical(dim: dict, current_rec: dict | None) -> str | None:
+    current = current_rec["value"] if current_rec else None
+    options = dim["options"]
+    print()
+    print(f"  {dim['display']}")
+    print(f"  {dim['hint']}")
+    for i, opt in enumerate(options, 1):
+        marker = "  ◀" if current == opt else ""
+        print(f"    {i}. {opt}{marker}")
+    print("    s. skip / keep current")
+    if current:
+        print(f"  Current: {current}  — Enter or 's' to keep")
+    print()
+    while True:
+        raw = input(f"  {dim['key']} > ").strip().lower()
+        if raw in ("s", ""):
+            return current
+        if raw.isdigit():
+            i = int(raw) - 1
+            if 0 <= i < len(options):
+                return options[i]
+        print(f"  ✗ Enter a number 1–{len(options)}, or 's' to skip.")
+
+
+def prompt_dimension(dim: dict, current_rec: dict | None) -> str | None:
+    if dim["type"] == "date_extract":
+        return prompt_date_extract(dim, current_rec)
+    elif dim["type"] == "categorical":
+        return prompt_categorical(dim, current_rec)
+    else:
+        raise ValueError(f"Unknown dimension type: {dim['type']}")
+
+
+# ─── PERSISTENCE ──────────────────────────────────────────────────────────────
+
+
+def output_path(input_file: Path, coder_id: str) -> Path:
+    return OUTPUT_DIR / f"{input_file.stem}_labelled_{coder_id}.json"
+
+
+def load_labels(path: Path) -> dict[str, dict]:
+    if path.exists():
+        records = json.loads(path.read_text(encoding="utf-8"))
+        return {r["id"]: r for r in records}
+    return {}
+
+
+def save_labels(labelled_map: dict, entries: list, path: Path):
+    output = [labelled_map.get(e["id"], e) for e in entries]
+    path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def is_fully_labelled(record: dict) -> bool:
+    """True when every dimension in DIMENSIONS has a stored value."""
+    gs = record.get("gs_labels", {})
+    return all(gs.get(dim["key"], {}).get("value") is not None for dim in DIMENSIONS)
+
+
+# ─── MAIN LOOP ────────────────────────────────────────────────────────────────
+
+
+def main():
+    if os.name == "nt":
+        os.system("chcp 65001 >nul 2>&1")
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except AttributeError:
+            pass
+
+    parser = argparse.ArgumentParser(
+        description="Interactive gold-standard annotation tool"
+    )
+    parser.add_argument(
+        "--coder",
+        default="sb",
+        help="Your coder ID, stamped on every label you save (default: sb)",
+    )
+    parser.add_argument(
+        "--input",
+        type=Path,
+        default=DEFAULT_INPUT,
+        help=f"Path to the input JSON sample (default: {DEFAULT_INPUT})",
+    )
+    args = parser.parse_args()
+    input_file = args.input
+    coder_id = args.coder
+    out_file = output_path(input_file, coder_id)
+
+    if not input_file.exists():
+        sys.exit(f"Error: input file not found: {input_file}")
+
+    entries = json.loads(input_file.read_text(encoding="utf-8"))
+    total = len(entries)
+    labelled_map = load_labels(out_file)
+
+    if labelled_map:
+        n_done = sum(1 for r in labelled_map.values() if is_fully_labelled(r))
+        print(f"Resuming — {n_done}/{total} fully labelled in {out_file.name}")
+        input("Press Enter to continue...")
+
+    unlabelled = [
+        e for e in entries if not is_fully_labelled(labelled_map.get(e["id"], {}))
+    ]
+    already_done = [
+        e for e in entries if is_fully_labelled(labelled_map.get(e["id"], {}))
+    ]
+    work_order = unlabelled + already_done
+    labelled_ids = {eid for eid, r in labelled_map.items() if is_fully_labelled(r)}
+
+    idx = 0
+    while 0 <= idx < total:
+        entry = work_order[idx]
+        rec = labelled_map.get(entry["id"], entry)
+
+        show_header(rec, idx, total, labelled_ids)
+        print()
+        print("  [r] read full text (terminal pager)")
+        print("  [h] view in browser (HTML)")
+        print("  [l] label this entry")
+        print("  [s] skip to next  |  [b] back  |  [q] save and quit")
+        hr()
+        cmd = input("  > ").strip().lower()
+
+        if cmd == "q":
+            break
+        elif cmd == "b":
+            if idx > 0:
+                idx -= 1
+            continue
+        elif cmd == "s":
+            idx += 1
+            continue
+        elif cmd == "r":
+            pager(entry.get("full_text", "(no full text)"))
+            continue
+        elif cmd == "h":
+            open_in_browser(entry)
+            continue
+        elif cmd == "l":
+            show_header(rec, idx, total, labelled_ids)
+            today = datetime.now().strftime("%Y-%m-%d")
+
+            # carry forward existing gs_labels, then update dimension by dimension
+            gs_labels = dict(rec.get("gs_labels", {}))
+
+            for dim in DIMENSIONS:
+                value = prompt_dimension(dim, gs_labels.get(dim["key"]))
+                if value is not None:
+                    # only write a new provenance record if the value changed
+                    existing = gs_labels.get(dim["key"], {})
+                    if value != existing.get("value"):
+                        gs_labels[dim["key"]] = {
+                            "value": value,
+                            "coder": coder_id,
+                            "date": today,
+                        }
+
+            updated = {**entry, "gs_labels": gs_labels}
+            labelled_map[entry["id"]] = updated
+            if is_fully_labelled(updated):
+                labelled_ids.add(entry["id"])
+
+            save_labels(labelled_map, entries, out_file)
+            print(f"\n  ✓ Saved.  ({len(labelled_ids)}/{total} fully labelled)")
+            input("  Press Enter to continue...")
+            idx += 1
+
+    save_labels(labelled_map, entries, out_file)
+    print()
+    hr("═")
+    print(f"  Session complete.  {len(labelled_ids)}/{total} entries fully labelled.")
+    print(f"  Output: {out_file}")
+    hr("═")
+
+
+if __name__ == "__main__":
+    main()
