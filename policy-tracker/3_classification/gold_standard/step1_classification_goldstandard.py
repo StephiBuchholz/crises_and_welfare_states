@@ -33,9 +33,9 @@ from pathlib import Path
 # To add a new dimension, append a dict here — nothing else needs to change.
 #
 # Supported types:
-#   "date_extract"    — coder extracts a yyyy-mm-dd date from the full text | "na" only for legally_effective_2 !
+#   "date_extract"    — coder extracts a yyyy-mm-dd date from the full text | "na" only for legally_effective_2 and _3 !
 #   "date_extract+na" — identical to date_extract, but "na" is explicitly a valid answer
-#   "art_extract"     - coder extracts the number of the article/ paragraph (no "§" or "art" or any other signs)
+#   "art_extract"     - coder extracts the number of the article/ paragraph (no "§" or "art" or any other signs) or 'na'
 #   "categorical"     — coder picks from a numbered list of options
 #   "categorical+na"  — identical to categorical, but also accepts "na" / "0" for not applicable
 #   "boolean"         — coder answers yes (1) or no (0)
@@ -46,7 +46,7 @@ DIMENSIONS = [
         "display": "Legally effective (Inkrafttreten)",
         "type": "date_extract",
         "hint": (
-            "Extract the date the law enters into force.\n"
+            "Extract the date the law enters into force. You can add more, later\n"
             "  Format: yyyy-mm-dd  |  use BGBl-publication date if not else specified"
         ),
     },
@@ -62,9 +62,9 @@ DIMENSIONS = [
     {
         "key": "legally_effective_2",
         "display": "2nd legally effective (Inkrafttreten)",
-        "type": "date_extract",
+        "type": "date_extract+na",
         "hint": (
-            "If the law differentiates two dates of entry into force, add second here. 'na' if not applicable \n"
+            "If the law differentiates several dates of entry into force, add second here. 'na' if not applicable \n"
             "  Format: yyyy-mm-dd or 'na' |  use BGBl-publication date if not else specified"
         ),
     },
@@ -74,7 +74,7 @@ DIMENSIONS = [
         "type": "date_extract+na",
         "hint": (
             "Extract the 2nd date that the effect of the law terminates. if non, 'na'..\n"
-            "  Format: yyyy-mm-dd  or 'na' |  use BGBl-publication date if not else specified"
+            "  Format: yyyy-mm-dd  or 'na'"
         ),
     },
     {
@@ -82,8 +82,35 @@ DIMENSIONS = [
         "display": "article/paragraph 2nd legally effective date refers to (Inkrafttreten)",
         "type": "art_extract",
         "hint": (
-            "If the law differentiates two dates of entry into force, add second here. 'na' if not applicable \n"
+            "Which article/paragraph does the 2nd legal effect date refer to? \n"
             "  Format: only number of article or paragraph or 'na' when no 2nd date"
+        ),
+    },
+    {
+        "key": "legally_effective_3",
+        "display": "3rd legally effective (Inkrafttreten)",
+        "type": "date_extract+na",
+        "hint": (
+            "If the law differentiates several of entry into force, add 3rd here. if none, 'na'  \n"
+            "  Format: yyyy-mm-dd or 'na'"
+        ),
+    },
+    {
+        "key": "leg_eff_terminate_3",
+        "display": "Termination of 3rd legal effect (Außerkrafttreten)",
+        "type": "date_extract+na",
+        "hint": (
+            "Extract the 3rd date that the effect of the law terminates. if non, 'na'..\n"
+            "  Format: yyyy-mm-dd  or 'na' "
+        ),
+    },
+    {
+        "key": "art_leg_eff_3",
+        "display": "article/paragraph 3rd legally effective date refers to (Inkrafttreten)",
+        "type": "art_extract",
+        "hint": (
+            "Which article/paragraph does the 3rd legal effect date refer to? if non, 'na' \n"
+            "  Format: only number of article or paragraph or 'na' when no 3rd date"
         ),
     },
     {
@@ -96,13 +123,14 @@ DIMENSIONS = [
             "social assistance and housing benefits",  # 1, from oecd tax-ben model
             "family benefits",  # 2, from oecd tax-ben model
             "social-security contributions",  # 3, from oecd tax-ben model
-            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "in-work / employ-conditional benefits",  # 4, from oecd tax-ben model
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
             "crisis-induced onet-time subsidies",  # 8, only if no other class fits
             "labour regulation",  # 9, not in oecd tax-ben,
             "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
+            "false positive",  # categoriy for policies that falsley made it into the sample - not social policy/welfare state related
         ],
     },
     {
@@ -115,7 +143,7 @@ DIMENSIONS = [
             "social assistance and housing benefits",  # 1, from oecd tax-ben model
             "family benefits",  # 2, from oecd tax-ben model
             "social-security contributions",  # 3, from oecd tax-ben model
-            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "in-work / employ-conditional benefits",  # 4, from oecd tax-ben model
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
@@ -134,7 +162,7 @@ DIMENSIONS = [
             "social assistance and housing benefits",  # 1, from oecd tax-ben model
             "family benefits",  # 2, from oecd tax-ben model
             "social-security contributions",  # 3, from oecd tax-ben model
-            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "in-work / employ-conditional benefits",  # 4, from oecd tax-ben model
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
@@ -153,7 +181,7 @@ DIMENSIONS = [
             "social assistance and housing benefits",  # 1, from oecd tax-ben model
             "family benefits",  # 2, from oecd tax-ben model
             "social-security contributions",  # 3, from oecd tax-ben model
-            "in-work / employ-conditional benefits"  # 4, from oecd tax-ben model
+            "in-work / employ-conditional benefits",  # 4, from oecd tax-ben model
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
@@ -334,8 +362,6 @@ def prompt_date_extract(dim: dict, current_rec: dict | None) -> str | None:
         raw = input(f"  {dim['key']} > ").strip()
         if raw == "":
             return current
-        if raw.lower() in ("na", "na", "?"):
-            return "na"
         if DATE_RE.match(raw):
             try:
                 date.fromisoformat(raw)
@@ -343,7 +369,9 @@ def prompt_date_extract(dim: dict, current_rec: dict | None) -> str | None:
             except ValueError:
                 print("  ✗ Not a valid calendar date.")
         else:
-            print("  ✗ Use yyyy-mm-dd format, e.g. 2020-06-01")
+            print(
+                "  ✗ Use yyyy-mm-dd format, e.g. 2020-06-01  (this field is required, no 'na')"
+            )
 
 
 def prompt_date_extract_na(dim: dict, current_rec: dict | None) -> str | None:
