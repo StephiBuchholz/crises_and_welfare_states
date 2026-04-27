@@ -1,0 +1,2671 @@
+{
+  "evaluation_date": "2026-04-27",
+  "measures": [
+    "krippendorff_alpha",
+    "cohen_kappa"
+  ],
+  "datasets": [
+    {
+      "dataset_id": "germany_cov_gs_sb",
+      "coder": "sb",
+      "format": "gs",
+      "path": "s:\\stbuchho\\crises_and_welfare_states\\policy-tracker\\data\\gold_standard\\germany_cov_sample_20_labelled_sb.json",
+      "source_metadata": {
+        "format": "gs",
+        "path": "s:\\stbuchho\\crises_and_welfare_states\\policy-tracker\\data\\gold_standard\\germany_cov_sample_20_labelled_sb.json"
+      }
+    },
+    {
+      "dataset_id": "germany_cov_llm_gpt41mini_v1_zeroshot",
+      "coder": "gpt-4.1-mini",
+      "format": "llm",
+      "path": "s:\\stbuchho\\crises_and_welfare_states\\policy-tracker\\data\\gold_standard\\2026-04-26_germany_cov_sample_20_llm_gpt-4.1-mini_v1_zero_shot.json",
+      "source_metadata": {
+        "format": "llm",
+        "path": "s:\\stbuchho\\crises_and_welfare_states\\policy-tracker\\data\\gold_standard\\2026-04-26_germany_cov_sample_20_llm_gpt-4.1-mini_v1_zero_shot.json",
+        "run_metadata": {
+          "date": "2026-04-26",
+          "model": "gpt-4.1-mini",
+          "prompt_key": "v1_zero_shot",
+          "temperature": 0,
+          "seed": 42,
+          "input_file": "germany_cov_sample_20.json",
+          "system_fingerprints": [
+            "fp_3e990e1739",
+            "fp_49f260aaf7",
+            "fp_8c915479f7"
+          ]
+        }
+      }
+    }
+  ],
+  "n_common_entries": 20,
+  "common_entry_ids": [
+    "bgbl1-2019-27-1",
+    "bgbl1-2019-42-4",
+    "bgbl1-2019-44-15",
+    "bgbl1-2019-50-4",
+    "bgbl1-2019-51-5",
+    "bgbl1-2020-18-3",
+    "bgbl1-2020-24-4",
+    "bgbl1-2020-26-5",
+    "bgbl1-2020-57-4",
+    "bgbl1-2020-59-8",
+    "bgbl1-2020-61-4",
+    "bgbl1-2020-65-2",
+    "bgbl1-2021-10-4",
+    "bgbl1-2021-11-4",
+    "bgbl1-2021-68-6",
+    "bgbl1-2021-84-6",
+    "bgbl1-2022-22-3",
+    "bgbl1-2022-22-4",
+    "bgbl1-2022-44-3",
+    "bgbl1-2022-56-4"
+  ],
+  "entries_only_in": {
+    "germany_cov_gs_sb": [],
+    "germany_cov_llm_gpt41mini_v1_zeroshot": []
+  },
+  "variable_results": {
+    "legally_effective": {
+      "variable": "legally_effective",
+      "type": "date",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 11,
+      "agreement_rate": 0.55,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "2019-07-18",
+            "gpt-4.1-mini": "2019-07-17"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "2019-11-29",
+            "gpt-4.1-mini": "2019-11-28"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "2020-01-01",
+            "gpt-4.1-mini": "2019-12-05"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "2018-01-01",
+            "gpt-4.1-mini": "2024-01-01"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "2020-01-01",
+            "gpt-4.1-mini": "2020-01-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "2020-01-31",
+            "gpt-4.1-mini": "2020-01-31"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "2020-03-01",
+            "gpt-4.1-mini": "2020-05-28"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "2020-03-01",
+            "gpt-4.1-mini": "2020-03-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "2021-01-01",
+            "gpt-4.1-mini": "2021-01-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "2021-01-01",
+            "gpt-4.1-mini": "2021-01-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "2021-01-01",
+            "gpt-4.1-mini": "2021-01-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "2020-10-25",
+            "gpt-4.1-mini": "2020-10-25"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "2021-03-18",
+            "gpt-4.1-mini": "2021-03-17"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "2021-02-01",
+            "gpt-4.1-mini": "2021-02-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "2021-09-29",
+            "gpt-4.1-mini": "2021-09-28"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "2022-01-01",
+            "gpt-4.1-mini": "2021-12-16"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "2022-10-01",
+            "gpt-4.1-mini": "2022-10-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "2022-07-01",
+            "gpt-4.1-mini": "2022-07-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "2023-01-01",
+            "gpt-4.1-mini": "2022-11-18"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "2023-01-01",
+            "gpt-4.1-mini": "2023-01-01"
+          },
+          "agree": true
+        }
+      ],
+      "krippendorff_alpha": 0.5326231691078562,
+      "cohen_kappa": 0.5263157894736843
+    },
+    "leg_eff_terminate": {
+      "variable": "leg_eff_terminate",
+      "type": "date",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 17,
+        "gpt-4.1-mini": 18
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 19,
+      "agreement_rate": 0.95,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "2020-12-31",
+            "gpt-4.1-mini": "2020-12-31"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "2020-12-31",
+            "gpt-4.1-mini": "2020-12-31"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "2023-12-31",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        }
+      ],
+      "krippendorff_alpha": 0.7821229050279329,
+      "cohen_kappa": 0.7777777777777778
+    },
+    "legally_effective_2": {
+      "variable": "legally_effective_2",
+      "type": "date",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 12,
+        "gpt-4.1-mini": 9
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 13,
+      "agreement_rate": 0.65,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "2020-07-30",
+            "gpt-4.1-mini": "2020-07-30"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "2018-01-01"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "2020-05-29",
+            "gpt-4.1-mini": "2020-03-01"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "2022-01-01",
+            "gpt-4.1-mini": "2021-07-01"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "2020-01-02"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "2020-10-25",
+            "gpt-4.1-mini": "2020-12-16"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "2022-01-01",
+            "gpt-4.1-mini": "2022-01-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "2021-01-01",
+            "gpt-4.1-mini": "2021-01-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "2022-07-01",
+            "gpt-4.1-mini": "2022-06-30"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "2022-10-01",
+            "gpt-4.1-mini": "2022-10-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "2023-07-01"
+          },
+          "agree": false
+        }
+      ],
+      "krippendorff_alpha": 0.5159574468085106,
+      "cohen_kappa": 0.5121951219512195
+    },
+    "leg_eff_terminate_2": {
+      "variable": "leg_eff_terminate_2",
+      "type": "date",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 20,
+        "gpt-4.1-mini": 20
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 20,
+      "agreement_rate": 1.0,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        }
+      ],
+      "krippendorff_alpha": 1.0,
+      "cohen_kappa": 1.0
+    },
+    "art_leg_eff_2": {
+      "variable": "art_leg_eff_2",
+      "type": "nominal",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 13,
+        "gpt-4.1-mini": 12
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 13,
+      "agreement_rate": 0.65,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "2",
+            "gpt-4.1-mini": "artikel 2"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "31-1c"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "2",
+            "gpt-4.1-mini": "2b"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "4a",
+            "gpt-4.1-mini": "4a"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "2",
+            "gpt-4.1-mini": "2"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1a"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1c"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "6"
+          },
+          "agree": false
+        }
+      ],
+      "krippendorff_alpha": 0.41914893617021276,
+      "cohen_kappa": 0.41666666666666663
+    },
+    "legally_effective_3": {
+      "variable": "legally_effective_3",
+      "type": "date",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 18,
+        "gpt-4.1-mini": 16
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 16,
+      "agreement_rate": 0.8,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "2018-07-01"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "2020-05-21"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "2022-01-01",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "2023-01-01",
+            "gpt-4.1-mini": "2023-01-01"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "2023-06-28"
+          },
+          "agree": false
+        }
+      ],
+      "krippendorff_alpha": 0.2844036697247706,
+      "cohen_kappa": 0.2792792792792792
+    },
+    "leg_eff_terminate_3": {
+      "variable": "leg_eff_terminate_3",
+      "type": "date",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 19,
+        "gpt-4.1-mini": 20
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 19,
+      "agreement_rate": 0.95,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "2023-12-31",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        }
+      ],
+      "krippendorff_alpha": 0.0,
+      "cohen_kappa": 0.0
+    },
+    "art_leg_eff_3": {
+      "variable": "art_leg_eff_3",
+      "type": "nominal",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 18,
+        "gpt-4.1-mini": 16
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 15,
+      "agreement_rate": 0.75,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "2-3"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "1.2,1.3"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "2",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1c"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "25"
+          },
+          "agree": false
+        }
+      ],
+      "krippendorff_alpha": 0.1095890410958904,
+      "cohen_kappa": 0.1071428571428572
+    },
+    "social_policy_field_1": {
+      "variable": "social_policy_field_1",
+      "type": "nominal",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 11,
+      "agreement_rate": 0.55,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "labour regulation",
+            "gpt-4.1-mini": "labour regulation"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "labour regulation",
+            "gpt-4.1-mini": "in-work / employ-conditional benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "social-security contributions",
+            "gpt-4.1-mini": "retirement benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "false positive",
+            "gpt-4.1-mini": "mix"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "unemploy benefits / job retention / activation"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "unemploy benefits / job retention / activation"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "family benefits",
+            "gpt-4.1-mini": "family benefits"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "unemploy benefits / job retention / activation"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "social-security contributions",
+            "gpt-4.1-mini": "social-security contributions"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "unemploy benefits / job retention / activation"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "social assistance and housing benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "crisis-induced onet-time subsidies",
+            "gpt-4.1-mini": "crisis-induced one-time subsidies"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "taxes",
+            "gpt-4.1-mini": "taxes"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "social assistance and housing benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "in-work / employ-conditional benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "social-security contributions",
+            "gpt-4.1-mini": "retirement benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "labour regulation",
+            "gpt-4.1-mini": "labour regulation"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "retirement benefits",
+            "gpt-4.1-mini": "retirement benefits"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "social-security contributions",
+            "gpt-4.1-mini": "retirement benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "mix",
+            "gpt-4.1-mini": "mix"
+          },
+          "agree": true
+        }
+      ],
+      "krippendorff_alpha": 0.4898255813953488,
+      "cohen_kappa": 0.4915254237288137
+    },
+    "social_policy_field_2": {
+      "variable": "social_policy_field_2",
+      "type": "nominal",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 17,
+        "gpt-4.1-mini": 13
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 12,
+      "agreement_rate": 0.6,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "social-security contributions"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "family benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "social assistance and housing benefits",
+            "gpt-4.1-mini": "family benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "family benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "social assistance and housing benefits",
+            "gpt-4.1-mini": "crisis-induced one-time subsidies"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "social-security contributions"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "social-security contributions"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "unemploy benefits / job retention / activation",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": false
+        }
+      ],
+      "krippendorff_alpha": 0.07692307692307687,
+      "cohen_kappa": 0.10614525139664799
+    },
+    "social_policy_field_3": {
+      "variable": "social_policy_field_3",
+      "type": "nominal",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 18,
+        "gpt-4.1-mini": 15
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 14,
+      "agreement_rate": 0.7,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "social assistance and housing benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "in-work / employ-conditional benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "family benefits",
+            "gpt-4.1-mini": "in-work / employ-conditional benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "crisis-induced one-time subsidies"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "in-work / employ-conditional benefits"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "social-security contributions",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": false
+        }
+      ],
+      "krippendorff_alpha": 0.06024096385542166,
+      "cohen_kappa": 0.07692307692307687
+    },
+    "social_policy_field_4": {
+      "variable": "social_policy_field_4",
+      "type": "nominal",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 20,
+        "gpt-4.1-mini": 18
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 18,
+      "agreement_rate": 0.9,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "mix"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "mix"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "na",
+            "gpt-4.1-mini": "na"
+          },
+          "agree": true
+        }
+      ],
+      "krippendorff_alpha": -0.026315789473684292,
+      "cohen_kappa": 0.0
+    },
+    "crisis_ref": {
+      "variable": "crisis_ref",
+      "type": "nominal",
+      "n_entries": 20,
+      "n_fully_rated": 20,
+      "per_coder_na_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "per_coder_missing_count": {
+        "sb": 0,
+        "gpt-4.1-mini": 0
+      },
+      "n_agreements": 17,
+      "agreement_rate": 0.85,
+      "per_entry": [
+        {
+          "id": "bgbl1-2019-27-1",
+          "title": "Gesetz gegen illegale Beschäftigung und Sozialleistungsmissbrauch",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-42-4",
+          "title": "Gesetz für bessere Löhne in der Pflege (Pflegelöhneverbesserungsgesetz)",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-44-15",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2020",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-50-4",
+          "title": "Gesetz zur Regelung des Sozialen Entschädigungsrechts",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2019-51-5",
+          "title": "Verordnung über die pauschalierten Nettoentgelte für das Kurzarbeitergeld für das Jahr 2020",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-18-3",
+          "title": "Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Kurzarbeitergeldbezugsdauerverordnung – KugBeV)",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-24-4",
+          "title": "Gesetz für Maßnahmen im Elterngeld aus Anlass der COVID-19-Pandemie",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-26-5",
+          "title": "Achte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-57-4",
+          "title": "Verordnung über maßgebende Rechengrößen der Sozialversicherung für 2021 (Sozialversicherungs-Rechengrößenverordnung 2021)",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-59-8",
+          "title": "Gesetz zur Beschäftigungssicherung infolge der COVID-19-Pandemie (Beschäftigungssicherungsgesetz – BeschSiG)",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2020-61-4",
+          "title": "Gesetz zur Ermittlung der Regelbedarfe und zur Änderung des Zwölften Buches Sozialgesetzbuch sowie weiterer Gesetze",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2020-65-2",
+          "title": "Gesetz über eine einmalige Sonderzahlung aus Anlass der COVID-19-Pandemie an Besoldungs- und Wehrsoldempfänger",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-10-4",
+          "title": "Drittes Gesetz zur Umsetzung steuerlicher Hilfsmaßnahmen zur Bewältigung der Corona-Krise (Drittes Corona-Steuerhilfegesetz)",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-11-4",
+          "title": "Zehnte Verordnung zur Änderung der Arbeitslosengeld II/Sozialgeld-Verordnung",
+          "values": {
+            "sb": "1",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2021-68-6",
+          "title": "Vierte Verordnung zur Änderung der Kurzarbeitergeldverordnung",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "1"
+          },
+          "agree": false
+        },
+        {
+          "id": "bgbl1-2021-84-6",
+          "title": "Bekanntmachung der Umrechnungsfaktoren für den Versorgungsausgleich in der Rentenversicherung",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-3",
+          "title": "Gesetz zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-22-4",
+          "title": "Gesetz zur Rentenanpassung 2022 und zur Verbesserung von Leistungen für den Erwerbsminderungsrentenbestand (Rentenanpassungs- und Erwerbsminderungsrenten-Bestandsverbesserungsgesetz)",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-44-3",
+          "title": "Bekanntmachung der Beitragssätze in der allgemeinen Rentenversicherung und der knappschaftlichen Rentenversicherung für das Jahr 2023",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        },
+        {
+          "id": "bgbl1-2022-56-4",
+          "title": "Achtes Gesetz zur Änderung des Vierten Buches Sozialgesetzbuch und anderer Gesetze (8. SGB IV-Änderungsgesetz – 8. SGB IV-ÄndG)",
+          "values": {
+            "sb": "0",
+            "gpt-4.1-mini": "0"
+          },
+          "agree": true
+        }
+      ],
+      "krippendorff_alpha": 0.688,
+      "cohen_kappa": 0.6875
+    }
+  }
+}

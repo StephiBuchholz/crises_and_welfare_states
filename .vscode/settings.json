@@ -1,4 +1,4 @@
 {
-    "notebook.output.textLineLimit": 1000,
+    "notebook.output.textLineLimit": 30,
     "notebook.output.scrolling": true
 }

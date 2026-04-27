@@ -11,6 +11,20 @@ conditionality, generosity, and coverage. it further includes brief summaries of
 the pipeline is designed to be reproducible and scalable to new countries, crises, and
 classification tasks, also beyond welfare policy.
 
+## dual purpose
+
+this project serves two goals that jointly shape all design decisions:
+
+1. **active research:** the pipeline is continuously extended — new countries, new crisis periods,
+   new LLM models, and new prompt configurations are added over time. scripts and data structures
+   must accommodate this growth without requiring rewrites.
+
+2. **reusable tool for social policy scholars:** the pipeline is designed to be adoptable by other
+   researchers working on similar questions. external users should be able to run the pipeline on
+   their own data by supplying configuration files, without modifying the source code. the project's
+   own runs (germany/COVID as prototype) serve as the reference implementation that demonstrates
+   how the tool is used.
+
 ---
 
 ## pipeline steps
@@ -114,3 +128,6 @@ policy-tracker/
 - **reproducibility:** all scripts produce dated output files; primary LLM runs use temperature = 0.
 - **scalability:** adding a country = new subfolder in `1_collection/` + new subfolder in `data/raw/`.
 - **transparency:** prompt templates are versioned in `3_classification/prompts/`; nothing is hardcoded outside configuration sections at the top of each script.
+- **adoptability:** scripts are the stable tool; configuration (datasets, variables, measures) is
+  the user's input. external users provide a `--config` JSON file and do not touch the source code.
+  the project's own defaults (germany/COVID) live in the script as the reference implementation.
