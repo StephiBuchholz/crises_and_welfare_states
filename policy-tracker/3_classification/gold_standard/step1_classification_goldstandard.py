@@ -127,7 +127,7 @@ DIMENSIONS = [
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
-            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "crisis-induced one-time subsidies",  # 8, only if no other class fits
             "labour regulation",  # 9, not in oecd tax-ben,
             "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
             "false positive",  # categoriy for policies that falsley made it into the sample - not social policy/welfare state related
@@ -147,7 +147,7 @@ DIMENSIONS = [
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
-            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "crisis-induced one-time subsidies",  # 8, only if no other class fits
             "labour regulation",  # 9, not in oecd tax-ben,
             "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
         ],
@@ -166,7 +166,7 @@ DIMENSIONS = [
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
-            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "crisis-induced one-time subsidies",  # 8, only if no other class fits
             "labour regulation",  # 9, not in oecd tax-ben,
             "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
         ],
@@ -185,7 +185,7 @@ DIMENSIONS = [
             "retirement benefits",  # 5, not in oecd tax-ben
             "sickness benefits",  # 6, not in oecd tax-ben
             "taxes",  # 7, from oecd tax-ben model
-            "crisis-induced onet-time subsidies",  # 8, only if no other class fits
+            "crisis-induced one-time subsidies",  # 8, only if no other class fits
             "labour regulation",  # 9, not in oecd tax-ben,
             "mix",  # 10 last-resort fallback cat, for very convoluted, large laws like economic stimulus packages with multiple soc pol aspects
         ],
@@ -207,7 +207,7 @@ DIMENSIONS = [
 
 # ─── PATHS ────────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = PROJECT_ROOT / "data" / "gold_standard" / "germany_cov_sample_20.json"
+DEFAULT_INPUT = PROJECT_ROOT / "data" / "processed" / "germany_cov_sample_20.json"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "gold_standard"
 
 PAGE_LINES = 50
