@@ -35,6 +35,7 @@ SEED_DESCRIPTIONS = {
     "arbeitsforderung": [
         "Arbeitslosengeld Anspruch Anwartschaftszeit Rahmenfrist",
         "Arbeitslosengeld I Arbeitslosengeld II",
+        "Arbeitslosenhilfe", #manually added
         "Hartz I Hartz II Hartz III Hartz IV Reform Einführung der Grundsicherung für Arbeitsuchende",
         "Kurzarbeitergeld bei vorübergehendem Arbeitsausfall",
         "Saison-Kurzarbeitergeld Schlechtwetterzeit Baugewerbe",

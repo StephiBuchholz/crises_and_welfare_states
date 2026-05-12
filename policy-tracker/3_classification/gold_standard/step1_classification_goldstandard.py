@@ -201,6 +201,49 @@ DIMENSIONS = [
             "  Code 0 (no)  if no such explicit reference appears."
         ),
     },
+    {
+        "key": "nsr",
+        "display": "New Social Risk (nsr)",
+        "type": "categorical+na",
+        "hint": (
+            "If any, which New Social Risk does the policy target? 'na' if none.\n"
+            "\n"
+            "  Definition: New social risks are related to the socioeconomic transformations that\n"
+            "  have brought post-industrial societies into existence: the tertiarisation of\n"
+            "  employment, the decline of the standard full-time male worker and the massive entry\n"
+            "  of women into the labour force. (Bonoli 2005)\n"
+            "\n"
+            "  1. reconciling work and family life\n"
+            "     Policy aims to enhance reconciliation of work and family life, e.g. flexibilisation\n"
+            "     of working hours, working-from-home, subsidies for mothers providing child care,\n"
+            "     or enhancement of child care facility access.\n"
+            "\n"
+            "  2. single parenthood\n"
+            "     Policy targets single parents and their children.\n"
+            "\n"
+            "  3. having a frail relative\n"
+            "     Policy targets individuals providing unpaid, informal care to or households with\n"
+            "     an in-house living frail elderly or disabled person.\n"
+            "\n"
+            "  4. possessing low or obsolete skills\n"
+            "     Policy targets individuals employed in low value added service sectors (retail,\n"
+            "     cleaning, catering etc.) where there is little scope for productivity increases;\n"
+            "     at risk of poverty wage or unemployment due to low or obsolete skills.\n"
+            "\n"
+            "  5. insufficient social security coverage\n"
+            "     Policy targets the risk of insufficient social security coverage due to atypical\n"
+            "     career patterns, part-time work, non-standard or informal employment.\n"
+            "\n"
+            "  0 / na — policy does not target any new social risk."
+        ),
+        "options": [
+            "reconciling work and family life",
+            "single parenthood",
+            "having a frail relative",
+            "possessing low or obsolete skills",
+            "insufficient social security coverage",
+        ],
+    },
 ]
 # ───────────────────────────────────────────────────────────────────────────────
 
