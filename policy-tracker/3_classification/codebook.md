@@ -43,87 +43,80 @@ Use `mix` only as a last resort for large omnibus laws that cannot be meaningful
 
 ### Categories
 
-**1. Unemploy benefits / job retention / activation**
+**1. unemployment**
 
-"Unemployment insurance benefits are designed to support the income and facilitate effective job search by smoothing consumption of people who lost a previous job. Insurance benefits are typically linked to previous earnings and require previous employment record and social contribution payments. This distinguishes them from unemployment assistance benefits."
+Regards benefits, measures, and/or social security contributions that: 
 
-short-time work (Kurzarbeitergeld)
+- replace in whole or in part income lost by a worker due to the loss of gainful employment;
+- provide a subsistence (or better) income to persons entering or re-entering the labour market;
+- compensate for the loss of earnings due to partial unemployment;
+- replace in whole or in part income lost by an older worker who retires from gainful employment before the reference retirement age because of job reductions for economic reasons;
+- contribute to the cost of training or re-training people looking for employment;
+- help unemployed persons meet the cost of travelling or relocating to obtain employment;
+- provide help and relief by providing appropriate goods and services;
+- provide for jobseekers who do not qualify for unemployment insurance benefits, or whose entitlement to these benefits is low or has expired;
+- provide for a universal basic income that substitutes or supplements unemployment protection.
 
-activation:
-conditionality for eligibility, requirements of job search, measures for job market reintegration, job training programmes, targeted hiring subsidies, behavior monitoring [https://link.springer.com/article/10.1186/s40173-015-0032-y]
+**2. family/children**
 
-**2. Social assistance and housing benefits**
+Regards benefits, measures, and/or social security contributions that:
+- provide financial support to households for bringing up children;
+- provide financial assistance to people who support relatives other than children;
+- provide social services specifically designed to assist and protect the family, particularly children;expand the availability of or enhance access to child care facilities;
+- regulate child alimony between parents.
+Excludes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These fall under "taxes.”
 
-"Jobseekers who do not qualify for unemployment insurance benefits, or whose entitlement to these benefits are low or have expired, can claim unemployment assistance (UA) and/or social assistance or minimum-income (SA) benefits. These benefits are
-usually means-tested, that is, receipt is conditional on individual and/or family income and
-assets. In addition, entitlement to some UA benefits may depend on past employment or
-contribution records"
+**3. housing**
 
-housing benefit (HB) rules for people living in privately
-rented accommodation. Benefit entitlements for other housing tenures are not simulated.
-For example, subsidies for the construction of housing, purchases of owner-occupied
-housing, favourable interest payments, or in-kind support for those in social housing, etc.
-are not included." "rent assistance "
-Specific cash support for housing-related expenditures other than rent,
-e.g. heating and water bills, are outside the scope of the model.
+Regards benefits, measures, and/or social security contributions that:
+- help households meet the cost of housing, for example through rent benefits, social housing, or benefits to owner-occupiers;
+- subsidise heating, water, and electricity expenditures;
+- aim to end homelessness through "housing first" policies;
+- increase the availability of social housing.
 
-universal basic income
+**4. disability**
 
-**3. Family benefits**
+Regards benefits, measures, and/or social security contributions that:
+- provide an income to persons whose full or partial inability to engage in economic activity or to lead a normal life, due to a physical or mental impairment that is likely to be permanent or to persist beyond a minimum prescribed period, impairs their ability to work and earn beyond a minimum level laid down by legislation;
+- provide allowances designed to cover disability-related costs or needs.
+Excludes: short-term sickness benefits, which fall under "sickness/health/care." Also excludes benefits for persons providing care to incapacitated individuals, which fall under "family/children.”
 
-- "income support programmes that are conditional on
-  having children or adult dependants"
-- "‘homecare’ allowances"
-- "parental leave"
-- "maternity or birth-related benefits"
-- "benefit provisions for lone parents and state-substituted alimony"
-- child care-centre fees and childcare benefits
+**5. retirement**
 
-**4. Social-security contributions**
+Regards benefits, measures, and/or social security contributions that:
+- provide a replacement income when the aged person retires from the labour market;
+- guarantee a certain income when a person has reached a prescribed age;
+- regulate private retirement provisions.
+Excludes: benefits and contributions for medical care and elderly care, which fall under "sickness/health/care.”
 
-- contributions to the following:
-  - retirement insurance
-  - long-term care insurance
-  - health insurance
-  -
+**6. survivors**
 
-**5. In-work / employ-conditional benefits**
+Regards benefits, measures, and/or social security contributions that:
+- provide a temporary or permanent income because they have suffered from the loss of a spouse or next-of-kin, usually when the latter represented the main breadwinner for the beneficiary;
+- compensate survivors for funeral costs or for any hardship caused by the death of a family member;
+- provide goods and services to eligible survivors.
 
-conditional on the following key requirements:  
-• Being employed on a regular basis with a standard employment contract;
-• Working a certain number of hours and/or earning more than a certain minimum.
+**7. sickness/health/care**
 
-**6. Retirement benefits**
+Regards benefits, measures, and/or social security contributions that:
+- replace in whole or in part loss of earnings during temporary inability to work due to sickness or injury;
+- provide medical care in the framework of social protection to maintain, restore, or improve the health of the people protected;
+- provide goods or services specifically required by the personal or social circumstances of the elderly (elderly care is classified here rather than under "retirement");concern the institutional setup of health insurance systems, both public and private.
+Excludes: long-term disability benefits, which fall under "disability." Also excludes benefits for persons providing care to incapacitated individuals, which fall under "family/children.”
 
-- pensions
-- retirement benefits
-- early-retirement benefits
+**8. standard/active labour market interventions**
 
-**7. Sickness benefits**
+Regards benefits, measures, and/or social security contributions that:
+- regulate the terms and conditions of employment (wages, minimum wages, working hours, non-standard and atypical employment, employment exempt from social security contributions, illegal employment);
+- actively intervene to expand labour force participation and facilitate (re-)employment — through employment services, direct job creation, start-up incentives, or hiring and wage subsidies targeted at specific groups — including by enforcing the conditionality of benefits on active job search and participation in employability measures.
 
-- disability benefits
-- long-covid?
 
-**8. Taxes**
+**9. taxes**
 
-any tax related policy
+Regards all personal income taxes payable in respect of employment and self-employment earnings, including measures that alter tax rates, thresholds, deductions, or credits for these earnings.
+Also includes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These are classified here rather than under "family/children.”
 
-**9. Crisis-induced one-time subsidies**
 
-Energiekostenzuschuss
-
-**10. Labour regulation**
-
-- minimum wage
-  .
-
-**11. Mix** _(last resort only)_
-
-<!-- add definition -->
-
-**12. False positive** _(only valid for `social_policy_field_1`)_
-
-<!-- add definition -->
 
 ## New Social risks (`nsr`)
 
