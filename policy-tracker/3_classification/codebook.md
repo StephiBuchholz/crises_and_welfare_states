@@ -11,14 +11,14 @@ All dates are extracted verbatim from the legislative text.
 
 | Variable              | Type           | Rule                                                                                                                                                                                |
 | --------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `legally_effective`   | date           | Date the law enters into force (Inkrafttreten). Use BGBl publication date if no explicit date is stated. Format: `yyyy-mm-dd`.                                                      |
-| `leg_eff_terminate`   | date or `na`   | Date the legal effect terminates (Außerkrafttreten). `na` if not specified. Format: `yyyy-mm-dd`.                                                                                   |
-| `legally_effective_2` | date or `na`   | Second entry-into-force date, if the law specifies multiple. `na` if not applicable. Format: `yyyy-mm-dd`.                                                                          |
+| `legally_effective`   | date           | Date the law enters into force (Inkrafttreten). Use BGBl publication date if no explicit date is stated. Format: `yyyy-mm`.                                                         |
+| `leg_eff_terminate`   | date or `na`   | Date the legal effect terminates (Außerkrafttreten). `na` if not specified. Format: `yyyy-mm`.                                                                                      |
+| `legally_effective_2` | date or `na`   | Second entry-into-force date, if the law specifies multiple. `na` if not applicable. Format: `yyyy-mm`.                                                                             |
 | `leg_eff_terminate_2` | date or `na`   | Termination date corresponding to `legally_effective_2`. `na` if not applicable.                                                                                                    |
-| `art_leg_eff_2`       | number or `na` | Article or paragraph number that `legally_effective_2` refers to. Only highest level, mumber and letter only (ex.: "4a" for "Article 4a, 1c)"), no symbols. `na` if not applicable. |
-| `legally_effective_3` | date or `na`   | Third entry-into-force date. `na` if not applicable. Format: `yyyy-mm-dd`.                                                                                                          |
+| `art_leg_eff_2`       | number or `na` | Article or paragraph number that `legally_effective_2` refers to. Only highest level, number and letter only (ex.: "4a" for "Article 4a, 1c)"), no symbols. `na` if not applicable. |
+| `legally_effective_3` | date or `na`   | Third entry-into-force date. `na` if not applicable. Format: `yyyy-mm`.                                                                                                             |
 | `leg_eff_terminate_3` | date or `na`   | Termination date corresponding to `legally_effective_3`. `na` if not applicable.                                                                                                    |
-| `art_leg_eff_3`       | number or `na` | Article or paragraph number that `legally_effective_3` refers to. Only highest level, mumber and letter only (ex.: "4a" for "Article 4a, 1c)"), no symbols. `na` if not applicable. |
+| `art_leg_eff_3`       | number or `na` | Article or paragraph number that `legally_effective_3` refers to. Only highest level, number and letter only (ex.: "4a" for "Article 4a, 1c)"), no symbols. `na` if not applicable. |
 
 ---
 
@@ -26,26 +26,22 @@ All dates are extracted verbatim from the legislative text.
 
 **Type:** boolean (0 / 1)
 
-Does the law explicitly reference the crisis that motivated it?
-
-- Code `1` (yes) if the text names COVID-19, coronavirus, pandemic etc. or the 2008 financial/economic crisis/great recession (Finanzkrise / Wirtschaftskrise) etc..
-- Code `0` (no) if no such explicit reference appears.
+- Code `1` if the text explicitly references COVID-19/the pandemic or the 2008 financial/economic crisis.
+- Code `0` otherwise.
 
 ---
 
-## Social policy field (`social_policy_field_1` — `_4`)
+## Social policy field (`social_policy_field_1`, `social_policy_field_2`)
 
 **Type:** categorical
 
-Assign the social policy domain(s) the law primarily addresses. Assign at least one (`social_policy_field_1`, mandatory). Assign up to three additional domains (`_2`–`_4`) if the law clearly addresses multiple fields. Use `na` for `_2`–`_4` when not applicable.
-
-Use `mix` only as a last resort for large omnibus laws that cannot be meaningfully assigned to specific fields. Use parsimoneously. Use `false positive` (only available for `_1`) when the law does not address social policy or welfare at all and was incorrectly included in the sample. Use parsimoneously.
+Assign the primary social policy domain the law addresses (`social_policy_field_1`, mandatory). If the law substantively addresses a second, distinct domain, assign it as `social_policy_field_2`; otherwise set `social_policy_field_2` to `na`.
 
 ### Categories
 
 **1. unemployment**
 
-Regards benefits, measures, and/or social security contributions that: 
+Regards benefits, measures, and/or social security contributions that:
 
 - replace in whole or in part income lost by a worker due to the loss of gainful employment;
 - provide a subsistence (or better) income to persons entering or re-entering the labour market;
@@ -60,15 +56,19 @@ Regards benefits, measures, and/or social security contributions that:
 **2. family/children**
 
 Regards benefits, measures, and/or social security contributions that:
+
 - provide financial support to households for bringing up children;
 - provide financial assistance to people who support relatives other than children;
-- provide social services specifically designed to assist and protect the family, particularly children;expand the availability of or enhance access to child care facilities;
+- provide social services specifically designed to assist and protect the family, particularly children;
+- expand the availability of or enhance access to child care facilities;
 - regulate child alimony between parents.
-Excludes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These fall under "taxes.”
+
+Excludes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These fall under "taxes."
 
 **3. housing**
 
 Regards benefits, measures, and/or social security contributions that:
+
 - help households meet the cost of housing, for example through rent benefits, social housing, or benefits to owner-occupiers;
 - subsidise heating, water, and electricity expenditures;
 - aim to end homelessness through "housing first" policies;
@@ -77,46 +77,63 @@ Regards benefits, measures, and/or social security contributions that:
 **4. disability**
 
 Regards benefits, measures, and/or social security contributions that:
+
 - provide an income to persons whose full or partial inability to engage in economic activity or to lead a normal life, due to a physical or mental impairment that is likely to be permanent or to persist beyond a minimum prescribed period, impairs their ability to work and earn beyond a minimum level laid down by legislation;
 - provide allowances designed to cover disability-related costs or needs.
-Excludes: short-term sickness benefits, which fall under "sickness/health/care." Also excludes benefits for persons providing care to incapacitated individuals, which fall under "family/children.”
+
+Excludes: short-term sickness benefits, which fall under "sickness/health/care." Also excludes benefits for persons providing care to incapacitated individuals, which fall under "family/children."
 
 **5. retirement**
 
 Regards benefits, measures, and/or social security contributions that:
+
 - provide a replacement income when the aged person retires from the labour market;
 - guarantee a certain income when a person has reached a prescribed age;
 - regulate private retirement provisions.
-Excludes: benefits and contributions for medical care and elderly care, which fall under "sickness/health/care.”
+
+Excludes: benefits and contributions for medical care and elderly care, which fall under "sickness/health/care."
 
 **6. survivors**
 
 Regards benefits, measures, and/or social security contributions that:
-- provide a temporary or permanent income because they have suffered from the loss of a spouse or next-of-kin, usually when the latter represented the main breadwinner for the beneficiary;
+
+- provide a temporary or permanent income to people who have suffered from the loss of a spouse or next-of-kin, usually when the latter represented the main breadwinner for the beneficiary;
 - compensate survivors for funeral costs or for any hardship caused by the death of a family member;
 - provide goods and services to eligible survivors.
 
 **7. sickness/health/care**
 
 Regards benefits, measures, and/or social security contributions that:
+
 - replace in whole or in part loss of earnings during temporary inability to work due to sickness or injury;
 - provide medical care in the framework of social protection to maintain, restore, or improve the health of the people protected;
-- provide goods or services specifically required by the personal or social circumstances of the elderly (elderly care is classified here rather than under "retirement");concern the institutional setup of health insurance systems, both public and private.
-Excludes: long-term disability benefits, which fall under "disability." Also excludes benefits for persons providing care to incapacitated individuals, which fall under "family/children.”
+- provide goods or services specifically required by the personal or social circumstances of the elderly (elderly care is classified here rather than under "retirement");
+- concern the institutional setup of health insurance systems, both public and private.
 
-**8. standard/active labour market interventions**
+Excludes: long-term disability benefits, which fall under "disability." Also excludes benefits for persons providing care to incapacitated individuals, which fall under "family/children."
+
+**8. labour market**
 
 Regards benefits, measures, and/or social security contributions that:
+
 - regulate the terms and conditions of employment (wages, minimum wages, working hours, non-standard and atypical employment, employment exempt from social security contributions, illegal employment);
 - actively intervene to expand labour force participation and facilitate (re-)employment — through employment services, direct job creation, start-up incentives, or hiring and wage subsidies targeted at specific groups — including by enforcing the conditionality of benefits on active job search and participation in employability measures.
-
 
 **9. taxes**
 
 Regards all personal income taxes payable in respect of employment and self-employment earnings, including measures that alter tax rates, thresholds, deductions, or credits for these earnings.
-Also includes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These are classified here rather than under "family/children.”
 
+Also includes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These are classified here rather than under "family/children."
 
+---
+
+## SPF justification (`spf_justification`)
+
+**Type:** string
+
+Give a brief justification for your choice on the social policy field categorization and argue why, if so, you assign a second field.
+
+---
 
 ## New Social risks (`nsr`)
 
