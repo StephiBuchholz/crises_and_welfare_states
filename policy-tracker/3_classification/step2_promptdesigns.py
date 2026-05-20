@@ -2,17 +2,19 @@
 """
 step2_promptdesigns.py
 
-All 16 prompt variants for the 2×2×2×2 factorial classification experiment.
+all 16 prompt variants for the 2×2×2×2 factorial classification experiment.
 
-Dimensions
+this script is automatically run when running step2_classify_llm.py which imports the prompt templates from here.
+
+dimensions
 ----------
 zero_shot / few_shot  : whether labeled examples precede the task
-batch / single        : batch — all tasks (dates + SPF + crisis_ref);
-                        single — SPF classification only
+batch / single        : batch — all tasks (dates + social policy field + crisis_ref);
+                        single — social policy field (SPF) classification only
 nodef / def           : nodef — label list only; def — full class definitions
 nojus / jus           : nojus — classification only; jus — + written justification
 
-Exports
+exports
 -------
 PROMPTS      dict[str, {"system": str, "user": str}]
                user template receives keyword args: {title}, {date_published}, {full_text}
@@ -42,7 +44,7 @@ _SPF_OPTIONS = [
     "taxes",
 ]
 
-# ─── SPF CLASS DEFINITIONS ────────────────────────────────────────────────────
+# ─── SPF CLASS DEFINITIONS (from codebook) ────────────────────────────────────────────────────
 
 _SPF_CLASS_DEF = """\
 Unemployment — Regards benefits, measures, and/or social security contributions that:
@@ -136,9 +138,9 @@ _SYSTEM = (
 
 _SEC_DATE = """\
 ──── DATE EXTRACTION ────
-legally_effective   : Date the law enters into force (Inkrafttreten). Use the BGBl publication
+legally_effective   : Date the law enters into force. Use the BGBl publication
                       date if no explicit date is stated. Format: yyyy-mm.
-leg_eff_terminate   : Date legal effect terminates (Außerkrafttreten). "na" if not specified.
+leg_eff_terminate   : Date legal effect terminates. "na" if not specified.
 legally_effective_2 : Second entry-into-force date if the law specifies multiple. "na" if not applicable.
 leg_eff_terminate_2 : Termination date for legally_effective_2. "na" if not applicable.
 art_leg_eff_2       : Article/paragraph number that legally_effective_2 refers to
@@ -147,22 +149,25 @@ legally_effective_3 : Third entry-into-force date. "na" if not applicable.
 leg_eff_terminate_3 : Termination date for legally_effective_3. "na" if not applicable.
 art_leg_eff_3       : Article/paragraph number for legally_effective_3. "na" if not applicable."""
 
-_SEC_SPF_NODEF = (
+_SEC_SPF_HEAD = (
     "──── SOCIAL POLICY FIELD ────\n"
     "Assign the primary social policy field that the legislative text addresses (social_policy_field_1). "
     "If the text substantively addresses a second, distinct policy field, assign it as social_policy_field_2; "
-    'otherwise set social_policy_field_2 to "na". Valid values:\n'
-    + "\n".join(f'  "{opt}"' for opt in _SPF_OPTIONS)
+    'otherwise set social_policy_field_2 to "na".' #head and tail split for flexible combination with jus versus nojus prompts
 )
 
-_SEC_SPF_DEF = (
-    "──── SOCIAL POLICY FIELD ────\n"
-    "Assign the primary social policy field that the legislative text addresses (social_policy_field_1). "
-    "If the text substantively addresses a second, distinct policy field, assign it as social_policy_field_2; "
-    'otherwise set social_policy_field_2 to "na". '
-    "Classify according to these class definitions:\n\n"
-    + _SPF_CLASS_DEF
+_SEC_SPF_NODEF_TAIL = (
+    "Valid values:\n"
+    + "\n".join(f'  "{opt}"' for opt in _SPF_OPTIONS) #head and tail tail split for flexible combination with jus versus nojus prompts
 )
+
+_SEC_SPF_DEF_TAIL = (
+    "Classify according to these class definitions:\n\n"
+    + _SPF_CLASS_DEF #head and tail tail split for flexible combination with jus versus nojus prompts
+)
+
+_SEC_SPF_NODEF = _SEC_SPF_HEAD + "\n\n" + _SEC_SPF_NODEF_TAIL #prompts with no definitions for spf
+_SEC_SPF_DEF   = _SEC_SPF_HEAD + "\n\n" + _SEC_SPF_DEF_TAIL #prompts with definitions for spf
 
 _SEC_CRISIS = """\
 ──── CRISIS REFERENCE ────
@@ -170,8 +175,8 @@ crisis_ref : 1 if the text explicitly references COVID-19/the pandemic or the
              2008 financial/economic crisis; 0 otherwise."""
 
 _SEC_JUS = """\
-──── JUSTIFICATION ────
-social_policy_field_justification : In 1–2 sentences, explain why you assigned social_policy_field_1."""
+However, before classifying, you always reason through the social policy field options below, first, in light of the legislative text — considering both the primary field (social_policy_field_1) and, if so, which secondary field applies (social_policy_field_2).
+spf_justification : Your reasoning about which social policy field(s) apply. This field precedes social_policy_field_1 and social_policy_field_2 in the output schema."""
 
 _SEC_TEXT = """\
 ──── LEGISLATIVE TEXT ────
@@ -187,23 +192,21 @@ def _join(*parts: str) -> str:
     return "\n\n".join(p for p in parts if p)
 
 
-def _compose_batch(spf_sec: str, *, jus: bool, few_shot: bool) -> str:
+def _compose_batch(spf_sec: str, *, few_shot: bool) -> str: #function that composes the batch task prompts, used later in build-step
     return _join(
         _FEW_SHOT_EXAMPLES if few_shot else "",
         "Classify the legislative text below according to these codebook rules.",
         _SEC_DATE,
         spf_sec,
         _SEC_CRISIS,
-        _SEC_JUS if jus else "",
         _SEC_TEXT,
     )
 
 
-def _compose_single(spf_sec: str, *, jus: bool, few_shot: bool) -> str:
+def _compose_single(spf_sec: str, *, few_shot: bool) -> str: #function that composes the single task prompts, used later in build-step
     return _join(
         _FEW_SHOT_EXAMPLES if few_shot else "",
         spf_sec,
-        _SEC_JUS if jus else "",
         _SEC_TEXT,
     )
 
@@ -232,6 +235,13 @@ def _make_schema(*, batch: bool, jus: bool) -> dict:
             props[k] = {"type": "string", "description": desc}
         req.extend(date_fields)
 
+    if jus:
+        props["spf_justification"] = {
+            "type": "string",
+            "description": "reasoning about which social policy field(s) apply, before classifying",
+        }
+        req.append("spf_justification")
+
     props["social_policy_field_1"] = {"type": "string", "enum": _SPF_OPTIONS}
     props["social_policy_field_2"] = {"type": "string", "enum": _SPF_OPTIONS + ["na"]}
     req += ["social_policy_field_1", "social_policy_field_2"]
@@ -239,13 +249,6 @@ def _make_schema(*, batch: bool, jus: bool) -> dict:
     if batch:
         props["crisis_ref"] = {"type": "integer", "enum": [0, 1]}
         req.append("crisis_ref")
-
-    if jus:
-        props["social_policy_field_justification"] = {
-            "type": "string",
-            "description": "1–2 sentence justification for social_policy_field_1",
-        }
-        req.append("social_policy_field_justification")
 
     return {
         "type": "object",
@@ -255,7 +258,7 @@ def _make_schema(*, batch: bool, jus: bool) -> dict:
     }
 
 
-# ─── BUILD ALL 16 VARIANTS ────────────────────────────────────────────────────
+# ─── BUILD ALL VARIANTS ────────────────────────────────────────────────────
 
 # (version_prefix, few_shot, batch, use_def, jus)
 _VARIANTS = [
@@ -278,7 +281,7 @@ _VARIANTS = [
 ]
 
 
-def _build_variants() -> tuple[dict, dict]:
+def _build_variants() -> tuple[dict, dict]: #iterates over all rows (prompt variations!) in _VARIANTS, builds individual spf_sec (with or without reasoning and with/out def) and then passes it into _compose_batch or _compose_single.
     prompts: dict = {}
     schemas: dict = {}
     for num, few_shot, batch, use_def, jus in _VARIANTS:
@@ -288,11 +291,13 @@ def _build_variants() -> tuple[dict, dict]:
         just  = "jus"       if jus      else "nojus"
         key   = f"{num}_{shot}_{scope}_{defs}_{just}"
 
-        spf  = _SEC_SPF_DEF if use_def else _SEC_SPF_NODEF
+        tail = _SEC_SPF_DEF_TAIL if use_def else _SEC_SPF_NODEF_TAIL
+        spf  = _join(_SEC_SPF_HEAD, _SEC_JUS, tail) if jus else (
+               _SEC_SPF_DEF if use_def else _SEC_SPF_NODEF)
         user = (
-            _compose_batch(spf, jus=jus, few_shot=few_shot)
+            _compose_batch(spf, few_shot=few_shot)
             if batch
-            else _compose_single(spf, jus=jus, few_shot=few_shot)
+            else _compose_single(spf, few_shot=few_shot)
         )
         prompts[key] = {"system": _SYSTEM, "user": user}
         schemas[key] = _make_schema(batch=batch, jus=jus)
@@ -300,3 +305,4 @@ def _build_variants() -> tuple[dict, dict]:
 
 
 PROMPTS, OUTPUT_SCHEMAS = _build_variants()
+
