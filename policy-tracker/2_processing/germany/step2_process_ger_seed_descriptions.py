@@ -43,7 +43,7 @@ why pooled evaluation?
 
 """
 
-SEED_DESCRIPTIONS_MERGED = {
+SEED_DESCRIPTIONS = {
  
     # ══════════════════════════════════════════════════════════════
     # EXISTING SEEDS (from 2025 BMAS brochure + BMBFSFJ + COVID)

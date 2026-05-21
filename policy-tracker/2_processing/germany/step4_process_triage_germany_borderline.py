@@ -2,12 +2,12 @@
 interactive triage of borderline German BGBl entries (similarity score 0.73–0.835).
 
 loads:
-  - data/processed/germany/germany_cov_borderline_candidates.json  (written in step3 notebook)
-  - data/processed/germany/germany_cov_auto_accepted.json          (written in step3 notebook)
+  - data/processed/{choose country folder}/{....}_borderline_candidates.json  (written in step3 notebook)
+  - data/processed/{choose country folder}/{....}auto_accepted.json          (written in step3 notebook)
 
 results:
 on completion, merges both into:
-  - data/processed/germany/germany_cov_filtered_final.json
+  - data/processed/{choose country folder}/{country}_{years}_filtered_final.json
 
 controls:  y = yes   n / Enter = no   b = back   q = quit & save
 
@@ -21,13 +21,15 @@ import json
 import sys
 from pathlib import Path
 
-# setup
+#__________________setup [ADAPT YOUR DESIRED FILES AND DESTINATIONS HERE]________________#
 
 BASE = Path(__file__).parent.parent.parent / "data" / "processed" / "germany"
-CANDIDATES_FILE = BASE / "germany_cov_borderline_candidates.json"
-AUTO_ACCEPTED_FILE = BASE / "germany_cov_auto_accepted.json"
-FINAL_OUTPUT = BASE / "germany_cov_filtered_final.json"
+CANDIDATES_FILE = BASE / "germany_2008-2015_2019-2022_borderline_candidates.json"
+AUTO_ACCEPTED_FILE = BASE / "germany_2008-2015_2019-2022_auto_accepted.json"
+FINAL_OUTPUT = BASE / "germany_2008-2015_2019-2022_filtered_final.json"
 PROGRESS_FILE = Path(__file__).parent / ".triage_borderline_progress.json"
+
+#_________________________________________________________________________________________#
 
 # triage loop
 
