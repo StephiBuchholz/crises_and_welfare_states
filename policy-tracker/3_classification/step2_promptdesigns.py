@@ -122,7 +122,7 @@ _FEW_SHOT_EXAMPLES = """\
 ──── EXAMPLES ────
 [TODO: insert 2–3 labeled examples here — one per "---" separator.
  Each example: Title / Published / abbreviated text / Classification JSON.
- For batch prompts include all output fields; for single prompts include SPF fields only.]
+ For batch prompts include all (!) output fields; for single prompts include SPF fields only.]
 ──────────────────"""
 
 # ─── SHARED SYSTEM PROMPT ─────────────────────────────────────────────────────
@@ -135,6 +135,11 @@ _SYSTEM = (
 )
 
 # ─── REUSABLE TEXT SECTIONS ───────────────────────────────────────────────────
+
+_SEC_SUM = (
+    "──── SUMMARY ────\n"
+    "Provide 1-2 brief sentences to pointedly summarize this legal policy text in English."
+)
 
 _SEC_DATE = """\
 ──── DATE EXTRACTION ────
@@ -196,6 +201,7 @@ def _compose_batch(spf_sec: str, *, few_shot: bool) -> str: #function that compo
     return _join(
         _FEW_SHOT_EXAMPLES if few_shot else "",
         "Classify the legislative text below according to these codebook rules.",
+        _SEC_SUM,
         _SEC_DATE,
         spf_sec,
         _SEC_CRISIS,
@@ -221,6 +227,9 @@ def _make_schema(*, batch: bool, jus: bool) -> dict:
     req: list = []
 
     if batch:
+        props["summary"] = {"type": "string", "description": "1-2 sentence English summary of the policy text"}
+        req.append("summary")
+
         date_fields: dict[str, str] = {
             "legally_effective":   "yyyy-mm",
             "leg_eff_terminate":   "yyyy-mm or na",

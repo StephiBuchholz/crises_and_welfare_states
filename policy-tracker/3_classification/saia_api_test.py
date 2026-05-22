@@ -16,7 +16,7 @@ base_url= os.getenv("SAIA_API_ENDPOINT")
 m1_llama= "llama-3.3-70b-instruct"
 m2_mistral= "mistral-large-3-675b-instruct-2512"
 m3_qwen= "qwen3.5-397b-a17b"
-m4_gemma= "gemma-4-31b-it"
+m4_gemma= "gemma-3-27b-it" #gemma-4-31b-it not available at time of testing
 m5_gpt= "openai-gpt-oss-120b" #reasoning model
 m6_devstral= "devstral-2-123b-instruct-2512" #for software engineering/coding
 

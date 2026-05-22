@@ -5,6 +5,12 @@ Classification is applied at the level of individual legislative texts (laws, ex
 
 ---
 
+## Summary
+
+**Type:** string
+
+Provide 1-2 brief sentences to pointedly summarize this legal policy text in English.
+
 ## Date variables
 
 All dates are extracted verbatim from the legislative text.
