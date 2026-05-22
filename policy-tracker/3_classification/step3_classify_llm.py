@@ -142,8 +142,8 @@ MODELS = [
 
 # ─── PATHS ────────────────────────────────────────────────────────────────────
 PROJECT_ROOT  = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = PROJECT_ROOT / "data" / "gold_standard" / "germany_cov_sample_20.json"
-OUTPUT_DIR    = PROJECT_ROOT / "data" / "processed" / "germany" 
+DEFAULT_INPUT = PROJECT_ROOT / "data" / "processed" / "germany" / "germany_cov_sample_20.json"
+OUTPUT_DIR    = PROJECT_ROOT / "data" / "classifications" / "germany" 
 # ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -428,4 +428,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main(
+    main()
