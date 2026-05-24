@@ -286,8 +286,8 @@ def show_header(entry: dict, idx: int, total: int, labelled_ids: set):
         f"Year: {entry['year']}   "
         f"Score: {entry.get('similarity_score', 0):.3f}"
     )
-    pub = entry.get("date_published", "")[:10]
-    enac = entry.get("date_law", "")[:10]
+    pub = (entry.get("date_published") or "")[:10]
+    enac = (entry.get("date_law") or "")[:10]
     wc = len(entry.get("full_text", "").split())
     print(f"  {'Published':<12}: {pub}   Enacted: {enac}   Words: {wc:,}")
     print(f"  {'URL':<12}: {entry.get('url_web', '')}")
