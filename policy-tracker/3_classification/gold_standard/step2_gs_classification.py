@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
 """
-step1_classification_goldstandard.py
+step2_gs_classification.py
 
-this file is an interactive terminal tool for annotating the (Germany COVID) gold-standard sample.
+Interactive terminal tool for annotating the gold-standard sample.
 Labels are saved incrementally — quit and resume possible at any time.
 
-instructions:
+Instructions:
 
-use the following execution for labelling the default dataset germany_cov_sample_20.json
-    python step1_classification_goldstandard.py --coder [add your initials] (default: sb)
-to specify another dataset, use:
-    python step1_classification_goldstandard.py --input path/to/other_sample.json
+    python step2_gs_classification.py --coder [your initials]
 
-adding a new classification dimension:
-    append one entry to DIMENSIONS below. Existing labels are never touched;
+By default the most recent gs_sample file in data/gold_standard/ is used.
+To specify a different sample:
+
+    python step2_gs_classification.py --input path/to/sample.json --coder sb
+
+Adding a new classification dimension:
+    Append one entry to DIMENSIONS below. Existing labels are never touched;
     only the new dimension will show as unlabelled on the next run.
 """
-# imports
 
 import argparse
 import json
 import os
 import re
 import sys
-import tempfile
 import textwrap
 import webbrowser
 from datetime import datetime
@@ -35,7 +35,7 @@ from pathlib import Path
 # Supported types:
 #   "date_extract"    — coder extracts a yyyy-mm date from the full text | required, no 'na'
 #   "date_extract+na" — identical to date_extract, but "na" is explicitly a valid answer
-#   "art_extract"     - coder extracts the number of the article/paragraph (no signs) or 'na'
+#   "art_extract"     — coder extracts the number of the article/paragraph (no signs) or 'na'
 #   "categorical"     — coder picks from a numbered list of options
 #   "categorical+na"  — identical to categorical, but also accepts "na" / "0" for not applicable
 #   "boolean"         — coder answers yes (1) or no (0)
@@ -55,6 +55,15 @@ _SPF_OPTIONS = [
 ]
 
 DIMENSIONS = [
+    {
+        "key": "summary",
+        "display": "Summary",
+        "type": "string",
+        "hint": (
+            "Provide 1-2 sentences in English that pointedly summarize what this policy does.\n"
+            "  Focus on who it targets and what it changes."
+        ),
+    },
     {
         "key": "legally_effective",
         "display": "Legally effective (Inkrafttreten)",
@@ -214,9 +223,29 @@ DIMENSIONS = [
 
 
 # ─── PATHS ────────────────────────────────────────────────────────────────────
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = PROJECT_ROOT / "data" / "processed" / "germany_cov_sample_20.json"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "gold_standard"
+
+def _find_root(marker="CLAUDE.md"):
+    for p in [Path(__file__).parent, *Path(__file__).parent.parents]:
+        if (p / marker).exists():
+            return p
+    raise FileNotFoundError(f"project root not found (no {marker} above {Path(__file__).parent})")
+
+PROJECT_ROOT  = _find_root()
+OUTPUT_DIR    = PROJECT_ROOT / "data" / "gold_standard"
+OUTPUT_PREFIX = "germany_2008-2015_2019-2022"
+
+
+def _latest_sample(gold_dir: Path, prefix: str) -> Path | None:
+    """Return the most recently dated gs_sample file for the given prefix, or None."""
+    candidates = sorted(
+        gold_dir.glob(f"{prefix}_gs_sample_*.json"),
+        key=lambda p: p.name,
+        reverse=True,
+    )
+    return candidates[0] if candidates else None
+
+
+DEFAULT_INPUT = _latest_sample(OUTPUT_DIR, OUTPUT_PREFIX)
 
 PAGE_LINES = 50
 WRAP_WIDTH = 100
@@ -584,15 +613,24 @@ def main():
         "--input",
         type=Path,
         default=DEFAULT_INPUT,
-        help=f"Path to the input JSON sample (default: {DEFAULT_INPUT})",
+        help=(
+            f"Path to the input JSON sample "
+            f"(default: most recent gs_sample in data/gold_standard/)"
+        ),
     )
     args = parser.parse_args()
     input_file = args.input
     coder_id = args.coder
-    out_file = output_path(input_file, coder_id)
 
+    if input_file is None:
+        sys.exit(
+            "Error: no gs_sample file found in data/gold_standard/. "
+            "Run step1_gs_randomsample.py first, or pass --input."
+        )
     if not input_file.exists():
         sys.exit(f"Error: input file not found: {input_file}")
+
+    out_file = output_path(input_file, coder_id)
 
     entries = json.loads(input_file.read_text(encoding="utf-8"))
     total = len(entries)
@@ -645,13 +683,11 @@ def main():
             show_header(rec, idx, total, labelled_ids)
             today = datetime.now().strftime("%Y-%m-%d")
 
-            # carry forward existing gs_labels, then update dimension by dimension
             gs_labels = dict(rec.get("gs_labels", {}))
 
             for dim in DIMENSIONS:
                 value = prompt_dimension(dim, gs_labels.get(dim["key"]))
                 if value is not None:
-                    # only write a new provenance record if the value changed
                     existing = gs_labels.get(dim["key"], {})
                     if value != existing.get("value"):
                         gs_labels[dim["key"]] = {
