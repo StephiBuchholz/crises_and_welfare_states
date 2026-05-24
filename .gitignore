@@ -11,5 +11,5 @@ litrev/04_output/
 
 #ignore fetched raw data that is too large to push to GitHub (100mb max) (compressed versions are pushed)
 policy-tracker/data/raw/germany/bgbl1_2008-2015_20260409.json
-
+policy-tracker/data/processed/germany/germany_2008-2015_2019-2022_berttopic_topic_assignments.json
 
