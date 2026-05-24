@@ -30,7 +30,7 @@ USAGE
  how functions here works together:
 
  main()
-  └── for each model × prompt → run_prompt()       # loops all entries, writes output file
+  └── for each model × prompt_key → run_prompt()       # loops all entries, writes output file
             └── for each entry → classify_entry()  # one API call, returns parsed result
                       └── build_messages()         # formats the prompt for that entry
  

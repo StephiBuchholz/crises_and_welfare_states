@@ -1,0 +1,2226 @@
+[
+  {
+    "topic_id": -1,
+    "count": 791,
+    "top_words": [
+      "berufsausbildung",
+      "verteidigung",
+      "dienst",
+      "bundeswehr",
+      "lebensmittelrechtlich",
+      "zustndigkeit",
+      "anordnung",
+      "bundesministerium",
+      "einfhrung",
+      "regelung"
+    ]
+  },
+  {
+    "topic_id": 0,
+    "count": 124,
+    "top_words": [
+      "straenverkehr",
+      "ausnahme",
+      "kraftfahrzeugsteuergesetz",
+      "kraftfahrzeug",
+      "vorschrift nderung",
+      "vorschrift",
+      "straenverkehrszulassungsordnung",
+      "gebhrenordnung",
+      "fahrzeug",
+      "nderung gebhrenordnung"
+    ]
+  },
+  {
+    "topic_id": 1,
+    "count": 103,
+    "top_words": [
+      "energie",
+      "strom",
+      "energetisch",
+      "neuregelung",
+      "frderung",
+      "manahme",
+      "weit",
+      "nderung weit",
+      "anreizregulierungsverordnung",
+      "berichtigung neuregelung"
+    ]
+  },
+  {
+    "topic_id": 2,
+    "count": 95,
+    "top_words": [
+      "bereinkommen",
+      "abweichend",
+      "haager bereinkommen",
+      "haager",
+      "abgeordnetengesetz",
+      "anerkennung vollstreckung",
+      "bundesvertriebenengesetz",
+      "handelssachen nderung",
+      "handelssachen",
+      "zivil handelssachen"
+    ]
+  },
+  {
+    "topic_id": 3,
+    "count": 95,
+    "top_words": [
+      "bvdvverordnung",
+      "solvabilittsverordnung",
+      "rckstandshchstmengenverordnung",
+      "nderung rckstandshchstmengenverordnung",
+      "rckstandshchstmengenverordnung nderung",
+      "ausgleichsmechanismusausfhrungsverordnung",
+      "lotstarifverordnung nderung",
+      "lotstarifverordnung",
+      "nderung lotstarifverordnung",
+      "invekosverordnung nderung"
+    ]
+  },
+  {
+    "topic_id": 4,
+    "count": 86,
+    "top_words": [
+      "arzneimittel",
+      "arzneimittelgesetz",
+      "arzneimittelgesetz nderung",
+      "arzneimittelrechtlich",
+      "arzneimittelrechtlich vorschrift",
+      "eu 2017",
+      "dokumentation",
+      "dokumentation information",
+      "arzneimittel nderung",
+      "nderung anlage"
+    ]
+  },
+  {
+    "topic_id": 5,
+    "count": 85,
+    "top_words": [
+      "seeschifffahrt",
+      "binnenschifffahrt",
+      "schifffahrtsrechtlich",
+      "schifffahrtsrechtlich vorschrift",
+      "sonstig",
+      "binnenschiffsuntersuchungsordnung",
+      "gebhrenverordnung amtshandlung",
+      "vorschrift bezug",
+      "zulassungsverfahren",
+      "amtshandlung bundesamt"
+    ]
+  },
+  {
+    "topic_id": 6,
+    "count": 82,
+    "top_words": [
+      "binnenschifffahrtsstraenordnung",
+      "grenzberschreitend",
+      "einfhrung binnenschifffahrtsstraenordnung",
+      "bundeslaufbahnverordnung",
+      "rennwett",
+      "eisenbahn",
+      "durchsetzung",
+      "erlass nderung",
+      "strae eisenbahn",
+      "vorschrift nderung"
+    ]
+  },
+  {
+    "topic_id": 7,
+    "count": 79,
+    "top_words": [
+      "meisterprfung",
+      "meisterprfung ii",
+      "ii",
+      "fortbildungsabschluss",
+      "anerkannt fortbildungsabschluss",
+      "professional",
+      "anerkannt",
+      "berufsausbildung",
+      "geprfter",
+      "prfung anerkannt"
+    ]
+  },
+  {
+    "topic_id": 8,
+    "count": 75,
+    "top_words": [
+      "packungsgrenverordnung",
+      "chemikaliengesetz",
+      "gerte",
+      "anlage betubungsmittelgesetz",
+      "produktsicherheitsgesetz",
+      "betubungsmittelgesetz",
+      "betubungsmittelgesetz nderung",
+      "gefahrgutbefrderungsgesetz",
+      "nderung anlage",
+      "einundzwanzigst"
+    ]
+  },
+  {
+    "topic_id": 9,
+    "count": 74,
+    "top_words": [
+      "luftverkehrsgesetz",
+      "11",
+      "absenkung",
+      "eg nr",
+      "personal",
+      "festlegung",
+      "beauftragung",
+      "nderung luftverkehrsgesetz",
+      "nr",
+      "gem"
+    ]
+  },
+  {
+    "topic_id": 10,
+    "count": 72,
+    "top_words": [
+      "kreditinstitut",
+      "nderung beitrag",
+      "beitrag entschdigungseinrichtung",
+      "wiederaufbau",
+      "kreditanstalt wiederaufbau",
+      "beitrag",
+      "kreditanstalt",
+      "sondervermgen",
+      "inhalt",
+      "entschdigungseinrichtung"
+    ]
+  },
+  {
+    "topic_id": 11,
+    "count": 70,
+    "top_words": [
+      "elektronisch",
+      "aktenfhrung",
+      "bundesmeldedatenbermittlungsverordnung",
+      "elektronisch aktenfhrung",
+      "rechtsverkehr",
+      "elektronisch rechtsverkehr",
+      "gericht",
+      "datum",
+      "datenbermittlung",
+      "standard"
+    ]
+  },
+  {
+    "topic_id": 12,
+    "count": 70,
+    "top_words": [
+      "meldepflichtig",
+      "tierschutzgesetz",
+      "tierseuche",
+      "schweinepestverordnung",
+      "verbot",
+      "anzeigepflichtig",
+      "anzeigepflichtig tierseuche",
+      "geflgelpestverordnung",
+      "anwendung",
+      "nderung tierische"
+    ]
+  },
+  {
+    "topic_id": 13,
+    "count": 67,
+    "top_words": [
+      "futtermittelverordnung",
+      "nderung futtermittelverordnung",
+      "futtermittelverordnung nderung",
+      "lebensmittel",
+      "futtermittelgesetzbuche",
+      "lebensmittel futtermittelgesetzbuche",
+      "lebensmittelrechtlich vorschrift",
+      "futtermittelgesetzbuch",
+      "lebensmitteleinfuhrverordnung",
+      "lebensmittelrechtlich"
+    ]
+  },
+  {
+    "topic_id": 14,
+    "count": 63,
+    "top_words": [
+      "begrenzung",
+      "emission",
+      "bimschv",
+      "kraft",
+      "kraftfahrzeug",
+      "durchfhrung bundesimmissionsschutzgesetz",
+      "industrieemission",
+      "industrieemission nderung",
+      "richtlinie industrieemission",
+      "kraftstoff"
+    ]
+  },
+  {
+    "topic_id": 15,
+    "count": 62,
+    "top_words": [
+      "nderung steuerlich",
+      "steuerlich",
+      "prfungsordnung",
+      "einkommensteuergesetz",
+      "vermgen",
+      "verhinderung",
+      "vertretung bundesrepublik",
+      "reform",
+      "abkommen",
+      "vermeidung"
+    ]
+  },
+  {
+    "topic_id": 16,
+    "count": 60,
+    "top_words": [
+      "beschftigung",
+      "arbeitnehmerentsendegesetz",
+      "arbeitszeit",
+      "arbeitnehmer",
+      "instrument",
+      "verbesserung international",
+      "neuausrichtung",
+      "arbeitnehmerberlassungsgesetz",
+      "untersttzung",
+      "verbesserung"
+    ]
+  },
+  {
+    "topic_id": 17,
+    "count": 59,
+    "top_words": [
+      "berufsausbildung",
+      "nderung berufsausbildung",
+      "technischen",
+      "berufsausbildung technischen",
+      "technisch",
+      "entwicklung erprobung",
+      "entwicklung",
+      "handwerk",
+      "berufsausbildung fachkraft",
+      "fachkraft"
+    ]
+  },
+  {
+    "topic_id": 18,
+    "count": 56,
+    "top_words": [
+      "entscheidung bundesverfassungsgericht",
+      "entscheidung",
+      "bundesverfassungsgericht",
+      "verbindung",
+      "buch",
+      "buch sozialgesetzbuch",
+      "sozialgesetzbuch",
+      "bundeswahlgesetz entscheidung",
+      "abs",
+      "bundesverfassungsgericht 20"
+    ]
+  },
+  {
+    "topic_id": 19,
+    "count": 50,
+    "top_words": [
+      "auenwirtschaftsgesetz",
+      "groundauenhandelsmanagementkaufleuteausbildungsverordnung",
+      "nderung auenwirtschaftsgesetz",
+      "auslandsreisekostenverordnung",
+      "anwendung",
+      "statistik",
+      "nderung futtermittelrechtlich",
+      "futtermittelrechtlich",
+      "ausland",
+      "fall"
+    ]
+  },
+  {
+    "topic_id": 20,
+    "count": 49,
+    "top_words": [
+      "nderung sozialversicherungsentgeltverordnung",
+      "sozialversicherungsentgeltverordnung",
+      "sozialversicherung",
+      "beitragssatz gesetzlich",
+      "gesetzlich rentenversicherung",
+      "gesetzlich",
+      "sozialversicherung nderung",
+      "sozial",
+      "beitragssatz",
+      "rente"
+    ]
+  },
+  {
+    "topic_id": 21,
+    "count": 48,
+    "top_words": [
+      "10",
+      "gedenkmnze",
+      "euro gedenkmnze",
+      "ausprgung",
+      "ausprgung deutsch",
+      "nennwert",
+      "euro",
+      "eurogedenkmnze",
+      "eurogedenkmnze nennwert",
+      "deutsch eurogedenkmnze"
+    ]
+  },
+  {
+    "topic_id": 22,
+    "count": 47,
+    "top_words": [
+      "deutsch telekom",
+      "telekom",
+      "post",
+      "beamtenrechtlich",
+      "bereich",
+      "anordnung bertragung",
+      "befugnis",
+      "bertragung beamtenrechtlich",
+      "anordnung",
+      "beamter"
+    ]
+  },
+  {
+    "topic_id": 23,
+    "count": 46,
+    "top_words": [
+      "gefahrgutrechtlich",
+      "nderung gefahrgutrechtlich",
+      "nderung saatgutrechtlich",
+      "saatgutrechtlich",
+      "lotstarifverordnung",
+      "nderung lotstarifverordnung",
+      "nderung tierseuchenrechtlich",
+      "zwlft nderung",
+      "nderung futtermittelrechtlich",
+      "futtermittelrechtlich"
+    ]
+  },
+  {
+    "topic_id": 24,
+    "count": 45,
+    "top_words": [
+      "entscheidung bundesverfassungsgericht",
+      "entscheidung",
+      "bundesverfassungsgericht",
+      "nordrheinwestfalen",
+      "anlage",
+      "land",
+      "anlage iv",
+      "iv",
+      "abs",
+      "land nordrheinwestfalen"
+    ]
+  },
+  {
+    "topic_id": 25,
+    "count": 44,
+    "top_words": [
+      "gemeinsam",
+      "rahmen",
+      "direktzahlung",
+      "sektor",
+      "geltend",
+      "berufsbildung",
+      "durchfhrung unionsrechtlich",
+      "landwirtschaftlich",
+      "unionsrechtlich",
+      "durchfhrung"
+    ]
+  },
+  {
+    "topic_id": 26,
+    "count": 43,
+    "top_words": [
+      "strafgesetzbuch",
+      "nderung strafgesetzbuch",
+      "erweiterung",
+      "strafsache",
+      "strafverfahren",
+      "strkung",
+      "international",
+      "strndg",
+      "nderung international",
+      "sanktion"
+    ]
+  },
+  {
+    "topic_id": 27,
+    "count": 42,
+    "top_words": [
+      "trinkwasserverordnung",
+      "weinrechtlich",
+      "nderung weinrechtlich",
+      "weinrechtlich vorschrift",
+      "zwanzigster nderung",
+      "zwanzigster",
+      "straf bugeldverordnung",
+      "bugeldverordnung",
+      "neunzehnte",
+      "straf"
+    ]
+  },
+  {
+    "topic_id": 28,
+    "count": 42,
+    "top_words": [
+      "bundestag",
+      "deutsch bundestag",
+      "nderung geschftsordnung",
+      "geschftsordnung",
+      "deutsch",
+      "mitglied",
+      "bernahme",
+      "immunitt",
+      "jude deutschland",
+      "deutschland krperschaft"
+    ]
+  },
+  {
+    "topic_id": 29,
+    "count": 41,
+    "top_words": [
+      "soldat",
+      "soldatin",
+      "soldatin soldat",
+      "ernennung",
+      "anordnung ernennung",
+      "ernennung entlassung",
+      "entlassung",
+      "nderung anordnung",
+      "anordnung nderung",
+      "anordnung"
+    ]
+  },
+  {
+    "topic_id": 30,
+    "count": 40,
+    "top_words": [
+      "widerspruchsbescheide",
+      "erlass widerspruchsbescheide",
+      "zustndigkeit erlass",
+      "widerspruchsbescheide vertretung",
+      "klage",
+      "vertretung",
+      "dienstherrn",
+      "dienstherrn klage",
+      "vertretung dienstherrn",
+      "bertragung zustndigkeit"
+    ]
+  },
+  {
+    "topic_id": 31,
+    "count": 40,
+    "top_words": [
+      "ausstellung",
+      "marke",
+      "schutz",
+      "international",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "topic_id": 32,
+    "count": 39,
+    "top_words": [
+      "vorbereitungsdienst",
+      "vorbereitungsdienst gehoben",
+      "gehoben",
+      "verwaltungsdienst",
+      "besonderer gebhrenverordnung",
+      "gehoben technisch",
+      "bundesnetzagentur",
+      "gebhrenverordnung",
+      "bund",
+      "besonderer"
+    ]
+  },
+  {
+    "topic_id": 33,
+    "count": 38,
+    "top_words": [
+      "dngemittelverordnung",
+      "inverkehrbringen",
+      "zulassung",
+      "kolandbaugesetz",
+      "bvlgesetz nderung",
+      "bvlgesetz",
+      "genehmigung",
+      "dngegesetz",
+      "neuordnung",
+      "erzeugung"
+    ]
+  },
+  {
+    "topic_id": 34,
+    "count": 38,
+    "top_words": [
+      "geprfter",
+      "prfung anerkannt",
+      "anerkannt",
+      "fortbildungsabschluss geprfter",
+      "anerkannt fortbildungsabschluss",
+      "fortbildungsabschluss",
+      "geprft",
+      "handwerk",
+      "prfung",
+      "geprfte"
+    ]
+  },
+  {
+    "topic_id": 35,
+    "count": 36,
+    "top_words": [
+      "55",
+      "1a",
+      "inkrafttreten",
+      "inkrafttreten nderung",
+      "frderung elektromobilitt",
+      "nderung luftverkehrsteuergesetze",
+      "luftverkehrsteuergesetze",
+      "elektromobilitt",
+      "steuerlich",
+      "steuerlich frderung"
+    ]
+  },
+  {
+    "topic_id": 36,
+    "count": 36,
+    "top_words": [
+      "vorsorge",
+      "qualitt",
+      "approbationsordnung",
+      "tpggewebeverordnung",
+      "schwerwiegend",
+      "transplantationsgesetz",
+      "anforderung",
+      "sicherheit",
+      "abs",
+      "reform"
+    ]
+  },
+  {
+    "topic_id": 37,
+    "count": 35,
+    "top_words": [
+      "prfung anerkannt",
+      "anerkannt",
+      "geprfte",
+      "geprfter",
+      "fortbildungsabschluss geprfter",
+      "anerkannt fortbildungsabschluss",
+      "fortbildungsabschluss",
+      "prfung",
+      "geprfte fachwirtin",
+      "geprfter fachwirt"
+    ]
+  },
+  {
+    "topic_id": 38,
+    "count": 35,
+    "top_words": [
+      "bundesanzeiger",
+      "verkndunge",
+      "hinweis verkndunge",
+      "hinweis",
+      "sgb",
+      "neufassung buch",
+      "stiftung",
+      "buch sozialgesetzbuch",
+      "buch",
+      "sozialgesetzbuch"
+    ]
+  },
+  {
+    "topic_id": 39,
+    "count": 35,
+    "top_words": [
+      "kind",
+      "familie",
+      "ausbau",
+      "bundeselterngeld",
+      "elternzeitgesetz",
+      "bundeselterngeld elternzeitgesetz",
+      "teilhabe",
+      "frderung",
+      "kind jugendliche",
+      "jugendliche"
+    ]
+  },
+  {
+    "topic_id": 40,
+    "count": 35,
+    "top_words": [
+      "elektromobilitt",
+      "telekommunikationsgesetz",
+      "verwendung",
+      "bundesnaturschutzgesetz nderung",
+      "betrieben",
+      "behandlung",
+      "rein",
+      "elektrisch",
+      "aufbau",
+      "entsorgung"
+    ]
+  },
+  {
+    "topic_id": 41,
+    "count": 35,
+    "top_words": [
+      "wettbewerbsbeschrnkung",
+      "wettbewerb",
+      "verbraucherschutz",
+      "fair",
+      "egverbraucherschutzdurchsetzungsgesetz",
+      "messwesen",
+      "gewerbeordnung",
+      "berichtigung neufassung",
+      "gut",
+      "2007"
+    ]
+  },
+  {
+    "topic_id": 42,
+    "count": 34,
+    "top_words": [
+      "nderung buch",
+      "sozialgesetzbuch nderung",
+      "buch",
+      "buch sozialgesetzbuch",
+      "sozialgesetzbuch",
+      "zwlft buch",
+      "neufassung buch",
+      "zwlft",
+      "berichtigung neufassung",
+      "neufestsetzung"
+    ]
+  },
+  {
+    "topic_id": 43,
+    "count": 34,
+    "top_words": [
+      "versicherung",
+      "krankenkasse",
+      "pensionsfonds",
+      "informationspflicht",
+      "versicherungsunternehmen",
+      "unfallversicherung",
+      "reisesicherungsfond",
+      "vergtungssystem",
+      "anforderung vergtungssystem",
+      "aufsichtsrechtlich anforderung"
+    ]
+  },
+  {
+    "topic_id": 44,
+    "count": 34,
+    "top_words": [
+      "covid19pandemie",
+      "sicherung",
+      "anlass covid19pandemie",
+      "anlass",
+      "folge",
+      "heimat",
+      "sicherstellung",
+      "bundesministerium innere",
+      "innere",
+      "verlngerung"
+    ]
+  },
+  {
+    "topic_id": 45,
+    "count": 34,
+    "top_words": [
+      "nderung bertragung",
+      "befugnis erlass",
+      "bertragung befugnis",
+      "erlass rechtsverordnunge",
+      "bundesanstalt finanzdienstleistungsaufsicht",
+      "finanzdienstleistungsaufsicht",
+      "rechtsverordnunge",
+      "befugnis",
+      "bundesanstalt",
+      "erlass"
+    ]
+  },
+  {
+    "topic_id": 46,
+    "count": 34,
+    "top_words": [
+      "krankenhaus",
+      "pflegepersonaluntergrenzenverordnung",
+      "pflege",
+      "pflegerisch",
+      "pflegerisch versorgung",
+      "versorgung",
+      "regelung",
+      "einrichtung",
+      "anwrter",
+      "ausbildungsgeld"
+    ]
+  },
+  {
+    "topic_id": 47,
+    "count": 33,
+    "top_words": [
+      "rechtsvorschrift europisch",
+      "rechtsvorschrift",
+      "europisch gemeinschaft",
+      "gemeinschaft",
+      "europisch",
+      "europisch union",
+      "union",
+      "brgerinitiative",
+      "zusammenarbeit",
+      "union nderung"
+    ]
+  },
+  {
+    "topic_id": 48,
+    "count": 33,
+    "top_words": [
+      "20",
+      "eurogedenkmnze",
+      "eurogedenkmnze nennwert",
+      "deutsch eurogedenkmnze",
+      "ausprgung",
+      "ausprgung deutsch",
+      "nennwert",
+      "euro",
+      "euro gedenkmnze",
+      "gedenkmnze"
+    ]
+  },
+  {
+    "topic_id": 49,
+    "count": 32,
+    "top_words": [
+      "eu",
+      "richtlinie",
+      "durchfhrung eu",
+      "parlament rat",
+      "rat",
+      "parlament",
+      "europisch parlament",
+      "europisch",
+      "umsetzung richtlinie",
+      "2018"
+    ]
+  },
+  {
+    "topic_id": 50,
+    "count": 31,
+    "top_words": [
+      "bundesrepublik deutschland",
+      "bundesrepublik",
+      "deutschland",
+      "stiftung",
+      "inkrafttreten staatsvertrag",
+      "nderung gemeinsam",
+      "staatsvertrag",
+      "krperschaft ffentlich",
+      "ffentlich recht",
+      "krperschaft"
+    ]
+  },
+  {
+    "topic_id": 51,
+    "count": 30,
+    "top_words": [
+      "wohngeld",
+      "grundsatz",
+      "wohnungseigentumsgesetz",
+      "reform",
+      "einstufung",
+      "geldwschegesetz",
+      "kaufvertrag",
+      "einbeziehung",
+      "angemessen eigenkapitalausstattung",
+      "eigenkapitalausstattung"
+    ]
+  },
+  {
+    "topic_id": 52,
+    "count": 30,
+    "top_words": [
+      "gendert",
+      "eu",
+      "eg",
+      "richtlinie",
+      "eu nr",
+      "umsetzung richtlinie",
+      "parlament rat",
+      "europisch parlament",
+      "parlament",
+      "beaufsichtigung"
+    ]
+  },
+  {
+    "topic_id": 53,
+    "count": 30,
+    "top_words": [
+      "national",
+      "bevlkerung",
+      "schutz bevlkerung",
+      "aufgrund",
+      "beschlu deutsch",
+      "schutz",
+      "modernisierung strahlenschutzrecht",
+      "sozialschutzpaket",
+      "strahlenschutzrecht",
+      "sozial"
+    ]
+  },
+  {
+    "topic_id": 54,
+    "count": 30,
+    "top_words": [
+      "einkommensteuergesetz",
+      "entscheidung bundesverfassungsgericht",
+      "bundesverfassungsgericht",
+      "entscheidung",
+      "52",
+      "verbindung",
+      "abs nr",
+      "abs",
+      "erbschaftsteuer",
+      "buchstabe"
+    ]
+  },
+  {
+    "topic_id": 55,
+    "count": 30,
+    "top_words": [
+      "nderung bundeswahlgesetz",
+      "bundeswahlgesetz",
+      "wahlordnung",
+      "mitglied",
+      "bundesversammlung",
+      "nderung wahlordnung",
+      "wahl",
+      "bundesversammlung nderung",
+      "land",
+      "20 deutsch"
+    ]
+  },
+  {
+    "topic_id": 56,
+    "count": 30,
+    "top_words": [
+      "finanzausgleichsgesetz",
+      "durchfhrung",
+      "esmfinanzierungsgesetz",
+      "prfung jahresabschlu",
+      "2012 durchfhrung",
+      "coronakrise coronasteuerhilfegesetz",
+      "coronakrise",
+      "bewltigung coronakrise",
+      "coronasteuerhilfegesetz",
+      "bewltigung"
+    ]
+  },
+  {
+    "topic_id": 57,
+    "count": 29,
+    "top_words": [
+      "ausbildungsberufen nderung",
+      "ausbildungsberufen",
+      "aufhebung",
+      "anerkennung",
+      "nderung aufhebung",
+      "erprobung",
+      "ausbildereignungsverordnung",
+      "ausbildungsordnunge",
+      "fernunterrichtsschutzgesetz nderung",
+      "fernunterrichtsschutzgesetz"
+    ]
+  },
+  {
+    "topic_id": 58,
+    "count": 29,
+    "top_words": [
+      "bundespolizei",
+      "ausbildung prfung",
+      "gehoben",
+      "laufbahn",
+      "ausbildung",
+      "nderung ausbildung",
+      "nderung zustndigkeit",
+      "prfung gehoben",
+      "aufstieg",
+      "prfung hoch"
+    ]
+  },
+  {
+    "topic_id": 59,
+    "count": 28,
+    "top_words": [
+      "haushaltsjahr",
+      "feststellung",
+      "2021 feststellung",
+      "haushaltsbegleitgesetz",
+      "2021",
+      "2012 feststellung",
+      "2009 feststellung",
+      "2015",
+      "2013",
+      "2020 feststellung"
+    ]
+  },
+  {
+    "topic_id": 60,
+    "count": 27,
+    "top_words": [
+      "finanzmarkt",
+      "stabilisierung",
+      "manahmenpaket",
+      "gewhrleistung",
+      "bernahme",
+      "rahmen",
+      "durchfhrung manahme",
+      "satzung bundesanstalt",
+      "erforderlich",
+      "manahme"
+    ]
+  },
+  {
+    "topic_id": 61,
+    "count": 27,
+    "top_words": [
+      "wirtschaftszone",
+      "raumordnung",
+      "ausschlielich",
+      "ausschlielich wirtschaftszone",
+      "anlageband anlage",
+      "anlageband",
+      "eisenbahn binnenschifffahrt",
+      "gefahrgutverordnung strae",
+      "strae eisenbahn",
+      "neufassung gefahrgutverordnung"
+    ]
+  },
+  {
+    "topic_id": 62,
+    "count": 26,
+    "top_words": [
+      "fleischgesetz",
+      "berwachung",
+      "marktorganisationsrechtlich vorschrift",
+      "rind",
+      "marktorganisationsrechtlich",
+      "legehennenbetriebsregistergesetz",
+      "hhnersalmonellenverordnung nderung",
+      "hhnersalmonellenverordnung",
+      "handelsklassenrechtlich vorschrift",
+      "handelsklassenrechtlich"
+    ]
+  },
+  {
+    "topic_id": 63,
+    "count": 26,
+    "top_words": [
+      "bundesrechtsanwaltsordnung",
+      "nderung durchfhrung",
+      "verfahren",
+      "bundesrat",
+      "eu 2016",
+      "durchfhrung",
+      "680",
+      "bundesmeldegesetz",
+      "archivdienst bund",
+      "archivdienst"
+    ]
+  },
+  {
+    "topic_id": 64,
+    "count": 25,
+    "top_words": [
+      "sanierung",
+      "unternehmen",
+      "erleichterung",
+      "insbesondere mittelstndisch",
+      "mittelstndisch wirtschaft",
+      "mittelstndisch",
+      "verbraucherinformationsgesetz",
+      "insbesondere",
+      "abgabenordnung",
+      "fhrung"
+    ]
+  },
+  {
+    "topic_id": 65,
+    "count": 25,
+    "top_words": [
+      "abfallrechtlich",
+      "abfall",
+      "annahme",
+      "kreislaufwirtschaft",
+      "deponieverordnung",
+      "ausfhrungsgesetz",
+      "abgabe",
+      "september",
+      "bereinkommen",
+      "binnenschifffahrt"
+    ]
+  },
+  {
+    "topic_id": 66,
+    "count": 25,
+    "top_words": [
+      "ii",
+      "nr",
+      "hinweis",
+      "26",
+      "nr 18",
+      "nr 11",
+      "nr 30",
+      "29",
+      "31",
+      "10"
+    ]
+  },
+  {
+    "topic_id": 67,
+    "count": 24,
+    "top_words": [
+      "nderung telekommunikationsrechtlich",
+      "telekommunikationsrechtlich",
+      "telekommunikationsrechtlich regelung",
+      "nderung telekommunikationsgesetz",
+      "telekommunikationsgesetz",
+      "2018",
+      "regelung",
+      "telekomsonderzahlungsverordnung",
+      "strafverfolgung",
+      "betreiben"
+    ]
+  },
+  {
+    "topic_id": 68,
+    "count": 24,
+    "top_words": [
+      "verwaltungskostenfeststellungsverordnung",
+      "bmi nderung",
+      "betubungsmittelkostenverordnung",
+      "nr 30",
+      "ptb besonderer",
+      "ptb",
+      "gebhrenverordnung",
+      "eichgebhrenverordnung",
+      "mess eichgebhrenverordnung",
+      "gebhrenverordnung bmi"
+    ]
+  },
+  {
+    "topic_id": 69,
+    "count": 24,
+    "top_words": [
+      "direktzahlungendurchfhrungsgesetz",
+      "direktzahlungenverpflichtungengesetz",
+      "nderung direktzahlungendurchfhrungsverordnung",
+      "direktzahlungendurchfhrungsverordnung",
+      "direktzahlungenverpflichtungenverordnung",
+      "inkrafttreten vorschrift",
+      "anzeige vorlage",
+      "gapintegriert",
+      "gapintegriert verwaltung",
+      "gapkonditionalittengesetz"
+    ]
+  },
+  {
+    "topic_id": 70,
+    "count": 24,
+    "top_words": [
+      "atomgesetz",
+      "atomrechtlich",
+      "abfall",
+      "nderung atomrechtlich",
+      "entsorgung",
+      "abfall nderung",
+      "nderung sonstig",
+      "stilllegung",
+      "umwelt naturschutz",
+      "achtzehnt nderung"
+    ]
+  },
+  {
+    "topic_id": 71,
+    "count": 23,
+    "top_words": [
+      "hauptzollmter",
+      "zustndig behrde",
+      "bestimmung zustndig",
+      "durchfhrung bundesdisziplinargesetz",
+      "arbeitnehmerentsendegesetz",
+      "zustndig",
+      "bundesdisziplinargesetz",
+      "behrde",
+      "bundesdisziplinargesetz geschftsbereich",
+      "bundesunmittelbar"
+    ]
+  },
+  {
+    "topic_id": 72,
+    "count": 23,
+    "top_words": [
+      "patent",
+      "markenamt",
+      "patent markenamt",
+      "verbesserung durchsetzung",
+      "gewerblich",
+      "rechtsschutz",
+      "deutsch patent",
+      "rechtsverkehr",
+      "elektronisch rechtsverkehr",
+      "vereinfachung"
+    ]
+  },
+  {
+    "topic_id": 73,
+    "count": 22,
+    "top_words": [
+      "hrakustikermeisterverordnung",
+      "missbruch",
+      "gefahr",
+      "vermeidung",
+      "elfte",
+      "elfte nderung",
+      "dreizehnt nderung",
+      "dreizehnt",
+      "zwlft nderung",
+      "zwlft"
+    ]
+  },
+  {
+    "topic_id": 74,
+    "count": 22,
+    "top_words": [
+      "umweltrechtlich",
+      "umweltrechtlich vorschrift",
+      "umweltauditgesetz",
+      "umweltstatistikgesetz",
+      "umweltvertrglichkeitsprfung",
+      "nderung umweltauditgesetz",
+      "nderung umweltrechtlich",
+      "umsetzung dienstleistungsrichtlinie",
+      "vorschrift neufassung",
+      "dienstleistungsrichtlinie"
+    ]
+  },
+  {
+    "topic_id": 75,
+    "count": 22,
+    "top_words": [
+      "bundesbeihilfeverordnung",
+      "einziehung",
+      "bundesausbildungsfrderungsgesetz",
+      "2017",
+      "berichtigung nderung",
+      "hchstgrenze",
+      "mrz 2021",
+      "oktober 2017",
+      "rat 22",
+      "eu 2021"
+    ]
+  },
+  {
+    "topic_id": 76,
+    "count": 21,
+    "top_words": [
+      "asylbewerberleistungsgesetz",
+      "hhe",
+      "aufenthalts",
+      "3a",
+      "januar",
+      "unterbringung",
+      "kommune",
+      "opfer",
+      "gut schutz",
+      "union neufassung"
+    ]
+  },
+  {
+    "topic_id": 77,
+    "count": 20,
+    "top_words": [
+      "kurzarbeitergeld",
+      "erleichterung",
+      "verbesserung regelung",
+      "befristet",
+      "verlngerung",
+      "arbeitsfrderung",
+      "regelung nderung",
+      "erhebung beitrag",
+      "beitragssatzverordnung",
+      "verordnungsermchtigung"
+    ]
+  },
+  {
+    "topic_id": 78,
+    "count": 20,
+    "top_words": [
+      "fischseuchenverordnung",
+      "seefischereigesetz",
+      "fischseuchenverordnung nderung",
+      "nderung fischseuchenverordnung",
+      "nderung seefischereigesetz",
+      "verffentlichung",
+      "hundefelleinfuhrverbotsgesetz",
+      "katze hundefelleinfuhrverbotsgesetz",
+      "bertragung ermchtigung",
+      "direktzahlungenverpflichtungenverordnung"
+    ]
+  },
+  {
+    "topic_id": 79,
+    "count": 20,
+    "top_words": [
+      "sechzigst",
+      "siebenundfnfzigste",
+      "vierundfnfzigste nderung",
+      "sechzigst nderung",
+      "sechsundfnfzigste",
+      "fnfundfnfzigst nderung",
+      "einundfnfzigste nderung",
+      "vorschrift eg",
+      "vierundvierzigst nderung",
+      "zweiundfnfzigste"
+    ]
+  },
+  {
+    "topic_id": 80,
+    "count": 19,
+    "top_words": [
+      "kind",
+      "umsetzung entscheidung",
+      "nderung international",
+      "international",
+      "erbrecht",
+      "zivilprozessordnung abgabenordnung",
+      "schutz kind",
+      "gefhrdung",
+      "eltern",
+      "adoptionsvermittlungsgesetz"
+    ]
+  },
+  {
+    "topic_id": 81,
+    "count": 19,
+    "top_words": [
+      "nderung aufenthaltsverordnung",
+      "aufenthaltsverordnung",
+      "aufenthaltsverordnung nderung",
+      "aufenthaltsgesetz",
+      "verschiebung",
+      "zensus",
+      "2022 nderung",
+      "azrgdurchfhrungsverordnung",
+      "achtzehnte nderung",
+      "weit nderung"
+    ]
+  },
+  {
+    "topic_id": 82,
+    "count": 19,
+    "top_words": [
+      "hinweis rechtsvorschrift",
+      "rechtsvorschrift europisch",
+      "hinweis",
+      "gemeinschaft",
+      "europisch gemeinschaft",
+      "rechtsvorschrift",
+      "europisch",
+      "eu weit",
+      "austritt vereinigt",
+      "austritt"
+    ]
+  },
+  {
+    "topic_id": 83,
+    "count": 19,
+    "top_words": [
+      "festlegung",
+      "eu 2018",
+      "revision",
+      "2018",
+      "leistung",
+      "2014",
+      "kosten",
+      "2018 2001",
+      "2014 festlegung",
+      "richtlinie eu"
+    ]
+  },
+  {
+    "topic_id": 84,
+    "count": 19,
+    "top_words": [
+      "mindestunterhaltsverordnung",
+      "ingenieur",
+      "kommunaltrgerzulassungsverordnung",
+      "nderung kommunaltrgerzulassungsverordnung",
+      "architekt ingenieur",
+      "kommunaltrgerzulassungsverordnung nderung",
+      "honorarordnung",
+      "honorarordnung architekt",
+      "architekt",
+      "vermarktung"
+    ]
+  },
+  {
+    "topic_id": 85,
+    "count": 19,
+    "top_words": [
+      "fachrichtung kunststoff",
+      "kautschuk",
+      "kunststoff kautschuk",
+      "kunststoff",
+      "berufsausbildung",
+      "fachrichtung",
+      "kautschuk geprfte",
+      "print",
+      "fachangestellte",
+      "berichtigung prfung"
+    ]
+  },
+  {
+    "topic_id": 86,
+    "count": 19,
+    "top_words": [
+      "bundesausbildungsfrderungsgesetz",
+      "aufstiegsfortbildungsfrderungsgesetz",
+      "nderung bundesausbildungsfrderungsgesetz",
+      "bafgndg",
+      "nderung aufstiegsfortbildungsfrderungsgesetz",
+      "ausland",
+      "ausbildungsgeld",
+      "jung mensch",
+      "hrtefall",
+      "ausland nderung"
+    ]
+  },
+  {
+    "topic_id": 87,
+    "count": 18,
+    "top_words": [
+      "bekmpfung",
+      "ji rat",
+      "ji",
+      "rahmenbeschlu",
+      "strafrechtlich",
+      "vorbereitung",
+      "strafrechtlich schutz",
+      "terroristisch",
+      "verbesserung strafrechtlich",
+      "verfolgung"
+    ]
+  },
+  {
+    "topic_id": 88,
+    "count": 18,
+    "top_words": [
+      "goldmnze",
+      "euro goldmnze",
+      "100",
+      "deutsch eurogedenkmnze",
+      "eurogedenkmnze nennwert",
+      "eurogedenkmnze",
+      "ausprgung",
+      "ausprgung deutsch",
+      "nennwert",
+      "euro"
+    ]
+  },
+  {
+    "topic_id": 89,
+    "count": 18,
+    "top_words": [
+      "bundesversorgungsgesetz",
+      "anpassung",
+      "2009",
+      "2008",
+      "aussetzung ergnzung",
+      "merkmal",
+      "verdienststatistikgesetz",
+      "anstalt",
+      "bundesbesoldung versorgungsanpassungsgesetz",
+      "versorgungsanpassungsgesetz"
+    ]
+  },
+  {
+    "topic_id": 90,
+    "count": 18,
+    "top_words": [
+      "besonderer gebhrenverordnung",
+      "gebhrenverordnung",
+      "besonderer",
+      "ffentlich leistung",
+      "zurechenbar ffentlich",
+      "individuell zurechenbar",
+      "zurechenbar",
+      "individuell",
+      "nderung kostenverordnung",
+      "kostenverordnung"
+    ]
+  },
+  {
+    "topic_id": 91,
+    "count": 18,
+    "top_words": [
+      "nennwert euro",
+      "euro gedenkmnze",
+      "gedenkmnze",
+      "ausprgung deutsch",
+      "nennwert",
+      "ausprgung",
+      "euro",
+      "eurogedenkmnze nennwert",
+      "eurogedenkmnze",
+      "deutsch eurogedenkmnze"
+    ]
+  },
+  {
+    "topic_id": 92,
+    "count": 17,
+    "top_words": [
+      "wasser",
+      "rohrfernleitungsverordnung",
+      "berichtspflicht",
+      "bioabfallverordnung",
+      "allgemein bedingung",
+      "anlage umgang",
+      "wasserhaushaltsgesetz nderung",
+      "umgang wassergefhrdend",
+      "wassergefhrdend",
+      "wassergefhrdend stoff"
+    ]
+  },
+  {
+    "topic_id": 93,
+    "count": 17,
+    "top_words": [
+      "gemeindefinanzreformgesetz",
+      "festsetzung",
+      "aufteilung",
+      "ermittlung",
+      "2011 festsetzung",
+      "2010 ermittlung",
+      "2009 festsetzung",
+      "2013 ermittlung",
+      "2012 2013",
+      "2010 2011"
+    ]
+  },
+  {
+    "topic_id": 94,
+    "count": 17,
+    "top_words": [
+      "nderung bundesimmissionsschutzgesetz",
+      "bundesimmissionsschutzgesetz",
+      "umsetzung verpflichtung",
+      "zollfahndungsdienstgesetz",
+      "sachverhalt",
+      "neuorganisation",
+      "zollverwaltung",
+      "neustrukturierung",
+      "vereinigt staat",
+      "staat amerika"
+    ]
+  },
+  {
+    "topic_id": 95,
+    "count": 16,
+    "top_words": [
+      "krankenversicherung",
+      "gesetzlich krankenversicherung",
+      "gesetzlich",
+      "pflegeversicherung",
+      "weiterentwicklung",
+      "sozial",
+      "altersrckstellung gesetzlich",
+      "buchstabe einkommensteuergesetz",
+      "bildung altersrckstellung",
+      "altersrckstellung"
+    ]
+  },
+  {
+    "topic_id": 96,
+    "count": 16,
+    "top_words": [
+      "115",
+      "zivilprozessordnung",
+      "2012",
+      "verwendung formular",
+      "persnlich",
+      "2023",
+      "wirtschaftlich",
+      "formular",
+      "2016",
+      "2022"
+    ]
+  },
+  {
+    "topic_id": 97,
+    "count": 16,
+    "top_words": [
+      "versorgungsausgleich",
+      "rentenversicherung",
+      "berichtigung",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "topic_id": 98,
+    "count": 16,
+    "top_words": [
+      "insolvenzgeld",
+      "kalenderjahr",
+      "festsetzung",
+      "2023",
+      "sanierung",
+      "2016",
+      "2022",
+      "einlagensicherung anlegerentschdigungsgesetz",
+      "insolvenzantragspflicht",
+      "nderung einlagensicherung"
+    ]
+  },
+  {
+    "topic_id": 99,
+    "count": 16,
+    "top_words": [
+      "erhebung gebhr",
+      "kosten",
+      "gebhr",
+      "erhebung",
+      "institutsvergtungsverordnung institutsvergv",
+      "institutsvergv",
+      "nderung sicherung",
+      "institut institutsvergtungsverordnung",
+      "2014 siebzehnt",
+      "vergtungssystem institut"
+    ]
+  },
+  {
+    "topic_id": 100,
+    "count": 16,
+    "top_words": [
+      "zwlfter",
+      "zwlfter buch",
+      "buch sozialgesetzbuch",
+      "buch",
+      "sozialgesetzbuch",
+      "regelbedarfsstufenfortschreibungsverordnung",
+      "fortschreibung",
+      "28a",
+      "anlage 28",
+      "mageblich"
+    ]
+  },
+  {
+    "topic_id": 101,
+    "count": 15,
+    "top_words": [
+      "buchstabe doppelbuchstabe",
+      "doppelbuchstabe",
+      "flssig",
+      "nachhaltig",
+      "herstellung",
+      "buchstabe",
+      "frderung",
+      "anforderung",
+      "eg frderung",
+      "bmel"
+    ]
+  },
+  {
+    "topic_id": 102,
+    "count": 15,
+    "top_words": [
+      "entlassung beamtin",
+      "entlassung",
+      "ernennung entlassung",
+      "ernennung",
+      "anordnung ernennung",
+      "beamtin",
+      "beamtin beamter",
+      "beamter",
+      "bundesfinanzverwaltung",
+      "anordnung"
+    ]
+  },
+  {
+    "topic_id": 103,
+    "count": 15,
+    "top_words": [
+      "digital",
+      "aspekt",
+      "nderung digital",
+      "bereitstellung",
+      "dienstleistung",
+      "inhalt",
+      "kaufvertrag",
+      "regelung umsetzung",
+      "zwangsvollstreckung nderung",
+      "sicher"
+    ]
+  },
+  {
+    "topic_id": 104,
+    "count": 13,
+    "top_words": [
+      "bundesentschdigungsgesetz",
+      "durchfhrung",
+      "siebenundfnfzigste",
+      "sechsundfnfzigste",
+      "dreiundfnfzigst",
+      "fnfundfnfzigst",
+      "vierundfnfzigste",
+      "zweiundfnfzigste",
+      "einundfnfzigste",
+      "fnfzigste"
+    ]
+  },
+  {
+    "topic_id": 105,
+    "count": 13,
+    "top_words": [
+      "see",
+      "gefahrgutverordnung",
+      "neufassung gefahrgutverordnung",
+      "see nderung",
+      "nderung gefahrgutverordnung",
+      "regel",
+      "1972",
+      "nderung international",
+      "seesicherheitsuntersuchungsgesetz",
+      "neufassung"
+    ]
+  },
+  {
+    "topic_id": 106,
+    "count": 13,
+    "top_words": [
+      "45",
+      "106",
+      "108",
+      "109",
+      "91c",
+      "82",
+      "23",
+      "115",
+      "nderung",
+      ""
+    ]
+  },
+  {
+    "topic_id": 107,
+    "count": 13,
+    "top_words": [
+      "wissenschaft",
+      "studierend",
+      "forschung",
+      "untersttzung",
+      "nderung testmanahme",
+      "gesundheitskart",
+      "elektronisch gesundheitskart",
+      "testmanahme einfhrung",
+      "anwendbarkeit",
+      "testmanahme"
+    ]
+  },
+  {
+    "topic_id": 108,
+    "count": 13,
+    "top_words": [
+      "statistik",
+      "abgabenordnung",
+      "entgeltnachweises",
+      "elektronisch entgeltnachweises",
+      "abgabenordnung nderung",
+      "aufhebung vorschrift",
+      "einfhrungsgesetz abgabenordnung",
+      "brokratieentlastungsgesetz",
+      "brokratie brokratieentlastungsgesetz",
+      "brokratie"
+    ]
+  },
+  {
+    "topic_id": 109,
+    "count": 13,
+    "top_words": [
+      "stabilisierung",
+      "2023",
+      "2016",
+      "2022",
+      "2015",
+      "2010",
+      "2013",
+      "2021",
+      "2020",
+      "2011"
+    ]
+  },
+  {
+    "topic_id": 110,
+    "count": 13,
+    "top_words": [
+      "einbrgerungstestverordnung",
+      "auswandererschutzgesetz",
+      "gut durchsetzung",
+      "einreisefreimengenverordnung",
+      "passverordnung nderung",
+      "merkmal",
+      "passverordnung",
+      "nderung passverordnung",
+      "anlageband anlage",
+      "anlageband"
+    ]
+  },
+  {
+    "topic_id": 111,
+    "count": 12,
+    "top_words": [
+      "geldwsche",
+      "bekmpfung geldwsche",
+      "bekmpfung",
+      "strafrechtlich bekmpfung",
+      "ji rat",
+      "ji",
+      "rahmenbeschlu",
+      "strafrechtlich",
+      "2005",
+      "rat"
+    ]
+  },
+  {
+    "topic_id": 112,
+    "count": 12,
+    "top_words": [
+      "landwirtschaft",
+      "ermittlung",
+      "land",
+      "2023",
+      "2016",
+      "2022",
+      "2015",
+      "2010 ermittlung",
+      "2020 ermittlung",
+      "2013 ermittlung"
+    ]
+  },
+  {
+    "topic_id": 113,
+    "count": 12,
+    "top_words": [
+      "sozialversicherung",
+      "2023",
+      "2016",
+      "2022",
+      "2015",
+      "2010",
+      "2014",
+      "2013",
+      "2021",
+      "2011"
+    ]
+  },
+  {
+    "topic_id": 114,
+    "count": 12,
+    "top_words": [
+      "modernisierung",
+      "nderung",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "topic_id": 115,
+    "count": 12,
+    "top_words": [
+      "lnderrisikoverordnung",
+      "sechsundzwanzigste nderung",
+      "vierundzwanzigste nderung",
+      "sechsundzwanzigste",
+      "zweiundzwanzigste nderung",
+      "einundzwanzigst nderung",
+      "zweiundzwanzigste",
+      "vierundzwanzigste",
+      "fnfundzwanzigst nderung",
+      "einundzwanzigst"
+    ]
+  },
+  {
+    "topic_id": 116,
+    "count": 12,
+    "top_words": [
+      "egrebflchenrodungsprogramm",
+      "erlass aufhebung",
+      "durchfhrung egrebflchenrodungsprogramm",
+      "vermarktungsnorme",
+      "nderung marktordnungsrechtlich",
+      "marktordnungsrechtlich",
+      "marktordnungsrechtlich vorschrift",
+      "nderung aufhebung",
+      "aufhebung",
+      "fortentwicklung"
+    ]
+  },
+  {
+    "topic_id": 117,
+    "count": 12,
+    "top_words": [
+      "feststellung",
+      "nderung strafprozessordnung",
+      "2010 feststellung",
+      "2015 feststellung",
+      "2013 feststellung",
+      "leitungsgebunden erdgas",
+      "leitungsgebunden",
+      "bankenabgabe",
+      "letztverbraucher",
+      "2014 feststellung"
+    ]
+  },
+  {
+    "topic_id": 118,
+    "count": 12,
+    "top_words": [
+      "landwirt",
+      "alterssicherung landwirt",
+      "alterssicherung",
+      "beitrag",
+      "2023",
+      "2016",
+      "2022",
+      "2015",
+      "2010",
+      "2014"
+    ]
+  },
+  {
+    "topic_id": 119,
+    "count": 12,
+    "top_words": [
+      "umsetzung beteiligungsrichtlinie",
+      "beteiligungsrichtlinie",
+      "meldung",
+      "werbung",
+      "nderung handelsklassenrechtlich",
+      "einwilligung",
+      "handelsklassenrechtlich",
+      "handelsklassenrechtlich vorschrift",
+      "handelsgesetzbuch berichtigung",
+      "beratungshilfeformularverordnung"
+    ]
+  },
+  {
+    "topic_id": 120,
+    "count": 12,
+    "top_words": [
+      "wehrrndg",
+      "vergabeverordnung",
+      "kontrolle",
+      "weit vorschrift",
+      "nderung vergabeverordnung",
+      "wehrrechtsnderungsgesetz",
+      "vergabeverordnung verteidigung",
+      "nderung auenwirtschaftsgesetz",
+      "2011",
+      "dienststelle"
+    ]
+  },
+  {
+    "topic_id": 121,
+    "count": 12,
+    "top_words": [
+      "gesetzlich rentenversicherung",
+      "juli",
+      "alterssicherung landwirt",
+      "landwirt",
+      "alterssicherung",
+      "gesetzlich",
+      "bestimmung",
+      "rentenversicherung",
+      "bestimmung weit",
+      "landwirtschaftlich"
+    ]
+  },
+  {
+    "topic_id": 122,
+    "count": 12,
+    "top_words": [
+      "einkommen",
+      "bundesversorgungsgesetz",
+      "anrechnungsverordnung",
+      "53",
+      "einigungsvertrag",
+      "fnfundvierzigst",
+      "52",
+      "45",
+      "46",
+      "sechsundvierzigst"
+    ]
+  },
+  {
+    "topic_id": 123,
+    "count": 11,
+    "top_words": [
+      "wirkung",
+      "gefhrdung",
+      "25 eg",
+      "nderung arbeitsschutzverordnunge",
+      "regelung schutz",
+      "richtlinie 2006",
+      "arbeitsschutzverordnunge",
+      "schutz",
+      "modernisierung strahlenschutzrecht",
+      "berichtigung modernisierung"
+    ]
+  },
+  {
+    "topic_id": 124,
+    "count": 11,
+    "top_words": [
+      "betrag",
+      "neufestsetzung",
+      "schwangerschaftskonfliktgesetz",
+      "hilfe",
+      "fall",
+      "frau",
+      "25",
+      "anlage",
+      "besonderer",
+      "geburt"
+    ]
+  },
+  {
+    "topic_id": 125,
+    "count": 11,
+    "top_words": [
+      "nderung sonderurlaubsverordnung",
+      "sonderurlaubsverordnung",
+      "zwlft nderung",
+      "heimaturlaubsverordnung",
+      "zwlft",
+      "vierzehnt nderung",
+      "elfte",
+      "elfte nderung",
+      "vierzehnt",
+      "dreizehnt nderung"
+    ]
+  },
+  {
+    "topic_id": 126,
+    "count": 11,
+    "top_words": [
+      "bundesnaturschutzgesetz",
+      "bundesnaturschutzgesetz nderung",
+      "zustand",
+      "bundesverwaltung",
+      "erhebung",
+      "naturschutz",
+      "neuregelung recht",
+      "beschrnkung",
+      "vermeidung",
+      "berichtigung nderung"
+    ]
+  },
+  {
+    "topic_id": 127,
+    "count": 11,
+    "top_words": [
+      "nichttechnisch",
+      "ausbildung prfung",
+      "laufbahn ausbildung",
+      "nderung laufbahn",
+      "nichttechnisch dienst",
+      "gehoben nichttechnisch",
+      "verwaltung bund",
+      "laufbahn",
+      "ausbildung",
+      "prfung gehoben"
+    ]
+  },
+  {
+    "topic_id": 128,
+    "count": 11,
+    "top_words": [
+      "november",
+      "beschluss",
+      "beschlu",
+      "fassung",
+      "1993",
+      "dezember",
+      "15",
+      "dezember 2019",
+      "november 2008",
+      "25 november"
+    ]
+  },
+  {
+    "topic_id": 129,
+    "count": 10,
+    "top_words": [
+      "kurzarbeitergeld",
+      "2013",
+      "2016",
+      "2015",
+      "2010",
+      "2014",
+      "2020",
+      "2011",
+      "2009",
+      "2012"
+    ]
+  },
+  {
+    "topic_id": 130,
+    "count": 10,
+    "top_words": [
+      "rentenversicherung",
+      "knappschaftlich",
+      "beitragssatz",
+      "rentenversicherung 2014",
+      "versicherung",
+      "erhhung",
+      "einkommen",
+      "gesetzlich rentenversicherung",
+      "2023",
+      "manahme"
+    ]
+  },
+  {
+    "topic_id": 131,
+    "count": 10,
+    "top_words": [
+      "bundesbesoldungsgesetz",
+      "77",
+      "78",
+      "5a",
+      "anlage iv",
+      "iv",
+      "abs",
+      "bundesbesoldungsgesetz anlage",
+      "abs abs",
+      "anlage"
+    ]
+  },
+  {
+    "topic_id": 132,
+    "count": 10,
+    "top_words": [
+      "nderung rechtsvorschrift",
+      "bundesentschdigungsgesetz",
+      "rechtsvorschrift",
+      "durchfhrung",
+      "nderung sozialgerichtsgesetz",
+      "nderung bundesversorgungsgesetz",
+      "neuorganisation",
+      "bundesversorgungsgesetz vorschrift",
+      "bundesunmittelbar",
+      "sozialgerichtsgesetz"
+    ]
+  },
+  {
+    "topic_id": 133,
+    "count": 10,
+    "top_words": [
+      "ii",
+      "trger",
+      "rente",
+      "bundesagentur arbeit",
+      "zahlung",
+      "bundesagentur",
+      "arbeit",
+      "gesetzlich rentenversicherung",
+      "gesetzlich",
+      "rentenversicherung"
+    ]
+  },
+  {
+    "topic_id": 134,
+    "count": 10,
+    "top_words": [
+      "postnachfolgeunternehmen",
+      "bugeldkatalogverordnung nderung",
+      "postnachfolgeunternehmen nderung",
+      "nderung bugeldkatalogverordnung",
+      "bugeldkatalogverordnung",
+      "beamtin",
+      "beamtin beamter",
+      "beamter",
+      "neuordnung",
+      "berichtigung"
+    ]
+  },
+  {
+    "topic_id": 135,
+    "count": 10,
+    "top_words": [
+      "nderung bundesfernstraengesetz",
+      "bundesfernstraengesetz",
+      "bundesfernstrae",
+      "mautrechtlich vorschrift",
+      "bundeswasserstraengesetz",
+      "mautrechtlich",
+      "weit vorschrift",
+      "nderung weit",
+      "vorschrift nderung",
+      "berichtigung neufassung"
+    ]
+  },
+  {
+    "topic_id": 136,
+    "count": 10,
+    "top_words": [
+      "bedarfsgegenstndeverordnung",
+      "nderung bedarfsgegenstndeverordnung",
+      "nderung spitzenausgleicheffizienzsystemverordnung",
+      "spitzenausgleicheffizienzsystemverordnung",
+      "einundzwanzigst nderung",
+      "sechzehnte nderung",
+      "achtzehnte nderung",
+      "einundzwanzigst",
+      "zwanzigster nderung",
+      "sechzehnte"
+    ]
+  },
+  {
+    "topic_id": 137,
+    "count": 10,
+    "top_words": [
+      "2009 nderung",
+      "anhang nderung",
+      "anzuwendend strafvorschrift",
+      "gentechnikgesetz nderung",
+      "geschmacksmustergesetz nderung",
+      "neuartige",
+      "neuartige lebensmittel",
+      "strafvorschrift versto",
+      "nderung geschmacksmustergesetz",
+      "nderung gentechnikgesetz"
+    ]
+  }
+]
