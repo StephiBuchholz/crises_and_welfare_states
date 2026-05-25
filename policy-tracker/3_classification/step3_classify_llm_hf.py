@@ -91,7 +91,7 @@ MODELS = [
         "model":        "meta-llama/Llama-3.3-70B-Instruct",
         "key_env":      "HF_API_KEY",
         "base_url_env": None,
-        "provider":     "deepinfra",
+        "provider":     "novita",
         "output_fmt":   "json_object",
         "timeout":      300.0,
         "rpm":          10,
