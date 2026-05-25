@@ -85,13 +85,13 @@ TOP_P       = 1.0    # set explicitly so backend changes cannot silently alter s
 #   rph          — max requests per hour  for proactive rate limiting; None → disabled; depends on API
 MODELS = [
     {
-        "model":        "gpt-4.1-mini",
-        "key_env":      "openai_classification_key",
-        "base_url_env": None,
-        "output_fmt":   "json_schema",
-        "timeout":      60.0,
-        "rpm":          None,
-        "rph":          None,
+        "model":        "mistral-large-3-675b-instruct-2512",
+        "key_env":      "SAIA_API_KEY",
+        "base_url_env": "SAIA_API_ENDPOINT",
+        "output_fmt":   "json_object",
+        "timeout":      300.0,
+        "rpm":          10,
+        "rph":          200,
     },
     # {
     #     "model":        "llama-3.3-70b-instruct",
@@ -103,13 +103,13 @@ MODELS = [
     #     "rph":          200,
     # },
     {
-        "model":        "mistral-large-3-675b-instruct-2512",
-        "key_env":      "SAIA_API_KEY",
-        "base_url_env": "SAIA_API_ENDPOINT",
-        "output_fmt":   "json_object",
-        "timeout":      300.0,
-        "rpm":          10,
-        "rph":          200,
+        "model":        "gpt-4.1-mini",
+        "key_env":      "openai_classification_key",
+        "base_url_env": None,
+        "output_fmt":   "json_schema",
+        "timeout":      60.0,
+        "rpm":          None,
+        "rph":          None,
     },
     # {
     #     "model":        "qwen3.5-397b-a17b",
@@ -341,11 +341,37 @@ def run_prompt(
     rate_limiter: "RateLimiter | None",
 ) -> None:
     """Classify all entries for one (model, prompt_key) pair and write one output JSON."""
-    model = model_cfg["model"]
-    today = date.today().isoformat()
+    model      = model_cfg["model"]
+    today      = date.today().isoformat()
+    safe_model = model.replace("/", "-")
+    out_file   = OUTPUT_DIR / f"{today}_{input_path.stem}_llm_{safe_model}_{prompt_key}.json"
+    partial    = out_file.with_suffix(".partial.json")
 
     fingerprints = set()
     entries_out  = []
+
+    def _write_partial(status: str) -> None:
+        partial.write_text(
+            json.dumps(
+                {
+                    "run_metadata": {
+                        "date":                today,
+                        "model":               model,
+                        "prompt_key":          prompt_key,
+                        "temperature":         TEMPERATURE,
+                        "seed":                SEED,
+                        "top_p":               TOP_P,
+                        "input_file":          input_path.name,
+                        "system_fingerprints": sorted(fingerprints) if fingerprints else "na",
+                        "status":              status,
+                    },
+                    "entries": entries_out,
+                },
+                ensure_ascii=False,
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
 
     for entry in tqdm(entries, desc=prompt_key):
         parsed, fingerprint, err = classify_entry(
@@ -360,8 +386,7 @@ def run_prompt(
             print(f"\nerror [{entry.get('id', '?')}]: {err}")
             entries_out.append({**entry, "llm_labels": None, "llm_error": err})
 
-    safe_model = model.replace("/", "-")
-    out_file   = OUTPUT_DIR / f"{today}_{input_path.stem}_llm_{safe_model}_{prompt_key}.json"
+        _write_partial(f"partial ({len(entries_out)}/{len(entries)})")
 
     output = { #for reproducibility and transparency: collects run metadata and stores them in the output json on top
         "run_metadata": {
@@ -377,6 +402,7 @@ def run_prompt(
         "entries": entries_out,
     }
     out_file.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    partial.unlink(missing_ok=True)
     print(f"saved → {out_file}")
 
 
