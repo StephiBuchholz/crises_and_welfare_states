@@ -5040,7 +5040,7 @@
         "date": "2026-05-25"
       },
       "social_policy_field_1": {
-        "value": "unemployment",
+        "value": "disability",
         "coder": "sb",
         "date": "2026-05-25"
       },
@@ -5050,7 +5050,7 @@
         "date": "2026-05-25"
       },
       "spf_justification": {
-        "value": "the regulation sits at the very intersection of unemployment and retirement, therefore both categories are assigned.",
+        "value": "the regulation sits at the very intersection of disability and retirement, therefore both categories are assigned. unemployment is not an entirely unfit category, either, but it was not chosen because disability and resulting inability to partake in the workforce, which results in retirement, are at the forefront of the matter at hand.",
         "coder": "sb",
         "date": "2026-05-25"
       },

@@ -93,15 +93,15 @@ MODELS = [
         "rpm":          None,
         "rph":          None,
     },
-    {
-        "model":        "llama-3.3-70b-instruct",
-        "key_env":      "SAIA_API_KEY",
-        "base_url_env": "SAIA_API_ENDPOINT",
-        "output_fmt":   "json_object",
-        "timeout":      300.0,
-        "rpm":          10,
-        "rph":          200,
-    },
+    # {
+    #     "model":        "llama-3.3-70b-instruct",
+    #     "key_env":      "SAIA_API_KEY",
+    #     "base_url_env": "SAIA_API_ENDPOINT",
+    #     "output_fmt":   "json_object",
+    #     "timeout":      300.0,
+    #     "rpm":          10,
+    #     "rph":          200,
+    # },
     {
         "model":        "mistral-large-3-675b-instruct-2512",
         "key_env":      "SAIA_API_KEY",
@@ -111,39 +111,39 @@ MODELS = [
         "rpm":          10,
         "rph":          200,
     },
-    {
-        "model":        "qwen3.5-397b-a17b",
-        "key_env":      "SAIA_API_KEY",
-        "base_url_env": "SAIA_API_ENDPOINT",
-        "output_fmt":   "json_object",
-        "timeout":      300.0,
-        "rpm":          10,
-        "rph":          200,
-    },
-    {
-        "model":        "gemma-4-31b-it",
-        "key_env":      "SAIA_API_KEY",
-        "base_url_env": "SAIA_API_ENDPOINT",
-        "output_fmt":   "json_object",
-        "timeout":      300.0,
-        "rpm":          10,
-        "rph":          200,
-    },
-    {
-        "model":        "openai-gpt-oss-120b",
-        "key_env":      "SAIA_API_KEY",
-        "base_url_env": "SAIA_API_ENDPOINT",
-        "output_fmt":   "json_object",
-        "timeout":      300.0,
-        "rpm":          10,
-        "rph":          200,
-    },
+    # {
+    #     "model":        "qwen3.5-397b-a17b",
+    #     "key_env":      "SAIA_API_KEY",
+    #     "base_url_env": "SAIA_API_ENDPOINT",
+    #     "output_fmt":   "json_object",
+    #     "timeout":      300.0,
+    #     "rpm":          10,
+    #     "rph":          200,
+    # },
+    # {
+    #     "model":        "gemma-4-31b-it", #unavailable through KISSKI
+    #     "key_env":      "SAIA_API_KEY",
+    #     "base_url_env": "SAIA_API_ENDPOINT",
+    #     "output_fmt":   "json_object",
+    #     "timeout":      300.0,
+    #     "rpm":          10,
+    #     "rph":          200,
+    # },
+    # {
+    #     "model":        "openai-gpt-oss-120b",
+    #     "key_env":      "SAIA_API_KEY",
+    #     "base_url_env": "SAIA_API_ENDPOINT",
+    #     "output_fmt":   "json_object",
+    #     "timeout":      300.0,
+    #     "rpm":          10,
+    #     "rph":          200,
+    # },
 ]
 
 # ─── PATHS ────────────────────────────────────────────────────────────────────
 PROJECT_ROOT  = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = PROJECT_ROOT / "data" / "processed" / "germany" / "germany_cov_sample_20.json"
-OUTPUT_DIR    = PROJECT_ROOT / "data" / "classifications" / "germany" 
+OUTPUT_DIR    = PROJECT_ROOT / "data" / "gold_standard" / "germany_2008-2015_2019-2022_gs_sample_68_2026-05-24.json" 
 # ─────────────────────────────────────────────────────────────────────────────
 
 
