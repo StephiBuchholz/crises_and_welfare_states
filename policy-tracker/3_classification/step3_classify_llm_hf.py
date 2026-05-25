@@ -55,6 +55,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from dotenv import load_dotenv
+from huggingface_hub import InferenceClient
 from openai import APITimeoutError, OpenAI, RateLimitError
 from tqdm import tqdm
 
@@ -77,6 +78,8 @@ TOP_P       = 1.0    # set explicitly so backend changes cannot silently alter s
 #   model        — model name string passed to the API
 #   key_env      — env-var name holding the API key, from .env file
 #   base_url_env — env-var name holding the base URL; None → use openai.com, from .env-file
+#   provider     — HuggingFace inference provider (e.g. "deepinfra"); if set, uses InferenceClient
+#                  instead of OpenAI; api_key must be a HF token (not a provider key)
 #   output_fmt   — "json_schema" : OpenAI structured outputs (strict schema enforcement)
 #                  "json_object" : JSON mode (valid JSON, schema not enforced by API)
 #                  "text"        : plain text; JSON parsed from response content, last-resort option
@@ -84,10 +87,11 @@ TOP_P       = 1.0    # set explicitly so backend changes cannot silently alter s
 #   rpm          — max requests per minute for proactive rate limiting; None → disabled; depends on API
 #   rph          — max requests per hour  for proactive rate limiting; None → disabled; depends on API
 MODELS = [
-     {   
+     {
         "model":        "meta-llama/Llama-3.3-70B-Instruct",
         "key_env":      "HF_API_KEY",
-        "base_url_env": "HF_API_ENDPOINT",
+        "base_url_env": None,
+        "provider":     "deepinfra",
         "output_fmt":   "json_object",
         "timeout":      300.0,
         "rpm":          10,
@@ -111,15 +115,15 @@ MODELS = [
     #     "rpm":          10,
     #     "rph":          200,
     # },
-    {
-        "model":        "gpt-4.1-mini",
-        "key_env":      "openai_classification_key",
-        "base_url_env": None,
-        "output_fmt":   "json_schema",
-        "timeout":      60.0,
-        "rpm":          None,
-        "rph":          None,
-    },
+    #{
+        #"model":        "gpt-4.1-mini",
+        #"key_env":      "openai_classification_key",
+        #"base_url_env": None,
+        #"output_fmt":   "json_schema",
+        #"timeout":      60.0,
+        #"rpm":          None,
+        #"rph":          None,
+    #},
     # {
     #     "model":        "qwen3.5-397b-a17b",
     #     "key_env":      "SAIA_API_KEY",
@@ -178,7 +182,7 @@ class RateLimiter:
             while self._timestamps and self._timestamps[0] < now - 3600:
                 self._timestamps.popleft()
 
-            if len(self._timestamps) >= self.max_per_hour:
+            if self.max_per_hour is not None and len(self._timestamps) >= self.max_per_hour:
                 oldest     = self._timestamps[0]
                 wait_s     = (oldest + 3600) - now + 1.0
                 reset_time = datetime.fromtimestamp(oldest + 3600).strftime("%H:%M:%S")
@@ -267,7 +271,7 @@ def wrap_as_labels(raw: dict, model: str, today: str) -> dict:
     #####depending on output_fmt — strict schema for OpenAI, JSON mode for SAIA, nothing for plain text.
 def classify_entry(
     entry: dict,
-    client: OpenAI,
+    client: "OpenAI | InferenceClient",
     model_cfg: dict,
     prompt_key: str,
     rate_limiter: "RateLimiter | None",
@@ -357,7 +361,7 @@ def run_prompt(
     prompt_key: str,
     entries: list[dict],
     input_path: Path,
-    client: OpenAI,
+    client: "OpenAI | InferenceClient",
     rate_limiter: "RateLimiter | None",
 ) -> None:
     """Classify all entries for one (model, prompt_key) pair and write one output JSON."""
@@ -481,9 +485,13 @@ def main() -> None:
         model = model_cfg["model"]
         print(f"\n{'=' * 60}\nModel: {model}\n{'=' * 60}")
 
-        api_key      = os.getenv(model_cfg["key_env"])
-        base_url     = os.getenv(model_cfg["base_url_env"]) if model_cfg["base_url_env"] else None
-        client       = OpenAI(api_key=api_key, base_url=base_url, timeout=model_cfg["timeout"])
+        api_key  = os.getenv(model_cfg["key_env"])
+        provider = model_cfg.get("provider")
+        if provider:
+            client = InferenceClient(provider=provider, api_key=api_key, timeout=model_cfg["timeout"])
+        else:
+            base_url = os.getenv(model_cfg["base_url_env"]) if model_cfg["base_url_env"] else None
+            client   = OpenAI(api_key=api_key, base_url=base_url, timeout=model_cfg["timeout"])
         rate_limiter = (
             RateLimiter(model_cfg["rpm"], model_cfg["rph"])
             if model_cfg["rpm"] is not None
