@@ -84,24 +84,24 @@ TOP_P       = 1.0    # set explicitly so backend changes cannot silently alter s
 #   rpm          — max requests per minute for proactive rate limiting; None → disabled; depends on API
 #   rph          — max requests per hour  for proactive rate limiting; None → disabled; depends on API
 MODELS = [
-     {   
-        "model":        "meta-llama/Llama-3.3-70B-Instruct",
-        "key_env":      "HF_API_KEY",
-        "base_url_env": "HF_API_ENDPOINT",
+     #{   
+        #"model":        "meta-llama/Llama-3.3-70B-Instruct",
+        #"key_env":      "HF_API_KEY",
+        #"base_url_env": "HF_API_ENDPOINT",
+        #"output_fmt":   "json_object",
+        #"timeout":      300.0,
+       # "rpm":          10,
+        #"rph":          None,
+     #},
+    {
+        "model":        "mistral-large-3-675b-instruct-2512",
+        "key_env":      "SAIA_API_KEY",
+        "base_url_env": "SAIA_API_ENDPOINT",
         "output_fmt":   "json_object",
         "timeout":      300.0,
         "rpm":          10,
-        "rph":          None,
-     },
-    #{
-        #"model":        "mistral-large-3-675b-instruct-2512",
-        #"key_env":      "SAIA_API_KEY",
-       # "base_url_env": "SAIA_API_ENDPOINT",
-       # "output_fmt":   "json_object",
-       # "timeout":      300.0,
-        #"rpm":          10,
-       # "rph":          200,
-    #},
+        "rph":          200,
+    },
     # {
     #     "model":        "llama-3.3-70b-instruct",
     #     "key_env":      "SAIA_API_KEY",
@@ -111,15 +111,15 @@ MODELS = [
     #     "rpm":          10,
     #     "rph":          200,
     # },
-    {
-        "model":        "gpt-4.1-mini",
-        "key_env":      "openai_classification_key",
-        "base_url_env": None,
-        "output_fmt":   "json_schema",
-        "timeout":      60.0,
-        "rpm":          None,
-        "rph":          None,
-    },
+    #{
+        #"model":        "gpt-4.1-mini",
+        #"key_env":      "openai_classification_key",
+        #"base_url_env": None,
+        #"output_fmt":   "json_schema",
+        #"timeout":      60.0,
+       # "rpm":          None,
+       # "rph":          None,
+    #},
     # {
     #     "model":        "qwen3.5-397b-a17b",
     #     "key_env":      "SAIA_API_KEY",
