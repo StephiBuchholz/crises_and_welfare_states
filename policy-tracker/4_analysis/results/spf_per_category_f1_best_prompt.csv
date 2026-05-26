@@ -1,0 +1,4 @@
+model,prompt_key,unemployment,family/children,housing,disability,retirement,survivors,sickness/health/care,labour market,taxes
+gpt-4.1-mini,v14_few_shot_single_nodef_jus,0.7,0.857,0.667,0.545,0.818,0.0,0.615,0.938,0.909
+meta-llama/Llama-3.3-70B-Instruct,v12_few_shot_single_def_nojus,0.429,0.706,0.667,0.5,0.889,0.0,0.6,0.865,1.0
+mistral-large-3-675b-instruct-2512,v11_few_shot_batch_def_nojus,0.762,0.75,0.667,0.615,0.909,0.0,0.714,0.925,1.0

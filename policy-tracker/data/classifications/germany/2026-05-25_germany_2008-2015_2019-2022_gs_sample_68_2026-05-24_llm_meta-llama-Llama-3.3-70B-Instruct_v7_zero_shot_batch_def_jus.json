@@ -1865,60 +1865,6 @@
       }
     },
     {
-      "id": "bgbl1-2009-25-9",
-      "year": 2009,
-      "issue_number": 25,
-      "order_in_issue": 9,
-      "title": "Hinweis. Verkündungen im Bundesanzeiger",
-      "doc_type": "Sonstiges",
-      "date_published": "2009-05-14T00:00:00Z",
-      "date_law": null,
-      "bgbl_page": 1048,
-      "pdf_page": 16,
-      "num_pages": 1,
-      "url_web": "https://offenegesetze.de/veroeffentlichung/bgbl1/2009/25#page=16",
-      "url_api": "https://api.offenegesetze.de/v1/veroeffentlichung/bgbl1-2009-25-9/",
-      "url_pdf": "https://media.offenegesetze.de/bgbl1/2009/bgbl1_2009_25.pdf#page=16",
-      "full_text": "1048                        Bundesgesetzblatt Jahrgang 2009 Teil I Nr. 25, ausgegeben zu Bonn am 14. Mai 2009\nHerausgeber: Bundesministerium der Justiz – Verlag: Bundesanzeiger Verlags-\nges.mbH. – Druck: M. DuMont Schauberg, Köln\nBundesgesetzblatt Teil I enthält Gesetze sowie Verordnungen und sonstige Be-\nkanntmachungen von wesentlicher Bedeutung, soweit sie nicht im Bundesgesetz-\nblatt Teil II zu veröffentlichen sind.\nBundesgesetzblatt Teil II enthält\na) völkerrechtliche Übereinkünfte und die zu ihrer Inkraftsetzung oder Durch-\nsetzung erlassenen Rechtsvorschriften sowie damit zusammenhängende\nBekanntmachungen,\nb) Zolltarifvorschriften.\nLaufender Bezug nur im Verlagsabonnement. Postanschrift für Abonnements-\nbestellungen sowie Bestellungen bereits erschienener Ausgaben:\nBundesanzeiger Verlagsges.mbH., Postfach 10 05 34, 50445 Köln\nTelefon: (02 21) 9 76 68-2 82, Telefax: (02 21) 9 76 68-2 78\nE-Mail: bgbl@bundesanzeiger.de\nInternet: www.bundesgesetzblatt.de bzw. www.bgbl.de\nBezugspreis für Teil I und Teil II halbjährlich je 45,00 €. Einzelstücke je an-\ngefangene 16 Seiten 1,40 € zuzüglich Versandkosten. Dieser Preis gilt auch für\nBundesgesetzblätter, die vor dem 1. Januar 2002 ausgegeben worden sind.\nLieferung gegen Voreinsendung des Betrages auf das Konto der Bundesanzeiger\nVerlagsges.mbH. (Kto.-Nr. 399-509) bei der Postbank Köln (BLZ 370 100 50) oder\ngegen Vorausrechnung.                                                           Bundesanzeiger Verlagsges.mbH. · Postfach 10 05 34 · 50445 Köln\nPreis dieser Ausgabe: 2,30 € (1,40 € zuzüglich 0,90 € Versandkosten), bei        Postvertriebsstück · Deutsche Post AG · G 5702 · Entgelt bezahlt\nLieferung gegen Vorausrechnung 2,90 €.\nIm Bezugspreis ist die Mehrwertsteuer enthalten; der angewandte Steuersatz\nbeträgt 7 %.\nISSN 0341-1095\nHinweis auf Verkündungen im Bundesanzeiger\nGemäß § 1 Absatz 2 des Gesetzes über die Verkündung von Rechtsverordnungen in der im Bundesgesetz-\nblatt Teil III, Gliederungsnummer 114 -1, veröffentlichten bereinigten Fassung, der zuletzt durch Artikel 6 der Verord-\nnung vom 31. Oktober 2006 (BGBl. I S. 2407) geändert worden ist, wird auf folgende im Bundesanzeiger verkünde-\nte Rechtsverordnungen nachrichtlich hingewiesen:\nBundesanzeiger                           Tag des\nDatum und Bezeichnung der Verordnung\nSeite        (Nr.             vom)            Inkrafttretens\n6. 4. 2009 Einundzwanzigste Verordnung des Luftfahrt-Bundesamts zur\nÄnderung der Hundertzweiundachtzigsten Durchführungs-\nverordnung zur Luftverkehrs-Ordnung (Festlegung von Flugver-\nfahren für An- und Abflüge nach Instrumentenflugregeln zum\nund vom Verkehrsflughafen Münster/Osnabrück)                      1534         (63    28. 4. 2009)                 7. 5. 2009\nFNA: 96-1-2-182\n15. 4. 2009 Dritte Verordnung des Luftfahrt-Bundesamts zur Änderung der\nHunderteinundvierzigsten Durchführungsverordnung zur Luft-\nverkehrs-Ordnung (Festlegung von Flugverfahren für An- und\nAbflüge nach Sichtflugregeln zum und vom Verkehrsflughafen\nFrankfurt-Hahn)                                                   1535         (63    28. 4. 2009)               29. 4. 2009\nFNA: 96-1-2-141\n15. 4. 2009 Vierte Verordnung des Luftfahrt-Bundesamts zur Änderung der\nZweihundertsiebenunddreißigsten Durchführungsverordnung\nzur Luftverkehrs-Ordnung (Festlegung von Flugverfahren für\nAn- und Abflüge nach Instrumentenflugregeln zum und vom\nVerkehrsflughafen München)                                        1550         (64    29. 4. 2009)                 4. 6. 2009\nFNA: 96-1-2-237",
-      "similarity_score": 0.9019111394882202,
-      "system_sources": "both",
-      "llm_labels": {
-        "summary": {
-          "value": "This legislative text announces various regulations and ordinances related to aviation in Germany, specifically amendments to flight procedures at several airports. It does not directly address social policy fields.",
-          "coder": "meta-llama/Llama-3.3-70B-Instruct",
-          "date": "2026-05-25"
-        },
-        "date_extraction": {
-          "value": {
-            "legally_effective": "2009-05",
-            "leg_eff_terminate": "na",
-            "legally_effective_2": "na",
-            "leg_eff_terminate_2": "na",
-            "art_leg_eff_2": "na",
-            "legally_effective_3": "na",
-            "leg_eff_terminate_3": "na",
-            "art_leg_eff_3": "na"
-          },
-          "coder": "meta-llama/Llama-3.3-70B-Instruct",
-          "date": "2026-05-25"
-        },
-        "social_policy_field": {
-          "value": {
-            "spf_justification": "The text does not address any social policy fields as it deals with aviation regulations and ordinances, which are not related to unemployment, family/children, housing, disability, retirement, survivors, sickness/health/care, labour market, or taxes.",
-            "social_policy_field_1": "na",
-            "social_policy_field_2": "na"
-          },
-          "coder": "meta-llama/Llama-3.3-70B-Instruct",
-          "date": "2026-05-25"
-        },
-        "crisis_ref": {
-          "value": "0",
-          "coder": "meta-llama/Llama-3.3-70B-Instruct",
-          "date": "2026-05-25"
-        }
-      }
-    },
-    {
       "id": "bgbl1-2014-54-2",
       "year": 2014,
       "issue_number": 54,

@@ -1,0 +1,9 @@
+dimension,value,avg_macro_f1,avg_alpha_spf
+shot,zero-shot,0.545,0.535
+shot,few-shot,0.636,0.613
+scope,batch,0.584,0.588
+scope,single,0.609,0.575
+def,no-def,0.596,0.589
+def,def,0.599,0.573
+jus,no-jus,0.57,0.57
+jus,jus,0.625,0.591

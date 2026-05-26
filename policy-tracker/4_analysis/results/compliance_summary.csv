@@ -1,0 +1,4 @@
+model,mean,min,max
+gpt-4.1-mini,1.0,1.0,1.0
+meta-llama/Llama-3.3-70B-Instruct,0.578,0.0,0.985
+mistral-large-3-675b-instruct-2512,0.679,0.0,1.0

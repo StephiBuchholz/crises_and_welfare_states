@@ -1,0 +1,4 @@
+model,v10_few_shot_single_nodef_nojus,v11_few_shot_batch_def_nojus,v12_few_shot_single_def_nojus,v13_few_shot_batch_nodef_jus,v14_few_shot_single_nodef_jus,v15_few_shot_batch_def_jus,v16_few_shot_single_def_jus,v1_zero_shot_batch_nodef_nojus,v2_zero_shot_single_nodef_nojus,v3_zero_shot_batch_def_nojus,v4_zero_shot_single_def_nojus,v5_zero_shot_batch_nodef_jus,v6_zero_shot_single_nodef_jus,v7_zero_shot_batch_def_jus,v8_zero_shot_single_def_jus,v9_few_shot_batch_nodef_nojus
+gpt-4.1-mini,0.72,0.7,0.741,0.596,0.699,0.717,0.777,0.653,0.701,0.676,0.7,0.593,0.703,0.699,0.74,0.661
+meta-llama/Llama-3.3-70B-Instruct,0.641,0.649,0.718,0.677,0.596,0.584,0.674,,0.677,,,,0.677,,,0.661
+mistral-large-3-675b-instruct-2512,0.777,0.801,0.747,0.77,0.807,0.73,0.746,,0.759,,,,0.759,,,0.779
