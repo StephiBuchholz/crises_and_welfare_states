@@ -41,7 +41,7 @@ All dates are extracted verbatim from the legislative text.
 
 **Type:** categorical
 
-Assign the primary social policy domain the law addresses (`social_policy_field_1`, mandatory). If the law substantively addresses a second, distinct domain, assign it as `social_policy_field_2`; otherwise set `social_policy_field_2` to `na`.
+Assign the primary social policy domain the law addresses (`social_policy_field_1`, mandatory). If the law substantively addresses a second, distinct domain, assign it as `social_policy_field_2`; otherwise set `social_policy_field_2` to `na`. Only assign the class "none" if the social policy does not relate to any social policy field at all. Only select "none" for social_policy_field_1 if the policy does not relate to social policy at all. In this case, you must set social_policy_field_2 to "na".
 
 ### Categories
 
@@ -131,7 +131,9 @@ Regards all personal income taxes payable in respect of employment and self-empl
 
 Also includes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These are classified here rather than under "family/children."
 
----
+**10. none**
+
+The policy does not concern social policy at all and cannot be matched to any of the other classes.
 
 ## SPF justification (`spf_justification`)
 

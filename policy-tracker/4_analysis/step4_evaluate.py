@@ -58,6 +58,7 @@ VALID_SPF = [
     "sickness/health/care",
     "labour market",
     "taxes",
+    "none",
 ]
 VALID_SPF_SET = set(VALID_SPF)
 VALID_CRISIS_REF = {0, 1}

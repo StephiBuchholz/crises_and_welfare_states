@@ -52,6 +52,7 @@ _SPF_OPTIONS = [
     "sickness/health/care",
     "labour market",
     "taxes",
+    "none",
 ]
 
 DIMENSIONS = [

@@ -42,6 +42,7 @@ _SPF_OPTIONS = [
     "sickness/health/care",
     "labour market",
     "taxes",
+    "none"
 ]
 
 # ─── SPF CLASS DEFINITIONS (from codebook) ────────────────────────────────────────────────────
@@ -100,7 +101,12 @@ Labour market — Regards benefits, measures, and/or social security contributio
 - actively intervene to expand labour force participation and facilitate (re-)employment — through employment services, direct job creation, start-up incentives, or hiring and wage subsidies targeted at specific groups — including by enforcing the conditionality of benefits on active job search and participation in employability measures.
 
 Taxes — Regards all personal income taxes payable in respect of employment and self-employment earnings, including measures that alter tax rates, thresholds, deductions, or credits for these earnings.
-Also includes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These are classified here rather than under "family/children.\""""
+Also includes: measures concretely designed as a tax cut or tax advantage for families with children or for those providing assistance to a care-dependent relative. These are classified here rather than under "family/children.
+
+
+None - The policy does not concern social policy at all and cannot be matched to any of the other classes.\""""
+
+
 
 # ─── FEW-SHOT EXAMPLES ────────────────────────────────────────────────────────
 # Source: germany gold standard (bgbl1-2020-58-1, bgbl1-2008-32-5, bgbl1-2010-66-8).
@@ -695,7 +701,8 @@ _SEC_SPF_HEAD = (
     "──── SOCIAL POLICY FIELD ────\n"
     "Assign the primary social policy field that the legislative text addresses (social_policy_field_1). "
     "If the text substantively addresses a second, distinct policy field, assign it as social_policy_field_2; "
-    'otherwise set social_policy_field_2 to "na".' #head and tail split for flexible combination with jus versus nojus prompts
+    'otherwise set social_policy_field_2 to "na". Only select "none" for social_policy_field_1 if the policy does not relate to social policy at all. In this case, you' \
+    'must set social_policy_field_2 to "na". ' #head and tail split for flexible combination with jus versus nojus prompts
 )
 
 _SEC_SPF_NODEF_TAIL = (
