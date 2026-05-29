@@ -691,8 +691,7 @@ legally_effective   : Date the law enters into force. Use the BGBl publication
 leg_eff_terminate   : Date legal effect terminates. "na" if not specified.
 legally_effective_2 : Second entry-into-force date if the law specifies multiple. "na" if not applicable.
 leg_eff_terminate_2 : Termination date for legally_effective_2. "na" if not applicable.
-art_leg_eff_2       : Article/paragraph number that legally_effective_2 refers to
-                      (first number + optional letter only, e.g. "4a"). "na" if not applicable.
+art_leg_eff_2       : Article/paragraph number that legally_effective_2 refers to. "na" if not applicable.
 legally_effective_3 : Third entry-into-force date. "na" if not applicable.
 leg_eff_terminate_3 : Termination date for legally_effective_3. "na" if not applicable.
 art_leg_eff_3       : Article/paragraph number for legally_effective_3. "na" if not applicable."""
@@ -720,7 +719,7 @@ _SEC_SPF_DEF   = _SEC_SPF_HEAD + "\n\n" + _SEC_SPF_DEF_TAIL #prompts with defini
 
 _SEC_CRISIS = """\
 ──── CRISIS REFERENCE ────
-crisis_ref : 1 if the text explicitly references COVID-19/the pandemic or the
+crisis_ref : 1 if the text explicitly references COVID-19/the corona pandemic or the
              2008 financial/economic crisis; 0 otherwise."""
 
 _SEC_JUS = """\

@@ -102,15 +102,6 @@ MODELS = [
         "rpm":          10,
         "rph":          200,
     },
-    # {
-    #     "model":        "llama-3.3-70b-instruct",
-    #     "key_env":      "SAIA_API_KEY",
-    #     "base_url_env": "SAIA_API_ENDPOINT",
-    #     "output_fmt":   "json_object",
-    #     "timeout":      300.0,
-    #     "rpm":          10,
-    #     "rph":          200,
-    # },
     #{
         #"model":        "gpt-4.1-mini",
         #"key_env":      "openai_classification_key",
@@ -121,7 +112,7 @@ MODELS = [
        # "rph":          None,
     #},
     # {
-    #     "model":        "qwen3.5-397b-a17b",
+    #     "model":        "qwen3.6-35b-a3b",
     #     "key_env":      "SAIA_API_KEY",
     #     "base_url_env": "SAIA_API_ENDPOINT",
     #     "output_fmt":   "json_object",
