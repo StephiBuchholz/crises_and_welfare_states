@@ -84,15 +84,15 @@ TOP_P       = 1.0    # set explicitly so backend changes cannot silently alter s
 #   rpm          — max requests per minute for proactive rate limiting; None → disabled; depends on API
 #   rph          — max requests per hour  for proactive rate limiting; None → disabled; depends on API
 MODELS = [
-     #{   
-        #"model":        "meta-llama/Llama-3.3-70B-Instruct",
-        #"key_env":      "HF_API_KEY",
-        #"base_url_env": "HF_API_ENDPOINT",
-        #"output_fmt":   "json_object",
-        #"timeout":      300.0,
-       # "rpm":          10,
-        #"rph":          None,
-     #},
+     {   
+        "model":        "llama-3.3-70b-instruct",
+        "key_env":      "SAIA_API_KEY",
+        "base_url_env": "SAIA_API_ENDPOINT",
+        "output_fmt":   "json_object",
+        "timeout":      300.0,
+        "rpm":          10,
+        "rph":          200
+     },
     #{
        # "model":        "mistral-large-3-675b-instruct-2512",
        # "key_env":      "SAIA_API_KEY",
@@ -111,15 +111,15 @@ MODELS = [
        # "rpm":          None,
        # "rph":          None,
     #},
-     {
-         "model":        "qwen3.6-35b-a3b",
-         "key_env":      "SAIA_API_KEY",
-         "base_url_env": "SAIA_API_ENDPOINT",
-         "output_fmt":   "json_object",
-         "timeout":      300.0,
-         "rpm":          10,
-         "rph":          200,
-     },
+     #{
+        # "model":        "qwen3.6-35b-a3b",
+        # "key_env":      "SAIA_API_KEY",
+        # "base_url_env": "SAIA_API_ENDPOINT",
+        # "output_fmt":   "json_object",
+        # "timeout":      300.0,
+        # "rpm":          10,
+        # "rph":          200,
+     #},
     # {
     #     "model":        "gemma-4-31b-it", #unavailable through KISSKI
     #     "key_env":      "SAIA_API_KEY",
@@ -169,7 +169,7 @@ class RateLimiter:
             while self._timestamps and self._timestamps[0] < now - 3600:
                 self._timestamps.popleft()
 
-            if len(self._timestamps) >= self.max_per_hour:
+            if self.max_per_hour is not None and len(self._timestamps) >= self.max_per_hour:
                 oldest     = self._timestamps[0]
                 wait_s     = (oldest + 3600) - now + 1.0
                 reset_time = datetime.fromtimestamp(oldest + 3600).strftime("%H:%M:%S")
@@ -182,7 +182,7 @@ class RateLimiter:
                 continue
 
             recent = sum(1 for t in self._timestamps if t >= now - 60)
-            if recent >= self.max_per_minute:
+            if self.max_per_minute is not None and recent >= self.max_per_minute:
                 oldest_recent = min(t for t in self._timestamps if t >= now - 60)
                 wait_s        = (oldest_recent + 60) - now + 0.5
                 print(
