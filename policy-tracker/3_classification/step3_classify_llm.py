@@ -84,15 +84,15 @@ TOP_P       = 1.0    # set explicitly so backend changes cannot silently alter s
 #   rpm          — max requests per minute for proactive rate limiting; None → disabled; depends on API
 #   rph          — max requests per hour  for proactive rate limiting; None → disabled; depends on API
 MODELS = [
-     {   
-        "model":        "llama-3.3-70b-instruct",
-        "key_env":      "SAIA_API_KEY",
-        "base_url_env": "SAIA_API_ENDPOINT",
-        "output_fmt":   "json_object",
-        "timeout":      300.0,
-        "rpm":          10,
-        "rph":          200
-     },
+     #{   
+        #"model":        "llama-3.3-70b-instruct",
+        #"key_env":      "SAIA_API_KEY",
+        #"base_url_env": "SAIA_API_ENDPOINT",
+        #"output_fmt":   "json_object",
+        #"timeout":      300.0,
+        #"rpm":          10,
+        #"rph":          200
+     #},
     #{
        # "model":        "mistral-large-3-675b-instruct-2512",
        # "key_env":      "SAIA_API_KEY",
@@ -129,15 +129,15 @@ MODELS = [
     #     "rpm":          10,
     #     "rph":          200,
     # },
-    # {
-    #     "model":        "openai-gpt-oss-120b",
-    #     "key_env":      "SAIA_API_KEY",
-    #     "base_url_env": "SAIA_API_ENDPOINT",
-    #     "output_fmt":   "json_object",
-    #     "timeout":      300.0,
-    #     "rpm":          10,
-    #     "rph":          200,
-    # },
+    {
+        "model":        "openai-gpt-oss-120b",
+        "key_env":      "SAIA_API_KEY",
+        "base_url_env": "SAIA_API_ENDPOINT",
+        "output_fmt":   "json_object",
+        "timeout":      300.0,
+        "rpm":          10,
+        "rph":          200,
+    }
 ]
 
 # ─── PATHS ────────────────────────────────────────────────────────────────────
