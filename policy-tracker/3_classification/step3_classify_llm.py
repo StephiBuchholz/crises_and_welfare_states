@@ -120,24 +120,33 @@ MODELS = [
         # "rpm":          10,
         # "rph":          200,
      #},
+    #  {
+    #      "model":        "gemma-4-31b-it", 
+    #      "key_env":      "SAIA_API_KEY",
+    #      "base_url_env": "SAIA_API_ENDPOINT",
+    #      "output_fmt":   "json_object",
+    #      "timeout":      300.0,
+    #      "rpm":          10,
+    #      "rph":          200,
+    #  },
     # {
-    #     "model":        "gemma-4-31b-it", #unavailable through KISSKI
-    #     "key_env":      "SAIA_API_KEY",
-    #     "base_url_env": "SAIA_API_ENDPOINT",
-    #     "output_fmt":   "json_object",
-    #     "timeout":      300.0,
+        # "model":        "openai-gpt-oss-120b",
+        # "key_env":      "SAIA_API_KEY",
+        # "base_url_env": "SAIA_API_ENDPOINT",
+        # "output_fmt":   "json_object",
+        # "timeout":      300.0,
     #     "rpm":          10,
     #     "rph":          200,
     # },
-    {
-        "model":        "openai-gpt-oss-120b",
-        "key_env":      "SAIA_API_KEY",
-        "base_url_env": "SAIA_API_ENDPOINT",
-        "output_fmt":   "json_object",
-        "timeout":      300.0,
-        "rpm":          10,
-        "rph":          200,
-    }
+     {
+         "model":        "meta-llama-3.1-8b-instruct",
+         "key_env":      "SAIA_API_KEY",
+         "base_url_env": "SAIA_API_ENDPOINT",
+         "output_fmt":   "json_object",
+         "timeout":      300.0,
+         "rpm":          10,
+         "rph":          200,
+     }
 ]
 
 # ─── PATHS ────────────────────────────────────────────────────────────────────
