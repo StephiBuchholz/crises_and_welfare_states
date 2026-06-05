@@ -84,6 +84,31 @@ SINGLE_REQUIRED = ["social_policy_field_1", "social_policy_field_2"]
 # from tiny compliant subsets.
 MIN_COMPLIANCE = 0.80
 
+# Models whose runs are excluded from load_runs() until fully ready.
+# Remove entries here once a model's outputs are complete.
+EXCLUDE_MODELS = {"gemma-4-31b-it"}
+
+# Word counts of each prompt template (system + user, excluding {full_text}).
+# Computed once from step2_promptdesigns.py; hardcoded here to avoid a runtime import.
+PROMPT_WORD_COUNTS: dict[str, int] = {
+    "v1_zero_shot_batch_nodef_nojus":   275,
+    "v2_zero_shot_single_nodef_nojus":  127,
+    "v3_zero_shot_batch_def_nojus":    1069,
+    "v4_zero_shot_single_def_nojus":    921,
+    "v5_zero_shot_batch_nodef_jus":     330,
+    "v6_zero_shot_single_nodef_jus":    182,
+    "v7_zero_shot_batch_def_jus":      1124,
+    "v8_zero_shot_single_def_jus":      976,
+    "v9_few_shot_batch_nodef_nojus":   2864,
+    "v10_few_shot_single_nodef_nojus": 2545,
+    "v11_few_shot_batch_def_nojus":    3658,
+    "v12_few_shot_single_def_nojus":   3339,
+    "v13_few_shot_batch_nodef_jus":    2919,
+    "v14_few_shot_single_nodef_jus":   2600,
+    "v15_few_shot_batch_def_jus":      3713,
+    "v16_few_shot_single_def_jus":     3394,
+}
+
 # ── DATA LOADING ───────────────────────────────────────────────────────────────
 
 def load_gold(path: Path = GOLD_PATH) -> dict[str, dict]:
@@ -117,6 +142,8 @@ def load_runs(classif_dir: Path = CLASSIF_DIR) -> list[dict]:
     for p in sorted(classif_dir.glob("*.json")):
         if p.name.endswith(".partial.json"):
             continue
+        if any(excl in p.name for excl in EXCLUDE_MODELS):
+            continue
         m = _RUN_RE.search(p.name)
         if not m:
             continue
@@ -125,6 +152,8 @@ def load_runs(classif_dir: Path = CLASSIF_DIR) -> list[dict]:
         runs.append(_load_run(p, is_partial=False))
 
     for p in sorted(classif_dir.glob("*.partial.json")):
+        if any(excl in p.name for excl in EXCLUDE_MODELS):
+            continue
         m = _RUN_RE.search(p.name)
         if not m:
             continue
@@ -257,17 +286,78 @@ def step1_compliance(
     return heatmap, summary
 
 
+# ── STEP 1b: COMPLIANCE DIAGNOSIS ─────────────────────────────────────────────
+
+def compliance_diagnosis(
+    runs: list[dict], gold_ids: list[str], threshold: float = 0.70
+) -> pd.DataFrame:
+    """
+    For runs with compliance < threshold, return failure-reason rates per
+    (model, prompt_key): fraction of policies triggering each check.
+    Checks are independent/marginal; no_output entries skip the field checks.
+    invalid_crisis_ref is NaN for single-scope prompts. Sorted by compliance ascending.
+    """
+    n = len(gold_ids)
+    records = []
+    for run in runs:
+        comp = _compliance_rate(run, gold_ids)
+        if comp >= threshold:
+            continue
+        eid      = run["entries_by_id"]
+        dims     = parse_dims(run["prompt_key"])
+        req      = required_fields(run["prompt_key"])
+        is_batch = dims["scope"] == 0
+
+        no_output = missing_fields = invalid_spf = invalid_cr = 0
+        for gid in gold_ids:
+            labels = eid.get(gid)
+            if labels is None:
+                no_output += 1
+                continue
+            if any(f not in labels for f in req):
+                missing_fields += 1
+            spf1 = _val(labels, "social_policy_field_1")
+            spf2 = _val(labels, "social_policy_field_2")
+            if spf1 not in VALID_SPF_SET or spf2 not in VALID_SPF_SET | {"na"}:
+                invalid_spf += 1
+            if is_batch and _crisis(labels) is None:
+                invalid_cr += 1
+
+        records.append({
+            "model":              run["model"],
+            "prompt_key":         run["prompt_key"],
+            "compliance":         round(comp, 3),
+            "no_output":          round(no_output / n, 3),
+            "missing_fields":     round(missing_fields / n, 3),
+            "invalid_spf":        round(invalid_spf / n, 3),
+            "invalid_crisis_ref": round(invalid_cr / n, 3) if is_batch else np.nan,
+        })
+
+    return (
+        pd.DataFrame(records)
+        .sort_values("compliance")
+        .set_index(["model", "prompt_key"])
+    )
+
+
 # ── STEP 2: ACCURACY ───────────────────────────────────────────────────────────
 
-def step2_accuracy(
-    runs: list[dict], gold: dict[str, dict]
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+_JACCARD_BUCKET_VALS = [0.0, 1 / 3, 0.5, 1.0]
+_JACCARD_BUCKET_COLS = ["J=0", "J=1/3", "J=1/2", "J=1"]
+
+
+def step2_accuracy(runs: list[dict], gold: dict[str, dict]) -> dict:
     """
-    Returns:
-        macro_f1_df:    model × prompt, macro F1 on SPF multi-label
-        exact_match_df: model × prompt, exact set-match rate on SPF
-        crisis_f1_df:   model × prompt, binary F1 for crisis_ref (NaN for single prompts)
-        per_cat_df:     per-category F1 for best prompt per model
+    Returns a dict with keys:
+        macro_f1_df       — model × prompt, macro F1 on SPF multi-label
+        macro_prec_df     — model × prompt, macro precision on SPF
+        macro_rec_df      — model × prompt, macro recall on SPF
+        jaccard_df        — model × prompt, mean per-doc Jaccard similarity
+        jaccard_buckets_df — model × prompt × {J=0, J=1/3, J=1/2, J=1} counts
+        crisis_f1_df      — model × prompt, binary F1 for crisis_ref (NaN for single)
+        per_cat_f1_df     — per-category F1 for best prompt per model
+        per_cat_prec_df   — per-category precision for best prompt per model
+        per_cat_rec_df    — per-category recall for best prompt per model
     """
     gold_ids  = list(gold.keys())
     gold_sets = {gid: _spf_set(gls) for gid, gls in gold.items()}
@@ -276,27 +366,29 @@ def step2_accuracy(
     mlb = MultiLabelBinarizer(classes=VALID_SPF)
     mlb.fit([[c] for c in VALID_SPF])
 
-    records_spf  = []
-    records_cr   = []
-    per_cat_rows = []
+    records_spf       = []
+    records_cr        = []
+    per_cat_rows      = []
+    jaccard_bkt_rows  = []
 
     for run in runs:
         eid  = run["entries_by_id"]
         dims = parse_dims(run["prompt_key"])
+        base = {"model": run["model"], "prompt_key": run["prompt_key"]}
 
         if _compliance_rate(run, gold_ids) < MIN_COMPLIANCE:
-            records_spf.append(
-                {"model": run["model"], "prompt_key": run["prompt_key"],
-                 "macro_f1": np.nan, "exact_match": np.nan}
-            )
-            per_cat_rows.append(
-                {"model": run["model"], "prompt_key": run["prompt_key"],
-                 **{c: np.nan for c in VALID_SPF}}
-            )
-            records_cr.append(
-                {"model": run["model"], "prompt_key": run["prompt_key"],
-                 "f1": np.nan, "precision": np.nan, "recall": np.nan}
-            )
+            records_spf.append({
+                **base, "macro_f1": np.nan, "macro_prec": np.nan,
+                "macro_rec": np.nan, "jaccard": np.nan,
+            })
+            per_cat_rows.append({
+                **base,
+                **{c: np.nan for c in VALID_SPF},
+                **{f"prec_{c}": np.nan for c in VALID_SPF},
+                **{f"rec_{c}":  np.nan for c in VALID_SPF},
+            })
+            jaccard_bkt_rows.append({**base, **{col: np.nan for col in _JACCARD_BUCKET_COLS}})
+            records_cr.append({**base, "f1": np.nan, "precision": np.nan, "recall": np.nan})
             continue
 
         # SPF: restrict to entries where both gold and prediction are valid
@@ -309,21 +401,41 @@ def step2_accuracy(
             gs, ps = zip(*valid_spf)
             yg = mlb.transform(gs)
             yp = mlb.transform(ps)
-            macro_f1    = float(f1_score(yg, yp, average="macro",  zero_division=0))
-            exact_match = float(np.mean([g == p for g, p in zip(gs, ps)]))
-            per_cat_f1  = list(f1_score(yg, yp, average=None, zero_division=0))
-        else:
-            macro_f1 = exact_match = np.nan
-            per_cat_f1 = [np.nan] * len(VALID_SPF)
 
-        records_spf.append(
-            {"model": run["model"], "prompt_key": run["prompt_key"],
-             "macro_f1": macro_f1, "exact_match": exact_match}
-        )
-        per_cat_rows.append(
-            {"model": run["model"], "prompt_key": run["prompt_key"],
-             **dict(zip(VALID_SPF, per_cat_f1))}
-        )
+            macro_f1   = float(f1_score(yg, yp, average="macro", zero_division=0))
+            macro_prec = float(precision_score(yg, yp, average="macro", zero_division=0))
+            macro_rec  = float(recall_score(yg, yp, average="macro", zero_division=0))
+
+            jac_vals = [len(g & p) / len(g | p) for g, p in zip(gs, ps)]
+            jaccard  = float(np.mean(jac_vals))
+
+            bkt = {col: 0 for col in _JACCARD_BUCKET_COLS}
+            for jv in jac_vals:
+                col = _JACCARD_BUCKET_COLS[
+                    min(range(len(_JACCARD_BUCKET_VALS)),
+                        key=lambda i: abs(_JACCARD_BUCKET_VALS[i] - jv))
+                ]
+                bkt[col] += 1
+
+            per_cat_f1   = list(f1_score(yg, yp, average=None, zero_division=0))
+            per_cat_prec = list(precision_score(yg, yp, average=None, zero_division=0))
+            per_cat_rec  = list(recall_score(yg, yp, average=None, zero_division=0))
+        else:
+            macro_f1 = macro_prec = macro_rec = jaccard = np.nan
+            bkt = {col: np.nan for col in _JACCARD_BUCKET_COLS}
+            per_cat_f1 = per_cat_prec = per_cat_rec = [np.nan] * len(VALID_SPF)
+
+        records_spf.append({
+            **base, "macro_f1": macro_f1, "macro_prec": macro_prec,
+            "macro_rec": macro_rec, "jaccard": jaccard,
+        })
+        per_cat_rows.append({
+            **base,
+            **dict(zip(VALID_SPF, per_cat_f1)),
+            **{f"prec_{c}": v for c, v in zip(VALID_SPF, per_cat_prec)},
+            **{f"rec_{c}":  v for c, v in zip(VALID_SPF, per_cat_rec)},
+        })
+        jaccard_bkt_rows.append({**base, **bkt})
 
         # Crisis ref (batch prompts only)
         if dims["scope"] == 0:
@@ -342,29 +454,58 @@ def step2_accuracy(
         else:
             cr_f1 = cr_pre = cr_rec = np.nan
 
-        records_cr.append(
-            {"model": run["model"], "prompt_key": run["prompt_key"],
-             "f1": cr_f1, "precision": cr_pre, "recall": cr_rec}
-        )
+        records_cr.append({**base, "f1": cr_f1, "precision": cr_pre, "recall": cr_rec})
 
     df_spf = pd.DataFrame(records_spf)
-    macro_f1_df    = df_spf.pivot(index="model", columns="prompt_key", values="macro_f1").round(3)
-    exact_match_df = df_spf.pivot(index="model", columns="prompt_key", values="exact_match").round(3)
-    crisis_f1_df   = pd.DataFrame(records_cr).pivot(
+
+    def _pivot(col):
+        return df_spf.pivot(index="model", columns="prompt_key", values=col).round(3)
+
+    macro_f1_df   = _pivot("macro_f1")
+    macro_prec_df = _pivot("macro_prec")
+    macro_rec_df  = _pivot("macro_rec")
+    jaccard_df    = _pivot("jaccard")
+
+    crisis_f1_df = pd.DataFrame(records_cr).pivot(
         index="model", columns="prompt_key", values="f1"
     ).round(3)
 
-    # Per-category F1 for each model's best-performing prompt (by macro F1)
+    jaccard_buckets_df = (
+        pd.DataFrame(jaccard_bkt_rows)
+        .set_index(["model", "prompt_key"])
+    )
+
+    # Per-category metrics for each model's best prompt (by macro F1)
     df_pcat  = pd.DataFrame(per_cat_rows)
     best_idx = df_spf.groupby("model")["macro_f1"].idxmax()
     best     = df_spf.loc[best_idx][["model", "prompt_key"]]
-    per_cat_df = (
-        df_pcat.merge(best, on=["model", "prompt_key"])
-        .set_index(["model", "prompt_key"])[VALID_SPF]
-        .round(3)
+
+    def _best_cat(cols):
+        return (
+            df_pcat.merge(best, on=["model", "prompt_key"])
+            .set_index(["model", "prompt_key"])[cols]
+            .round(3)
+        )
+
+    per_cat_f1_df   = _best_cat(VALID_SPF)
+    per_cat_prec_df = _best_cat([f"prec_{c}" for c in VALID_SPF]).rename(
+        columns={f"prec_{c}": c for c in VALID_SPF}
+    )
+    per_cat_rec_df  = _best_cat([f"rec_{c}"  for c in VALID_SPF]).rename(
+        columns={f"rec_{c}": c for c in VALID_SPF}
     )
 
-    return macro_f1_df, exact_match_df, crisis_f1_df, per_cat_df
+    return {
+        "macro_f1_df":        macro_f1_df,
+        "macro_prec_df":      macro_prec_df,
+        "macro_rec_df":       macro_rec_df,
+        "jaccard_df":         jaccard_df,
+        "jaccard_buckets_df": jaccard_buckets_df,
+        "crisis_f1_df":       crisis_f1_df,
+        "per_cat_f1_df":      per_cat_f1_df,
+        "per_cat_prec_df":    per_cat_prec_df,
+        "per_cat_rec_df":     per_cat_rec_df,
+    }
 
 
 # ── STEP 3: KRIPPENDORFF'S ALPHA ──────────────────────────────────────────────
@@ -568,7 +709,7 @@ def main() -> None:
     n_partial = sum(r["is_partial"] for r in runs)
     print(f"  {len(runs)} runs  ({n_partial} partial)")
 
-    macro_f1_df = exact_match_df = crisis_f1_df = per_cat_df = None
+    macro_f1_df = None
     alpha_spf_bin_df = alpha_spf_nom_df = alpha_cr_df = None
 
     if 1 in args.steps:
@@ -580,11 +721,27 @@ def main() -> None:
 
     if 2 in args.steps:
         print("\n--- Step 2: Accuracy ---")
-        macro_f1_df, exact_match_df, crisis_f1_df, per_cat_df = step2_accuracy(runs, gold)
+        acc = step2_accuracy(runs, gold)
+        macro_f1_df       = acc["macro_f1_df"]
+        macro_prec_df     = acc["macro_prec_df"]
+        macro_rec_df      = acc["macro_rec_df"]
+        jaccard_df        = acc["jaccard_df"]
+        jaccard_buckets_df = acc["jaccard_buckets_df"]
+        crisis_f1_df      = acc["crisis_f1_df"]
+        per_cat_f1_df     = acc["per_cat_f1_df"]
+        per_cat_prec_df   = acc["per_cat_prec_df"]
+        per_cat_rec_df    = acc["per_cat_rec_df"]
+
         macro_f1_df.to_csv(RESULTS_DIR / "spf_macro_f1.csv")
-        exact_match_df.to_csv(RESULTS_DIR / "spf_exact_match.csv")
+        macro_prec_df.to_csv(RESULTS_DIR / "spf_macro_precision.csv")
+        macro_rec_df.to_csv(RESULTS_DIR / "spf_macro_recall.csv")
+        jaccard_df.to_csv(RESULTS_DIR / "spf_jaccard.csv")
+        jaccard_buckets_df.to_csv(RESULTS_DIR / "spf_jaccard_buckets.csv")
         crisis_f1_df.to_csv(RESULTS_DIR / "crisis_ref_f1.csv")
-        per_cat_df.to_csv(RESULTS_DIR / "spf_per_category_f1_best_prompt.csv")
+        per_cat_f1_df.to_csv(RESULTS_DIR / "spf_per_category_f1_best_prompt.csv")
+        per_cat_prec_df.to_csv(RESULTS_DIR / "spf_per_category_precision_best_prompt.csv")
+        per_cat_rec_df.to_csv(RESULTS_DIR / "spf_per_category_recall_best_prompt.csv")
+
         print("  Macro F1 mean across prompts, per model:")
         print(macro_f1_df.mean(axis=1).round(3).to_string())
 
@@ -600,13 +757,13 @@ def main() -> None:
     if 4 in args.steps:
         print("\n--- Step 4: Confusion matrices ---")
         if macro_f1_df is None:
-            macro_f1_df, *_ = step2_accuracy(runs, gold)
+            macro_f1_df = step2_accuracy(runs, gold)["macro_f1_df"]
         step4_confusion(macro_f1_df, runs, gold, plots_dir)
 
     if 5 in args.steps:
         print("\n--- Step 5: Factorial decomposition ---")
         if macro_f1_df is None:
-            macro_f1_df, *_ = step2_accuracy(runs, gold)
+            macro_f1_df = step2_accuracy(runs, gold)["macro_f1_df"]
         if alpha_spf_bin_df is None:
             alpha_spf_bin_df, *_ = step3_alpha(runs, gold)
         factorial = step5_factorial(macro_f1_df, alpha_spf_bin_df)

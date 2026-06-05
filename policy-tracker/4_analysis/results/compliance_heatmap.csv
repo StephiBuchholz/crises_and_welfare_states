@@ -1,4 +1,7 @@
 model,v10_few_shot_single_nodef_nojus,v11_few_shot_batch_def_nojus,v12_few_shot_single_def_nojus,v13_few_shot_batch_nodef_jus,v14_few_shot_single_nodef_jus,v15_few_shot_batch_def_jus,v16_few_shot_single_def_jus,v1_zero_shot_batch_nodef_nojus,v2_zero_shot_single_nodef_nojus,v3_zero_shot_batch_def_nojus,v4_zero_shot_single_def_nojus,v5_zero_shot_batch_nodef_jus,v6_zero_shot_single_nodef_jus,v7_zero_shot_batch_def_jus,v8_zero_shot_single_def_jus,v9_few_shot_batch_nodef_nojus
-gpt-4.1-mini,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-meta-llama/Llama-3.3-70B-Instruct,0.91,0.925,0.94,0.881,0.91,0.955,0.896,0.0,0.94,0.0,0.015,0.0,0.985,0.0,0.0,0.896
-mistral-large-3-675b-instruct-2512,1.0,1.0,0.97,0.97,0.97,0.97,0.97,0.03,1.0,0.0,0.299,0.179,1.0,0.179,0.328,1.0
+gpt-4.1-mini,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956,0.956
+llama-3.3-70b-instruct,0.868,0.868,0.824,0.853,0.882,0.868,0.882,0.0,0.897,0.0,0.044,0.0,0.912,0.0,0.029,0.809
+meta-llama-3.1-8b-instruct,0.926,0.882,0.882,0.912,0.882,0.868,0.912,0.118,0.956,0.015,0.485,0.015,0.926,0.074,0.279,0.824
+mistral-large-3-675b-instruct-2512,0.956,0.956,0.956,0.956,0.956,0.956,0.926,0.0,0.956,0.015,0.5,0.147,0.956,0.103,0.559,0.956
+openai-gpt-oss-120b,0.956,0.956,0.941,0.956,0.956,0.956,0.941,0.941,0.926,0.544,0.397,0.956,0.956,0.559,0.412,0.956
+qwen3.6-35b-a3b,0.956,0.853,0.941,0.956,0.956,0.897,0.956,0.824,0.956,0.044,0.0,0.956,0.956,0.044,0.015,0.956

@@ -1,4 +1,7 @@
 model,mean,min,max
-gpt-4.1-mini,1.0,1.0,1.0
-meta-llama/Llama-3.3-70B-Instruct,0.578,0.0,0.985
-mistral-large-3-675b-instruct-2512,0.679,0.0,1.0
+gpt-4.1-mini,0.956,0.956,0.956
+llama-3.3-70b-instruct,0.546,0.0,0.912
+meta-llama-3.1-8b-instruct,0.622,0.015,0.956
+mistral-large-3-675b-instruct-2512,0.678,0.0,0.956
+openai-gpt-oss-120b,0.832,0.397,0.956
+qwen3.6-35b-a3b,0.704,0.0,0.956
