@@ -72,6 +72,19 @@ meta-llama-3.1-8b-instruct,v5_zero_shot_batch_nodef_jus,,,,
 meta-llama-3.1-8b-instruct,v6_zero_shot_single_nodef_jus,21.0,1.0,11.0,31.0
 meta-llama-3.1-8b-instruct,v8_zero_shot_single_def_jus,,,,
 meta-llama-3.1-8b-instruct,v9_few_shot_batch_nodef_nojus,12.0,4.0,16.0,26.0
+gemma-4-31b-it,v10_few_shot_single_nodef_nojus,7.0,3.0,14.0,41.0
+gemma-4-31b-it,v11_few_shot_batch_def_nojus,5.0,3.0,10.0,40.0
+gemma-4-31b-it,v12_few_shot_single_def_nojus,6.0,3.0,10.0,45.0
+gemma-4-31b-it,v13_few_shot_batch_nodef_jus,12.0,3.0,12.0,38.0
+gemma-4-31b-it,v1_zero_shot_batch_nodef_nojus,5.0,2.0,15.0,42.0
+gemma-4-31b-it,v2_zero_shot_single_nodef_nojus,3.0,4.0,16.0,42.0
+gemma-4-31b-it,v3_zero_shot_batch_def_nojus,,,,
+gemma-4-31b-it,v4_zero_shot_single_def_nojus,,,,
+gemma-4-31b-it,v5_zero_shot_batch_nodef_jus,4.0,6.0,15.0,39.0
+gemma-4-31b-it,v6_zero_shot_single_nodef_jus,3.0,5.0,17.0,40.0
+gemma-4-31b-it,v7_zero_shot_batch_def_jus,,,,
+gemma-4-31b-it,v8_zero_shot_single_def_jus,,,,
+gemma-4-31b-it,v9_few_shot_batch_nodef_nojus,11.0,3.0,13.0,38.0
 gpt-4.1-mini,v10_few_shot_single_nodef_nojus,11.0,4.0,17.0,33.0
 gpt-4.1-mini,v11_few_shot_batch_def_nojus,11.0,2.0,18.0,34.0
 gpt-4.1-mini,v12_few_shot_single_def_nojus,10.0,2.0,15.0,38.0
@@ -95,3 +108,6 @@ meta-llama-3.1-8b-instruct,v14_few_shot_single_nodef_jus,14.0,2.0,17.0,29.0
 meta-llama-3.1-8b-instruct,v15_few_shot_batch_def_jus,18.0,1.0,12.0,30.0
 meta-llama-3.1-8b-instruct,v16_few_shot_single_def_jus,18.0,1.0,11.0,32.0
 meta-llama-3.1-8b-instruct,v7_zero_shot_batch_def_jus,,,,
+gemma-4-31b-it,v14_few_shot_single_nodef_jus,9.0,4.0,14.0,38.0
+gemma-4-31b-it,v15_few_shot_batch_def_jus,7.0,3.0,9.0,44.0
+gemma-4-31b-it,v16_few_shot_single_def_jus,6.0,3.0,10.0,40.0

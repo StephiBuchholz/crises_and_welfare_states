@@ -1,0 +1,8 @@
+model,best_prompt,n_evaluated,exact_match,partial_overlap_1_2,partial_overlap_1_3,partial_overlap,no_overlap,exact_match_pct,partial_overlap_1_2_pct,partial_overlap_1_3_pct,partial_overlap_pct,no_overlap_pct
+gemma-4-31b-it,v2_zero_shot_single_nodef_nojus,65,42,16,4,20,3,64.6,24.6,6.2,30.8,4.6
+gpt-4.1-mini,v16_few_shot_single_def_jus,65,46,8,1,9,10,70.8,12.3,1.5,13.8,15.4
+llama-3.3-70b-instruct,v10_few_shot_single_nodef_nojus,63,41,11,2,13,9,65.1,17.5,3.2,20.6,14.3
+meta-llama-3.1-8b-instruct,v14_few_shot_single_nodef_jus,62,29,17,2,19,14,46.8,27.4,3.2,30.6,22.6
+mistral-large-3-675b-instruct-2512,v2_zero_shot_single_nodef_nojus,65,45,13,3,16,4,69.2,20.0,4.6,24.6,6.2
+openai-gpt-oss-120b,v16_few_shot_single_def_jus,64,43,13,0,13,8,67.2,20.3,0.0,20.3,12.5
+qwen3.6-35b-a3b,v12_few_shot_single_def_nojus,64,52,3,2,5,7,81.2,4.7,3.1,7.8,10.9

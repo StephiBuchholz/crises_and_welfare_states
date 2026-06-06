@@ -1,0 +1,8 @@
+model,prompt_key,unemployment,family/children,housing,disability,retirement,survivors,sickness/health/care,labour market,taxes,none
+mistral-large-3-675b-instruct-2512,v2_zero_shot_single_nodef_nojus,0.889,0.625,0.5,0.5,0.818,0.0,0.364,0.912,1.0,1.0
+llama-3.3-70b-instruct,v10_few_shot_single_nodef_nojus,0.75,0.833,0.5,0.667,1.0,0.0,0.4,0.838,1.0,0.5
+qwen3.6-35b-a3b,v12_few_shot_single_def_nojus,0.889,1.0,0.5,0.6,0.8,,0.75,1.0,1.0,0.2
+openai-gpt-oss-120b,v16_few_shot_single_def_jus,0.75,0.8,0.333,0.8,0.857,,1.0,0.879,0.6,0.25
+gemma-4-31b-it,v2_zero_shot_single_nodef_nojus,0.818,0.556,0.5,0.5,0.667,,0.571,0.857,1.0,1.0
+gpt-4.1-mini,v16_few_shot_single_def_jus,0.875,0.8,0.5,0.5,0.8,,1.0,0.933,1.0,0.167
+meta-llama-3.1-8b-instruct,v14_few_shot_single_nodef_jus,0.667,0.714,0.333,1.0,0.571,,0.125,0.66,0.333,0.167

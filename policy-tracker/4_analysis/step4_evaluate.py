@@ -3,7 +3,7 @@
 step4_evaluate.py
 
 Evaluation pipeline: LLM classification results vs. human gold standard.
-Outputs CSV tables and PNG plots to 4_analysis/results/.
+Outputs CSV tables and PNG plots to data/analysis_results/.
 
 Steps:
     1  Compliance      — parse-ability and field-validity checks
@@ -45,7 +45,16 @@ GOLD_PATH = (
     / "germany_2008-2015_2019-2022_gs_sample_68_2026-05-24_labelled_sb_labelled_sb_labelled_sb.json"
 )
 CLASSIF_DIR = PROJECT_ROOT / "data" / "classifications" / "germany"
-RESULTS_DIR = Path(__file__).resolve().parent / "results"
+RESULTS_DIR = PROJECT_ROOT / "data" / "analysis_results"
+
+
+def _dataset_tag(gold_path: Path) -> str:
+    parts   = gold_path.stem.split("_")
+    country = parts[0][:3]
+    periods = [p for p in parts if re.fullmatch(r"\d{4}-\d{4}", p)]
+    return "_".join([country] + periods)
+
+DATASET_TAG = _dataset_tag(GOLD_PATH)
 
 # ── SCHEMA ─────────────────────────────────────────────────────────────────────
 VALID_SPF = [
@@ -86,7 +95,7 @@ MIN_COMPLIANCE = 0.80
 
 # Models whose runs are excluded from load_runs() until fully ready.
 # Remove entries here once a model's outputs are complete.
-EXCLUDE_MODELS = {"gemma-4-31b-it"}
+EXCLUDE_MODELS: set[str] = set()
 
 # Word counts of each prompt template (system + user, excluding {full_text}).
 # Computed once from step2_promptdesigns.py; hardcoded here to avoid a runtime import.
@@ -402,9 +411,13 @@ def step2_accuracy(runs: list[dict], gold: dict[str, dict]) -> dict:
             yg = mlb.transform(gs)
             yp = mlb.transform(ps)
 
-            macro_f1   = float(f1_score(yg, yp, average="macro", zero_division=0))
-            macro_prec = float(precision_score(yg, yp, average="macro", zero_division=0))
-            macro_rec  = float(recall_score(yg, yp, average="macro", zero_division=0))
+            per_cat_f1   = f1_score(yg, yp, average=None, zero_division=np.nan)
+            per_cat_prec = precision_score(yg, yp, average=None, zero_division=np.nan)
+            per_cat_rec  = recall_score(yg, yp, average=None, zero_division=np.nan)
+
+            macro_f1   = float(np.nanmean(per_cat_f1))
+            macro_prec = float(np.nanmean(per_cat_prec))
+            macro_rec  = float(np.nanmean(per_cat_rec))
 
             jac_vals = [len(g & p) / len(g | p) for g, p in zip(gs, ps)]
             jaccard  = float(np.mean(jac_vals))
@@ -416,10 +429,6 @@ def step2_accuracy(runs: list[dict], gold: dict[str, dict]) -> dict:
                         key=lambda i: abs(_JACCARD_BUCKET_VALS[i] - jv))
                 ]
                 bkt[col] += 1
-
-            per_cat_f1   = list(f1_score(yg, yp, average=None, zero_division=0))
-            per_cat_prec = list(precision_score(yg, yp, average=None, zero_division=0))
-            per_cat_rec  = list(recall_score(yg, yp, average=None, zero_division=0))
         else:
             macro_f1 = macro_prec = macro_rec = jaccard = np.nan
             bkt = {col: np.nan for col in _JACCARD_BUCKET_COLS}
@@ -605,6 +614,7 @@ def step4_confusion(
     runs: list[dict],
     gold: dict[str, dict],
     plots_dir: Path,
+    file_suffix: str = "",
 ) -> None:
     """Plot one confusion matrix per model using its best prompt (by macro F1)."""
     gold_ids = list(gold.keys())
@@ -642,7 +652,7 @@ def step4_confusion(
         plt.xticks(rotation=45, ha="right", fontsize=8)
         plt.yticks(rotation=0, fontsize=8)
         plt.tight_layout()
-        out = plots_dir / f"confusion_{safe}.png"
+        out = plots_dir / f"confusion_{safe}{file_suffix}.png"
         fig.savefig(out, dpi=150, bbox_inches="tight")
         plt.close(fig)
         print(f"    saved: {out.name}")
@@ -682,6 +692,70 @@ def step5_factorial(
                 "avg_alpha_spf": round(float(sub["alpha"].mean()),    3),
             })
     return pd.DataFrame(rows).set_index(["dimension", "value"])
+
+
+# ── STEP 2b: JACCARD BUCKET TABLE (best prompt per model) ─────────────────────
+
+def jaccard_bucket_table(
+    macro_f1_df: pd.DataFrame, runs: list[dict], gold: dict[str, dict]
+) -> pd.DataFrame:
+    """
+    For each model's best prompt (by macro F1), compute per-document Jaccard
+    similarity and return a bucket distribution table with counts and percentages.
+    Possible Jaccard values for label sets of size 1–2: 0, 1/3, 1/2, 1.
+    """
+    gold_ids  = list(gold.keys())
+    gold_sets = {gid: _spf_set(gls) for gid, gls in gold.items()}
+
+    _BUCKET_VALS = [0.0, 1 / 3, 0.5, 1.0]
+    _BUCKET_KEYS = ["no_overlap", "partial_1_3", "partial_1_2", "exact_match"]
+
+    rows = []
+    for model in macro_f1_df.index:
+        row = macro_f1_df.loc[model].dropna()
+        if row.empty:
+            continue
+        best_prompt = row.idxmax()
+        run = next(
+            (r for r in runs if r["model"] == model and r["prompt_key"] == best_prompt),
+            None,
+        )
+        if run is None:
+            continue
+
+        eid = run["entries_by_id"]
+        bkt = {k: 0 for k in _BUCKET_KEYS}
+        n = 0
+        for gid in gold_ids:
+            gs = gold_sets.get(gid)
+            ps = _spf_set(eid.get(gid))
+            if gs is None or ps is None:
+                continue
+            jv  = len(gs & ps) / len(gs | ps)
+            key = _BUCKET_KEYS[
+                min(range(len(_BUCKET_VALS)), key=lambda i: abs(_BUCKET_VALS[i] - jv))
+            ]
+            bkt[key] += 1
+            n += 1
+
+        partial = bkt["partial_1_2"] + bkt["partial_1_3"]
+        rows.append({
+            "model":                   model,
+            "best_prompt":             best_prompt,
+            "n_evaluated":             n,
+            "exact_match":             bkt["exact_match"],
+            "partial_overlap_1_2":     bkt["partial_1_2"],
+            "partial_overlap_1_3":     bkt["partial_1_3"],
+            "partial_overlap":         partial,
+            "no_overlap":              bkt["no_overlap"],
+            "exact_match_pct":         round(bkt["exact_match"] / n * 100, 1) if n else np.nan,
+            "partial_overlap_1_2_pct": round(bkt["partial_1_2"] / n * 100, 1) if n else np.nan,
+            "partial_overlap_1_3_pct": round(bkt["partial_1_3"] / n * 100, 1) if n else np.nan,
+            "partial_overlap_pct":     round(partial / n * 100, 1) if n else np.nan,
+            "no_overlap_pct":          round(bkt["no_overlap"] / n * 100, 1) if n else np.nan,
+        })
+
+    return pd.DataFrame(rows).set_index("model")
 
 
 # ── MAIN ───────────────────────────────────────────────────────────────────────
@@ -741,6 +815,9 @@ def main() -> None:
         per_cat_f1_df.to_csv(RESULTS_DIR / "spf_per_category_f1_best_prompt.csv")
         per_cat_prec_df.to_csv(RESULTS_DIR / "spf_per_category_precision_best_prompt.csv")
         per_cat_rec_df.to_csv(RESULTS_DIR / "spf_per_category_recall_best_prompt.csv")
+
+        jac_bkt = jaccard_bucket_table(macro_f1_df, runs, gold)
+        jac_bkt.to_csv(RESULTS_DIR / "spf_jaccard_buckets_best_prompt.csv")
 
         print("  Macro F1 mean across prompts, per model:")
         print(macro_f1_df.mean(axis=1).round(3).to_string())
