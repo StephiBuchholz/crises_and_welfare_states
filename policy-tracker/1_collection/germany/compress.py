@@ -10,7 +10,7 @@ input_file = (
     / "data"
     / "raw"
     / "germany"
-    / "bgbl1_2008-2015_20260409.json"
+    / "bgbl1_2000-2007_20260921.json"
 )
 output_file = input_file.with_suffix(".json.gz")
 

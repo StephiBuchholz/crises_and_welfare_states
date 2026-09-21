@@ -202,7 +202,7 @@ def main():
         nargs=2,
         type=int,
         metavar=("START", "END"),
-        default=[2016, 2018],
+        default=[2019, 2022],
         help="year range to fetch, inclusive (default: 2019 2022)",
     )
     parser.add_argument("--download-pdfs", action="store_true")
