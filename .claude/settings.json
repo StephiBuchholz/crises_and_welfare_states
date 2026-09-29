@@ -1,12 +1,15 @@
 {
   "permissions": {
+    "defaultMode": "default",
     "deny": [
       "Read(**/.env*)",
       "Read(*litrev/typst_litrev/)",
       "Write(*litrev/typst_litrev/)",
       "Edit(*litrev/typst_litrev/)",
       "Read(phd_proposal/)",
-      "Edit(./policy_tracker/data/raw/**)"
+      "Edit(./policy-tracker/data/raw/**)",
+      "Write(./policy-tracker/data/raw/**)"
+
       
     ]
   }

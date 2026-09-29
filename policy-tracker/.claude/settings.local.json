@@ -1,13 +1,12 @@
 {
   "permissions": {
-    "allow": [
-      "PowerShell(jupyter --version 2>$null)",
-      "PowerShell(jupyter kernelspec list)",
-      "Bash(python -c ' *)",
-      "Bash(python3 -c ' *)",
-      "PowerShell(Get-Command py -ErrorAction SilentlyContinue)",
-      "Bash(python3)",
-      "Bash(python)"
+    "defaultMode": "default",
+    "deny": [
+      "Read(**/.env*)",
+      "Edit(./policy-tracker/data/raw/**)",
+      "Write(./policy-tracker/data/raw/**)"
+
+      
     ]
   }
 }

@@ -32,10 +32,18 @@ output:
       incl. fna_codes, fna_match and zip_path (None if not downloaded)
 
 resume support:
-  - metadata is saved to bgbl_website_progress_{start}-{end}.json every batch
-  - if interrupted (Ctrl+C), just run again — cached pages and existing ZIPs
-    are reused
-  - progress file is cleaned up on successful completion
+  - progress is saved to bgbl_website_progress_{start}-{end}.json every batch:
+      "pages"  → parsed metadata per "{year}/{number}" (never re-requested)
+      "misses" → every number that did NOT yield a record, with a reason:
+                   not_found → HTTP 404 (normal gap / end of year)
+                   unparsed  → page loaded but no "BGBl.-Nr.:" field found
+                   error     → request failed (timeout, 5xx after retries, ...)
+  - misses whose reason is in RETRY_REASONS are re-requested on every run
+  - the progress file is kept after completion (it is the resume state)
+  - an old flat progress file ({"2023/1": {...}, ...}) is read and upgraded
+
+inspect what is missing (no network requests):
+    python fetch_bgbl-new-website_post2023_germany.py --years 2023 2023 --report
 
 usage:
 run
@@ -66,10 +74,10 @@ from urllib3.util.retry import Retry
 # ── configuration ──────────────────────────────────────────────────
 # years to fetch (inclusive); can be overridden with --years START END
 START_YEAR = 2023
-END_YEAR = 2023 #datetime.date.today().year
+END_YEAR = 2026 #datetime.date.today().year
 
 # True → only collect metadata (no ZIP download); 
-METADATA_ONLY = True
+METADATA_ONLY = False
 
 # FNA ("Sachgebiet") filter — a publication is kept if AT LEAST ONE of its FNA codes matches
 # for a list of FNA/Sachgebiete see link above
@@ -96,7 +104,11 @@ DOWNLOAD_DELAY = 1.0         # seconds between ZIP downloads
 TIMEOUT = 60
 MAX_RETRIES = 3
 USER_AGENT = "Mozilla/5.0 (research data collection; University of Mannheim)"
-SAVE_EVERY = 25              # save progress after this many new pages
+SAVE_EVERY = 25              # save progress after this many new requests
+# recorded misses with these reasons are re-requested on the next run
+RETRY_REASONS = {"error", "unparsed", "not_found"}
+# stop probing a year after this many consecutive request errors (server down?)
+MAX_CONSECUTIVE_ERRORS = 5
 
 # paths
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -189,15 +201,70 @@ def fna_matches(codes: list[str]) -> bool:
 
 
 def load_progress(progress_file: str) -> dict:
-    if os.path.exists(progress_file):
-        with open(progress_file, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
+    """{"pages": {key: record}, "misses": {key: {...}}}; upgrades the old flat format."""
+    if not os.path.exists(progress_file):
+        return {"pages": {}, "misses": {}}
+    with open(progress_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if "pages" not in data:  # old format: {"2023/1": record, ...}
+        data = {"pages": data, "misses": {}}
+    data.setdefault("misses", {})
+    return data
 
 
 def save_progress(data: dict, progress_file: str):
-    with open(progress_file, "w", encoding="utf-8") as f:
+    # write to a temp file first so an interrupt never leaves a corrupt progress file
+    with open(progress_file + ".part", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False)
+    os.replace(progress_file + ".part", progress_file)
+
+
+def _split_key(key: str) -> tuple[int, int, str]:
+    """'2023/12a' → (2023, 12, '12a')"""
+    year, number = key.split("/", 1)
+    m = re.match(r"\d+", number)
+    return int(year), int(m.group()) if m else 0, number
+
+
+def report_progress(progress: dict, years: range) -> list[str]:
+    """print, per year, every number without a record and why. no network.
+    returns keys that look like real failures (error / unparsed / unknown)."""
+    pages, misses = progress["pages"], progress["misses"]
+    problems = []
+    print("\n  Coverage report (from progress file)")
+    for year in years:
+        found = [_split_key(k) for k in pages if k.startswith(f"{year}/")]
+        yr_misses = {k: v for k, v in misses.items() if k.startswith(f"{year}/")}
+        if not found and not yr_misses:
+            print(f"    {year}: nothing in progress file")
+            continue
+        top = max((n for _, n, _ in found), default=0)
+        print(f"    {year}: {len(found)} records, highest number found: {top}")
+
+        # gaps below the highest number found
+        gaps = [n for n in range(1, top + 1) if f"{year}/{n}" not in pages]
+        for n in gaps:
+            m = misses.get(f"{year}/{n}")
+            reason = m["reason"] if m else "unknown (not recorded — probed by an old version)"
+            detail = f" — {m['detail']}" if m and m.get("detail") else ""
+            print(f"      gap  Nr. {n}: {reason}{detail}")
+            if not m or m["reason"] != "not_found":
+                problems.append(f"{year}/{n}")
+
+        # misses beyond the highest number: 404s here are the normal end marker,
+        # anything else means the year may have been cut off early
+        trailing = sorted(
+            (k for k in yr_misses if _split_key(k)[1] > top), key=lambda k: _split_key(k)[1]
+        )
+        for k in trailing:
+            m = yr_misses[k]
+            flag = "end" if m["reason"] == "not_found" else "⚠ year may continue"
+            print(f"      tail Nr. {_split_key(k)[2]}: {m['reason']} ({flag})")
+            if m["reason"] != "not_found":
+                problems.append(k)
+        if not gaps and not trailing:
+            print("      no gaps (misses before this version were not recorded)")
+    return problems
 
 
 # ── pass 1: metadata ──────────────────────────────────────────────
@@ -256,57 +323,89 @@ def parse_detail_page(html: str, page_url: str, year: int, number: str) -> dict 
     }
 
 
-def fetch_detail(session: requests.Session, year: int, number: str) -> dict | None:
+def fetch_detail(session: requests.Session, year: int, number: str) -> tuple[str, dict | None, str | None]:
+    """returns (status, record, detail); status is ok / not_found / unparsed."""
     url = f"{ELI_BASE}/{year}/{number}"
     resp = session.get(url, timeout=TIMEOUT)
     if resp.status_code == 404:
-        return None
+        return "not_found", None, "HTTP 404"
     resp.raise_for_status()
-    return parse_detail_page(resp.text, resp.url, year, number)
+    rec = parse_detail_page(resp.text, resp.url, year, number)
+    if rec is None:
+        t = BeautifulSoup(resp.text, "html.parser").title
+        page_title = t.get_text(strip=True) if t else None
+        return "unparsed", None, f"HTTP {resp.status_code}, url {resp.url}, <title> {page_title!r}"
+    return "ok", rec, None
 
 
-def fetch_metadata(session, years: range, progress_file: str) -> tuple[list[dict], list[str]]:
-    cache = load_progress(progress_file)
-    records, failed = [], []
+def fetch_metadata(session, years: range, progress_file: str) -> tuple[list[dict], dict]:
+    progress = load_progress(progress_file)
+    pages, misses = progress["pages"], progress["misses"]
+    print(f"  Progress file: {progress_file}")
+    print(f"  Loaded {len(pages)} cached pages, {len(misses)} recorded misses")
+    records = []
     new_since_save = 0
 
-    def probe(year: int, number: str) -> dict | None:
+    def probe(year: int, number: str) -> tuple[str, dict | None]:
         nonlocal new_since_save
         key = f"{year}/{number}"
-        if key in cache:
-            return cache[key]
+        if key in pages:
+            return "ok", pages[key]
+        prev = misses.get(key)
+        if prev and prev["reason"] not in RETRY_REASONS:
+            return prev["reason"], None
         try:
-            rec = fetch_detail(session, year, number)
+            status, rec, detail = fetch_detail(session, year, number)
         except requests.RequestException as e:
-            print(f"      ⚠ {key}: {e}")
-            failed.append(key)
-            rec = None
+            status, rec, detail = "error", None, f"{type(e).__name__}: {e}"
         time.sleep(REQUEST_DELAY)
+
         if rec:
-            cache[key] = rec
-            new_since_save += 1
-            if new_since_save >= SAVE_EVERY:
-                save_progress(cache, progress_file)
-                new_since_save = 0
-        return rec
+            pages[key] = rec
+            if misses.pop(key, None):
+                print(f"      ✓ {key}: recovered (was {prev['reason']})")
+        else:
+            misses[key] = {
+                "reason": status,
+                "detail": detail,
+                "checked": datetime.datetime.now().isoformat(timespec="seconds"),
+            }
+            if status != "not_found":
+                print(f"      ⚠ {key}: {status} — {detail}")
+
+        new_since_save += 1
+        if new_since_save >= SAVE_EVERY:
+            save_progress(progress, progress_file)
+            new_since_save = 0
+        return status, rec
 
     for year in years:
         print(f"\n  Year {year}")
-        misses, nr, found = 0, 0, 0
+        miss_run, error_run, nr, found = 0, 0, 0, 0
 
-        while misses < MAX_CONSECUTIVE_MISSES and nr < MAX_NUMBER_PER_YEAR:
+        while miss_run < MAX_CONSECUTIVE_MISSES and nr < MAX_NUMBER_PER_YEAR:
+            if error_run >= MAX_CONSECUTIVE_ERRORS:
+                print(f"    ⚠ {error_run} consecutive request errors at Nr. {nr} — "
+                      f"year {year} is INCOMPLETE, run again later")
+                break
             nr += 1
-            rec = probe(year, str(nr))
-            if rec is None:
-                misses += 1
+            status, rec = probe(year, str(nr))
+            if status == "error":
+                # errors say nothing about whether the number exists:
+                # don't count them towards the end-of-year stop
+                error_run += 1
                 continue
-            misses = 0
+            error_run = 0
+            if rec is None:  # not_found / unparsed → possible end of year
+                miss_run += 1
+                continue
+            miss_run = 0
             records.append(rec)
             found += 1
             print(f"    [{year} Nr. {nr}] {(rec['title'] or '')[:70]}")
 
             for suffix in LETTER_SUFFIXES:
-                rec_s = probe(year, f"{nr}{suffix}")
+                _, rec_s = probe(year, f"{nr}{suffix}")
                 if rec_s:
                     records.append(rec_s)
                     found += 1
@@ -314,8 +413,8 @@ def fetch_metadata(session, years: range, progress_file: str) -> tuple[list[dict
 
         print(f"    {found} publications found (last number probed: {nr})")
 
-    save_progress(cache, progress_file)
-    return records, failed
+    save_progress(progress, progress_file)
+    return records, progress
 
 
 # ── pass 2: ZIP download ─────────────────────────────────────────
@@ -377,6 +476,14 @@ def main():
         help=f"year range to fetch, inclusive (default: {START_YEAR} {END_YEAR})",
     )
     parser.add_argument("--metadata-only", action="store_true")
+    parser.add_argument(
+        "--report", action="store_true",
+        help="only print what the progress file is missing (no requests)",
+    )
+    parser.add_argument(
+        "--progress-file", metavar="PATH",
+        help="use this progress file instead of bgbl_website_progress_{start}-{end}.json",
+    )
     args = parser.parse_args()
 
     start, end = args.years
@@ -387,7 +494,17 @@ def main():
     year_slug = f"{start}-{end}"
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     output_json = os.path.join(OUTPUT_DIR, f"bgbl1_website_{year_slug}_{_TODAY}.json")
-    progress_file = os.path.join(_SCRIPT_DIR, f"bgbl_website_progress_{year_slug}.json")
+    progress_file = args.progress_file or os.path.join(
+        _SCRIPT_DIR, f"bgbl_website_progress_{year_slug}.json"
+    )
+
+    if args.report:
+        if not os.path.exists(progress_file):
+            raise SystemExit(f"No progress file at {progress_file}")
+        problems = report_progress(load_progress(progress_file), years)
+        print(f"\n  {len(problems)} numbers need attention: {problems or '-'}")
+        return
+
     session = make_session()
 
     # pass 1
@@ -395,7 +512,8 @@ def main():
     print(f"Pass 1: Collecting metadata ({year_slug})")
     print("  (Progress is saved — safe to interrupt with Ctrl+C)")
     print("═" * 50)
-    records, failed_pages = fetch_metadata(session, years, progress_file)
+    records, progress = fetch_metadata(session, years, progress_file)
+    failed_pages = report_progress(progress, years)
     for rec in records:
         rec["fna_match"] = fna_matches(rec["fna_codes"])
     n_match = sum(1 for r in records if r["fna_match"])
@@ -444,12 +562,10 @@ def main():
         print(f"    {s}: {c}")
 
     if failed_pages or failed_zips:
-        print(f"\n  ⚠ Failed pages: {failed_pages or '-'}")
-        print(f"  ⚠ Failed ZIPs:  {failed_zips or '-'}")
-        print("  Run again to retry (progress file kept).")
-    elif os.path.exists(progress_file):
-        # clean up progress file
-        os.remove(progress_file)
+        print(f"\n  ⚠ Pages needing attention: {failed_pages or '-'}")
+        print(f"  ⚠ Failed ZIPs:             {failed_zips or '-'}")
+        print("  Run again to retry.")
+    print(f"\n  Progress file kept: {progress_file}")
 
     print(
         f"""
