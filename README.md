@@ -6,24 +6,44 @@ A phd research project at the university of mannheim on the automated, llm-based
 
 ## about this project
 
-this research project has two aims: 
+this research project has a technical and a substantial aim:
 
-1) it develops a pipeline for the llm-based compilation of policy-trackers including time-stamps, summaries and, most importantly, complex classification tasks based on raw social policy texts.
+1. it develops a pipeline for the llm-based compilation of policy-trackers including information based on summaries, classification tasks, and information retrieval tasks. it tests prompt designs and llms in factorial experiments.
 
-3) it investigates social policy responses tocrises across different countries and regions. Key questions include:
-    - How do welfare states adapt during crises? Are they resilient?
-    - What policy instruments are deployed in response to crises?
-    - What can we learn from comparing COVID-19 and Great Recession responses?
+2. It provides a comprehensive collection of social policy legislation (Germany, and, in the future, other country cases) that to investigate
+   the social policy developments before, during and after two major crises, that is the great recession of 2008 and Covid-19. It allows an
+   investigation how welfare states operate in "crisis mode" and how and if they adapt legislative strategy as a consequence of a disruptive crisis.
 
 ---
 
 ## repository structure
 
-| Folder | Description |
-|--------|-------------|
-| `litrev/` | Systematic literature review — data processing pipeline and analysis |
-| `policy-tracker/` | pipeline fetching raw policy texts and processing into policy-tracker using llms |
+| Folder            | Description                                                                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `litrev/`         | Systematic literature review — data processing pipeline and analysis                                                                                    |
+| `policy-tracker/` | pipeline that fetches raw legislative texts, filters them to social policy, classifies them with llms and evaluates the results against a gold standard |
 
+```
+policy-tracker/
+├── CLAUDE.md                 # project overview and design principles
+├── 1_collection/             # step 1: fetch raw legislative texts
+│   ├── germany/              #   BGBl Teil I (offenegesetze.de api ≤2022, recht.bund.de ≥2023)
+│   └── eurofound/            #   eurofound covid-19 policy database
+├── 2_processing/germany/     # step 2: filter corpus to social policy (pooled evaluation)
+├── 3_classification/         # step 3: prompt designs, llm classification, codebook
+│   └── gold_standard/        #   sampling + interactive annotation tool
+├── 4_analysis/               # step 4: evaluation of llm output vs. gold standard
+├── data/
+│   ├── raw/                  # output of step 1 (never modified manually)
+│   ├── processed/            # output of step 2, incl. run logs
+│   ├── gold_standard/        # sampled and hand-labelled policies
+│   ├── classifications/      # llm output, one json per model × prompt variant
+│   ├── analysis_results/     # evaluation tables (csv) and plots
+│   └── external/             # oecd tax-ben, comparison trackers and datasets
+├── docs/                     # codebook pdf, policy source scouting
+├── notebooks/                # exploratory notebooks
+└── old/                      # retired scripts, kept for reference
+```
 
 ---
 
@@ -47,6 +67,35 @@ pip install pandas keybert yake openpyxl
 
 ## policy-tracker
 
+the `policy-tracker/` folder contains a pipeline that builds a policy-tracker from raw legislative texts. for each policy it records dates of entry into force and termination, a summary, whether it refers to a crisis, and the social policy field(s) it addresses. germany (BGBl Teil I, 2008–2015 and 2019–2022, i.e. great recession and covid-19) is the prototype; the pipeline is built to extend to further countries, crises and classification tasks.
+
+1. **data collection** (`1_collection/`)
+   - `fetch_bgbl_germany.py` fetches metadata and full texts of BGBl Teil I via the offenegesetze.de api (available until 2022)
+   - `fetch_bgbl-new-website_post2023_germany.py` scrapes recht.bund.de (2023 onward, no api), filtered by FNA subject area; downloads zip packages of the policy texts
+   - both scripts save progress and can be interrupted and resumed; `compress.py` gzips raw files too large for github
+2. **processing** (`2_processing/germany/`) filters the corpus to social policy through a pooled evaluation of two systems:
+   - system 1: cosine similarity between texts and seed descriptions (derived from BMAS/BMBFSFJ sources and a list of covid legislation), with interactive triage of borderline cases
+   - system 2: BERTopic clustering with interactive triage of topics
+   - the union of both systems is inspected and compiled into the final policy set (`step3_process_pooled_union_eval_compile.ipynb`)
+3. **classification** (`3_classification/`)
+   - `codebook.md` defines all variables (dates, `crisis_ref`, social policy fields)
+   - `step2_promptdesigns.py` holds 16 prompt variants in a 2×2×2×2 factorial design: zero-/few-shot, batch/single task, with/without class definitions, with/without justification
+   - `step3_classify_llm.py` runs every model × prompt combination (openai api and open-source models via the KISSKI SAIA api); `step3_classify_llm_hf.py` is the variant for huggingface inference providers
+   - `gold_standard/` draws a random sample from the final policy set and provides an interactive terminal tool for expert annotation
+4. **evaluation** (`4_analysis/`) compares llm output with the gold standard: output compliance, macro f1/precision/recall and jaccard for social policy fields, f1 for `crisis_ref`, krippendorff's alpha, confusion matrices and a decomposition by prompt dimension. results go to `data/analysis_results/`
+
+models evaluated so far: gpt-4.1-mini, gpt-oss-120b, mistral-large-3, llama-3.3-70b, llama-3.1-8b, qwen3.6-35b, gemma-4-31b.
+
+### quick start
+
+```bash
+# install dependencies
+pip install requests beautifulsoup4 pandas numpy sentence-transformers bertopic umap-learn hdbscan spacy nltk openai huggingface_hub scikit-learn krippendorff matplotlib seaborn
+python -m spacy download de_core_news_lg
+
+# run the scripts in each step folder in order of their step prefix
+# api keys are read from environment variables (e.g. SAIA_API_KEY, SAIA_API_ENDPOINT, HF_API_KEY)
+```
 
 ---
 
