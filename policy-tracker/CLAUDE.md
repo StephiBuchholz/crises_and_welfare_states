@@ -95,6 +95,9 @@ policy-tracker/
 │   ├── germany/
 │   └── eurofound/
 ├── 2_processing/          # step 2: filter + prepare for LLM
+│   └── germany/
+│       ├── pre2023/       # 2008–2015, 2019–2022: cosine similarity + BERTopic pooled filtering
+│       └── post2023/      # 2023 onward: FNA-matched full-text processing
 ├── 3_classification/      # step 3: LLM classification + gold standard
 │   ├── prompts/
 │   └── gold_standard/     # sampling scripts + annotation guidelines
@@ -104,6 +107,9 @@ policy-tracker/
 │   │   ├── germany/
 │   │   └── eurofound/
 │   ├── processed/         # output of step 2
+│   │   └── germany/       # {country}_{years}_final_policy_set.json files (input to step 3) live here
+│   │       ├── pre2023/   # intermediates, caches + runlogs of 2_processing/germany/pre2023
+│   │       └── post2023/  # markdown_cache/ + runlogs of 2_processing/germany/post2023
 │   ├── tracker/           # output of step 3 — the policy tracker
 │   ├── gold_standard/     # expert-annotated samples per country (output of step 3b)
 │   └── external/          # third-party trackers for validation/comparison

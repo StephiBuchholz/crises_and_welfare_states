@@ -17,14 +17,14 @@ workflow:
      topics interactively; that script handles all downstream output
 
 outputs written by this script (to OUTPUT_DIR):
-  runlogs_from_berttopic/berttopic_topics_{OUTPUT_PREFIX}_{date}.html
+  runlogs_from_sys2_berttopic/berttopic_topics_{OUTPUT_PREFIX}_{date}.html
   {OUTPUT_PREFIX}_berttopic_topic_info.json       ← input for triage tool
   {OUTPUT_PREFIX}_berttopic_topic_assignments.json ← input for triage tool
 
 outputs written by the triage script:
   {OUTPUT_PREFIX}_berttopic_candidates.json <- policies that are in social policy relevant topics
   {OUTPUT_PREFIX}_berttopic_noise_pool.json <- policies that could not be matched to any topic  at all
-  runlogs_from_berttopic/berttopic_runlog_{OUTPUT_PREFIX}_{date}.md
+  runlogs_from_sys2_berttopic/berttopic_runlog_{OUTPUT_PREFIX}_{date}.md
 """
 
 # pip installs (run once):
@@ -59,7 +59,7 @@ def _find_root(marker="CLAUDE.md"):
 PROJECT_ROOT = _find_root()
 
 INPUT_FILE    = PROJECT_ROOT / "data/raw/germany/bgbl1_2008-2015_2019-2022_combined.json.gz"
-OUTPUT_DIR    = PROJECT_ROOT / "data/processed/germany"
+OUTPUT_DIR    = PROJECT_ROOT / "data/processed/germany/pre2023"
 OUTPUT_PREFIX = "germany_2008-2015_2019-2022"   # must match step 3 / step 4 prefix
 
 MODEL_NAME      = "paraphrase-multilingual-mpnet-base-v2"  # same model as System 1
@@ -224,7 +224,7 @@ for _, row in topic_info.sort_values("Topic").iterrows():
 
 # ── §4 save visualisation and intermediate data ───────────────────────────────
 
-log_dir = OUTPUT_DIR / "runlogs_from_berttopic"
+log_dir = OUTPUT_DIR / "runlogs_from_sys2_berttopic"
 log_dir.mkdir(parents=True, exist_ok=True)
 
 _run_date = datetime.date.today().isoformat()

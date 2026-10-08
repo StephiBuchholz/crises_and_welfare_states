@@ -23,7 +23,7 @@ steps:
   2. full-text extraction with pymupdf4llm → markdown
        pymupdf4llm handles reading order, paragraphs, hyphenation, headings,
        lists and tables (detected automatically, rendered as markdown tables).
-       the raw markdown is cached in data/processed/germany/post2023/
+       the raw markdown is cached in data/processed/germany/post2023/markdown_cache/
        (bgbl1_2023_038_regelungstext.{engine}.md), so an interrupted run
        resumes without re-extracting (use --force to redo).
      engine selection: pymupdf4llm has two engines. the layout engine
@@ -73,9 +73,9 @@ input:
   - newest data/raw/germany/bgbl1_website_{start}-{end}_{YYYYMMDD}.json(.gz)
     (or --metadata PATH)
 output:
-  - data/processed/germany/post2023/bgbl1_{year}_{nr}_{name}.{engine}.md (markdown cache)
+  - data/processed/germany/post2023/markdown_cache/bgbl1_{year}_{nr}_{name}.{engine}.md (markdown cache)
   - data/processed/germany/germany_{start}-{end}_final_policy_set.json
-  - data/processed/germany/runlogs_from_post2023_fulltext/fulltext_runlog_germany_{start}-{end}_{date}.md
+  - data/processed/germany/post2023/runlogs_from_post2023_fulltext/fulltext_runlog_germany_{start}-{end}_{date}.md
 
 usage:
     python process_bgbl-new-website_post2023_germany.py
@@ -115,8 +115,8 @@ COUNTRY       = "germany"
 RAW_DIR       = PROJECT_ROOT / "data" / "raw" / COUNTRY
 ZIP_DIR       = RAW_DIR / "bgbl1_newwebsite_post2023_zip"
 DATA_DIR      = PROJECT_ROOT / "data" / "processed" / COUNTRY
-MD_DIR        = DATA_DIR / "post2023"                      # markdown cache, one .{engine}.md per pdf in the zips
-LOG_DIR       = DATA_DIR / "runlogs_from_post2023_fulltext"
+MD_DIR        = DATA_DIR / "post2023" / "markdown_cache"   # markdown cache, one .{engine}.md per pdf in the zips
+LOG_DIR       = DATA_DIR / "post2023" / "runlogs_from_post2023_fulltext"
 OUTPUT_SUFFIX = "final_policy_set"                         # → germany_{years}_final_policy_set.json
 SYSTEM_SOURCE = "fna_match"                                # value of "system_sources" in the output
 

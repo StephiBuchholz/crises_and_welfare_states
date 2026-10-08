@@ -2,12 +2,12 @@
 interactive triage of borderline German BGBl entries (similarity score 0.73–0.835).
 
 loads:
-  - data/processed/{choose country folder}/{....}_borderline_candidates.json  (written in step3 notebook)
-  - data/processed/{choose country folder}/{....}auto_accepted.json          (written in step3 notebook)
+  - data/processed/{choose country folder}/{period folder}/{....}_cosinesim_borderline_candidates.json  (written in step2.1.2 notebook)
+  - data/processed/{choose country folder}/{period folder}/{....}_cosinesim_auto_accepted.json          (written in step2.1.2 notebook)
 
 results:
 on completion, merges both into:
-  - data/processed/{choose country folder}/{country}_{years}_filtered_final.json
+  - data/processed/{choose country folder}/{period folder}/{country}_{years}_cosinesim_final.json
 
 controls:  y = yes   n / Enter = no   b = back   q = quit & save
 
@@ -23,11 +23,17 @@ from pathlib import Path
 
 #__________________setup [ADAPT YOUR DESIRED FILES AND DESTINATIONS HERE]________________#
 
-BASE = Path(__file__).parent.parent.parent / "data" / "processed" / "germany"
+def _find_root(marker="CLAUDE.md"):
+    for p in [Path(__file__).parent, *Path(__file__).parent.parents]:
+        if (p / marker).exists():
+            return p
+    raise FileNotFoundError(f"project root not found (no {marker} above {Path(__file__).parent})")
+
+BASE = _find_root() / "data" / "processed" / "germany" / "pre2023"
 CANDIDATES_FILE = BASE / "germany_2008-2015_2019-2022_cosinesim_borderline_candidates.json" #only change country_year
 AUTO_ACCEPTED_FILE = BASE / "germany_2008-2015_2019-2022_cosinesim_auto_accepted.json"
 FINAL_OUTPUT = BASE / "germany_2008-2015_2019-2022_cosinesim_final.json"
-PROGRESS_FILE = Path(__file__).parent / ".triage_borderline_cosinesim_progress.json"
+PROGRESS_FILE = Path(__file__).parent / ".triage_borderline_progress.json"
 
 #_________________________________________________________________________________________#
 

@@ -16,7 +16,7 @@ instructions: run script (runs in terminal) and make selections
 
 controls:  y = yes   n / Enter = no   b = back   q = quit & save
 
-result: see from_proc_step1_ger_cov_triage_selected.txt in data/processed/germany/ -> contains 24 out of 144 titles
+result: see from_proc_step1_ger_cov_triage_selected.txt in data/processed/germany/pre2023/ -> contains 24 out of 144 titles
 """
 
 # imports
@@ -27,12 +27,21 @@ from pathlib import Path
 
 # setup
 
+def _find_root(marker="CLAUDE.md"):
+    for p in [Path(__file__).parent, *Path(__file__).parent.parents]:
+        if (p / marker).exists():
+            return p
+    raise FileNotFoundError(f"project root not found (no {marker} above {Path(__file__).parent})")
+
+PROJECT_ROOT = _find_root()
+
 PROGRESS_FILE = Path(__file__).parent / ".triage_progress.json"
 OUTPUT_FILE = (
-    Path(__file__).parent.parent.parent
+    PROJECT_ROOT
     / "data"
     / "processed"
     / "germany"
+    / "pre2023"
     / "from_proc_step1_ger_cov_triage_selected.txt"
 )
 

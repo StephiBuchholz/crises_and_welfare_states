@@ -42,14 +42,14 @@ def _find_root(marker="CLAUDE.md"):
 
 PROJECT_ROOT  = _find_root()
 OUTPUT_PREFIX = "germany_2008-2015_2019-2022"
-DATA_DIR      = PROJECT_ROOT / "data" / "processed" / "germany"
+DATA_DIR      = PROJECT_ROOT / "data" / "processed" / "germany" / "pre2023"
 
 TOPIC_INFO_FILE   = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_topic_info.json"
 TOPIC_ASSIGN_FILE = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_topic_assignments.json.gz"
 CANDIDATES_OUT    = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_candidates.json"
 NOISE_POOL_OUT    = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_noise_pool.json"
 PROGRESS_FILE     = Path(__file__).parent / ".triage_berttopic_progress.json"
-LOG_DIR           = DATA_DIR / "runlogs_from_berttopic"
+LOG_DIR           = DATA_DIR / "runlogs_from_sys2_berttopic"
 
 # ──────────────────────────────────────────────────────────────────────────────
 
