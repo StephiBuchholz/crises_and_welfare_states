@@ -1,0 +1,46 @@
+
+
+
+
+# **Bundesgesetzblatt** 
+
+## **Teil I** 
+
+**2025** 
+
+**Ausgegeben zu Bonn am 19. Dezember 2025** 
+
+**Nr. 338** 
+
+### **Vierte Verordnung über die Bezugsdauer für das Kurzarbeitergeld (Vierte Kurzarbeitergeldbezugsdauerverordnung – 4. KugBeV)** 
+
+#### **Vom 17. Dezember 2025** 
+
+Die Bundesregierung verordnet aufgrund des § 109 Absatz 4 des Dritten Buches Sozialgesetzbuch – Arbeitsförderung – (Artikel 1 des Gesetzes vom 24. März 1997, BGBl. I S. 594, 595), das zuletzt durch Artikel 6 des Gesetzes vom 28. Oktober 2025 (BGBl. 2025 I Nr. 259) geändert worden ist: 
+
+#### **§ 1** 
+
+#### **Verlängerung der Bezugsdauer** 
+
+Die Bezugsdauer für das Kurzarbeitergeld wird über die Bezugsdauer nach § 104 Absatz 1 Satz 1 des Dritten Buches Sozialgesetzbuch hinaus auf bis zu 24 Monate, längstens bis zum 31. Dezember 2026, verlängert. 
+
+**§ 2** 
+
+#### **Außerkrafttreten** 
+
+Diese Verordnung tritt mit Ablauf des 31. Dezember 2026 außer Kraft. 
+
+#### **§ 3** 
+
+#### **Inkrafttreten** 
+
+Diese Verordnung tritt am 1. Januar 2026 in Kraft. 
+
+Berlin, den 17. Dezember 2025 
+
+
+
+
+
+Herausgeber: Bundesministerium der Justiz und für Verbraucherschutz 
+

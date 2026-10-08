@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gold-standard annotation</title>
+<style>
+:root {
+  --paper: #eef0f3;
+  --surface: #ffffff;
+  --ink: #1c2330;
+  --muted: #5a6475;
+  --rule: #d5dae2;
+  --accent: #24557f;
+  --accent-ink: #ffffff;
+  --done: #2e7a4e;
+  --partial: #b07415;
+  --error: #b3261e;
+  --mark: #ffe48a;
+  --mark-current: #f5a524;
+  --field-bg: #f8f9fb;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14181e;
+    --surface: #1b2028;
+    --ink: #e3e7ed;
+    --muted: #98a2b1;
+    --rule: #2f3743;
+    --accent: #7eaedb;
+    --accent-ink: #0f1722;
+    --done: #5fbf85;
+    --partial: #e0a64a;
+    --error: #ff8a80;
+    --mark: #5c4d10;
+    --mark-current: #a0700f;
+    --field-bg: #222833;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+.muted { color: var(--muted); }
+
+.btn {
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--muted); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.btn:disabled { opacity: .45; cursor: default; }
+
+/* ── Start screen ─────────────────────────────── */
+.start {
+  max-width: 560px;
+  margin: 8vh auto;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+}
+.start h1 { margin: 0 0 8px; font-size: 1.5rem; }
+.start p { margin: 0 0 16px; color: var(--muted); }
+.start label { display: block; font-weight: 600; margin: 18px 0 6px; }
+.start input[type=text] {
+  width: 12em; padding: 7px 10px; border: 1px solid var(--rule);
+  border-radius: 6px; background: var(--field-bg);
+}
+.start .note { font-size: .9rem; margin-top: 20px; }
+.start .actions { margin-top: 24px; }
+.start-error { color: var(--error); margin-top: 14px; }
+
+/* ── App shell ────────────────────────────────── */
+.app { height: 100%; display: flex; flex-direction: column; }
+.bar {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 10px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+}
+.bar-title { font-weight: 700; }
+.bar-file { color: var(--muted); font-size: .9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 34ch; }
+.progress { display: flex; align-items: center; gap: 8px; margin-left: auto; font-size: .9rem; }
+.progress-track { width: 140px; height: 8px; border-radius: 4px; background: var(--rule); overflow: hidden; }
+.progress-fill { height: 100%; width: 0; background: var(--done); transition: width .3s; }
+.export-state { font-size: .85rem; }
+
+.notice {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 16px; background: var(--field-bg);
+  border-bottom: 1px solid var(--rule); font-size: .92rem;
+}
+.notice p { margin: 0; flex: 1; }
+
+.layout {
+  flex: 1; min-height: 0;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr) minmax(360px, 460px);
+}
+.side, .doc, .form-pane { min-height: 0; overflow: auto; }
+
+/* ── Entry list ───────────────────────────────── */
+.side { border-right: 1px solid var(--rule); background: var(--surface); }
+.side-head { padding: 10px 12px; border-bottom: 1px solid var(--rule); font-size: .88rem; position: sticky; top: 0; background: var(--surface); }
+.side ol { list-style: none; margin: 0; padding: 4px 0; }
+.side li button {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  border: 0; background: none; text-align: left;
+  padding: 6px 12px; cursor: pointer; font-size: .88rem;
+}
+.side li button:hover { background: var(--field-bg); }
+.side li button[aria-current=true] { background: var(--field-bg); box-shadow: inset 3px 0 0 var(--accent); font-weight: 600; }
+.side .num { color: var(--muted); min-width: 2.6em; font-variant-numeric: tabular-nums; }
+.side .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.dot { width: 9px; height: 9px; border-radius: 50%; flex: none; border: 1.5px solid var(--muted); }
+.dot.done { background: var(--done); border-color: var(--done); }
+.dot.partial { background: linear-gradient(90deg, var(--partial) 50%, transparent 50%); border-color: var(--partial); }
+
+/* ── Document pane ────────────────────────────── */
+.doc { padding: 20px 28px 40px; }
+.doc h2 { font-size: 1.2rem; line-height: 1.3; margin: 0 0 10px; max-width: 70ch; }
+.entry-id { color: var(--muted); font-size: .85rem; margin-bottom: 4px; }
+.facts { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0 0 10px; font-size: .9rem; }
+.facts div { display: flex; gap: 6px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-variant-numeric: tabular-nums; }
+.links { display: flex; gap: 16px; margin: 0 0 16px; font-size: .92rem; }
+.search {
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  position: sticky; top: -20px; padding: 10px 0; background: var(--paper); z-index: 1;
+  border-bottom: 1px solid var(--rule);
+}
+.search input {
+  flex: 1; min-width: 12em; max-width: 28em; padding: 6px 10px;
+  border: 1px solid var(--rule); border-radius: 6px; background: var(--surface);
+}
+.search .count { font-size: .88rem; color: var(--muted); min-width: 7em; }
+.text {
+  margin-top: 18px;
+  max-width: 76ch;
+  font-family: "Iowan Old Style", Charter, "Bitstream Charter", Georgia, Cambria, serif;
+  font-size: 16.5px; line-height: 1.6;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.text.empty { font-family: inherit; color: var(--muted); font-style: italic; }
+.text mark { background: var(--mark); color: inherit; border-radius: 2px; }
+.text mark.current { background: var(--mark-current); }
+
+/* ── Form pane ────────────────────────────────── */
+.form-pane { border-left: 1px solid var(--rule); background: var(--surface); display: flex; flex-direction: column; overflow: hidden; }
+.form-nav { display: flex; gap: 8px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
+.form-nav .pos { font-size: .9rem; color: var(--muted); margin-right: auto; font-variant-numeric: tabular-nums; }
+.form-scroll { flex: 1; overflow: auto; padding: 4px 16px 16px; }
+.field { border: 0; border-bottom: 1px solid var(--rule); margin: 0; padding: 16px 0; }
+.field:last-child { border-bottom: 0; }
+.field legend, .field .fl { font-weight: 650; padding: 0; margin-bottom: 4px; font-size: .97rem; }
+.field .key { font-weight: 400; color: var(--muted); font-size: .8rem; margin-left: 6px; }
+.hint { color: var(--muted); font-size: .88rem; margin: 0 0 8px; white-space: pre-line; }
+details.more { margin: -4px 0 8px; font-size: .88rem; }
+details.more summary { cursor: pointer; color: var(--accent); }
+details.more .hint { margin-top: 6px; }
+.ctl { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ctl input[type=text], .ctl select, .ctl textarea {
+  padding: 7px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--field-bg);
+}
+.ctl input[type=text] { width: 9em; font-variant-numeric: tabular-nums; }
+.ctl select { min-width: 16em; max-width: 100%; }
+.ctl textarea { width: 100%; resize: vertical; min-height: 4.5em; }
+.ctl .radio { display: flex; gap: 6px; align-items: center; padding: 4px 10px 4px 6px; border: 1px solid var(--rule); border-radius: 6px; cursor: pointer; }
+.chip { border: 1px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 3px 10px; cursor: pointer; font-size: .85rem; }
+.chip:hover { border-color: var(--muted); }
+.field.invalid input, .field.invalid select, .field.invalid textarea { border-color: var(--error); }
+.err { color: var(--error); font-size: .86rem; margin: 6px 0 0; }
+.prov { font-size: .8rem; color: var(--muted); margin-top: 6px; }
+.form-actions { display: flex; gap: 8px; align-items: center; padding: 10px 16px; border-top: 1px solid var(--rule); flex-wrap: wrap; }
+.save-msg { font-size: .88rem; color: var(--muted); margin-right: auto; }
+.save-msg.dirty { color: var(--partial); }
+.kbd-hint { font-size: .8rem; color: var(--muted); padding: 0 16px 10px; }
+
+@media (max-width: 1150px) {
+  .layout { grid-template-columns: minmax(0, 1fr) minmax(340px, 420px); }
+  .side { display: none; }
+}
+@media (max-width: 780px) {
+  .app { height: auto; }
+  .layout { display: block; }
+  .doc { max-height: 60vh; }
+  .form-pane { border-left: 0; border-top: 1px solid var(--rule); overflow: visible; }
+  .form-scroll { overflow: visible; }
+  .progress { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Start screen ───────────────────────────────────── -->
+<div id="start" class="start">
+  <h1>Gold-standard annotation</h1>
+  <p>Code each law in the sample independently. Your labels are saved in this browser as you go. When you're done, or want a backup, click <strong>Export labels</strong> and send the downloaded file back.</p>
+
+  <label for="coderIn">Your initials</label>
+  <input id="coderIn" type="text" autocomplete="off" maxlength="12" placeholder="e.g. ab">
+
+  <label for="fileIn">Sample file (.json)</label>
+  <input id="fileIn" type="file" accept=".json,application/json">
+
+  <div class="actions"><button id="startBtn" class="btn primary">Start coding</button></div>
+  <div id="startError" class="start-error" role="alert"></div>
+
+  <p class="note">To continue where you left off, choose the same sample file and the same initials. If you switch computers or clear your browser data, choose your last exported file instead of the sample: your labels will be restored from it.</p>
+</div>
+
+<!-- ── Main app ───────────────────────────────────────── -->
+<div id="app" class="app" hidden>
+  <header class="bar">
+    <span class="bar-title">Gold-standard annotation</span>
+    <span id="barFile" class="bar-file"></span>
+    <div class="progress">
+      <div class="progress-track"><div id="progFill" class="progress-fill"></div></div>
+      <span id="progText"></span>
+    </div>
+    <span id="exportState" class="export-state muted"></span>
+    <button id="exportBtn" class="btn primary">Export labels</button>
+  </header>
+
+  <div id="notice" class="notice" hidden>
+    <p id="noticeText"></p>
+    <button id="noticeClose" class="btn">Dismiss</button>
+  </div>
+
+  <div class="layout">
+    <nav class="side" aria-label="Entries">
+      <div class="side-head">
+        <label><input type="checkbox" id="onlyOpen"> Show unfinished only</label>
+      </div>
+      <ol id="list"></ol>
+    </nav>
+
+    <main class="doc" id="docPane">
+      <div id="meta"></div>
+      <div class="search">
+        <input id="q" type="search" placeholder="Search in text (e.g. Inkrafttreten)" aria-label="Search in text">
+        <span id="qCount" class="count"></span>
+        <button id="qPrev" class="btn" type="button">Previous</button>
+        <button id="qNext" class="btn" type="button">Next</button>
+      </div>
+      <article id="text" class="text"></article>
+    </main>
+
+    <section class="form-pane" aria-label="Labels">
+      <div class="form-nav">
+        <span id="pos" class="pos"></span>
+        <button id="prevBtn" class="btn" type="button">Previous</button>
+        <button id="nextBtn" class="btn" type="button">Next</button>
+        <button id="nextOpenBtn" class="btn" type="button">Next unfinished</button>
+      </div>
+      <div class="form-scroll" id="formScroll">
+        <form id="form" novalidate></form>
+      </div>
+      <div class="form-actions">
+        <span id="saveMsg" class="save-msg"></span>
+        <button id="saveBtn" class="btn" type="button">Save</button>
+        <button id="saveNextBtn" class="btn primary" type="button">Save and go to next</button>
+      </div>
+      <div class="kbd-hint">Ctrl + Enter saves and goes to the next entry. Empty fields stay unlabelled.</div>
+    </section>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+// ─── CLASSIFICATION DIMENSIONS ────────────────────────────────────────────────
+// Mirrors DIMENSIONS in step2_gs_classification.py. Keep both in sync.
+const SPF_OPTIONS = [
+  "unemployment", "family/children", "housing", "disability", "retirement",
+  "survivors", "sickness/health/care", "labour market", "taxes", "none",
+];
+
+const DIMENSIONS = [
+  { key: "summary", display: "Summary", type: "string",
+    hint: "Provide 1-2 sentences in English that pointedly summarize what this policy does.\nFocus on who it targets and what it changes." },
+  { key: "legally_effective", display: "Legally effective (Inkrafttreten)", type: "date_extract",
+    hint: "Extract the date the law enters into force.\nFormat: yyyy-mm  |  use BGBl-publication date if not else specified" },
+  { key: "leg_eff_terminate", display: "Termination of legal effect (Außerkrafttreten)", type: "date_extract+na",
+    hint: "Extract the date that the effect of the law terminates. 'na' if none.\nFormat: yyyy-mm or 'na'" },
+  { key: "legally_effective_2", display: "2nd legally effective (Inkrafttreten)", type: "date_extract+na",
+    hint: "If the law specifies several dates of entry into force, add the second here. 'na' if not applicable.\nFormat: yyyy-mm or 'na'" },
+  { key: "leg_eff_terminate_2", display: "Termination of 2nd legal effect (Außerkrafttreten)", type: "date_extract+na",
+    hint: "Extract the 2nd date that the effect of the law terminates. 'na' if none.\nFormat: yyyy-mm or 'na'" },
+  { key: "art_leg_eff_2", display: "Article/paragraph 2nd legally effective date refers to", type: "art_extract",
+    hint: "Which article/paragraph does the 2nd legal effect date refer to?\nFormat: number only (e.g. 4 or 4a), or 'na' when no 2nd date" },
+  { key: "legally_effective_3", display: "3rd legally effective (Inkrafttreten)", type: "date_extract+na",
+    hint: "If the law specifies a third date of entry into force, add it here. 'na' if none.\nFormat: yyyy-mm or 'na'" },
+  { key: "leg_eff_terminate_3", display: "Termination of 3rd legal effect (Außerkrafttreten)", type: "date_extract+na",
+    hint: "Extract the 3rd date that the effect of the law terminates. 'na' if none.\nFormat: yyyy-mm or 'na'" },
+  { key: "art_leg_eff_3", display: "Article/paragraph 3rd legally effective date refers to", type: "art_extract",
+    hint: "Which article/paragraph does the 3rd legal effect date refer to? 'na' if none.\nFormat: number only (e.g. 4 or 4a), or 'na' when no 3rd date" },
+  { key: "social_policy_field_1", display: "Social policy field 1", type: "categorical",
+    hint: "Select the primary social policy domain. No 'na'. For definitions, see codebook.",
+    options: SPF_OPTIONS },
+  { key: "social_policy_field_2", display: "Social policy field 2", type: "categorical+na",
+    hint: "Select a second social policy domain if the law substantively addresses one. 'na' if not applicable.",
+    options: SPF_OPTIONS },
+  { key: "spf_justification", display: "SPF justification", type: "string",
+    hint: "Brief justification for your social policy field choice(s).\nArgue why you assign a second field if applicable." },
+  { key: "crisis_ref", display: "Crisis reference", type: "boolean",
+    hint: "Does the law explicitly reference the crisis that motivated it?\nCode 1 if the text explicitly references COVID-19/the pandemic or the 2008 financial/economic crisis. Code 0 otherwise." },
+  { key: "nsr", display: "New Social Risk (nsr)", type: "categorical+na",
+    hint: "If any, which New Social Risk does the policy target? 'na' if none.\n\n" +
+      "Definition: New social risks are related to the socioeconomic transformations that have brought post-industrial societies into existence: the tertiarisation of employment, the decline of the standard full-time male worker and the massive entry of women into the labour force. (Bonoli 2005)\n\n" +
+      "1. reconciling work and family life\nPolicy aims to enhance reconciliation of work and family life, e.g. flexibilisation of working hours, working-from-home, subsidies for mothers providing child care, or enhancement of child care facility access.\n\n" +
+      "2. single parenthood\nPolicy targets single parents and their children.\n\n" +
+      "3. having a frail relative\nPolicy targets individuals providing unpaid, informal care to or households with an in-house living frail elderly or disabled person.\n\n" +
+      "4. possessing low or obsolete skills\nPolicy targets individuals employed in low value added service sectors (retail, cleaning, catering etc.) where there is little scope for productivity increases; at risk of poverty wage or unemployment due to low or obsolete skills.\n\n" +
+      "5. insufficient social security coverage\nPolicy targets the risk of insufficient social security coverage due to atypical career patterns, part-time work, non-standard or informal employment.\n\n" +
+      "na: policy does not target any new social risk.",
+    options: [
+      "reconciling work and family life", "single parenthood", "having a frail relative",
+      "possessing low or obsolete skills", "insufficient social security coverage",
+    ] },
+  { key: "nsr_justification", display: "NSR justification", type: "string", allowNa: true,
+    hint: "Brief justification for your new social risk categorization (one sentence)." },
+];
+// ───────────────────────────────────────────────────────────────────────────────
+
+const DATE_RE = /^\d{4}-\d{2}$/;
+const ART_RE = /^\d+[a-zA-Z]?$/;
+const NA_RE = /^(na|\?)$/i;
+
+const $ = (id) => document.getElementById(id);
+const state = {
+  entries: [], sampleName: "", coder: "", labels: {}, idx: 0,
+  lastExport: null, changesSinceExport: 0, dirty: false, storageOk: true,
+};
+let matches = [], curMatch = -1, searchTimer = null;
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+function today() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function validYM(s) { const m = Number(s.split("-")[1]); return m >= 1 && m <= 12; }
+function stemOf(name) {
+  return name.replace(/\.json$/i, "").replace(/_labelled_[^_]+$/, "");
+}
+function readFileText(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = () => reject(r.error);
+    r.readAsText(file, "utf-8");
+  });
+}
+function idOf(entry) { return String(entry.id); }
+function hasValue(r) { return r && r.value !== null && r.value !== undefined && r.value !== ""; }
+function statusOf(id) {
+  const lab = state.labels[id] || {};
+  const n = DIMENSIONS.filter((d) => hasValue(lab[d.key])).length;
+  return n === DIMENSIONS.length ? "done" : n > 0 ? "partial" : "empty";
+}
+function fullCount() { return state.entries.filter((e) => statusOf(idOf(e)) === "done").length; }
+
+// ─── Persistence (browser storage) ────────────────────────────────────────────
+function storageKey() { return `gs-annot:v1:${state.sampleName}:${state.coder}`; }
+function loadSession() {
+  try {
+    const raw = localStorage.getItem(storageKey());
+    if (!raw) return;
+    const s = JSON.parse(raw);
+    state.labels = s.labels || {};
+    state.idx = Number.isInteger(s.idx) ? s.idx : 0;
+    state.lastExport = s.lastExport || null;
+    state.changesSinceExport = s.changesSinceExport || 0;
+  } catch (e) {
+    state.storageOk = false;
+  }
+}
+function persist() {
+  try {
+    localStorage.setItem(storageKey(), JSON.stringify({
+      labels: state.labels, idx: state.idx,
+      lastExport: state.lastExport, changesSinceExport: state.changesSinceExport,
+    }));
+  } catch (e) {
+    if (state.storageOk) {
+      state.storageOk = false;
+      showNotice("This browser is not saving your labels between sessions. Export your labels regularly so you don't lose work.");
+    }
+  }
+}
+
+// ─── Start screen ─────────────────────────────────────────────────────────────
+$("startBtn").addEventListener("click", async () => {
+  const errEl = $("startError");
+  errEl.textContent = "";
+  const coder = $("coderIn").value.trim();
+  const file = $("fileIn").files[0];
+  if (!/^[A-Za-z0-9_-]{1,12}$/.test(coder)) {
+    errEl.textContent = "Enter your initials using letters or digits only, without spaces.";
+    return;
+  }
+  if (!file) { errEl.textContent = "Choose the sample file (.json) you received."; return; }
+
+  let data;
+  try { data = JSON.parse(await readFileText(file)); }
+  catch (e) { errEl.textContent = "This file isn't valid JSON. Choose the sample file that ends in .json."; return; }
+  if (!Array.isArray(data) || data.length === 0 || !data.every((e) => e && typeof e === "object" && e.id != null)) {
+    errEl.textContent = "This file doesn't look like a gold-standard sample: it should be a list of entries that each have an id.";
+    return;
+  }
+  const ids = new Set(data.map((e) => String(e.id)));
+  if (ids.size !== data.length) {
+    errEl.textContent = "This sample contains duplicate ids, so labels can't be matched reliably. Ask for a corrected file.";
+    return;
+  }
+
+  state.coder = coder;
+  state.sampleName = stemOf(file.name);
+
+  // Strip labels from the file: keep own labels (resume from an export), hide everyone else's.
+  const foreign = new Set();
+  const own = {};
+  state.entries = data.map((e) => {
+    const { gs_labels, ...rest } = e;
+    if (gs_labels && typeof gs_labels === "object") {
+      const mine = {};
+      for (const [k, r] of Object.entries(gs_labels)) {
+        if (!r) continue;
+        if (r.coder === coder) mine[k] = r;
+        else foreign.add(r.coder || "unknown");
+      }
+      if (Object.keys(mine).length) own[String(e.id)] = mine;
+    }
+    return rest;
+  });
+
+  loadSession();
+  let restored = 0;
+  for (const [id, lab] of Object.entries(own)) {
+    state.labels[id] = state.labels[id] || {};
+    for (const [k, r] of Object.entries(lab)) {
+      if (!hasValue(state.labels[id][k])) { state.labels[id][k] = r; restored++; }
+    }
+  }
+  if (state.idx >= state.entries.length || state.idx < 0) state.idx = 0;
+
+  const notes = [];
+  if (foreign.size) notes.push(`This file contained labels by another coder (${[...foreign].join(", ")}). They are hidden and won't be included in your export, so your coding stays independent.`);
+  if (restored) notes.push(`Restored ${restored} label${restored === 1 ? "" : "s"} from your exported file.`);
+  if (notes.length) showNotice(notes.join(" "));
+
+  persist();
+  $("start").hidden = true;
+  $("app").hidden = false;
+  $("barFile").textContent = `${file.name}  (coder: ${coder})`;
+  $("barFile").title = file.name;
+  buildForm();
+  renderAll();
+});
+
+function showNotice(text) {
+  $("noticeText").textContent = text;
+  $("notice").hidden = false;
+}
+$("noticeClose").addEventListener("click", () => { $("notice").hidden = true; });
+
+// ─── Form construction ────────────────────────────────────────────────────────
+function hintHtml(hint) {
+  const lines = hint.split("\n");
+  const first = lines[0];
+  const rest = lines.slice(1).join("\n").trim();
+  if (rest.length > 200) {
+    return `<p class="hint">${esc(first)}</p>
+      <details class="more"><summary>Definitions and categories</summary><p class="hint">${esc(rest)}</p></details>`;
+  }
+  return `<p class="hint">${esc(hint)}</p>`;
+}
+
+function controlHtml(d) {
+  const id = `f_${d.key}`;
+  switch (d.type) {
+    case "date_extract":
+      return `<input type="text" id="${id}" inputmode="numeric" placeholder="yyyy-mm" maxlength="7" autocomplete="off">`;
+    case "date_extract+na":
+      return `<input type="text" id="${id}" placeholder="yyyy-mm or na" maxlength="7" autocomplete="off">
+        <button type="button" class="chip" data-na="${id}">na</button>`;
+    case "art_extract":
+      return `<input type="text" id="${id}" placeholder="e.g. 4 or 4a" maxlength="8" autocomplete="off">
+        <button type="button" class="chip" data-na="${id}">na</button>`;
+    case "categorical":
+    case "categorical+na": {
+      let opts = `<option value="">Choose…</option>`;
+      if (d.type === "categorical+na") opts += `<option value="na">na (not applicable)</option>`;
+      d.options.forEach((o, i) => { opts += `<option value="${esc(o)}">${i + 1}. ${esc(o)}</option>`; });
+      return `<select id="${id}">${opts}</select>`;
+    }
+    case "boolean":
+      return `<label class="radio"><input type="radio" name="${id}" value="1"> Yes (1)</label>
+        <label class="radio"><input type="radio" name="${id}" value="0"> No (0)</label>`;
+    case "string":
+      return `<textarea id="${id}" rows="3"></textarea>` +
+        (d.allowNa ? `<button type="button" class="chip" data-na="${id}">na</button>` : "");
+    default:
+      throw new Error("Unknown dimension type: " + d.type);
+  }
+}
+
+function buildForm() {
+  const form = $("form");
+  form.innerHTML = DIMENSIONS.map((d) => {
+    const labelFor = d.type === "boolean" ? "" : ` for="f_${d.key}"`;
+    const head = d.type === "boolean"
+      ? `<legend>${esc(d.display)}<span class="key">${esc(d.key)}</span></legend>`
+      : `<label class="fl"${labelFor}>${esc(d.display)}<span class="key">${esc(d.key)}</span></label>`;
+    return `<fieldset class="field" data-key="${d.key}">
+      ${head}
+      ${hintHtml(d.hint)}
+      <div class="ctl">${controlHtml(d)}</div>
+      <p class="err" hidden></p>
+      <div class="prov"></div>
+    </fieldset>`;
+  }).join("");
+
+  form.querySelectorAll("[data-na]").forEach((b) => b.addEventListener("click", () => {
+    $(b.dataset.na).value = "na";
+    markDirty();
+  }));
+  form.addEventListener("input", markDirty);
+  form.addEventListener("change", markDirty);
+}
+
+function markDirty() {
+  state.dirty = true;
+  const m = $("saveMsg");
+  m.textContent = "Unsaved changes";
+  m.classList.add("dirty");
+}
+function clearDirty(msg) {
+  state.dirty = false;
+  const m = $("saveMsg");
+  m.textContent = msg || "";
+  m.classList.remove("dirty");
+}
+
+function fillForm() {
+  const id = idOf(state.entries[state.idx]);
+  const lab = state.labels[id] || {};
+  for (const d of DIMENSIONS) {
+    const r = lab[d.key];
+    const v = hasValue(r) ? r.value : "";
+    const fs = document.querySelector(`.field[data-key="${d.key}"]`);
+    fs.classList.remove("invalid");
+    fs.querySelector(".err").hidden = true;
+    fs.querySelector(".prov").textContent = hasValue(r) ? `Saved ${r.date || ""}` : "";
+    if (d.type === "boolean") {
+      document.querySelectorAll(`input[name="f_${d.key}"]`).forEach((el) => { el.checked = String(v) === el.value; });
+    } else {
+      $(`f_${d.key}`).value = String(v);
+    }
+  }
+  clearDirty();
+}
+
+function readForm() {
+  const values = {}, errors = {};
+  for (const d of DIMENSIONS) {
+    let v = null;
+    if (d.type === "boolean") {
+      const el = document.querySelector(`input[name="f_${d.key}"]:checked`);
+      v = el ? Number(el.value) : null;
+    } else {
+      const raw = $(`f_${d.key}`).value.trim();
+      if (raw === "") v = null;
+      else if (d.type === "date_extract") {
+        if (DATE_RE.test(raw) && validYM(raw)) v = raw;
+        else errors[d.key] = "Use yyyy-mm format, e.g. 2020-06 (this field is required, no 'na').";
+      } else if (d.type === "date_extract+na") {
+        if (NA_RE.test(raw)) v = "na";
+        else if (DATE_RE.test(raw) && validYM(raw)) v = raw;
+        else errors[d.key] = "Use yyyy-mm format, e.g. 2020-06, or 'na'.";
+      } else if (d.type === "art_extract") {
+        if (NA_RE.test(raw)) v = "na";
+        else if (ART_RE.test(raw)) v = raw;
+        else errors[d.key] = "Enter a number (e.g. 3 or 3a) or 'na'.";
+      } else {
+        v = raw; // categorical, categorical+na, string
+      }
+    }
+    values[d.key] = v;
+  }
+  return { values, errors };
+}
+
+// ─── Saving ───────────────────────────────────────────────────────────────────
+function save() {
+  const { values, errors } = readForm();
+  let firstBad = null;
+  for (const d of DIMENSIONS) {
+    const fs = document.querySelector(`.field[data-key="${d.key}"]`);
+    const errEl = fs.querySelector(".err");
+    if (errors[d.key]) {
+      fs.classList.add("invalid");
+      errEl.textContent = errors[d.key];
+      errEl.hidden = false;
+      if (!firstBad) firstBad = fs;
+    } else {
+      fs.classList.remove("invalid");
+      errEl.hidden = true;
+    }
+  }
+  if (firstBad) {
+    firstBad.scrollIntoView({ block: "center" });
+    const ctl = firstBad.querySelector("input, select, textarea");
+    if (ctl) ctl.focus({ preventScroll: true });
+    $("saveMsg").textContent = "Fix the highlighted fields to save.";
+    $("saveMsg").classList.add("dirty");
+    return false;
+  }
+
+  const id = idOf(state.entries[state.idx]);
+  const lab = { ...(state.labels[id] || {}) };
+  let changed = 0;
+  for (const d of DIMENSIONS) {
+    const v = values[d.key];
+    if (v === null) {
+      if (lab[d.key]) { delete lab[d.key]; changed++; }
+    } else if (!lab[d.key] || lab[d.key].value !== v) {
+      lab[d.key] = { value: v, coder: state.coder, date: today() };
+      changed++;
+    }
+  }
+  if (Object.keys(lab).length) state.labels[id] = lab; else delete state.labels[id];
+  if (changed) state.changesSinceExport++;
+  persist();
+  fillForm();
+  clearDirty(changed ? "Saved." : "No changes to save.");
+  renderList();
+  renderProgress();
+  return true;
+}
+
+$("saveBtn").addEventListener("click", save);
+$("saveNextBtn").addEventListener("click", () => { if (save()) go(state.idx + 1, true); });
+document.addEventListener("keydown", (e) => {
+  if (!$("app").hidden && (e.ctrlKey || e.metaKey) && e.key === "Enter") {
+    e.preventDefault();
+    if (save()) go(state.idx + 1, true);
+  }
+});
+window.addEventListener("beforeunload", (e) => {
+  if (state.dirty) { e.preventDefault(); e.returnValue = ""; }
+});
+
+// ─── Navigation ───────────────────────────────────────────────────────────────
+function go(i, skipCheck) {
+  if (i < 0 || i >= state.entries.length) {
+    if (i >= state.entries.length) $("saveMsg").textContent = "This is the last entry.";
+    return;
+  }
+  if (!skipCheck && state.dirty && !confirm("This entry has unsaved changes. Leave without saving them?")) return;
+  state.idx = i;
+  persist();
+  renderAll();
+}
+function nextOpen() {
+  const n = state.entries.length;
+  for (let k = 1; k <= n; k++) {
+    const i = (state.idx + k) % n;
+    if (statusOf(idOf(state.entries[i])) !== "done") { go(i); return; }
+  }
+  $("saveMsg").textContent = "All entries are fully labelled.";
+}
+$("prevBtn").addEventListener("click", () => go(state.idx - 1));
+$("nextBtn").addEventListener("click", () => go(state.idx + 1));
+$("nextOpenBtn").addEventListener("click", nextOpen);
+$("onlyOpen").addEventListener("change", renderList);
+
+// ─── Rendering ────────────────────────────────────────────────────────────────
+function renderAll() {
+  renderMeta();
+  renderText();
+  fillForm();
+  renderList();
+  renderProgress();
+  $("pos").textContent = `Entry ${state.idx + 1} of ${state.entries.length}`;
+  $("prevBtn").disabled = state.idx === 0;
+  $("nextBtn").disabled = state.idx === state.entries.length - 1;
+  $("docPane").scrollTop = 0;
+  $("formScroll").scrollTop = 0;
+}
+
+function renderMeta() {
+  const e = state.entries[state.idx];
+  const score = typeof e.similarity_score === "number" ? e.similarity_score.toFixed(3) : (e.similarity_score ?? "");
+  const words = (e.full_text || "").split(/\s+/).filter(Boolean).length;
+  const facts = [
+    ["Type", e.doc_type], ["Year", e.year], ["Score", score],
+    ["Published", (e.date_published || "").slice(0, 10)],
+    ["Enacted", (e.date_law || "").slice(0, 10)],
+    ["Words", words.toLocaleString("en")],
+  ].filter(([, v]) => v !== undefined && v !== null && v !== "");
+  const links = [];
+  if (e.url_web) links.push(`<a href="${esc(e.url_web)}" target="_blank" rel="noopener">Open web page</a>`);
+  if (e.url_pdf) links.push(`<a href="${esc(e.url_pdf)}" target="_blank" rel="noopener">Open PDF</a>`);
+  $("meta").innerHTML = `
+    <div class="entry-id">${esc(e.id)}</div>
+    <h2>${esc(e.title || "(untitled)")}</h2>
+    <dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+    ${links.length ? `<p class="links">${links.join("")}</p>` : ""}`;
+}
+
+function renderText() {
+  const el = $("text");
+  const t = state.entries[state.idx].full_text || "";
+  const q = $("q").value.trim();
+  matches = []; curMatch = -1;
+  if (!t) {
+    el.className = "text empty";
+    el.textContent = "This entry has no full text in the sample. Use the PDF link above.";
+    $("qCount").textContent = "";
+    return;
+  }
+  el.className = "text";
+  if (!q) { el.textContent = t; $("qCount").textContent = ""; return; }
+
+  const re = new RegExp(escRe(q), "gi");
+  let html = "", last = 0, n = 0;
+  for (const m of t.matchAll(re)) {
+    html += esc(t.slice(last, m.index)) + "<mark>" + esc(m[0]) + "</mark>";
+    last = m.index + m[0].length;
+    if (++n >= 5000) break;
+  }
+  html += esc(t.slice(last));
+  el.innerHTML = html;
+  matches = [...el.querySelectorAll("mark")];
+  if (matches.length) { curMatch = 0; focusMatch(); }
+  else $("qCount").textContent = "No matches";
+}
+
+function focusMatch() {
+  matches.forEach((m) => m.classList.remove("current"));
+  if (curMatch < 0 || !matches.length) return;
+  const m = matches[curMatch];
+  m.classList.add("current");
+  m.scrollIntoView({ block: "center" });
+  $("qCount").textContent = `${curMatch + 1} of ${matches.length}`;
+}
+function stepMatch(dir) {
+  if (!matches.length) return;
+  curMatch = (curMatch + dir + matches.length) % matches.length;
+  focusMatch();
+}
+$("q").addEventListener("input", () => { clearTimeout(searchTimer); searchTimer = setTimeout(renderText, 200); });
+$("q").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") { e.preventDefault(); clearTimeout(searchTimer); if (!matches.length) renderText(); else stepMatch(e.shiftKey ? -1 : 1); }
+});
+$("qNext").addEventListener("click", () => stepMatch(1));
+$("qPrev").addEventListener("click", () => stepMatch(-1));
+
+function renderList() {
+  const only = $("onlyOpen").checked;
+  const items = [];
+  state.entries.forEach((e, i) => {
+    const id = idOf(e);
+    const st = statusOf(id);
+    if (only && st === "done" && i !== state.idx) return;
+    const label = st === "done" ? "fully labelled" : st === "partial" ? "partly labelled" : "not labelled";
+    items.push(`<li><button type="button" data-i="${i}" aria-current="${i === state.idx}" title="${esc(e.title || id)}">
+      <span class="dot ${st}" role="img" aria-label="${label}"></span>
+      <span class="num">${i + 1}</span><span class="t">${esc(e.title || id)}</span></button></li>`);
+  });
+  $("list").innerHTML = items.join("");
+  const cur = $("list").querySelector('[aria-current="true"]');
+  if (cur) cur.scrollIntoView({ block: "nearest" });
+}
+$("list").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-i]");
+  if (b) go(Number(b.dataset.i));
+});
+
+function renderProgress() {
+  const total = state.entries.length, done = fullCount();
+  $("progFill").style.width = `${total ? (done / total) * 100 : 0}%`;
+  $("progText").textContent = `${done}/${total} fully labelled`;
+  const es = $("exportState");
+  if (!state.lastExport) es.textContent = "Not exported yet";
+  else {
+    const t = new Date(state.lastExport);
+    const when = t.toLocaleString(undefined, { dateStyle: "short", timeStyle: "short" });
+    es.textContent = state.changesSinceExport
+      ? `Last export ${when}, ${state.changesSinceExport} saved change${state.changesSinceExport === 1 ? "" : "s"} since`
+      : `Exported ${when}`;
+  }
+}
+
+// ─── Export ───────────────────────────────────────────────────────────────────
+$("exportBtn").addEventListener("click", () => {
+  if (state.dirty) {
+    if (confirm("This entry has unsaved changes. Save them before exporting?")) {
+      if (!save()) return;
+    }
+  }
+  // Same structure as save_labels() in the Python tool.
+  const output = state.entries.map((e) => {
+    const lab = state.labels[idOf(e)];
+    return lab && Object.keys(lab).length ? { ...e, gs_labels: lab } : e;
+  });
+  const blob = new Blob([JSON.stringify(output, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `${state.sampleName}_labelled_${state.coder}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  state.lastExport = new Date().toISOString();
+  state.changesSinceExport = 0;
+  persist();
+  renderProgress();
+});
+</script>
+</body>
+</html>
