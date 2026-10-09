@@ -73,10 +73,14 @@ the `policy-tracker/` folder contains a pipeline that builds a policy-tracker fr
    - `fetch_bgbl_germany.py` fetches metadata and full texts of BGBl Teil I via the offenegesetze.de api (available until 2022)
    - `fetch_bgbl-new-website_post2023_germany.py` scrapes recht.bund.de (2023 onward, no api), filtered by FNA subject area; downloads zip packages of the policy texts
    - both scripts save progress and can be interrupted and resumed; `compress.py` gzips raw files too large for github
-2. **processing** (`2_processing/germany/`) filters the corpus to social policy through a pooled evaluation of two systems:
-   - system 1: cosine similarity between texts and seed descriptions (derived from BMAS/BMBFSFJ sources and a list of covid legislation), with interactive triage of borderline cases
-   - system 2: BERTopic clustering with interactive triage of topics
-   - the union of both systems is inspected and compiled into the final policy set (`step3_process_pooled_union_eval_compile.ipynb`)
+2. **processing** (`2_processing/germany/`) for Germany the processing steps depend on whether the policies concern pre- or post2023 due to the different raw data retrieval sources and processes.
+   - processing for pre2023: filters the corpus to social policy through a pooled evaluation of two systems:
+     - system 1: cosine similarity between texts and seed descriptions (derived from BMAS/BMBFSFJ sources and a list of covid legislation), with interactive triage of borderline cases
+     - system 2: BERTopic clustering with interactive triage of topics
+     - the union of both systems is inspected and compiled into the final policy set (`step3_process_pooled_union_eval_compile.ipynb`)
+   - processing for post2023:
+     - the retrieved data are already all ensured to regard social policy. the steps of the pre2023-processing are therefore obsolete for post2023.
+     - using pymupdf and pmupdf4llm, policy texts are extracted from pdfs and stored in jsons of the same structure as in pre2023-processing.
 3. **classification** (`3_classification/`)
    - `codebook.md` defines all variables (dates, `crisis_ref`, social policy fields)
    - `step2_promptdesigns.py` holds 16 prompt variants in a 2×2×2×2 factorial design: zero-/few-shot, batch/single task, with/without class definitions, with/without justification
@@ -109,3 +113,15 @@ For questions about this research or collaboration opportunities, please open an
 
 - University of Mannheim
 - [KeyBERT](https://github.com/MaartenGr/KeyBERT) and [YAKE](https://github.com/LIAAD/yake) for keyword extraction
+
+## third-party software
+
+This pipeline's processing step for uses the following third-party libraries by Artifex Software, Inc.:
+
+- PyMuPDF: AGPL-3.0
+- PyMuPDF4LLM: AGPL-3.0
+- PyMuPDF Layout: PolyForm Noncommercial 1.0.0
+
+The libraries are not distributed with this repository, which serves academic purposes only, and are used unmodified; they are imported and called by the script only. Users install them separately: pip install pymupdf pymupdf4llm pymupdf-layout
+
+PyMuPDF Layout is used for the default "layout" extraction engine and is licensed for non-commercial use only; commercial use requires a licence from Artifex. Licensing information: https://artifex.com/licensing

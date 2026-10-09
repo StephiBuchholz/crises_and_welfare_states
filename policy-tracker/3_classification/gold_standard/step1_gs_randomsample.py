@@ -30,9 +30,9 @@ def _find_root(marker="CLAUDE.md"):
 
 PROJECT_ROOT = _find_root()
 
-INPUT_FILE      = PROJECT_ROOT / "data/processed/germany/germany_2008-2015_2019-2022_final_policy_set.json"
+INPUT_FILE      = PROJECT_ROOT / "data/processed/germany/germany_2023-2026_final_policy_set.json"
 OUTPUT_DIR      = PROJECT_ROOT / "data/gold_standard"
-OUTPUT_PREFIX   = "germany_2008-2015_2019-2022"
+OUTPUT_PREFIX   = "germany_2023-2026"
 
 SAMPLE_FRACTION = 0.10   # share of the input to draw; adjust as needed
 RANDOM_SEED     = 42     # fix for reproducibility; change to draw a different sample
