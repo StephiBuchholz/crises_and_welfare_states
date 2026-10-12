@@ -84,15 +84,15 @@ TOP_P       = 1.0    # set explicitly so backend changes cannot silently alter s
 #   rpm          — max requests per minute for proactive rate limiting; None → disabled; depends on API
 #   rph          — max requests per hour  for proactive rate limiting; None → disabled; depends on API
 MODELS = [
-    #  {   
-    #     "model":        "llama-3.3-70b-instruct",
-    #     "key_env":      "SAIA_API_KEY",
-    #     "base_url_env": "SAIA_API_ENDPOINT",
-    #     "output_fmt":   "json_object",
-    #     "timeout":      300.0,
-    #     "rpm":          10,
-    #     "rph":          200
-    #  },
+    #   {   
+    #      "model":        "llama-3.3-70b-instruct",
+    #      "key_env":      "SAIA_API_KEY",
+    #      "base_url_env": "SAIA_API_ENDPOINT",
+    #      "output_fmt":   "json_object",
+    #      "timeout":      300.0,
+    #      "rpm":          10,
+    #      "rph":          200
+    #   },
     #{
        # "model":        "mistral-large-3-675b-instruct-2512",
        # "key_env":      "SAIA_API_KEY",
@@ -102,24 +102,24 @@ MODELS = [
         #"rpm":          10,
        # "rph":          200,
     #},
-    # {
-    #     "model":        "gpt-4.1-mini",
-    #     "key_env":      "openai_classification_key",
-    #     "base_url_env": None,
-    #     "output_fmt":   "json_schema",
-    #     "timeout":      60.0,
-    #     "rpm":          None,
-    #     "rph":          None,
-    # },
-     #{
-        # "model":        "qwen3.6-35b-a3b",
-        # "key_env":      "SAIA_API_KEY",
-        # "base_url_env": "SAIA_API_ENDPOINT",
-        # "output_fmt":   "json_object",
-        # "timeout":      300.0,
-        # "rpm":          10,
-        # "rph":          200,
-     #},
+     {
+         "model":        "gpt-4.1-mini",
+         "key_env":      "openai_classification_key",
+         "base_url_env": None,
+         "output_fmt":   "json_schema",
+         "timeout":      60.0,
+         "rpm":          None,
+         "rph":          None,
+     },
+     {
+         "model":        "qwen3.6-35b-a3b",
+         "key_env":      "SAIA_API_KEY",
+         "base_url_env": "SAIA_API_ENDPOINT",
+         "output_fmt":   "json_object",
+         "timeout":      300.0,
+         "rpm":          10,
+         "rph":          200,
+     },
        {
            "model":        "gemma-4-31b-it", 
            "key_env":      "SAIA_API_KEY",
@@ -138,20 +138,20 @@ MODELS = [
     #     "rpm":          10,
     #     "rph":          200,
     # },
-    #   {
-    #       "model":        "meta-llama-3.1-8b-instruct",
-    #       "key_env":      "SAIA_API_KEY",
-    #       "base_url_env": "SAIA_API_ENDPOINT",
-    #       "output_fmt":   "json_object",
-    #       "timeout":      300.0,
-    #       "rpm":          10,
-    #       "rph":          200,
-    #   }
+       {
+           "model":        "meta-llama-3.1-8b-instruct",
+           "key_env":      "SAIA_API_KEY",
+           "base_url_env": "SAIA_API_ENDPOINT",
+           "output_fmt":   "json_object",
+           "timeout":      300.0,
+           "rpm":          10,
+           "rph":          200,
+       }
 ]
 
 # ─── PATHS ────────────────────────────────────────────────────────────────────
 PROJECT_ROOT  = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = PROJECT_ROOT / "data" / "gold_standard" / "germany_2008-2015_2019-2022_gs_sample_68_2026-05-24.json"
+DEFAULT_INPUT = PROJECT_ROOT / "data" / "gold_standard" / "germany_2023-2026_gs_sample_36_2026-10-09.json"
 OUTPUT_DIR    = PROJECT_ROOT / "data" / "classifications" / "germany"
 # ─────────────────────────────────────────────────────────────────────────────
 
