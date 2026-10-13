@@ -1,0 +1,625 @@
+{
+  "run_metadata": {
+    "date": "2026-10-13",
+    "model": "gemma-4-31b-it",
+    "prompt_key": "v3_zero_shot_batch_def_nojus",
+    "temperature": 0,
+    "seed": 42,
+    "top_p": 1.0,
+    "input_file": "germany_2023-2026_gs_sample_36_2026-10-09.json",
+    "system_fingerprints": [
+      "vllm-0.24.0-tp2-b7311f3b"
+    ],
+    "status": "partial (9/36)"
+  },
+  "entries": [
+    {
+      "id": "bgbl1-2026-175-1",
+      "year": 2026,
+      "issue_number": 175,
+      "order_in_issue": 1,
+      "title": "§ 48a des Zweiten Buches Sozialgesetzbuch",
+      "doc_type": "Verordnung",
+      "date_published": "2026-06-17T00:00:00Z",
+      "date_law": "2026-06-12T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 4,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2026/175/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2026/175",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2026/175/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "**Zweite Verordnung**\n**zur Änderung der Verordnung zur Festlegung der Kennzahlen nach § 48a des**\n\n**Zweiten Buches Sozialgesetzbuch**\n\n**Vom 12. Juni 2026**\n\nDas Bundesministerium für Arbeit und Soziales verordnet aufgrund des § 48a Absatz 2 des Zweiten Buches\nSozialgesetzbuch – Bürgergeld, Grundsicherung für Arbeitsuchende – in der Fassung der Bekanntmachung vom\n13. Mai 2011 (BGBl. I S. 850, 2094), das zuletzt durch Artikel 1a des Gesetzes vom 16. April 2026 (BGBl. 2026 I\nNr. 107) geändert worden ist:\n\n**Artikel 1**\n\n**Änderung der Verordnung zur Festlegung der Kennzahlen nach § 48a des**\n\n**Zweiten Buches Sozialgesetzbuch**\n\nDie Verordnung zur Festlegung der Kennzahlen nach § 48a des Zweiten Buches Sozialgesetzbuch vom\n12. August 2010 (BGBl. I S. 1152), die zuletzt durch Artikel 1 der Verordnung vom 15. März 2019 (BGBl. I S. 339)\ngeändert worden ist, wird wie folgt geändert:\n\n1. In § 1 wird nach der Angabe „§ 48a Absatz 1 des Zweiten Buches Sozialgesetzbuch“ die Angabe „und als\nmaßgebliche Grundlage für den Abschluss der Zielvereinbarungen und die Nachhaltung der Zielerreichung\nnach § 48b Absatz 5 des Zweiten Buches Sozialgesetzbuch“ eingefügt.\n\n2. § 2 wird wie folgt geändert:\n\na) Nach Absatz 1 Satz 1 wird der folgende Satz eingefügt:\n\n„Alle Kennzahlen und Ergänzungsgrößen werden in Prozent abgebildet.“\n\nb) Die Absätze 2 und 3 werden durch die folgenden Absätze 2 bis 8 ersetzt:\n\n„(2) Eine Integration liegt dann vor, wenn erwerbsfähige Leistungsberechtigte in einem Monat eine\nsozialversicherungspflichtige Beschäftigung, eine voll qualifizierende berufliche Ausbildung oder eine\nselbständige Tätigkeit aufgenommen haben; für jeden Berichtsmonat wird für erwerbsfähige Leistungs­\nberechtigte maximal eine Integration gezählt.\n\n(3) Langzeitleistungsbeziehende sind erwerbsfähige Leistungsberechtigte, die in den vergangenen\n24 Monaten mindestens 21 Monate als erwerbsfähige Leistungsberechtigte hilfebedürftig waren; NichtLangzeitleistungsbeziehende sind erwerbsfähige Leistungsberechtigte, die in den vergangenen 24 Monaten\nweniger als 21 Monate als erwerbsfähige Leistungsberechtigte hilfebedürftig waren.\n\n(4) Maßnahmen der aktiven Arbeitsförderung zur Qualifizierung sind\n\n1. berufsvorbereitende Bildungsmaßnahmen nach § 51 des Dritten Buches Sozialgesetzbuch,\n\n2. Einstiegsqualifizierung nach § 16 Absatz 1 Satz 2 Nummer 3 des Zweiten Buches Sozialgesetzbuch in\nVerbindung mit § 54a des Dritten Buches Sozialgesetzbuch,\n\n3. Zuschüsse zur Ausbildungsvergütung für schwerbehinderte Menschen nach § 16 Absatz 1 Satz 2\nNummer 3 des Zweiten Buches Sozialgesetzbuch in Verbindung mit § 73 Absatz 1 und 2 des Dritten\nBuches Sozialgesetzbuch,\n\n4. Assistierte Ausbildung nach § 16 Absatz 1 Satz 2 Nummer 3 des Zweiten Buches Sozialgesetzbuch in\nVerbindung mit den §§ 74 bis 75a des Dritten Buches Sozialgesetzbuch,\n\n5. außerbetriebliche Berufsausbildung nach § 16 Absatz 1 Satz 2 Nummer 3 des Zweiten Buches Sozialge­\nsetzbuch in Verbindung mit § 76 des Dritten Buches Sozialgesetzbuch,\n\n6. berufliche Weiterbildung, Arbeitsentgeltzuschuss zur beruflichen Weiterbildung Beschäftigter und\nQualifizierungsgeld nach den §§ 81 bis 82a des Dritten Buches Sozialgesetzbuch,\n\n7. allgemeine und besondere Maßnahmen zur Weiterbildung, Berufsvorbereitung und Ausbildungsförderung\nvon Menschen mit Behinderungen nach § 115 Nummer 2 und 3 mit Ausnahme von Berufsausbildungs­\nbeihilfe, Berufsorientierungspraktikum und Mobilitätszuschuss sowie nach § 117 des Dritten Buches\nSozialgesetzbuch und\n\n8. unterstützte Beschäftigung nach § 55 des Neunten Buches Sozialgesetzbuch.\n\n(5) Erwerbsfähige Leistungsberechtigte ohne Vorbezug im Sinne des § 4 Absatz 2 sind diejenigen, die in\nden drei Monaten vor dem Zugang keine erwerbsfähigen Leistungsberechtigten waren.\n\n(6) Eine Beschäftigung nach Integration ist im Sinne des § 4 Absatz 4 dann kontinuierlich, wenn die\nbetreffende Person in jedem der auf die Integration folgenden sechs Monate sozialversicherungspflichtig\nbeschäftigt ist.\n\n(7) Eine Integration ist im Sinne des § 4 Absatz 5 dann bedarfsdeckend, wenn die betreffende Person im\ndritten Monat nach der Integration kein Grundsicherungsgeld bezieht.\n\n(8) In Vergleichstypen werden diejenigen Jobcenter zusammengefasst, die in Bezug auf Rahmen­\nbedingungen, die sich auf ihre Leistungsfähigkeit auswirken, jedoch von ihnen mittelfristig nicht beeinflusst\nwerden können, ähnlich sind.“\n\n3. Die §§ 3 bis 5 werden durch die folgenden §§ 3 bis 5 ersetzt:\n\n„§ 3\n\nKennzahlen\n\n(1) Die Kennzahl „Veränderung des Bestands der erwerbsfähigen Leistungsberechtigten“ wird wie folgt\ngebildet:\n\n(2) Die Integrationsquoten werden wie folgt gebildet:\n\n1. die Kennzahl „Integrationsquote der erwerbsfähigen Leistungsberechtigten“:\n\n2. die Kennzahl „Integrationsquote der Nicht-Langzeitleistungsbeziehenden“:\n\n3. die Kennzahl „Integrationsquote der Langzeitleistungsbeziehenden“:\n\n§ 4\n\nErgänzungsgrößen\n\n(1) Die Ergänzungsgröße „Qualifizierungsquote der erwerbsfähigen Leistungsberechtigten“ wird wie folgt\ngebildet:\n\n(2) Die Ergänzungsgröße „Übertrittsquote in den Langzeitleistungsbezug“ wird wie folgt gebildet:\n\n(3) Die Ergänzungsgröße „Abgangsrate der Langzeitleistungsbeziehenden“ wird wie folgt gebildet:\n\n(4) Die Ergänzungsgröße „Anteil kontinuierlicher Beschäftigungen nach Integration“ wird wie folgt gebildet:\n\n(5) Die Ergänzungsgröße „Anteil bedarfsdeckender Integrationen“ wird wie folgt gebildet:\n\n§ 5\n\nUmsetzung\n\n(1) Die Kennzahlen und Ergänzungsgrößen werden monatlich für alle Jobcenter durch die Bundesagentur für\nArbeit im Rahmen ihres statistischen Auftrages nach § 53 des Zweiten Buches Sozialgesetzbuch gebildet. Die\nKennzahlen und Ergänzungsgrößen werden geschlechtsspezifisch ausgewiesen.\n\n(2) Die Kennzahlen nach § 3 Absatz 2 Nummer 1 für die Frauen sowie nach § 3 Absatz 2 Nummer 2 und 3\ninsgesamt unterliegen der Planung im Rahmen der Zielvereinbarungen nach § 48b des Zweiten Buches\nSozialgesetzbuch.“\n\n4. § 6 wird gestrichen.\n\n5. Die §§ 7 bis 9 werden zu den §§ 6 bis 8.\n\n**Artikel 2**\n\n**Inkrafttreten**\n\nDiese Verordnung tritt am 1. Januar 2027 in Kraft.\n\nDer Bundesrat hat zugestimmt.\n\nBerlin, den 12. Juni 2026\n\nDie Bundesministerin\nfür Arbeit und Soziales\n\nBärbel Bas",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This regulation updates the key performance indicators (KPIs) used to measure the integration and qualification success of benefit recipients (Bürgergeld) within Jobcenters.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "date_extraction": {
+          "value": {
+            "legally_effective": "2027-01",
+            "leg_eff_terminate": "na",
+            "legally_effective_2": "na",
+            "leg_eff_terminate_2": "na",
+            "art_leg_eff_2": "na",
+            "legally_effective_3": "na",
+            "leg_eff_terminate_3": "na",
+            "art_leg_eff_3": "na"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field": {
+          "value": {
+            "social_policy_field_1": "Unemployment",
+            "social_policy_field_2": "Labour market"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2023-241-1",
+      "year": 2023,
+      "issue_number": 241,
+      "order_in_issue": 1,
+      "title": "Berichtigung der Verordnung zur Neuordnung der Berufsausbildung zum Verfahrensmechaniker für Kunststoff- und Kautschuktechnik und zur Verfahrensmechanikerin für Kunststoff- und Kautschuktechnik",
+      "doc_type": "Sonstiges",
+      "date_published": "2023-09-08T00:00:00Z",
+      "date_law": "2023-09-06T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 1,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2023/241/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2023/241",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2023/241/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "### **Berichtigung der Verordnung zur Neuordnung der Berufsausbildung zum Verfahrensmechaniker für Kunststoff- und Kautschuktechnik und zur Verfahrensmechanikerin für Kunststoff- und Kautschuktechnik**\n\n#### **Vom 6. September 2023**\n\nDie Verordnung zur Neuordnung der Berufsausbildung zum Verfahrensmechaniker für Kunststoff- und Kautschuktechnik und zur Verfahrensmechanikerin für Kunststoff- und Kautschuktechnik vom 14. Juni 2023 (BGBl. 2023 I Nr. 151) ist wie folgt zu berichtigen:\n\nIn Artikel 1 ist in den §§ 15, 23, 31, 39, 47, 55 und 63 jeweils in Absatz 1 das Wort „Bewertung“ durch das Wort „Bewertungen“ zu ersetzen.\n\nBerlin, den 6. September 2023\n\nBundesministerium\n\nfür Wirtschaft und Klimaschutz Im Auftrag Dr. R. Stangl",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This legislative text is a correction (Berichtigung) of a regulation regarding the reorganization of vocational training for process mechanics in plastics and rubber technology.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective": {
+          "value": "2023-09",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_1": {
+          "value": "Labour market",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2023-58-1",
+      "year": 2023,
+      "issue_number": 58,
+      "order_in_issue": 1,
+      "title": "Entscheidung des Bundesverfassungsgerichts",
+      "doc_type": "Sonstiges",
+      "date_published": "2023-03-08T00:00:00Z",
+      "date_law": "2023-02-23T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 1,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2023/58/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2023/58",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2023/58/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "### **Entscheidung des Bundesverfassungsgerichts**\n\nAus dem Beschluss des Bundesverfassungsgerichts vom 6. Dezember 2022 – 2 BvL 29/14 – wird die Entscheidungsformel veröffentlicht:\n\n§ 36 Absatz 6a Körperschaftsteuergesetz in der Fassung von § 34 Absatz 13f Körperschaftsteuergesetz in der Fassung des Jahressteuergesetzes 2010 vom 8. Dezember 2010 (Bundesgesetzblatt I Seite 1768) sowie § 36 Absatz 6a Körperschaftsteuergesetz in der Fassung von § 34 Absatz 11 Körperschaftsteuergesetz in der Fassung des Gesetzes zur Anpassung des nationalen Steuerrechts an den Beitritt Kroatiens zur EU und zur Änderung weiterer steuerlicher Vorschriften vom 25. Juli 2014 (Bundesgesetzblatt I Seite 1266) sind unvereinbar mit Artikel 14 Absatz 1 in Verbindung mit Artikel 3 Absatz 1 des Grundgesetzes.\n\nDie vorstehende Entscheidungsformel hat gemäß § 31 Absatz 2 des Bundesverfassungsgerichtsgesetzes Gesetzeskraft.\n\nBerlin, den 23. Februar 2023\n\nDer Bundesminister der Justiz\n\n- Marco Buschmann",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "The Federal Constitutional Court ruled that certain provisions of the Corporate Income Tax Act (§ 36 Para. 6a KStG) are incompatible with the Basic Law regarding property rights and equality.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective": {
+          "value": "2023-03",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_1": {
+          "value": "Taxes",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2024-228-1",
+      "year": 2024,
+      "issue_number": 228,
+      "order_in_issue": 1,
+      "title": "(Bundesbeteiligungs-Festlegungsverordnung 2024 — BBFestV 2024)",
+      "doc_type": "Verordnung",
+      "date_published": "2024-07-10T00:00:00Z",
+      "date_law": "2024-07-08T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 3,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2024/228/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2024/228",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2024/228/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "### **Verordnung zur Festlegung und Anpassung der Bundesbeteiligung an den Leistungen für Unterkunft und Heizung für das Jahr 2024 (Bundesbeteiligungs-Festlegungsverordnung 2024 – BBFestV 2024)**\n\n#### **Vom 8. Juli 2024**\n\nAuf Grund des § 46 Absatz 10 Satz 1 des Zweiten Buches Sozialgesetzbuch, der durch Artikel 3 Nummer 3 Buchstabe a des Gesetzes vom 9. Dezember 2019 (BGBl. I S. 2051) neu gefasst worden ist, verordnet das Bundesministerium für Arbeit und Soziales:\n\n#### **§ 1**\n\n#### **Festlegung und Anpassung der Werte nach § 46 Absatz 8 Satz 1 des Zweiten Buches Sozialgesetzbuch**\n\nDer landesspezifische Wert nach § 46 Absatz 8 Satz 1 des Zweiten Buches Sozialgesetzbuch, der für das Jahr 2024 rückwirkend angepasst und für das Jahr 2025 festgelegt wird, beträgt\n\n1. 5,3 Prozentpunkte für Baden-Württemberg,\n\n2. 6,7 Prozentpunkte für den Freistaat Bayern,\n\n3. 4,2 Prozentpunkte für Berlin,\n\n4. 6,3 Prozentpunkte für Brandenburg,\n\n5. 7,4 Prozentpunkte für die Hansestadt Bremen,\n\n6. 9,6 Prozentpunkte für die Freie und Hansestadt Hamburg,\n\n7. 5,9 Prozentpunkte für Hessen,\n\n8. 8,7 Prozentpunkte für Mecklenburg-Vorpommern,\n\n9. 10,0 Prozentpunkte für Niedersachsen,\n\n10. 8,5 Prozentpunkte für Nordrhein-Westfalen,\n\n11. 5,9 Prozentpunkte für Rheinland-Pfalz,\n\n12. 7,4 Prozentpunkte für das Saarland,\n\n13. 9,6 Prozentpunkte für den Freistaat Sachsen,\n\n14. 7,0 Prozentpunkte für Sachsen-Anhalt,\n\n15. 7,8 Prozentpunkte für Schleswig-Holstein und\n\n16. 9,4 Prozentpunkte für den Freistaat Thüringen.\n\n#### **§ 2**\n\n#### **Anpassung der Werte nach § 46 Absatz 5 Satz 3 des Zweiten Buches Sozialgesetzbuch**\n\n(1) Die Beteiligung des Bundes an den Ausgaben für die Leistungen nach § 22 Absatz 1 des Zweiten Buches Sozialgesetzbuch beträgt im Jahr 2024\n\n1. 72,1 Prozent für Baden-Württemberg,\n\n2. 69,5 Prozent für den Freistaat Bayern,\n\n3. 67,0 Prozent für Berlin,\n\n4. 69,1 Prozent für Brandenburg,\n\n5. 70,2 Prozent für die Hansestadt Bremen,\n\n6. 72,4 Prozent für die Freie und Hansestadt Hamburg,\n\n7. 68,7 Prozent für Hessen,\n\n8. 71,5 Prozent für Mecklenburg-Vorpommern,\n\n9. 72,8 Prozent für Niedersachsen,\n\n10. 71,3 Prozent für Nordrhein-Westfalen,\n\n11. 78,7 Prozent für Rheinland-Pfalz,\n\n12. 70,2 Prozent für das Saarland,\n\n13. 72,4 Prozent für den Freistaat Sachsen,\n\n14. 69,8 Prozent für Sachsen-Anhalt,\n\n15. 70,6 Prozent für Schleswig-Holstein und\n\n16. 72,2 Prozent für den Freistaat Thüringen.\n\n- (2) Die Beteiligung des Bundes an den Ausgaben für die Leistungen nach § 22 Absatz 1 des Zweiten Buches\n\n- Sozialgesetzbuch beträgt im Jahr 2025\n\n1. 72,1 Prozent für Baden-Württemberg,\n\n2. 69,5 Prozent für den Freistaat Bayern,\n\n3. 67,0 Prozent für Berlin,\n\n4. 69,1 Prozent für Brandenburg,\n\n5. 70,2 Prozent für die Hansestadt Bremen,\n\n6. 72,4 Prozent für die Freie und Hansestadt Hamburg,\n\n7. 68,7 Prozent für Hessen,\n\n8. 71,5 Prozent für Mecklenburg-Vorpommern,\n\n9. 72,8 Prozent für Niedersachsen,\n\n10. 71,3 Prozent für Nordrhein-Westfalen,\n\n11. 78,7 Prozent für Rheinland-Pfalz,\n\n12. 70,2 Prozent für das Saarland,\n\n13. 72,4 Prozent für den Freistaat Sachsen,\n\n14. 69,8 Prozent für Sachsen-Anhalt,\n\n15. 70,6 Prozent für Schleswig-Holstein und\n\n16. 72,2 Prozent für den Freistaat Thüringen.\n\n#### **§ 3**\n\n#### **Inkrafttreten**\n\nDiese Verordnung tritt am Tag nach der Verkündung in Kraft.\n\nDer Bundesrat hat zugestimmt.\n\nBerlin, den 8. Juli 2024\n\nDer Bundesminister für Arbeit und Soziales Hubertus Heil",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This regulation determines and adjusts the federal government's share of funding for housing and heating benefits across different German states for the years 2024 and 2025.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "date_extraction": {
+          "value": {
+            "legally_effective": "2024-07",
+            "leg_eff_terminate": "na",
+            "legally_effective_2": "na",
+            "leg_eff_terminate_2": "na",
+            "art_leg_eff_2": "na",
+            "legally_effective_3": "na",
+            "leg_eff_terminate_3": "na",
+            "art_leg_eff_3": "na"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field": {
+          "value": {
+            "social_policy_field_1": "Housing",
+            "social_policy_field_2": "na"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2024-107-1",
+      "year": 2024,
+      "issue_number": 107,
+      "order_in_issue": 1,
+      "title": "Zweites Haushaltsfinanzierungsgesetz 2024",
+      "doc_type": "Gesetz",
+      "date_published": "2024-03-27T00:00:00Z",
+      "date_law": "2024-03-27T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 5,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2024/107/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2024/107",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2024/107/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "**Zweites Haushaltsfinanzierungsgesetz 2024**\n\n**Vom 27. März 2024**\n\nDer Bundestag hat das folgende Gesetz beschlossen:\n\n**Artikel 1**\n\n**Änderung des Luftverkehrsteuergesetzes**\n\nDas Luftverkehrsteuergesetz vom 9. Dezember 2010 (BGBl. I S. 1885; 2013 I S. 81), das zuletzt durch Artikel 198\nder Verordnung vom 19. Juni 2020 (BGBl. I S. 1328) geändert worden ist, wird wie folgt geändert:\n\n1. § 11 wird wie folgt geändert:\n\na) Absatz 1 wird wie folgt geändert:\n\naa) In Nummer 1 wird die Angabe „13,03 Euro“ durch die Angabe „15,53 Euro“ ersetzt.\n\nbb) In Nummer 2 wird die Angabe „33,01 Euro“ durch die Angabe „39,34 Euro“ ersetzt.\n\ncc) In Nummer 3 wird die Angabe „59,43 Euro“ durch die Angabe „70,83 Euro“ ersetzt.\n\nb) Absatz 2 wird wie folgt gefasst:\n\n„(2) Das Bundesministerium der Finanzen wird ab dem Jahr 2025 ermächtigt und verpflichtet, durch\nRechtsverordnung ohne Zustimmung des Bundesrates die Steuersätze nach Absatz 1 jeweils mit Wirkung\nfür das folgende Kalenderjahr prozentual abzusenken, sofern das Luftverkehrsteueraufkommen in dem\nVorjahr den Betrag von 2,33 Milliarden Euro übersteigt. Die prozentuale Absenkung errechnet sich aus dem\nVerhältnis des 2,33 Milliarden Euro übersteigenden Aufkommensbetrags zum 31. Dezember des jeweiligen\nVorjahres zu 2,33 Milliarden Euro. Der abgesenkte Steuersatz wird auf volle Cent gerundet.“\n\n2. § 17 Absatz 3 wird wie folgt gefasst:\n\n„(3) Das zuständige Hauptzollamt kann dem Luftfahrt-Bundesamt anlassbezogen oder auf Anforderung\nAuskünfte aus dem steuerlichen Verfahren erteilen, die erforderlich sind, um die nach dem Luftverkehrsrecht\ngeforderte Zuverlässigkeit eines Luftverkehrsunternehmens oder die Einhaltung der Vorschriften dieses\nGesetzes durch Luftverkehrsunternehmen mit Hauptsitz außerhalb des Geltungsbereichs des Luftrechts der\nEuropäischen Union zu beurteilen.“\n\n**Artikel 2**\n\n**Änderung des Windenergie-auf-See-Gesetzes**\n\nDas Windenergie-auf-See-Gesetz vom 13. Oktober 2016 (BGBl. I S. 2258, 2310), das zuletzt durch Artikel 14 des\nGesetzes vom 22. März 2023 (BGBl. 2023 I Nr. 88) geändert worden ist, wird wie folgt geändert:\n\n1. In der Inhaltsübersicht wird die Angabe zu § 58 wie folgt gefasst:\n\n„§ 58 Meeresnaturschutz-, Fischerei- und Transformationskomponente“.\n\n2. Nach § 23 Absatz 1 wird folgender Absatz 1a eingefügt:\n\n„(1a) Der bezuschlagte Bieter, der im dynamischen Gebotsverfahren nach § 21 den Zuschlag erhalten hat,\nleistet die zweite Gebotskomponente für Ausschreibungen im Jahr 2023 nach Maßgabe der folgenden Ziffern:\n\n1. eine Zahlung in Höhe von 90 Prozent des Gesamtbetrags der zweiten Gebotskomponente als\nStromkostensenkungskomponente an den anbindungsverpflichteten Übertragungsnetzbetreiber; für\nMittelverwendung und Zahlungsweise gelten die Vorgaben des § 59 entsprechend,\n\n2. eine Zahlung in Höhe von 3,125 Prozent des Gesamtbetrags der zweiten Gebotskomponente als\nMeeresnaturschutzkomponente an den Bundeshaushalt; für Mittelverwendung und Zahlungsweise gelten\ndie Vorgaben des § 58 Absatz 1 entsprechend,\n\n3. eine Zahlung in Höhe von 1 Prozent des Gesamtbetrags der zweiten Gebotskomponente als\nFischereikomponente an den Bundeshaushalt; für Mittelverwendung und Zahlungsweise gelten die\nVorgaben des § 58 Absatz 2 entsprechend und\n\n4. eine Zahlung in Höhe von 5,875 Prozent des Gesamtbetrags der zweiten Gebotskomponente als\nTransformationskomponente an den Bundeshaushalt; für Mittelverwendung und Zahlungsweise gelten die\nVorgaben des § 58 Absatz 3 entsprechend.\n\nDie Zweckbindung der Zahlungen nach § 57 gilt entsprechend.“\n\n3. Dem § 57 wird folgender Satz angefügt:\n\n„Die Einnahmen aus den gebotenen Zahlungen nach § 53 Absatz 1 Satz 1 Nummer 1 werden abweichend\nvon Satz 1 für Ausschreibungen im Jahr 2023 anteilig für Maßnahmen des Meeresnaturschutzes, zur\numweltschonenden Fischerei einschließlich Fischereistrukturmaßnahmen, als Einnahmen des Bundeshaushalts\nsowie zur Senkung der Offshore-Netzumlage gemäß § 2 Nummer 11 des Energiefinanzierungsgesetzes\nverwendet.“\n\n4. § 58 wird wie folgt geändert:\n\na) Die Überschrift wird wie folgt gefasst:\n\n„§ 58\n\nMeeresnaturschutz-, Fischerei- und Transformationskomponente“.\n\nb) Folgender Absatz 3 wird angefügt:\n\n„(3) Für Ausschreibungen im Jahr 2023 leistet der bezuschlagte Bieter innerhalb von zwölf Monaten nach\nErteilung des Zuschlags abweichend von Absatz 1 Satz 1 und Absatz 2 Satz 1 eine Zahlung von 3,125\nProzent des Gebots nach § 53 Absatz 1 Satz 1 Nummer 1 als Meeresnaturschutzkomponente, eine\nZahlung von 1 Prozent des Gebots nach § 53 Absatz 1 Satz 1 Nummer 1 als Fischereikomponente und\neine Zahlung in Höhe von 5,875 Prozent des Gebots nach § 53 Absatz 1 Satz 1 Nummer 1 als\nTransformationskomponente an den Bundeshaushalt.“\n\n5. In § 59 Absatz 1 werden die Wörter „§ 17f Absatz 1 Satz 2 des Energiewirtschaftsgesetzes“ durch die Wörter\n„§ 15 des Energiefinanzierungsgesetzes“ und die Wörter „§ 17f Absatz 5 Satz 1 des Energiewirtschaftsgesetzes“\ndurch die Wörter „§ 12 Absatz 1 des Energiefinanzierungsgesetzes, jeweils bezogen auf die OffshoreNetzumlage nach § 2 Nummer 11 des Energiefinanzierungsgesetzes,“ ersetzt.\n\n**Artikel 3**\n\n**Änderung des Energiesteuergesetzes**\n\nDas Energiesteuergesetz vom 15. Juli 2006 (BGBl. I S. 1534; 2008 I S. 660, 1007), das zuletzt durch Artikel 1 des\nGesetzes vom 19. Dezember 2022 (BGBl. I S. 2483) geändert worden ist, wird wie folgt geändert:\n\n1. § 3b Absatz 3 wird wie folgt gefasst:\n\n„(3) Staatliche Beihilfen im Sinn des Artikels 107 des Vertrags über die Arbeitsweise der Europäischen Union,\ndie der Kommission anzuzeigen oder von ihr zu genehmigen sind, sind in diesem Gesetz die Begünstigungen\nnach den §§ 3, 3a sowie nach den §§ 47a, 53a, 54, 56 und 57.“\n\n2. § 57 wird wie folgt geändert:\n\na) Absatz 2 wird wie folgt geändert:\n\naa) Nummer 1 Buchstabe b wird wie folgt gefasst:\n\n„b) deren Inhaber eine Personenvereinigung, eine juristische Person des privaten Rechts oder eine\n\nHauberg-, Wald-, Forst- oder Laubgenossenschaft oder eine ähnliche Realgemeinde im Sinne des\n§ 13 Absatz 1 Nummer 4 des Einkommensteuergesetzes ist und bei denen im Falle der Gewinnung\ntierischer Erzeugnisse die mit der Bodenbewirtschaftung verbundene Tierhaltung die Grenzen des\n§ 241 des Bewertungsgesetzes in der Fassung der Bekanntmachung vom 1. Februar 1991 (BGBl. I\nS. 230), das zuletzt durch Artikel 31 des Gesetzes vom 22. Dezember 2023 (BGBl. 2023 I Nr. 411)\ngeändert worden ist, in der jeweils geltenden Fassung nicht überschreitet oder“.\n\nbb) In Nummer 2 wird das Wort „nichtrechtsfähige“ gestrichen.\n\nb) Absatz 5 wird wie folgt gefasst:\n\n„(5) Die Steuerentlastung beträgt für 1 000 Liter Gasöle nach § 2 Absatz 1 Nummer 4\n\n1. bis zum 29. Februar 2024 214,80 EUR,\n\n2. vom 1. März 2024 bis zum 31. Dezember 2024 128,88 EUR,\n\n3. vom 1. Januar 2025 bis zum 31. Dezember 2025 64,44 EUR,\n\njeweils unvermischt mit anderen Energieerzeugnissen, ausgenommen Biokraftstoffen oder Additiven der\nPosition 3811 der Kombinierten Nomenklatur.“\n\nc) Absatz 8 wird wie folgt gefasst:\n\n„(8) Entlastungsberechtigt ist der Betrieb der Land- und Forstwirtschaft nach Absatz 2 Nummer 1 bis 4, der\ndie Gasöle verwendet hat. Dabei gelten Gasöle, die durch Betriebe nach Absatz 2 Nummer 5 bei der\nAusführung von Arbeiten nach Absatz 1 Satz 1 für einen Betrieb der Land- und Forstwirtschaft nach\nAbsatz 2 Nummer 1 bis 4 verwendet wurden, als durch den Betrieb der Land- und Forstwirtschaft\nverwendet, für den die Arbeiten ausgeführt wurden.“\n\nd) Absatz 9 Satz 1 wird wie folgt gefasst:\n\n„Die Steuerentlastung wird gewährt nach Maßgabe und bis zum Auslaufen der hierfür erforderlichen\nFreistellungsanzeige bei der Europäischen Kommission nach der Verordnung (EU) Nr. 651/2014.“\n\n**Artikel 4**\n\n**Änderung der Energiesteuer-Durchführungsverordnung**\n\n§ 103 der Energiesteuer-Durchführungsverordnung vom 31. Juli 2006 (BGBl. I S. 1753), die zuletzt durch Arti­\nkel 3 der Verordnung vom 14. Dezember 2023 (BGBl. 2023 I Nr. 367) geändert worden ist, wird wie folgt geändert:\n\n1. Absatz 2 wird wie folgt gefasst:\n\n„(2) Die Steuerentlastung ist mit einer Anmeldung nach amtlich vorgeschriebenem Datensatz für die innerhalb\neines Kalenderjahres (Entlastungsabschnitt) zu begünstigten Zwecken nach § 57 Absatz 1 des Gesetzes\nverwendeten Gasöle (begünstigter Verbrauch) zu beantragen. Der Antragsteller hat in der Anmeldung alle für\ndie Bemessung der Steuerentlastung erforderlichen Angaben zu machen und die Steuerentlastung selbst zu\nberechnen. Die Steuerentlastung wird nur gewährt, wenn der Antrag bis zum 31. Dezember des Jahres, das\ndem Kalenderjahr folgt, in dem die Gasöle verwendet worden sind, beim zuständigen Hauptzollamt gestellt wird.\nBei erstmaliger Antragstellung sind dem Antrag beizufügen:\n\n1. Quittungen oder Lieferbescheinigungen nach Absatz 4 über im Entlastungsabschnitt insgesamt bezogenen\nGasöle,\n\n2. die Aufzeichnungen nach Absatz 5, soweit der Antragsteller zu deren Führung verpflichtet ist,\n\n3. von Betrieben der Imkerei ein Nachweis über die Anzahl der Bienenvölker (Völkermeldung) und\n\n4. Bescheinigungen nach Absatz 6 über die im Entlastungsabschnitt von Betrieben im Sinne des § 57 Absatz 2\nNummer 5 des Gesetzes verbrauchten Gasöle.\n\nBei Folgeanträgen hat der Antragsteller die in Satz 4 genannten Unterlagen lediglich auf Verlangen des\nHauptzollamts vorzulegen.“\n\n2. In Absatz 3 Satz 1 werden die Wörter „§ 57 Abs. 2 des Gesetzes“ durch die Wörter „§ 57 Absatz 2 Nummer 1 bis\n4 des Gesetzes“ ersetzt.\n\n3. In Absatz 4 Satz 1 werden die Wörter „und Biokraftstoffe“ gestrichen.\n\n4. Absatz 8 wird aufgehoben.\n\n**Artikel 5**\n\n**Änderung des Zweiten Buches Sozialgesetzbuch**\n\nDas Zweite Buch Sozialgesetzbuch – Bürgergeld, Grundsicherung für Arbeitsuchende – in der Fassung der\nBekanntmachung vom 13. Mai 2011 (BGBl. I S. 850, 2094), das zuletzt durch Artikel 4 des Gesetzes vom\n22. Dezember 2023 (BGBl. 2023 I Nr. 412) geändert worden ist, wird wie folgt geändert:\n\n1. Die Inhaltsübersicht wird wie folgt geändert:\n\na) Die Angabe zu § 16j wird wie folgt gefasst:\n\n„§ 16j (weggefallen)“.\n\nb) Folgende Angabe wird angefügt:\n\n„§ 86 Zweites Haushaltsfinanzierungsgesetz 2024“.\n\n2. In § 5 Absatz 5 wird die Angabe „16f bis 16k“ durch die Wörter „16f bis 16i und 16k“ ersetzt.\n\n3. § 16j wird aufgehoben.\n\n4. Dem § 31a wird folgender Absatz 7 angefügt:\n\n„(7) Abweichend von Absatz 4 Satz 1 entfällt der Leistungsanspruch in Höhe des Regelbedarfes, wenn\nerwerbsfähige Leistungsberechtigte, deren Bürgergeld wegen einer Pflichtverletzung nach § 31 Absatz 1\nSatz 1 Nummer 2, Absatz 2 Nummer 3 oder Absatz 2 Nummer 4 innerhalb des letzten Jahres gemindert war,\neine zumutbare Arbeit nicht aufnehmen. Die Möglichkeit der Arbeitsaufnahme muss tatsächlich und unmittelbar\nbestehen und willentlich verweigert werden. Absatz 1 Satz 6, die Absätze 2 und 3 sowie § 31 Absatz 1 Satz 2\nfinden Anwendung.“\n\n5. § 31b wird wie folgt geändert:\n\na) Nach Absatz 2 wird folgender Absatz 3 eingefügt:\n\n„(3) In den Fällen des § 31a Absatz 7 wird die Minderung aufgehoben, wenn die Möglichkeit der\nArbeitsaufnahme nicht mehr besteht, spätestens aber mit dem Ablauf eines Zeitraums von zwei Monaten.\nAbsatz 1 Satz 1 und 3 sowie Absatz 2 Satz 2 sind entsprechend anzuwenden.“\n\nb) Der bisherige Absatz 3 wird Absatz 4.\n\n6. In § 32 Absatz 2 Satz 1 werden die Wörter „Absatz 1 und 3“ durch die Wörter „Absatz 1 und 4“ ersetzt.\n\n7. Folgender § 86 wird angefügt:\n\n„§ 86\n\nZweites Haushaltsfinanzierungsgesetz 2024\n\n§ 31a Absatz 7 und § 31b Absatz 3 werden mit Ablauf des 27. März 2026 aufgehoben.“\n\n**Artikel 6**\n\n**Änderung des Sechsten Buches Sozialgesetzbuch**\n\nIn § 287g Satz 1 des Sechsten Buches Sozialgesetzbuch – Gesetzliche Rentenversicherung – in der Fassung der\nBekanntmachung vom 19. Februar 2002 (BGBl. I S. 754, 1404, 3384), das zuletzt durch Artikel 6 des Gesetzes vom\n22. Dezember 2023 (BGBl. 2023 I Nr. 408) geändert worden ist, wird die Angabe „600 Millionen“ durch die Angabe\n„1,2 Milliarden“ ersetzt.\n\n**Artikel 7**\n\n**Änderung des Bundeselterngeld- und Elternzeitgesetzes**\n\nDas Bundeselterngeld- und Elternzeitgesetz in der Fassung der Bekanntmachung vom 27. Januar 2015 (BGBl. I\nS. 33), das zuletzt durch Artikel 1 des Gesetzes vom 22. Dezember 2023 (BGBl. 2023 I Nr. 412) geändert worden\nist, wird wie folgt geändert:\n\n1. In § 1 Absatz 8 Satz 1 wird die Angabe „150 000“ durch die Angabe „175 000“ ersetzt.\n\n2. § 4 Absatz 6 wird wie folgt gefasst:\n\n„(6) Ein gleichzeitiger Bezug von Basiselterngeld beider Elternteile ist nur in einem der ersten zwölf\nLebensmonate des Kindes möglich. Bezieht einer der beiden Elternteile Elterngeld Plus, so kann dieser\nElternteil das Elterngeld Plus gleichzeitig zum Bezug von Basiselterngeld oder von Elterngeld Plus des\nanderen Elternteils beziehen. § 4b bleibt unberührt. Abweichend von Satz 1 können bei Mehrlingsgeburten\nund Frühgeburten im Sinne des Absatzes 5 sowie bei Kindern, bei denen eine Behinderung im Sinne von § 2\nAbsatz 1 Satz 1 des Neunten Buches Sozialgesetzbuch ärztlich festgestellt wird und bei Kindern, die einen\nGeschwisterbonus nach § 2a Absatz 1 in Verbindung mit Absatz 2 Satz 3 auslösen, beide Elternteile\ngleichzeitig Basiselterngeld beziehen.“\n\n3. In § 28 Absatz 5 Satz 2 wird die Angabe „150 000“ durch die Angabe „200 000“ ersetzt.\n\n**Artikel 8**\n\n**Inkrafttreten, Außerkrafttreten**\n\n(1) Dieses Gesetz tritt vorbehaltlich der Absätze 2 bis 6 am Tag nach der Verkündung in Kraft.\n\n(2) Artikel 1 Nummer 1 tritt am 1. Mai 2024 in Kraft.\n\n(3) Artikel 2 tritt mit Wirkung vom 1. Januar 2023 in Kraft.\n\n(4) Die Artikel 3 und 4 treten am 1. März 2024 in Kraft.\n\n(5) Artikel 6 tritt mit Wirkung vom 1. Januar 2024 in Kraft.\n\n(6) Artikel 7 tritt am 1. April 2024 in Kraft.\n\n(7) Mit Ablauf des 30. April 2024 tritt die Luftverkehrsteuer-Absenkungsverordnung 2024 vom 24. November\n2023 (BGBl. 2023 I Nr. 333) außer Kraft.\n\nDie verfassungsmäßigen Rechte des Bundesrates sind gewahrt.\n\nDas vorstehende Gesetz wird hiermit ausgefertigt. Es ist im Bundesgesetzblatt zu verkünden.\n\nBerlin, den 27. März 2024\n\nFür den Bundespräsidenten\nDie Präsidentin des Bundesrates\n\nManuela Schwesig\n\nDer Bundeskanzler\n\nOlaf Scholz\n\nDer Bundesminister der Finanzen\n\nChristian Lindner\n\nDer Bundesminister\nfür Wirtschaft und Klimaschutz\n\nRobert Habeck",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This budget financing law implements various adjustments across multiple sectors, including increasing aviation taxes, modifying offshore wind energy payments, adjusting energy tax reliefs for agriculture, tightening sanctions for Bürgergeld recipients, and updating income thresholds for parental benefits.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "date_extraction": {
+          "value": {
+            "legally_effective": "2024-03",
+            "leg_eff_terminate": "na",
+            "legally_effective_2": "2024-05",
+            "leg_eff_terminate_2": "na",
+            "art_leg_eff_2": "Art. 8 Abs. 2",
+            "legally_effective_3": "2023-01",
+            "leg_eff_terminate_3": "na",
+            "art_leg_eff_3": "Art. 8 Abs. 3"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field": {
+          "value": {
+            "social_policy_field_1": "Unemployment",
+            "social_policy_field_2": "Family/children"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2024-41-1",
+      "year": 2024,
+      "issue_number": 41,
+      "order_in_issue": 1,
+      "title": "Verordnung zur Übertragung der Ermächtigung zum Erlass einer Rechtsverordnung nach dem Fünften Buch Sozialgesetzbuch auf die Kassenärztliche Bundesvereinigung",
+      "doc_type": "Verordnung",
+      "date_published": "2024-02-15T00:00:00Z",
+      "date_law": "2024-02-09T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 1,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2024/41/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2024/41",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2024/41/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "**Verordnung**\n**zur Übertragung der Ermächtigung zum Erlass einer Rechtsverordnung nach**\n**dem Fünften Buch Sozialgesetzbuch auf die Kassenärztliche Bundesvereinigung**\n\n**Vom 9. Februar 2024**\n\nAuf Grund des § 370a Absatz 4 Satz 4 des Fünften Buches Sozialgesetzbuch – Gesetzliche Kranken­\nversicherung –, der durch Artikel 1 Nummer 65 des Gesetzes vom 3. Juni 2021 (BGBl. I S. 1309) eingefügt\nworden ist, verordnet das Bundesministerium für Gesundheit:\n\n**§ 1**\n\n**Übertragung der Verordnungsermächtigung**\n\nDie in § 370a Absatz 4 Satz 2 und 3 des Fünften Buches Sozialgesetzbuch enthaltene Ermächtigung zum Erlass\neiner Rechtsverordnung wird auf die Kassenärztliche Bundesvereinigung übertragen.\n\n**§ 2**\n\n**Inkrafttreten**\n\nDiese Verordnung tritt am Tag nach der Verkündung in Kraft.\n\nBonn, den 9. Februar 2024\n\nDer Bundesminister für Gesundheit\n\nKarl Lauterbach",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This regulation transfers the authority to issue legal ordinances under the Fifth Book of the Social Code (Statutory Health Insurance) to the National Association of Statutory Health Insurance Physicians (Kassenärztliche Bundesvereinigung).",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective": {
+          "value": "2024-02-16",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_1": {
+          "value": "Sickness/health/care",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2023-293-1",
+      "year": 2023,
+      "issue_number": 293,
+      "order_in_issue": 1,
+      "title": "Bekanntmachung über das Vorliegen der technischen Voraussetzungen für die Verarbeitung der Identifikationsnummer gemäß Artikel 22 Satz 3 des Registermodernisierungsgesetzes sowie über das Inkrafttreten der Artikel 26 und 28 des Jahressteuergesetzes 2022",
+      "doc_type": "Sonstiges",
+      "date_published": "2023-11-01T00:00:00Z",
+      "date_law": "2023-10-12T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 1,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2023/293/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2023/293",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2023/293/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "### **Bekanntmachung über das Vorliegen der technischen Voraussetzungen für die Verarbeitung der Identifikationsnummer gemäß Artikel 22 Satz 3 des Registermodernisierungsgesetzes sowie über das Inkrafttreten der Artikel 26 und 28 des Jahressteuergesetzes 2022**\n\n#### **Vom 12. Oktober 2023**\n\nEs wird hiermit bekannt gemacht, dass\n\n1. nach Artikel 22 Satz 3 des Registermodernisierungsgesetzes vom 28. März 2021 (BGBl. I S. 591) die technischen Voraussetzungen für die Verarbeitung der Identifikationsnummer nach § 139b der Abgabenordnung in Bezug auf die durch Artikel 3 Nummer 2 Buchstabe a und c des Registermodernisierungsgesetzes geänderte Abgabenordnung vorliegen;\n\n2. nach Artikel 43 Absatz 10 des Jahressteuergesetzes 2022 vom 16. Dezember 2022 (BGBl. I S. 2294) die technischen Voraussetzungen für die Verarbeitung der Identifikationsnummer nach § 139b der Abgabenordnung nach Artikel 3 des Registermodernisierungsgesetzes vorliegen.\n\nNach Artikel 22 Satz 3 des Registermodernisierungsgesetzes tritt am 1. November 2023 Artikel 3 Nummer 2 Buchstabe a und c dieses Gesetzes in Kraft.\n\nNach Artikel 43 Absatz 10 des Jahressteuergesetzes 2022 treten am 1. November 2023 die Artikel 26 und 28 dieses Gesetzes in Kraft.\n\nBerlin, den 12. Oktober 2023\n\nBundesministerium des Innern und für Heimat Im Auftrag Andreas Mom",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This announcement confirms that the technical requirements for processing identification numbers are met, triggering the entry into force of specific provisions of the Register Modernization Act and the Annual Tax Act 2022.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective": {
+          "value": "2023-11",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_1": {
+          "value": "Taxes",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2023-228-1",
+      "year": 2023,
+      "issue_number": 228,
+      "order_in_issue": 1,
+      "title": "Zweite Verordnung zur Änderung der Eingliederungsmittel-Verordnung 2023",
+      "doc_type": "Verordnung",
+      "date_published": "2023-08-28T00:00:00Z",
+      "date_law": "2023-08-22T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 12,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2023/228/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2023/228",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2023/228/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "**Zweite Verordnung**\n**zur Änderung der Eingliederungsmittel-Verordnung 2023**\n\n**Vom 22. August 2023**\n\nAuf Grund des § 46 Absatz 2 Satz 3 des Zweiten Buches Sozialgesetzbuch, der zuletzt durch Artikel 1 Nummer 5\ndes Gesetzes vom 17. Dezember 2018 (BGBl. I S. 2583) geändert worden ist, verordnet das Bundesministerium für\nArbeit und Soziales im Einvernehmen mit dem Bundesministerium der Finanzen:\n\n**Artikel 1**\n\n**Änderung der Eingliederungsmittel-Verordnung 2023**\n\nDie Eingliederungsmittel-Verordnung 2023 vom 13. Dezember 2022 (BAnz AT 21.12.2022 V2), die durch Artikel 1\nder Verordnung vom 27. März 2023 (BGBl. 2023 I Nr. 90) geändert worden ist, wird wie folgt geändert:\n\n1. Dem § 1 Absatz 1 wird folgender Satz angefügt:\n\n„Aufgrund von Mehrausgaben, insbesondere wegen des Tarifvertrags über Sonderzahlungen zur Abmilderung\nder gestiegenen Verbraucherpreise vom 22. April 2023 (GMBl. 2023 S. 703), werden bei Kapitel 1101\nTitelgruppe 01 Titel 685 11 für Leistungen zur Eingliederung in Arbeit weitere Ausgabereste in Höhe von\n200 Millionen Euro zugewiesen und zur Verstärkung der Mittel für Verwaltungskosten für die Durchführung der\nGrundsicherung für Arbeitsuchende nach Kapitel 1101 Titelgruppe 01 Titel 636 13 eingesetzt.“\n\n2. § 2 wird wie folgt geändert:\n\na) In Absatz 1 wird die Angabe „bis 6“ durch die Angabe „bis 7“ ersetzt.\n\nb) Nach Absatz 4 wird folgender Absatz 5 eingefügt:\n\n„(5) Die Mittel nach § 1 Absatz 1 Satz 6 werden nach dem prozentualen Anteil der Beschäftigten in dem\njeweiligen Jobcenter als Vollzeitäquivalente an der Summe der Beschäftigten aller Jobcenter als\nVollzeitäquivalente verteilt. Bei den Berechnungen werden die jeweiligen Daten des Jahres 2022 zugrunde\ngelegt. Die Verteilung der Mittel erfolgt nach den in Anlage 6 genannten Prozentsätzen.“\n\nc) Der bisherige Absatz 5 wird Absatz 6 und in Satz 1 wird die Angabe „bis 4“ durch die Angabe „bis 5“ ersetzt.\n\nd) Der bisherige Absatz 6 wird Absatz 7 und in Satz 1 wird die Angabe „Absatz 5“ durch die Angabe „Absatz 6“\n\nersetzt.\n\n3. In § 3 Satz 2 werden die Wörter „§ 2 Absatz 5 und 6“ durch die Wörter „§ 2 Absatz 6 und 7“ ersetzt.\n\n4. In Anlage 3 werden in der Überschrift die Wörter „§ 2 Absatz 5 Satz 3“ durch die Wörter „§ 2 Absatz 6 Satz 3“\nersetzt.\n\n5. In Anlage 4 werden in der Überschrift die Wörter „§ 2 Absatz 6 Satz 4“ durch die Wörter „§ 2 Absatz 7 Satz 4“\nersetzt.\n\n6. Folgende Anlage 6 wird angefügt:\n\n„ **Anlage 6**\n(zu § 2 Absatz 5)\n\n**Verteilung der Verwaltungsmittel nach den in den Jobcentern Beschäftigten**\n\n**als Vollzeitäquivalente**\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|03002|gE|Vorpommern-Greifswald Nord|0,2706|\n|03006|gE|Vorpommern-Greifswald Süd|0,1474|\n|03102|gE|Mecklenburgische Seenplatte Süd|0,2885|\n|03122|gE|Mecklenburgische Seenplatte Nord|0,2325|\n|03202|gE|Rostock, Hansestadt|0,3932|\n|03208|gE|Landkreis Rostock|0,2755|\n|03302|gE|Schwerin, Landeshauptstadt|0,2001|\n|03304|gE|Nordwestmecklenburg|0,1973|\n|03324|gE|Ludwigslust-Parchim|0,2516|\n|03444|zkT|Vorpommern-Rügen|0,3734|\n|03502|gE|Cottbus, Stadt|0,2208|\n|03504|gE|Elbe-Elster|0,1505|\n|03506|gE|Oberspreewald-Lausitz|0,2080|\n|03510|gE|Dahme-Spreewald|0,1598|\n|03538|zkT|Spree-Neiße|0,1919|\n|03602|gE|Barnim|0,2178|\n|03604|zkT|Uckermark|0,2647|\n|03702|gE|Frankfurt (Oder), Stadt|0,1368|\n|03706|zkT|Oder-Spree|0,2686|\n|03708|gE|Märkisch-Oderland|0,2359|\n|03802|zkT|Ostprignitz-Ruppin|0,1963|\n|03804|gE|Prignitz|0,1445|\n|03806|zkT|Oberhavel|0,3115|\n|03846|zkT|Havelland|0,2281|\n|03902|gE|Brandenburg an der Havel, Stadt|0,1713|\n|03904|gE|Potsdam, Stadt|0,2444|\n|03908|gE|Teltow-Fläming|0,1748|\n|03942|zkT|Potsdam-Mittelmark|0,1798|\n|04202|gE|Dessau-Roßlau|0,1564|\n|04208|zkT|Anhalt-Bitterfeld|0,2936|\n|04214|gE|Wittenberg|0,1853|\n|04306|zkT|Harz|0,3084|\n|04308|zkT|Salzlandkreis|0,4019|\n|04402|gE|Halle (Saale), Stadt|0,5898|\n|04412|zkT|Saalekreis|0,2739|\n|04418|zkT|Burgenlandkreis|0,3281|\n|04448|gE|Mansfeld-Südharz|0,2787|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|04502|gE|Magdeburg, Landeshauptstadt|0,4848|\n|04506|gE|Jerichower Land|0,1304|\n|04514|gE|Börde|0,1974|\n|04518|gE|Stendal|0,2105|\n|04546|zkT|Altmarkkreis Salzwedel|0,1300|\n|07146|zkT|Erzgebirgskreis|0,3839|\n|07202|zkT|Bautzen|0,3316|\n|07208|zkT|Görlitz|0,4110|\n|07302|gE|Chemnitz, Stadt|0,4258|\n|07402|gE|Dresden, Stadt|0,7575|\n|07502|gE|Leipzig, Stadt|1,0520|\n|07602|gE|Nordsachsen|0,2592|\n|07610|zkT|Leipzig|0,2973|\n|07702|gE|Sächsische Schweiz-Osterzgebirge|0,2393|\n|07804|gE|Vogtlandkreis|0,2461|\n|07904|zkT|Meißen|0,2870|\n|08002|gE|Mittelsachsen|0,3069|\n|09202|gE|Zwickau|0,3392|\n|09302|gE|Erfurt, Stadt|0,3165|\n|09304|gE|Ilm-Kreis|0,1570|\n|09308|gE|Sömmerda|0,0873|\n|09310|gE|Weimar, Stadt|0,1195|\n|09312|gE|Weimarer Land|0,0925|\n|09318|gE|Gotha|0,1611|\n|09402|gE|Gera, Stadt|0,1825|\n|09414|gE|Saale-Orla-Kreis|0,0731|\n|09418|gE|Altenburger Land|0,1347|\n|09437|zkT|Jena, Stadt|0,1307|\n|09439|gE|Saale-Holzland-Kreis|0,0798|\n|09441|gE|Saalfeld-Rudolstadt|0,1262|\n|09446|zkT|Greiz|0,1112|\n|09702|gE|Nordhausen|0,1497|\n|09704|zkT|Eichsfeld|0,0824|\n|09708|gE|Kyffhäuserkreis|0,1310|\n|09740|gE|Unstrut-Hainich-Kreis|0,1561|\n|09802|gE|Suhl, Stadt|0,0442|\n|09804|gE|Hildburghausen|0,0497|\n|09806|gE|Sonneberg|0,0534|\n|09810|gE|Wartburgkreis|0,1837|\n|09840|zkT|Schmalkalden-Meiningen|0,1031|\n|11102|gE|Stormarn|0,1783|\n|11116|gE|Herzogtum Lauenburg|0,2003|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|11502|gE|Pinneberg|0,3368|\n|11522|gE|Segeberg|0,2540|\n|11902|gE|Flensburg, Stadt|0,2258|\n|11904|zkT|Schleswig-Flensburg|0,2224|\n|11916|zkT|Nordfriesland|0,1843|\n|12302|gE|Hamburg, Freie und Hansestadt|2,9203|\n|12702|gE|Dithmarschen|0,1869|\n|12712|gE|Steinburg|0,1640|\n|13102|gE|Kiel, Landeshauptstadt|0,5606|\n|13106|gE|Plön|0,1206|\n|13502|gE|Lübeck, Hansestadt|0,4622|\n|13506|gE|Ostholstein|0,2019|\n|13902|gE|Neumünster, Stadt|0,1705|\n|13912|gE|Rendsburg-Eckernförde|0,2435|\n|21102|gE|Braunschweig, Stadt|0,3204|\n|21104|gE|Salzgitter, Stadt|0,2096|\n|21106|gE|Wolfenbüttel|0,1262|\n|21124|gE|Goslar|0,1984|\n|21404|gE|Bremen, Stadt|1,2764|\n|21416|zkT|Osterholz|0,0938|\n|21420|gE|Bremerhaven, Stadt|0,3425|\n|22102|gE|Celle|0,2657|\n|22116|zkT|Heidekreis|0,1479|\n|22402|gE|Emden, Stadt|0,1034|\n|22410|zkT|Leer|0,2058|\n|22444|zkT|Wittmund|0,0705|\n|22446|zkT|Aurich|0,2603|\n|23102|zkT|Göttingen|0,4675|\n|23106|gE|Northeim|0,1655|\n|23406|gE|Holzminden|0,1011|\n|23408|gE|Hameln-Pyrmont|0,2346|\n|23444|zkT|Schaumburg|0,2045|\n|23702|gE|Region Hannover|1,9881|\n|24110|gE|Helmstedt|0,1220|\n|24112|gE|Gifhorn|0,1488|\n|24114|gE|Wolfsburg, Stadt|0,1475|\n|24402|gE|Hildesheim|0,3301|\n|24404|zkT|Peine|0,1635|\n|25102|gE|Lüneburg|0,2062|\n|25104|gE|Harburg|0,2014|\n|25110|gE|Lüchow-Dannenberg|0,0785|\n|25112|gE|Uelzen|0,1030|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|25704|zkT|Grafschaft Bentheim|0,1115|\n|25706|zkT|Emsland|0,2272|\n|26104|gE|Delmenhorst, Stadt|0,1726|\n|26106|gE|Oldenburg (Oldenburg), Stadt|0,2883|\n|26110|gE|Wesermarsch|0,1143|\n|26112|zkT|Ammerland|0,1127|\n|26118|zkT|Oldenburg|0,1082|\n|26126|gE|Wilhelmshaven, Stadt|0,1934|\n|26130|zkT|Friesland|0,1006|\n|26402|gE|Osnabrück, Stadt|0,2646|\n|26410|zkT|Osnabrück|0,2579|\n|26702|gE|Stade|0,2227|\n|26704|gE|Cuxhaven|0,2124|\n|26706|zkT|Rotenburg (Wümme)|0,1431|\n|27402|gE|Vechta|0,1164|\n|27404|gE|Cloppenburg|0,1399|\n|27706|zkT|Verden|0,1479|\n|27708|gE|Diepholz|0,1907|\n|27718|gE|Nienburg (Weser)|0,1486|\n|31106|gE|Heinsberg|0,2729|\n|31108|gE|Städteregion Aachen|0,8849|\n|31118|zkT|Düren|0,3748|\n|31502|gE|Leverkusen, Stadt|0,2763|\n|31504|gE|Oberbergischer Kreis|0,2731|\n|31506|gE|Rheinisch-Bergischer Kreis|0,3444|\n|31704|gE|Bielefeld, Stadt|0,5924|\n|31778|zkT|Gütersloh|0,3150|\n|32102|gE|Bochum, Stadt|0,7196|\n|32112|gE|Herne, Stadt|0,3732|\n|32302|gE|Bonn, Stadt|0,5560|\n|32304|gE|Rhein-Sieg-Kreis|0,5907|\n|32502|gE|Rhein-Erft-Kreis|0,5289|\n|32504|gE|Euskirchen|0,2124|\n|32702|zkT|Borken|0,2581|\n|32704|zkT|Coesfeld|0,1582|\n|33148|zkT|Lippe|0,4537|\n|33302|gE|Dortmund, Stadt|1,3011|\n|33702|gE|Düsseldorf, Stadt|0,9279|\n|34102|gE|Duisburg, Stadt|1,0839|\n|34348|zkT|Essen, Stadt|1,3875|\n|34502|gE|Gelsenkirchen, Stadt|0,7132|\n|34506|gE|Bottrop, Stadt|0,1852|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|34702|zkT|Ennepe-Ruhr-Kreis|0,4083|\n|34704|gE|Hagen, Stadt|0,4109|\n|35102|zkT|Hamm, Stadt|0,3766|\n|35104|gE|Unna|0,5989|\n|35302|gE|Herford|0,2799|\n|35318|zkT|Minden-Lübbecke|0,3497|\n|35502|gE|Märkischer Kreis|0,5372|\n|35702|gE|Köln, Stadt|1,8663|\n|36102|gE|Krefeld|0,4388|\n|36108|gE|Viersen|0,3146|\n|36402|gE|Mettmann|0,6104|\n|36502|gE|Mönchengladbach, Stadt|0,5270|\n|36504|gE|Rhein-Kreis Neuss|0,4390|\n|36704|zkT|Warendorf|0,2601|\n|36748|zkT|Münster, Stadt|0,3671|\n|37102|zkT|Mülheim an der Ruhr, Stadt|0,3031|\n|37106|gE|Oberhausen, Stadt|0,4234|\n|37302|gE|Paderborn|0,3480|\n|37338|gE|Höxter|0,1074|\n|37548|zkT|Recklinghausen|1,2228|\n|37710|zkT|Steinfurt|0,4048|\n|38102|gE|Siegen-Wittgenstein|0,2710|\n|38104|gE|Olpe|0,0882|\n|38302|gE|Soest|0,3278|\n|38340|zkT|Hochsauerlandkreis|0,2361|\n|38702|gE|Wesel|0,5471|\n|38704|zkT|Kleve|0,3283|\n|39104|gE|Remscheid, Stadt|0,1829|\n|39106|zkT|Solingen, Stadt|0,2617|\n|39148|zkT|Wuppertal, Stadt|0,7924|\n|41102|zkT|Hersfeld-Rotenburg|0,1186|\n|41110|zkT|Fulda|0,2140|\n|41502|zkT|Bergstraße|0,2210|\n|41506|zkT|Darmstadt-Dieburg|0,2984|\n|41508|zkT|Odenwaldkreis|0,1074|\n|41512|gE|Darmstadt, Wissenschaftsstadt|0,2377|\n|41920|gE|Frankfurt am Main, Stadt|1,1394|\n|42702|gE|Gießen|0,3134|\n|42704|zkT|Vogelsbergkreis|0,0950|\n|42708|gE|Wetteraukreis|0,2503|\n|43102|zkT|Main-Kinzig-Kreis|0,3602|\n|43302|zkT|Hochtaunuskreis|0,1715|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|43304|zkT|Main-Taunus-Kreis|0,1826|\n|43306|zkT|Groß-Gerau|0,3922|\n|43502|gE|Kassel, documenta-Stadt|0,3885|\n|43504|gE|Kassel|0,1984|\n|43520|gE|Werra-Meißner-Kreis|0,1034|\n|43902|gE|Waldeck-Frankenberg|0,1428|\n|43904|gE|Schwalm-Eder-Kreis|0,1714|\n|44302|gE|Limburg-Weilburg|0,1772|\n|44304|zkT|Lahn-Dill-Kreis|0,3270|\n|44702|zkT|Marburg-Biedenkopf|0,2263|\n|45108|zkT|Offenbach|0,4371|\n|45148|zkT|Offenbach am Main, Stadt|0,3022|\n|45902|zkT|Wiesbaden, Landeshauptstadt|0,5180|\n|45904|zkT|Rheingau-Taunus-Kreis|0,1504|\n|51102|gE|Bad Kreuznach|0,1930|\n|51106|gE|Birkenfeld|0,0997|\n|51110|gE|Rhein-Hunsrück-Kreis|0,0806|\n|51502|gE|Donnersbergkreis|0,0589|\n|51506|gE|Kaiserslautern, Stadt|0,2131|\n|51510|gE|Kaiserslautern|0,1005|\n|51516|gE|Pirmasens, Stadt|0,0932|\n|51518|gE|Zweibrücken, Stadt|0,0460|\n|51520|zkT|Südwestpfalz|0,0460|\n|51542|zkT|Kusel|0,0689|\n|51902|gE|Koblenz, Stadt|0,1754|\n|51904|gE|Cochem-Zell|0,0469|\n|51906|gE|Ahrweiler|0,1048|\n|51908|zkT|Mayen-Koblenz|0,2030|\n|52302|gE|Vorderpfalz-Ludwigshafen|0,4826|\n|52704|gE|Alzey-Worms|0,1026|\n|52706|gE|Mainz, Stadt|0,2662|\n|52710|gE|Worms, Stadt|0,1479|\n|52744|zkT|Mainz-Bingen|0,1469|\n|53502|gE|Rhein-Lahn-Kreis|0,0926|\n|53504|gE|Westerwaldkreis|0,1402|\n|54302|gE|Germersheim|0,0991|\n|54308|gE|Landau-Südliche Weinstraße|0,1267|\n|54312|gE|Deutsche Weinstraße|0,1631|\n|54702|gE|Altenkirchen (Westerwald)|0,1076|\n|54708|gE|Neuwied|0,1908|\n|55502|gE|Regionalverband Saarbrücken|0,7159|\n|55514|gE|Neunkirchen|0,2077|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|55516|zkT|St. Wendel|0,0921|\n|55518|zkT|Saarpfalz-Kreis|0,1510|\n|55520|gE|Merzig-Wadern|0,1003|\n|55522|zkT|Saarlouis|0,2835|\n|56302|gE|Bernkastel-Wittlich|0,0658|\n|56304|gE|Bitburg-Prüm|0,0466|\n|56306|gE|Trier, Stadt|0,1376|\n|56308|gE|Trier-Saarburg|0,0709|\n|56310|zkT|Vulkaneifel|0,0428|\n|61108|gE|Heidenheim|0,1009|\n|61146|zkT|Ostalbkreis|0,2172|\n|61402|gE|Zollernalbkreis|0,1209|\n|61406|gE|Sigmaringen|0,0672|\n|61702|gE|Breisgau-Hochschwarzwald|0,1504|\n|61704|gE|Emmendingen|0,0869|\n|61706|gE|Freiburg im Breisgau, Stadt|0,2615|\n|62102|gE|Esslingen|0,3525|\n|62106|gE|Göppingen|0,2151|\n|62402|gE|Heidelberg, Stadt|0,1397|\n|62404|gE|Rhein-Neckar-Kreis|0,3758|\n|62702|gE|Heilbronn, Stadt|0,1492|\n|62704|gE|Heilbronn|0,1862|\n|63102|gE|Karlsruhe, Stadt|0,3126|\n|63108|gE|Karlsruhe|0,2305|\n|63120|gE|Baden-Baden, Stadt|0,0572|\n|63122|gE|Rastatt|0,1265|\n|63402|gE|Konstanz|0,1988|\n|63404|zkT|Bodenseekreis|0,1010|\n|63408|zkT|Ravensburg|0,1482|\n|63702|gE|Lörrach|0,1514|\n|63704|zkT|Waldshut|0,1144|\n|64148|zkT|Ludwigsburg|0,2976|\n|64402|gE|Mannheim, Universitätsstadt|0,5224|\n|64702|gE|Calw|0,0895|\n|64708|gE|Freudenstadt|0,0767|\n|64710|zkT|Pforzheim, Stadt|0,2059|\n|64712|zkT|Enzkreis|0,1012|\n|65106|zkT|Ortenaukreis|0,2752|\n|66402|gE|Reutlingen|0,2023|\n|66404|gE|Tübingen|0,1276|\n|67102|gE|Rems-Murr-Kreis|0,3282|\n|67402|gE|Hohenlohekreis|0,0502|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|67404|gE|Schwäbisch Hall|0,1141|\n|67408|gE|Neckar-Odenwald-Kreis|0,0866|\n|67410|gE|Main-Tauber-Kreis|0,0784|\n|67704|gE|Böblingen|0,2086|\n|67748|zkT|Stuttgart, Landeshauptstadt|0,6947|\n|68402|gE|Ulm, Universitätsstadt|0,0992|\n|68404|gE|Alb-Donau-Kreis|0,0665|\n|68410|zkT|Biberach|0,0822|\n|68702|gE|Schwarzwald-Baar-Kreis|0,1520|\n|68706|zkT|Tuttlingen|0,0821|\n|68708|gE|Rottweil|0,0718|\n|71102|gE|Ansbach, Stadt|0,0502|\n|71108|gE|Weißenburg-Gunzenhausen|0,0500|\n|71110|gE|Roth|0,0434|\n|71146|zkT|Ansbach|0,0751|\n|71502|gE|Aschaffenburg, Stadt|0,1013|\n|71504|gE|Aschaffenburg|0,0982|\n|71506|gE|Miltenberg|0,0691|\n|72302|gE|Bayreuth, Stadt|0,0837|\n|72304|gE|Bayreuth|0,0492|\n|72306|gE|Kulmbach|0,0521|\n|72308|gE|Hof, Stadt|0,0811|\n|72310|gE|Hof|0,0577|\n|72312|gE|Wunsiedel im Fichtelgebirge|0,0712|\n|72702|gE|Coburg, Stadt|0,0589|\n|72704|gE|Coburg|0,0531|\n|72706|gE|Kronach|0,0381|\n|72708|gE|Lichtenfels|0,0428|\n|72710|gE|Bamberg, Stadt|0,0778|\n|72712|gE|Bamberg|0,0544|\n|72714|gE|Forchheim|0,0615|\n|72902|gE|Fürth, Stadt|0,1633|\n|72904|gE|Fürth, Land|0,0537|\n|72906|zkT|Erlangen, Stadt|0,1063|\n|72908|gE|Erlangen-Höchstadt|0,0491|\n|72910|gE|Neustadt a.d. Aisch-Bad Windsheim|0,0444|\n|73514|gE|Nürnberg, Stadt|0,7262|\n|73522|gE|Nürnberger Land|0,0715|\n|73524|gE|Schwabach, Stadt|0,0340|\n|73902|gE|Neumarkt i.d. OPf|0,0423|\n|73904|gE|Regensburg, Stadt|0,1627|\n|73906|gE|Regensburg|0,0710|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|73908|gE|Kelheim|0,0425|\n|74302|gE|Amberg-Sulzbach|0,0946|\n|74306|gE|Cham|0,0614|\n|74308|gE|Schwandorf|0,0701|\n|74702|gE|Bad Kissingen|0,0614|\n|74704|gE|Haßberge|0,0423|\n|74706|gE|Rhön-Grabfeld|0,0446|\n|74708|zkT|Schweinfurt, Stadt|0,1052|\n|74710|gE|Schweinfurt|0,0528|\n|75102|gE|Neustadt-Weiden|0,1119|\n|75104|gE|Tirschenreuth|0,0446|\n|75902|gE|Kitzingen|0,0367|\n|75906|gE|Würzburg, Stadt|0,1369|\n|75908|zkT|Würzburg|0,0705|\n|75910|gE|Main-Spessart|0,0519|\n|81102|gE|Aichach-Friedberg|0,0431|\n|81104|gE|Augsburg, Stadt|0,3425|\n|81110|gE|Augsburg|0,1068|\n|81502|gE|Deggendorf|0,0686|\n|81504|gE|Regen|0,0510|\n|81512|gE|Straubing-Bogen|0,0953|\n|81904|gE|Dillingen a.d. Donau|0,0440|\n|81906|gE|Donau-Ries|0,0455|\n|81910|zkT|Günzburg|0,0502|\n|81912|gE|Neu-Ulm|0,0826|\n|82302|gE|Erding|0,0528|\n|82304|gE|Freising|0,0556|\n|82306|gE|Dachau|0,0489|\n|82308|gE|Ebersberg|0,0490|\n|82702|gE|Eichstätt|0,0342|\n|82706|gE|Neuburg-Schrobenhausen|0,0376|\n|82708|gE|Pfaffenhofen a.d. Ilm|0,0376|\n|82746|zkT|Ingolstadt, Stadt|0,1364|\n|83104|gE|Kempten (Allgäu), Stadt|0,0530|\n|83106|gE|Lindau (Bodensee)|0,0351|\n|83110|gE|Ostallgäu|0,0536|\n|83112|gE|Memmingen, Stadt|0,0345|\n|83114|gE|Unterallgäu|0,0368|\n|83142|zkT|Oberallgäu|0,0519|\n|83148|zkT|Kaufbeuren, Stadt|0,0391|\n|83502|gE|Dingolfing-Landau|0,0408|\n|83504|gE|Landshut, Stadt|0,0657|\n\n|Träger-Nummer<br>ab 1. Januar 2023|Träger-Form<br>ab 1. Januar 2023|Jobcenter|Eingliederungsmittel<br>in Prozent|\n|---|---|---|---|\n|83506|gE|Landshut|0,0601|\n|83510|gE|Rottal-Inn|0,0665|\n|84308|gE|München, Landeshauptstadt|1,2400|\n|84358|zkT|München|0,1578|\n|84702|gE|Freyung-Grafenau|0,0325|\n|84704|gE|Passau, Stadt|0,0616|\n|84706|gE|Passau|0,1074|\n|85502|gE|Bad Tölz-Wolfratshausen|0,0472|\n|85504|zkT|Miesbach|0,0346|\n|85506|gE|Rosenheim, Stadt|0,0495|\n|85508|gE|Rosenheim|0,0981|\n|85902|gE|Berchtesgadener Land|0,0609|\n|85904|gE|Traunstein|0,0794|\n|85906|gE|Altötting|0,0688|\n|85908|gE|Mühldorf am Inn|0,0833|\n|86302|gE|Garmisch-Partenkirchen|0,0614|\n|86304|gE|Landsberg am Lech|0,0501|\n|86306|gE|Weilheim-Schongau|0,0635|\n|86308|gE|Fürstenfeldbruck|0,1020|\n|86310|gE|Starnberg|0,0523|\n|92202|gE|Neukölln|1,0165|\n|92204|gE|Treptow-Köpenick|0,4920|\n|92208|gE|Steglitz-Zehlendorf|0,3203|\n|92210|gE|Tempelhof-Schöneberg|0,7197|\n|95502|gE|Charlottenburg-Wilmersdorf|0,5018|\n|95504|gE|Pankow|0,6099|\n|95506|gE|Reinickendorf|0,6354|\n|95508|gE|Spandau|0,6902|\n|96202|gE|Friedrichshain-Kreuzberg|0,7621|\n|96204|gE|Mitte|1,2021|\n|96206|gE|Marzahn-Hellersdorf|0,5934|\n|96208|gE|Lichtenberg|0,6459|\n\nAbkürzungen:\n\ngE gemeinsame Einrichtung\n\nzkT zugelassener kommunaler Träger“.\n\n**Artikel 2**\n\n**Inkrafttreten**\n\nDiese Verordnung tritt am Tag nach der Verkündung in Kraft.\n\nBerlin, den 22. August 2023\n\nDer Bundesminister\nfür Arbeit und Soziales\n\nHubertus Heil",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This regulation amends the 2023 Integration Funds Ordinance to allocate an additional 200 million euros for job integration services and administrative costs for basic security for jobseekers, including a detailed distribution list for Jobcenters.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "date_extraction": {
+          "value": {
+            "legally_effective": "2023-08",
+            "leg_eff_terminate": "na",
+            "legally_effective_2": "na",
+            "leg_eff_terminate_2": "na",
+            "art_leg_eff_2": "na",
+            "legally_effective_3": "na",
+            "leg_eff_terminate_3": "na",
+            "art_leg_eff_3": "na"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field": {
+          "value": {
+            "social_policy_field_1": "Unemployment",
+            "social_policy_field_2": "Labour market"
+          },
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    },
+    {
+      "id": "bgbl1-2026-227-1",
+      "year": 2026,
+      "issue_number": 227,
+      "order_in_issue": 1,
+      "title": "(Länder- und Kommunalentlastungsgesetz — LKEG)",
+      "doc_type": "Gesetz",
+      "date_published": "2026-07-29T00:00:00Z",
+      "date_law": "2026-07-24T00:00:00Z",
+      "bgbl_page": null,
+      "pdf_page": 1,
+      "num_pages": 3,
+      "url_web": "https://www.recht.bund.de/bgbl/1/2026/227/VO",
+      "url_api": "https://www.recht.bund.de/eli/bund/bgbl-1/2026/227",
+      "url_pdf": "https://www.recht.bund.de/bgbl/1/2026/227/regelungstext.pdf?__blob=publicationFile&v=1",
+      "full_text": "**Gesetz**\n**zur Entlastung der Länder und ihrer Kommunen**\n**(Länder- und Kommunalentlastungsgesetz – LKEG)**\n\n**Vom 24. Juli 2026**\n\nDer Bundestag hat mit Zustimmung des Bundesrates das folgende Gesetz beschlossen:\n\n**Artikel 1**\n\n**Änderung des Finanzausgleichsgesetzes**\n\nDas Finanzausgleichsgesetz vom 20. Dezember 2001 (BGBl. I S. 3955, 3956), das zuletzt durch Artikel 2 des\nGesetzes vom 27. Oktober 2025 (BGBl. 2025 I Nr. 255) geändert worden ist, wird wie folgt geändert:\n\n1. § 10 wird wie folgt geändert:\n\na) Absatz 1 wird durch den folgenden Absatz 1 ersetzt:\n\n„(1) Die Höhe des Zuschlags, der einem Land zu gewähren ist, beträgt 63 Prozent des Betrags, um den die\nAusgleichsmesszahl dieses Landes seine Finanzkraftmesszahl übersteigt. Abweichend von Satz 1 ergibt sich\nin den Ausgleichsjahren von 2026 bis 2029 die Höhe des Zuschlags eines Landes, indem der Fehlbetrag, um\nden seine Ausgleichsmesszahl seine Finanzkraftmesszahl übersteigt, nach Bereichen getrennt mit\ngestaffelten Prozentsätzen ausgeglichen wird. Für den Fehlbetrag eines Landes nach Satz 2, der auf den\nBereich zwischen 147/148 und 100 Prozent seiner Ausgleichsmesszahl entfällt, beträgt der Ausgleich\n63 Prozent dieses Fehlbetrags. Weist ein Land ferner einen Fehlbetrag nach Satz 2 an 147/148 seiner Aus­\ngleichsmesszahl auf, beträgt der Ausgleich für diesen Teil des Fehlbetrags 63 Prozent abzüglich eines\nProzentsatzes k. Der Prozentsatz k nach Satz 4 ergibt sich für das jeweilige Ausgleichsjahr, indem die\nFehlbeträge der einzelnen Länder an 147/148 ihrer Ausgleichsmesszahl summiert werden und\nanschließend 400 Millionen Euro durch diese Summe geteilt wird.“\n\nb) Nach Absatz 2 Satz 1 werden die folgenden Sätze eingefügt:\n\n„Abweichend von Satz 1 ergibt sich in den Ausgleichsjahren von 2026 bis 2029 der Abschlag eines Landes,\nindem der Betrag, um den seine Finanzkraftmesszahl seine Ausgleichsmesszahl übersteigt, mit 63 Prozent\nabzüglich eines Prozentsatzes p multipliziert wird. Der Prozentsatz p nach Satz 2 wird für das jeweilige\nAusgleichsjahr bestimmt, indem die Beträge, um die die Finanzkraftmesszahlen der einzelnen Länder ihre\njeweiligen Ausgleichsmesszahlen übersteigen, summiert werden und anschließend 400 Millionen Euro durch\ndiese Summe geteilt wird.“\n\n2. § 11 wird wie folgt geändert:\n\na) Nach Absatz 2 Satz 3 werden die folgenden Sätze eingefügt:\n\n„Abweichend von Satz 3 erhält in den Ausgleichsjahren von 2026 bis 2029 ein leistungsschwaches Land\n80 Prozent zuzüglich eines Prozentsatzes z der Fehlbeträge nach Satz 2 als allgemeine Bundesergänzungs­\nzuweisungen. Der Prozentsatz z nach Satz 4 ergibt sich, indem der Prozentsatz k nach § 10 Absatz 1 Satz 5\nmit 0,2 multipliziert und anschließend durch die Summe aus 0,37 und dem Prozentsatz k nach § 10 Absatz 1\nSatz 5 geteilt wird.“\n\nb) Nach Absatz 4 wird der folgende Absatz 4a eingefügt:\n\n„(4a) Zum Ausgleich von Sonderlasten aus übermäßigen kommunalen Liquiditätskrediten erhalten nach­\nstehende Länder im Zeitraum von 2026 bis 2029 jährlich folgende Sonderbedarfs-Bundesergänzungs­\nzuweisungen:\n\nBrandenburg 381 203 Euro,\n\nMecklenburg-Vorpommern 1 571 917 Euro,\n\nNiedersachsen 22 926 288 Euro,\n\nNordrhein-Westfalen 164 466 009 Euro,\n\nRheinland-Pfalz 35 269 622 Euro,\n\nSaarland 10 519 462 Euro,\n\nSachsen 1 818 336 Euro,\n\nSachsen-Anhalt 9 592 526 Euro,\n\nSchleswig-Holstein 3 344 211 Euro,\n\nThüringen 110 425 Euro.“\n\n3. In § 16 Absatz 2 wird die Angabe „§ 11 Absatz 3“ durch die Angabe „§ 11 Absatz 3 und 4a“ ersetzt.\n\n**Artikel 2**\n\n**Änderung des Anspruchs- und Anwartschaftsüberführungsgesetzes**\n\nDas Anspruchs- und Anwartschaftsüberführungsgesetz vom 25. Juli 1991 (BGBl. I S. 1606, 1677), das zuletzt\ndurch Artikel 4 des Gesetzes vom 6. Oktober 2020 (BGBl. I S. 2072) geändert worden ist, wird wie folgt geändert:\n\n§ 15 Absatz 2 wird durch den folgenden Absatz 2 ersetzt:\n\n„(2) Die dem Bund durch die Erstattung nach Absatz 1 entstehenden Aufwendungen werden ihm in Höhe der\nAufwendungen für das Sonderversorgungssystem nach Anlage 2 Nummer 2 sowie in Höhe von 50 Prozent der\nAufwendungen für die Zusatzversorgungssysteme nach Anlage 1 Nummer 1 bis 22 von den Ländern im\nBeitrittsgebiet erstattet. Abweichend von Satz 1 beträgt der von den Ländern im Beitrittsgebiet an den Bund zu\nerstattende Anteil an den Aufwendungen für die Zusatzversorgungssysteme nach Anlage 1 Nummer 1 bis 22 in den\nJahren 2026 bis 2029 40 Prozent.“\n\n**Artikel 3**\n\n**Inkrafttreten**\n\n(1) Artikel 1 tritt am Tag nach der Verkündung in Kraft.\n\n(2) Artikel 2 tritt mit Wirkung vom 1. Januar 2026 in Kraft.\n\nDas vorstehende Gesetz wird hiermit ausgefertigt. Es ist im Bundesgesetzblatt zu verkünden.\n\nBerlin, den 24. Juli 2026\n\nDer Bundespräsident\n\nSteinmeier\n\nDer Bundeskanzler\n\nMerz\n\nDer Bundesminister der Finanzen\n\nLars Klingbeil",
+      "system_sources": "fna_match",
+      "llm_labels": {
+        "summary": {
+          "value": "This law adjusts the financial equalization system between the federal government, states, and municipalities, and modifies the reimbursement of expenses for supplementary pension systems in the former East German states.",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective": {
+          "value": "2026-07-30",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_2": {
+          "value": "2026-01-01",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_2": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_2": {
+          "value": "Artikel 2",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "legally_effective_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "leg_eff_terminate_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "art_leg_eff_3": {
+          "value": "na",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_1": {
+          "value": "Retirement",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "social_policy_field_2": {
+          "value": "none",
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        },
+        "crisis_ref": {
+          "value": 0,
+          "coder": "gemma-4-31b-it",
+          "date": "2026-10-13"
+        }
+      }
+    }
+  ]
+}
