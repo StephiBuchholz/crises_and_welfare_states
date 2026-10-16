@@ -1,5 +1,5 @@
 """
-step 2.2: pooled evaluation — system 2: BERTopic clustering
+step 2_2_1: pooled evaluation — system 2: BERTopic clustering
 
 implements System 2 in the pooled evaluation pipeline for filtering social-policy
 legislation from a retrieved corpus. System 1 (cosine similarity) is in
@@ -13,13 +13,13 @@ workflow:
      data files needed by the triage tool; adjust BERTopic parameters and re-run
      until the topic count and top words look right (embeddings are cached so
      only §3 and §4 re-execute on subsequent runs)
-  3. run step2.2_triage_berttopic_topics.py in a terminal to label social-policy
+  3. run step2_2_2_process_ger_berttopic_triage.py in a terminal to label social-policy
      topics interactively; that script handles all downstream output
 
 outputs written by this script (to OUTPUT_DIR):
   runlogs_from_sys2_berttopic/berttopic_topics_{OUTPUT_PREFIX}_{date}.html
-  {OUTPUT_PREFIX}_berttopic_topic_info.json       ← input for triage tool
-  {OUTPUT_PREFIX}_berttopic_topic_assignments.json ← input for triage tool
+  {OUTPUT_PREFIX}_berttopic_topic_info.json       ← input for berttopic triage tool
+  {OUTPUT_PREFIX}_berttopic_topic_assignments.json.gz ← input for berttopic triage tool
 
 outputs written by the triage script:
   {OUTPUT_PREFIX}_berttopic_candidates.json <- policies that are in social policy relevant topics
@@ -58,9 +58,9 @@ def _find_root(marker="CLAUDE.md"):
 
 PROJECT_ROOT = _find_root()
 
-INPUT_FILE    = PROJECT_ROOT / "data/raw/germany/bgbl1_2008-2015_2019-2022_combined.json.gz"
+INPUT_FILE    = PROJECT_ROOT / "data/raw/germany/bgbl1_2016-2018_20260918.json"
 OUTPUT_DIR    = PROJECT_ROOT / "data/processed/germany/pre2023"
-OUTPUT_PREFIX = "germany_2008-2015_2019-2022"   # must match step 3 / step 4 prefix
+OUTPUT_PREFIX = "germany_2016-2018"   # must match step 3 / step 4 prefix
 
 MODEL_NAME      = "paraphrase-multilingual-mpnet-base-v2"  # same model as System 1
 SPACY_MODEL     = "de_core_news_lg"   # German lemmatizer; run: python -m spacy download de_core_news_lg
@@ -87,7 +87,7 @@ EXTRA_STOPWORDS = [
     "verordnungen",
     "änderung",
     "änderungen",
-    "nderung"
+    "nderung",
     "erste",
     "erster",
     "erstes",
@@ -99,7 +99,7 @@ EXTRA_STOPWORDS = [
     "drittes",
     "bekanntmachung",
     "durchführung",
-    "durchfhrung"
+    "durchfhrung",
     "durchführungsverordnung",
     "durchfhrngsverordnung",
     "artikel",
@@ -121,7 +121,8 @@ print(f"Output dir:   {OUTPUT_DIR}")
 
 # ── §1 load data ──────────────────────────────────────────────────────────────
 
-with gzip.open(INPUT_FILE, "rt", encoding="utf-8") as fh:
+_opener = gzip.open if INPUT_FILE.suffix == ".gz" else open
+with _opener(INPUT_FILE, "rt", encoding="utf-8") as fh:
     raw = json.load(fh)
 
 data   = raw if isinstance(raw, list) else list(raw.values())
@@ -257,4 +258,4 @@ with gzip.open(_topic_assign_path, "wt", encoding="utf-8") as _fh:
 
 print(f"Topic info:        {_topic_info_path}")
 print(f"Topic assignments: {_topic_assign_path}")
-print(f"\nNext: run  step2.2_triage_berttopic_topics.py  to label social-policy topics.")
+print(f"\nNext: run  step2_2_2_process_ger_berttopic_triage.py  to label social-policy topics.")

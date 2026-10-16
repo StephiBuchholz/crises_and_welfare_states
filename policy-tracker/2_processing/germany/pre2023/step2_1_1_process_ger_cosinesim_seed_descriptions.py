@@ -29,18 +29,6 @@ lexical anchors for cosine similarity.
 near-duplicates across sources resolved by keeping the more specific version
 or splitting out the distinctive terms. 
 
-why pooled evaluation?
-
-    pooled evaluation is applied because no single filtering method can
-    guarantee completeness; using multiple systems with weakly correlated
-    recall failures reduces the risk of systematic omissions.
-
-    this is one of three retrieval systems in the pooled evaluation. Systems 2
-    (keyword/regex on SGB references) and 3 (BERTopic or TF-IDF) use different
-    detection mechanisms. The union of all three systems' candidate sets is
-    manually assessed for relevance; a random sample of the rejected set is
-    checked to verify completeness.
-
 """
 
 SEED_DESCRIPTIONS = {

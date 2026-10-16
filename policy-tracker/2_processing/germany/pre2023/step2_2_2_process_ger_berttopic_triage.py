@@ -1,5 +1,5 @@
 """
-interactive triage of BERTopic clusters for social-policy relevance.
+step2_2_2: interactive triage of BERTopic clusters for social-policy relevance.
 
 iterates topics (id, count, top words) and prompts for a y/n decision.
 on completion, extracts documents from accepted topics as System 2 candidates
@@ -7,13 +7,15 @@ and writes all output files.
 
 controls:  y = yes   n / Enter = no   b = back   q = quit & save
 
-run after executing step2.2.1_process_ger_berttopic.py, which has 
+run after executing step2_2_1_process_ger_berttopic.py, which has 
 generated 
 - _berttopic_topic_info.json (topic ids, counts, top words)
-- _berttopic_topic_assignments.json (which topic each doc was assigned to)
+- _berttopic_topic_assignments.json.gz (which topic each doc was assigned to)
 
 used in this file.
 
+how to use:
+- manually set desired OUTPUT_PREFIX, then run
 
 after completing the triage, all policies are either in:
 
@@ -41,14 +43,14 @@ def _find_root(marker="CLAUDE.md"):
     raise FileNotFoundError(f"project root not found (no {marker} above {Path(__file__).parent})")
 
 PROJECT_ROOT  = _find_root()
-OUTPUT_PREFIX = "germany_2008-2015_2019-2022"
+OUTPUT_PREFIX = "germany_2016-2018"
 DATA_DIR      = PROJECT_ROOT / "data" / "processed" / "germany" / "pre2023"
 
 TOPIC_INFO_FILE   = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_topic_info.json"
 TOPIC_ASSIGN_FILE = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_topic_assignments.json.gz"
 CANDIDATES_OUT    = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_candidates.json"
 NOISE_POOL_OUT    = DATA_DIR / f"{OUTPUT_PREFIX}_berttopic_noise_pool.json"
-PROGRESS_FILE     = Path(__file__).parent / ".triage_berttopic_progress.json"
+PROGRESS_FILE     = Path(__file__).parent / f".triage_berttopic_progress_{OUTPUT_PREFIX}.json"
 LOG_DIR           = DATA_DIR / "runlogs_from_sys2_berttopic"
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -61,16 +63,23 @@ def load_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def save_progress(decisions):
+def save_progress(decisions, fingerprint):
     PROGRESS_FILE.write_text(
-        json.dumps(decisions, ensure_ascii=False, indent=2), encoding="utf-8"
+        json.dumps({"topics": fingerprint, "decisions": decisions}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
     )
 
 
-def load_progress():
-    if PROGRESS_FILE.exists():
-        return json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
-    return {}
+def load_progress(fingerprint):
+    if not PROGRESS_FILE.exists():
+        return {}
+    saved = json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
+    if saved.get("topics") != fingerprint:
+        print(f"ERROR: {PROGRESS_FILE.name} does not match the current topic set "
+              f"(step2_2_1 was re-run or the file is from another corpus).\n"
+              f"Delete or rename it to start a fresh triage.")
+        sys.exit(1)
+    return saved["decisions"]
 
 
 def save_outputs(assignments, selected_ids):
@@ -146,15 +155,16 @@ def save_run_log(topic_info, selected_ids, n_candidates, n_noise, n_total):
 def run():
     for f in (TOPIC_INFO_FILE, TOPIC_ASSIGN_FILE):
         if not f.exists():
-            print(f"ERROR: {f} not found — run step2.2.1_process_ger_berttopic.py first.")
+            print(f"ERROR: {f} not found — run step2_2_1_process_ger_berttopic.py first.")
             sys.exit(1)
 
     topic_info  = load_json(TOPIC_INFO_FILE)
     assignments = load_json(TOPIC_ASSIGN_FILE)
-    decisions   = load_progress()
 
     real_topics = [t for t in topic_info if t["topic_id"] != -1]
     N = len(real_topics)
+    fingerprint = [[t["topic_id"], t["count"]] for t in real_topics]
+    decisions   = load_progress(fingerprint)
 
     start = next((i for i in range(N) if str(i) not in decisions), N)
 
@@ -176,12 +186,12 @@ def run():
             try:
                 choice = input("> ").strip().lower()
             except (EOFError, KeyboardInterrupt):
-                save_progress(decisions)
+                save_progress(decisions, fingerprint)
                 print("\nInterrupted – progress saved.")
                 sys.exit(0)
 
             if choice == "q":
-                save_progress(decisions)
+                save_progress(decisions, fingerprint)
                 yes_count = sum(1 for v in decisions.values() if v == "y")
                 print(f"\nProgress saved. {yes_count} selected so far.")
                 sys.exit(0)
@@ -194,7 +204,7 @@ def run():
             else:
                 decisions[str(i)] = "n"
 
-            save_progress(decisions)
+            save_progress(decisions, fingerprint)
             i += 1
 
     selected_ids = {

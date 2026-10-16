@@ -3,7 +3,7 @@
 
 this file is a pre-step for the processing of the retrieved german legislative texts. it serves as a source for a completeness check
 for specific covid policies, because some of these policies may not have been captured  in the
-processing/german/step2_process_ger_seed_descriptions.py due to their crisis-specific word embeddings.
+2_processing/germany/pre2023/step2_1_1_process_ger_cosinesim_seed_descriptions.py due to their crisis-specific word embeddings.
 alternatively, it can also be used as a completeness check later on.
 
 this file contains a list of German covid regulations (Gesetze, Verordnungen, Bekanntmachungen) retrieved from https://de.wikipedia.org/wiki/Liste_der_infolge_der_COVID-19-Pandemie_erlassenen_deutschen_Gesetze_und_Verordnungen#Landesrecht .

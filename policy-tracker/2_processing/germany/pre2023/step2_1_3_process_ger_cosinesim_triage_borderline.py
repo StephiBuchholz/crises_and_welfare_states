@@ -1,13 +1,15 @@
 """
-interactive triage of borderline German BGBl entries (similarity score 0.73–0.835).
+interactive triage of borderline German BGBl entries (for similarity scores below the auto-accept and above the auto-decline threshold).
 
 loads:
-  - data/processed/{choose country folder}/{period folder}/{....}_cosinesim_borderline_candidates.json  (written in step2.1.2 notebook)
-  - data/processed/{choose country folder}/{period folder}/{....}_cosinesim_auto_accepted.json          (written in step2.1.2 notebook)
+  - data/processed/{choose country folder}/{period folder}/{....}_cosinesim_borderline_candidates.json  (written in step2_1_2_process_ger_cosinesim_main.ipynb)
+  - data/processed/{choose country folder}/{period folder}/{....}_cosinesim_auto_accepted.json          (written in step2_1_2_process_ger_cosinesim_main.ipynb)
 
 results:
 on completion, merges both into:
   - data/processed/{choose country folder}/{period folder}/{country}_{years}_cosinesim_final.json
+progress is saved alongside the candidates file:
+  - data/processed/{choose country folder}/{period folder}/{....}_cosinesim_borderline_candidates_triage_progress.json
 
 controls:  y = yes   n / Enter = no   b = back   q = quit & save
 
@@ -17,6 +19,7 @@ instruction: run script (triage runs in terminal), final dataset will be stored 
 
 # imports
 
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -30,10 +33,11 @@ def _find_root(marker="CLAUDE.md"):
     raise FileNotFoundError(f"project root not found (no {marker} above {Path(__file__).parent})")
 
 BASE = _find_root() / "data" / "processed" / "germany" / "pre2023"
-CANDIDATES_FILE = BASE / "germany_2008-2015_2019-2022_cosinesim_borderline_candidates.json" #only change country_year
-AUTO_ACCEPTED_FILE = BASE / "germany_2008-2015_2019-2022_cosinesim_auto_accepted.json"
-FINAL_OUTPUT = BASE / "germany_2008-2015_2019-2022_cosinesim_final.json"
-PROGRESS_FILE = Path(__file__).parent / ".triage_borderline_progress.json"
+CANDIDATES_FILE = BASE / "germany_2016-2018_cosinesim_borderline_candidates.json" #only change country_year
+AUTO_ACCEPTED_FILE = BASE / "germany_2016-2018_cosinesim_auto_accepted.json"
+FINAL_OUTPUT = BASE / "germany_2016-2018_cosinesim_final.json"
+# progress file is tied to the candidates file, so different datasets never share decisions
+PROGRESS_FILE = CANDIDATES_FILE.with_name(CANDIDATES_FILE.stem + "_triage_progress.json")
 
 #_________________________________________________________________________________________#
 
@@ -44,16 +48,35 @@ def load_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def save_progress(decisions):
+def fingerprint(candidates):
+    # identifies the candidate list (file, length, order of titles) the decisions refer to
+    titles = "\n".join(doc.get("title", "") for doc in candidates)
+    return {
+        "candidates_file": CANDIDATES_FILE.name,
+        "n_candidates": len(candidates),
+        "titles_sha256": hashlib.sha256(titles.encode("utf-8")).hexdigest(),
+    }
+
+
+def save_progress(decisions, fp):
     PROGRESS_FILE.write_text(
-        json.dumps(decisions, ensure_ascii=False, indent=2), encoding="utf-8"
+        json.dumps({"fingerprint": fp, "decisions": decisions}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
     )
 
 
-def load_progress():
-    if PROGRESS_FILE.exists():
-        return json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
-    return {}
+def load_progress(fp):
+    if not PROGRESS_FILE.exists():
+        return {}
+    progress = json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
+    if progress.get("fingerprint") != fp:
+        sys.exit(
+            f"Progress file {PROGRESS_FILE} does not match {CANDIDATES_FILE.name}.\n"
+            f"  stored:  {progress.get('fingerprint')}\n"
+            f"  current: {fp}\n"
+            "Rename or delete the progress file to start a fresh triage."
+        )
+    return progress["decisions"]
 
 
 def save_final(auto_accepted, triage_selected):
@@ -71,7 +94,8 @@ def save_final(auto_accepted, triage_selected):
 def run():
     candidates = load_json(CANDIDATES_FILE)
     auto_accepted = load_json(AUTO_ACCEPTED_FILE)
-    decisions = load_progress()
+    fp = fingerprint(candidates)
+    decisions = load_progress(fp)
     N = len(candidates)
 
     start = next((i for i in range(N) if str(i) not in decisions), N)
@@ -100,12 +124,12 @@ def run():
             try:
                 choice = input("> ").strip().lower()
             except (EOFError, KeyboardInterrupt):
-                save_progress(decisions)
+                save_progress(decisions, fp)
                 print("\nInterrupted – progress saved.")
                 sys.exit(0)
 
             if choice == "q":
-                save_progress(decisions)
+                save_progress(decisions, fp)
                 print(f"\nProgress saved. {yes_count} selected so far.")
                 sys.exit(0)
             elif choice == "b":
@@ -117,7 +141,7 @@ def run():
             else:
                 decisions[str(i)] = "n"
 
-            save_progress(decisions)
+            save_progress(decisions, fp)
             i += 1
 
     triage_selected = [
