@@ -1,0 +1,23 @@
+{
+  "run_date": "2026-10-29",
+  "input_file": "bgbl1_2016-2018_20260918.json",
+  "model_name": "paraphrase-multilingual-mpnet-base-v2",
+  "max_seq_length": 512,
+  "bertopic_language": "multilingual",
+  "embed_body_chars": 1000,
+  "parent_match_min": 0.85,
+  "min_cluster_size": 10,
+  "min_samples": 5,
+  "n_neighbors": 20,
+  "n_components": 5,
+  "max_df": 0.3,
+  "mmr_diversity": 0.3,
+  "random_seed": 42,
+  "n_docs": 1165,
+  "n_corrections": 48,
+  "n_annexes": 8,
+  "n_attached_to_parent": 49,
+  "n_assigned_via_transform": 7,
+  "n_topics": 28,
+  "n_noise": 298
+}
